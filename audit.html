@@ -1,0 +1,368 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Request Your AI Revenue Audit — JTandy</title>
+    <meta name="description"
+        content="Tell us how your enquiries are currently handled. We'll analyse where revenue may be leaking and respond with a clear recommendation — usually within 48 hours.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700;800&family=Inter:wght@400;450;500;550;600;650;700;750;800&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body class="page-audit">
+
+    <!-- ═══ HEADER ═══ -->
+    <header class="header" id="header">
+        <div class="header__inner">
+            <a href="index.html" class="header__brand">JTANDY</a>
+            <nav class="header__nav" id="headerNav">
+                <div class="nav-dropdown">
+                    <a href="index.html#solutions" class="nav-dropdown__trigger">Solutions <span
+                            class="nav-dropdown__arrow">▾</span></a>
+                    <div class="nav-dropdown__menu">
+                        <a href="revenue-engine.html">Revenue Engine</a>
+                        <a href="lead-websites.html">Lead Websites</a>
+                        <a href="follow-up-automation.html">Follow-Up Automation</a>
+                        <a href="review-automation.html">Review Automation</a>
+                    </div>
+                </div>
+                <a href="how-it-works.html">How It Works</a>
+                <a href="results.html">Results</a>
+                <a href="pricing.html">Pricing</a>
+                <a href="faq.html">FAQ</a>
+            </nav>
+            <div class="header__actions">
+                <a href="#audit-form" class="btn btn--primary">Start Audit Request</a>
+            </div>
+            <button class="header__burger" id="headerBurger" aria-label="Menu">
+                <span></span><span></span><span></span>
+            </button>
+        </div>
+    </header>
+
+    <!-- ═══ 1. HERO ═══ -->
+    <section class="audit-hero" id="audit-hero">
+        <div class="container audit-hero__layout">
+            <div class="audit-hero__copy">
+                <h1>Request Your AI Revenue&nbsp;Audit</h1>
+                <p class="audit-hero__sub">Tell us how your enquiries are currently handled. We'll analyse where
+                    revenue may be leaking and respond with a clear recommendation — usually within 48&nbsp;hours.</p>
+                <ul class="audit-hero__bullets">
+                    <li>Identify missed-call &amp; follow-up gaps</li>
+                    <li>Estimate potential recovered revenue</li>
+                    <li>Get a clear "build / don't build" recommendation</li>
+                </ul>
+                <a href="#audit-form" class="btn btn--primary btn--hero">Start Audit Request</a>
+            </div>
+            <div class="audit-hero__visual">
+                <div class="audit-hero__what-card">
+                    <h3>What You'll Receive</h3>
+                    <ul>
+                        <li>Revenue leak breakdown</li>
+                        <li>System recommendation</li>
+                        <li>Estimated ROI range</li>
+                        <li>Clear next step (if applicable)</li>
+                    </ul>
+                    <p class="audit-hero__what-footer">No pressure. Just numbers.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ═══ 2. WHO THIS IS FOR ═══ -->
+    <section class="section section--white" id="qualification">
+        <div class="container">
+            <div class="qual-layout">
+                <div class="qual-card qual-card--yes">
+                    <h2>This Audit Is For You If:</h2>
+                    <ul class="qual-list qual-list--yes">
+                        <li>You receive at least 10 enquiries per month</li>
+                        <li>You regularly miss calls or respond late</li>
+                        <li>You send quotes but don't consistently follow up</li>
+                        <li>You want systems, not more admin</li>
+                        <li>You're prepared to invest in growth if ROI makes sense</li>
+                    </ul>
+                </div>
+                <div class="qual-card qual-card--no">
+                    <h2>Not For:</h2>
+                    <ul class="qual-list qual-list--no">
+                        <li>You're just curious about AI</li>
+                        <li>You don't currently get inbound enquiries</li>
+                        <li>You're looking for the cheapest option</li>
+                        <li>You're not serious about growth</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ═══ 3. THE FORM ═══ -->
+    <section class="section section--bg" id="audit-form">
+        <div class="container container--narrow">
+            <div class="section__header section__header--center">
+                <h2>Audit Request Form</h2>
+                <p class="section__sub">Be honest. The more accurate your answers, the more useful our analysis.</p>
+            </div>
+
+            <form class="audit-form" id="auditForm" novalidate>
+
+                <!-- Section 1 – Business Info -->
+                <fieldset class="form-section">
+                    <legend class="form-section__legend">1 — Business Info</legend>
+                    <div class="form-grid form-grid--2">
+                        <div class="form-field">
+                            <label for="businessName">Business Name</label>
+                            <input type="text" id="businessName" name="businessName" required>
+                        </div>
+                        <div class="form-field">
+                            <label for="contactName">Your Name</label>
+                            <input type="text" id="contactName" name="contactName" required>
+                        </div>
+                    </div>
+                    <div class="form-grid form-grid--2">
+                        <div class="form-field">
+                            <label for="email">Email</label>
+                            <input type="email" id="email" name="email" required>
+                        </div>
+                        <div class="form-field">
+                            <label for="mobile">Mobile <span class="form-optional">(optional)</span></label>
+                            <input type="tel" id="mobile" name="mobile">
+                        </div>
+                    </div>
+                    <div class="form-grid form-grid--2">
+                        <div class="form-field">
+                            <label for="tradeType">Trade Type</label>
+                            <select id="tradeType" name="tradeType" required>
+                                <option value="" disabled selected>Select your trade</option>
+                                <option>Plumbing / Heating</option>
+                                <option>Electrical</option>
+                                <option>Roofing</option>
+                                <option>Building / Renovation</option>
+                                <option>Landscaping / Groundworks</option>
+                                <option>Painting / Decorating</option>
+                                <option>Fencing / Decking</option>
+                                <option>Cleaning / Facilities</option>
+                                <option>Other</option>
+                            </select>
+                        </div>
+                        <div class="form-field">
+                            <label for="serviceArea">Service Area</label>
+                            <input type="text" id="serviceArea" name="serviceArea"
+                                placeholder="e.g. Manchester, 30-mile radius" required>
+                        </div>
+                    </div>
+                </fieldset>
+
+                <!-- Section 2 – Current Enquiries -->
+                <fieldset class="form-section">
+                    <legend class="form-section__legend">2 — Current Enquiries</legend>
+                    <div class="form-field">
+                        <label>Approximate enquiries per month</label>
+                        <div class="form-radio-group">
+                            <label class="form-radio"><input type="radio" name="enquiriesMonth" value="0-10"
+                                    required><span>0–10</span></label>
+                            <label class="form-radio"><input type="radio" name="enquiriesMonth"
+                                    value="10-25"><span>10–25</span></label>
+                            <label class="form-radio"><input type="radio" name="enquiriesMonth"
+                                    value="25-50"><span>25–50</span></label>
+                            <label class="form-radio"><input type="radio" name="enquiriesMonth"
+                                    value="50+"><span>50+</span></label>
+                        </div>
+                    </div>
+                    <div class="form-field">
+                        <label>Where do enquiries come from?</label>
+                        <div class="form-checkbox-group">
+                            <label class="form-checkbox"><input type="checkbox" name="leadSource"
+                                    value="google-organic"><span>Google organic</span></label>
+                            <label class="form-checkbox"><input type="checkbox" name="leadSource"
+                                    value="google-ads"><span>Google Ads</span></label>
+                            <label class="form-checkbox"><input type="checkbox" name="leadSource"
+                                    value="facebook"><span>Facebook</span></label>
+                            <label class="form-checkbox"><input type="checkbox" name="leadSource"
+                                    value="referrals"><span>Referrals</span></label>
+                            <label class="form-checkbox"><input type="checkbox" name="leadSource"
+                                    value="other"><span>Other</span></label>
+                        </div>
+                    </div>
+                    <div class="form-field">
+                        <label for="missedCallAction">What happens if you miss a call?</label>
+                        <input type="text" id="missedCallAction" name="missedCallAction"
+                            placeholder="e.g. Nothing, they call back, I text later…">
+                    </div>
+                    <div class="form-field">
+                        <label>Do you send follow-ups after quotes?</label>
+                        <div class="form-radio-group">
+                            <label class="form-radio"><input type="radio" name="followUp" value="always"
+                                    required><span>Always</span></label>
+                            <label class="form-radio"><input type="radio" name="followUp"
+                                    value="sometimes"><span>Sometimes</span></label>
+                            <label class="form-radio"><input type="radio" name="followUp"
+                                    value="rarely"><span>Rarely</span></label>
+                            <label class="form-radio"><input type="radio" name="followUp"
+                                    value="never"><span>Never</span></label>
+                        </div>
+                    </div>
+                </fieldset>
+
+                <!-- Section 3 – Operations -->
+                <fieldset class="form-section">
+                    <legend class="form-section__legend">3 — Operations</legend>
+                    <div class="form-field">
+                        <label>Who handles enquiries?</label>
+                        <div class="form-radio-group">
+                            <label class="form-radio"><input type="radio" name="whoHandles" value="me"
+                                    required><span>Me</span></label>
+                            <label class="form-radio"><input type="radio" name="whoHandles"
+                                    value="office-staff"><span>Office staff</span></label>
+                            <label class="form-radio"><input type="radio" name="whoHandles"
+                                    value="mixed"><span>Mixed</span></label>
+                        </div>
+                    </div>
+                    <div class="form-field">
+                        <label>Average response time</label>
+                        <div class="form-radio-group">
+                            <label class="form-radio"><input type="radio" name="responseTime" value="under-5"
+                                    required><span>Under 5 mins</span></label>
+                            <label class="form-radio"><input type="radio" name="responseTime" value="5-30"><span>5–30
+                                    mins</span></label>
+                            <label class="form-radio"><input type="radio" name="responseTime"
+                                    value="30-120"><span>30–120 mins</span></label>
+                            <label class="form-radio"><input type="radio" name="responseTime"
+                                    value="several-hours"><span>Several hours</span></label>
+                            <label class="form-radio"><input type="radio" name="responseTime"
+                                    value="next-day"><span>Next day</span></label>
+                        </div>
+                    </div>
+                    <div class="form-field">
+                        <label for="biggestFrustration">Biggest frustration with enquiries right now?</label>
+                        <input type="text" id="biggestFrustration" name="biggestFrustration"
+                            placeholder="In one sentence…">
+                    </div>
+                </fieldset>
+
+                <!-- Section 4 – Intent -->
+                <fieldset class="form-section">
+                    <legend class="form-section__legend">4 — Intent</legend>
+                    <div class="form-field">
+                        <label>If a system clearly produced ROI, are you prepared to invest?</label>
+                        <div class="form-radio-group">
+                            <label class="form-radio"><input type="radio" name="investReady" value="yes-immediately"
+                                    required><span>Yes, immediately</span></label>
+                            <label class="form-radio"><input type="radio" name="investReady"
+                                    value="yes-1-3-months"><span>Yes, within 1–3 months</span></label>
+                            <label class="form-radio"><input type="radio" name="investReady"
+                                    value="unsure"><span>Unsure</span></label>
+                            <label class="form-radio"><input type="radio" name="investReady"
+                                    value="just-exploring"><span>Just exploring</span></label>
+                        </div>
+                    </div>
+                    <div class="form-field">
+                        <label>Rough monthly revenue range</label>
+                        <div class="form-radio-group">
+                            <label class="form-radio"><input type="radio" name="revenueRange" value="under-20k"
+                                    required><span>Under £20k</span></label>
+                            <label class="form-radio"><input type="radio" name="revenueRange"
+                                    value="20-50k"><span>£20–50k</span></label>
+                            <label class="form-radio"><input type="radio" name="revenueRange"
+                                    value="50-100k"><span>£50–100k</span></label>
+                            <label class="form-radio"><input type="radio" name="revenueRange"
+                                    value="100k+"><span>£100k+</span></label>
+                        </div>
+                    </div>
+                </fieldset>
+
+                <div class="form-submit">
+                    <button type="submit" class="btn btn--primary btn--full btn--hero">Submit Audit Request</button>
+                    <p class="form-submit__note">We personally review every submission. You'll receive a written
+                        breakdown within 48&nbsp;hours.</p>
+                </div>
+            </form>
+        </div>
+    </section>
+
+    <!-- ═══ 4. WHAT HAPPENS NEXT ═══ -->
+    <section class="section section--white" id="what-next">
+        <div class="container container--narrow">
+            <div class="section__header section__header--center">
+                <h2>What Happens Next</h2>
+            </div>
+            <div class="next-steps">
+                <div class="next-step">
+                    <span class="next-step__badge">1</span>
+                    <div>
+                        <h4>We review your submission</h4>
+                        <p>Every form is personally reviewed — no bots, no templates.</p>
+                    </div>
+                </div>
+                <div class="next-step">
+                    <span class="next-step__badge">2</span>
+                    <div>
+                        <h4>You receive a written breakdown</h4>
+                        <p>Revenue leak analysis, system recommendation, and estimated ROI — within 48 hours.</p>
+                    </div>
+                </div>
+                <div class="next-step">
+                    <span class="next-step__badge">3</span>
+                    <div>
+                        <h4>Clear next step</h4>
+                        <p>If it's a fit, we'll outline a plan. If not, we'll tell you directly.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ═══ 5. FINAL CTA ═══ -->
+    <section class="cta-band">
+        <div class="container">
+            <h2>If you're serious about removing revenue leaks, request your audit.</h2>
+            <p>No pressure. Clear numbers. Direct recommendation.</p>
+            <a href="#audit-form" class="btn btn--primary btn--hero">Start Audit Request</a>
+        </div>
+    </section>
+
+    <!-- ═══ FOOTER ═══ -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer__grid">
+                <div class="footer__col">
+                    <div class="footer__brand">JTANDY</div>
+                    <p class="footer__tagline">Revenue recovery systems for UK tradespeople. Automated. Measurable.
+                        Owned.</p>
+                </div>
+                <div class="footer__col">
+                    <h4>Company</h4>
+                    <a href="about.html">About</a>
+                    <a href="work.html">Case Studies</a>
+                    <a href="audit.html">Book Audit</a>
+                </div>
+                <div class="footer__col">
+                    <h4>Services</h4>
+                    <a href="lead-websites.html">Lead Websites</a>
+                    <a href="follow-up-automation.html">Follow-Up Automation</a>
+                    <a href="review-automation.html">Review Automation</a>
+                    <a href="revenue-engine.html">Revenue Engine</a>
+                </div>
+                <div class="footer__col">
+                    <h4>Legal</h4>
+                    <a href="#">Privacy Policy</a>
+                    <a href="#">Terms of Service</a>
+                    <a href="#">Cookie Policy</a>
+                </div>
+            </div>
+            <div class="footer__bottom">
+                <span>© 2025 JTandy Automations. All rights reserved.</span>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+
+</html>

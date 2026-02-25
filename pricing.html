@@ -4,15 +4,455 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Pricing — Clear Investment, Measurable Return | JTandy</title>
+    <title>Pricing — Revenue Recovery Systems for UK Trades | JTandy</title>
     <meta name="description"
-        content="Our systems are designed to generate enquiries and improve conversion. Investment depends on scope and revenue potential.">
+        content="Clear investment, measurable return. Lead Websites from £3,500, Follow-Up Automation from £1,500, Review Automation from £950, Revenue Engine from £7,500.">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
-        href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700;800&family=Inter:wght@400;450;500;550;600;650;700;750;800&display=swap"
+        href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700;800&family=Inter:wght@400;450;500;550;600;650;700;750;800;850&display=swap"
         rel="stylesheet">
     <link rel="stylesheet" href="style.css">
+    <style>
+        /* ── Pricing page-specific ── */
+
+        /* Hero */
+        .pr-hero {
+            background: #FFFFFF;
+            padding: calc(var(--nav-h) + 72px) 0 64px;
+            border-bottom: 1px solid var(--border-0)
+        }
+
+        .pr-hero__grid {
+            display: grid;
+            grid-template-columns: 7fr 5fr;
+            gap: 48px;
+            align-items: start
+        }
+
+        .pr-hero__eyebrow {
+            display: block;
+            font-family: var(--font-body);
+            font-size: 12px;
+            font-weight: 650;
+            letter-spacing: .08em;
+            text-transform: uppercase;
+            color: var(--text-2);
+            margin-bottom: 12px
+        }
+
+        .pr-hero h1 {
+            font-size: clamp(34px, 5vw, 52px);
+            line-height: 1.15;
+            font-weight: 700;
+            color: var(--text-0);
+            letter-spacing: -.02em
+        }
+
+        .pr-hero__sub {
+            font-size: 18px;
+            line-height: 1.56;
+            font-weight: 450;
+            color: var(--text-1);
+            margin-top: 14px;
+            max-width: 680px
+        }
+
+        .pr-hero__ctas {
+            display: flex;
+            gap: 12px;
+            margin-top: 22px;
+            flex-wrap: wrap
+        }
+
+        .pr-hero__micro {
+            font-size: 14px;
+            font-weight: 550;
+            color: var(--text-1);
+            margin-top: 12px
+        }
+
+        /* Pricing snapshot (navy) */
+        .pr-snapshot {
+            background: var(--navy-0);
+            border-radius: 16px;
+            padding: 18px
+        }
+
+        .pr-snapshot__chip {
+            display: inline-block;
+            font-size: 12px;
+            font-weight: 650;
+            letter-spacing: .06em;
+            text-transform: uppercase;
+            color: rgba(255, 255, 255, .72);
+            background: rgba(255, 255, 255, .08);
+            border-radius: 999px;
+            padding: 6px 10px;
+            line-height: 1.5;
+            margin-bottom: 12px
+        }
+
+        .pr-snapshot__list {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 6px
+        }
+
+        .pr-snapshot__list li {
+            font-size: 14px;
+            line-height: 1.57;
+            font-weight: 650;
+            color: rgba(255, 255, 255, .86)
+        }
+
+        .pr-snapshot__foot {
+            font-size: 12px;
+            font-weight: 500;
+            line-height: 1.5;
+            color: rgba(255, 255, 255, .66);
+            margin-top: 10px
+        }
+
+        /* Pricing grid */
+        .pr-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 16px
+        }
+
+        .pr-card {
+            background: var(--surface-0);
+            border: 1px solid var(--border-0);
+            border-radius: 16px;
+            padding: 22px;
+            box-shadow: 0 2px 10px rgba(15, 29, 61, .08);
+            transition: border-color .15s, transform .15s, box-shadow .15s;
+            position: relative;
+            display: flex;
+            flex-direction: column
+        }
+
+        .pr-card:hover {
+            border-color: var(--border-1);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 16px rgba(15, 29, 61, .12)
+        }
+
+        .pr-card__badge {
+            position: absolute;
+            top: 14px;
+            right: 14px;
+            font-size: 12px;
+            font-weight: 700;
+            letter-spacing: .04em;
+            text-transform: uppercase;
+            color: var(--success-0);
+            background: rgba(22, 163, 74, .12);
+            border-radius: 8px;
+            padding: 4px 10px;
+            line-height: 1.5
+        }
+
+        .pr-card__title {
+            font-family: var(--font-heading);
+            font-size: 20px;
+            font-weight: 700;
+            line-height: 1.4;
+            color: var(--text-0);
+            margin-bottom: 4px
+        }
+
+        .pr-card__best {
+            font-size: 12px;
+            font-weight: 650;
+            letter-spacing: .06em;
+            text-transform: uppercase;
+            color: var(--text-2);
+            margin-bottom: 16px
+        }
+
+        .pr-card__from {
+            font-size: 12px;
+            font-weight: 650;
+            letter-spacing: .06em;
+            text-transform: uppercase;
+            color: var(--text-2);
+            margin-bottom: 4px
+        }
+
+        .pr-card__price {
+            font-family: var(--font-body);
+            font-size: 30px;
+            line-height: 1.13;
+            font-weight: 850;
+            color: var(--text-0);
+            margin-bottom: 4px
+        }
+
+        .pr-card__range {
+            font-size: 13px;
+            line-height: 1.54;
+            font-weight: 500;
+            color: var(--text-1);
+            margin-bottom: 16px
+        }
+
+        .pr-card__bullets {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 6px;
+            margin-bottom: 16px
+        }
+
+        .pr-card__bullets li {
+            font-size: 14px;
+            line-height: 1.57;
+            font-weight: 450;
+            color: var(--text-1);
+            padding-left: 20px;
+            position: relative
+        }
+
+        .pr-card__bullets li::before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: var(--success-0);
+            font-weight: 700;
+            font-size: 13px
+        }
+
+        .pr-card__cta {
+            margin-top: auto
+        }
+
+        .pr-card__cta .btn {
+            font-size: 14px;
+            height: 40px;
+            border-radius: 12px;
+            padding: 0 18px
+        }
+
+        .pr-card__trust {
+            font-size: 12px;
+            font-weight: 600;
+            line-height: 1.5;
+            color: var(--text-2);
+            margin-top: 12px
+        }
+
+        /* Scope drivers */
+        .pr-drivers {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 16px
+        }
+
+        .pr-driver {
+            background: var(--bg-0);
+            border: 1px solid var(--border-0);
+            border-radius: 16px;
+            padding: 22px
+        }
+
+        .pr-driver h3 {
+            font-family: var(--font-heading);
+            font-size: 18px;
+            font-weight: 700;
+            line-height: 1.44;
+            margin-bottom: 12px
+        }
+
+        .pr-driver ul {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 6px
+        }
+
+        .pr-driver li {
+            font-size: 14px;
+            line-height: 1.57;
+            font-weight: 450;
+            color: var(--text-1);
+            padding-left: 20px;
+            position: relative
+        }
+
+        .pr-driver li::before {
+            content: '·';
+            position: absolute;
+            left: 4px;
+            font-weight: 700;
+            color: var(--text-2)
+        }
+
+        /* ROI card */
+        .pr-roi {
+            background: var(--surface-0);
+            border: 1px solid var(--border-0);
+            border-radius: 16px;
+            padding: 22px;
+            max-width: 860px;
+            margin: 0 auto
+        }
+
+        .pr-roi p {
+            font-size: 16px;
+            line-height: 1.63;
+            font-weight: 450;
+            color: var(--text-1)
+        }
+
+        .pr-roi p+p {
+            margin-top: 12px
+        }
+
+        .pr-roi__foot {
+            font-size: 12px;
+            font-weight: 650;
+            line-height: 1.5;
+            color: var(--text-2);
+            margin-top: 14px;
+            border-top: 1px solid var(--border-0);
+            padding-top: 10px
+        }
+
+        /* Fit filter */
+        .pr-fit {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 24px
+        }
+
+        .pr-fit-card {
+            background: var(--bg-0);
+            border: 1px solid var(--border-0);
+            border-radius: 16px;
+            padding: 22px
+        }
+
+        .pr-fit-card h3 {
+            font-family: var(--font-heading);
+            font-size: 18px;
+            font-weight: 700;
+            line-height: 1.44;
+            margin-bottom: 14px
+        }
+
+        .pr-fit-card ul {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 8px
+        }
+
+        .pr-fit-card li {
+            font-size: 14px;
+            line-height: 1.57;
+            font-weight: 450;
+            color: var(--text-1);
+            padding-left: 22px;
+            position: relative
+        }
+
+        .pr-fit-card--good li::before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: var(--success-0);
+            font-weight: 700
+        }
+
+        .pr-fit-card--not li::before {
+            content: '✕';
+            position: absolute;
+            left: 0;
+            color: var(--text-2);
+            font-weight: 600
+        }
+
+        /* FAQ mini */
+        .pr-faq {
+            max-width: 800px;
+            margin: 0 auto;
+            display: flex;
+            flex-direction: column;
+            gap: 12px
+        }
+
+        .pr-faq-item {
+            background: var(--surface-0);
+            border: 1px solid var(--border-0);
+            border-radius: 16px;
+            overflow: hidden
+        }
+
+        .pr-faq-item summary {
+            padding: 18px;
+            font-family: var(--font-body);
+            font-size: 15px;
+            font-weight: 650;
+            color: var(--text-0);
+            cursor: pointer;
+            list-style: none;
+            display: flex;
+            justify-content: space-between;
+            align-items: center
+        }
+
+        .pr-faq-item summary::after {
+            content: '+';
+            font-size: 20px;
+            font-weight: 400;
+            color: var(--text-2);
+            transition: transform .2s
+        }
+
+        .pr-faq-item[open] summary::after {
+            content: '−'
+        }
+
+        .pr-faq-item__body {
+            padding: 0 18px 18px;
+            font-size: 15px;
+            line-height: 1.6;
+            color: var(--text-1)
+        }
+
+        /* CTA escape */
+        .pr-cta__escape {
+            display: block;
+            font-size: 14px;
+            font-weight: 600;
+            color: rgba(255, 255, 255, .78);
+            margin-top: 14px;
+            text-decoration: underline;
+            text-underline-offset: 2px;
+            transition: color .15s
+        }
+
+        .pr-cta__escape:hover {
+            color: #fff
+        }
+
+        @media(max-width:768px) {
+
+            .pr-hero__grid,
+            .pr-grid,
+            .pr-drivers,
+            .pr-fit {
+                grid-template-columns: 1fr
+            }
+
+            .pr-hero {
+                padding: calc(var(--nav-h) + 48px) 0 48px
+            }
+        }
+    </style>
 </head>
 
 <body class="page-sub">
@@ -20,10 +460,12 @@
     <!-- ═══ HEADER ═══ -->
     <header class="header" id="header">
         <div class="header__inner">
-            <a href="index.html" class="header__brand">JTANDY</a>
+            <a href="index.html" class="header__brand"><img src="../Assets/Logo/Navy Jtandy Logo.svg" alt="JTandy"
+                    class="header__logo header__logo--navy"><img src="../Assets/Logo/White Jtandy Logo.svg" alt="JTandy"
+                    class="header__logo header__logo--white"></a>
             <nav class="header__nav" id="headerNav">
                 <div class="nav-dropdown">
-                    <a href="index.html#solutions" class="nav-dropdown__trigger">Solutions <span
+                    <a href="solutions.html" class="nav-dropdown__trigger">Solutions <span
                             class="nav-dropdown__arrow">▾</span></a>
                     <div class="nav-dropdown__menu">
                         <a href="lead-websites.html">Lead Websites</a>
@@ -47,247 +489,233 @@
     </header>
 
     <!-- ═══ 1. HERO ═══ -->
-    <section class="prc-hero" id="prc-hero">
-        <div class="container">
-            <span class="sub-hero__eyebrow">PRICING</span>
-            <h1>Clear Investment. Measurable Return.</h1>
-            <p class="prc-hero__sub">Our systems are designed to generate enquiries and improve conversion — not just
-                exist online. Investment depends on scope and revenue potential.</p>
-        </div>
-    </section>
-
-    <!-- ═══ 2. WEBSITE INSTALL PRICING ═══ -->
-    <section class="section section--bg" id="website-pricing">
-        <div class="container">
-            <div class="section__header section__header--center">
-                <h2>High-Performance Lead Website</h2>
-            </div>
-            <div class="prc-main-card">
-                <div class="prc-main-card__price">£X,XXX – £X,XXX</div>
-                <p class="prc-main-card__sub">Depending on number of services, service areas, and structure.</p>
-                <ul class="prc-main-card__list">
-                    <li>5–10 page structured build</li>
-                    <li>Conversion architecture</li>
-                    <li>Service area SEO structure</li>
-                    <li>Click-to-call optimisation</li>
-                    <li>Contact &amp; quote flow</li>
-                    <li>Analytics + tracking</li>
-                    <li>Hosting + performance optimisation</li>
-                </ul>
-                <a href="audit.html" class="btn btn--primary btn--hero prc-main-card__cta">Request Website Audit</a>
-                <p class="prc-main-card__authority">If ROI doesn't make sense for your business, we'll tell you
-                    directly.</p>
-            </div>
-        </div>
-    </section>
-
-    <!-- ═══ 3. AUTOMATION ADD-ONS ═══ -->
-    <section class="section section--white" id="add-ons">
-        <div class="container">
-            <div class="section__header section__header--center">
-                <h2>Optional Automation Layers</h2>
-                <p class="section__sub">Most clients layer automation once the website is performing.</p>
-            </div>
-            <div class="prc-addons-grid">
-                <!-- Card 1 -->
-                <div class="prc-addon-card">
-                    <h3>Missed Call Recovery</h3>
-                    <div class="prc-addon-card__prices">
-                        <div class="prc-addon-card__price-row">
-                            <span class="prc-addon-card__price-label">Setup</span>
-                            <span class="prc-addon-card__price-val">£XXX – £XXXX</span>
-                        </div>
-                        <div class="prc-addon-card__price-row">
-                            <span class="prc-addon-card__price-label">Ongoing</span>
-                            <span class="prc-addon-card__price-val">£XXX/month</span>
-                        </div>
-                    </div>
-                    <ul class="prc-addon-card__includes">
-                        <li>Instant text-back</li>
-                        <li>Call capture</li>
-                        <li>Booking link</li>
-                        <li>Response logging</li>
-                    </ul>
+    <section class="pr-hero" id="pr-hero">
+        <div class="container pr-hero__grid">
+            <div>
+                <span class="pr-hero__eyebrow">Pricing</span>
+                <h1>Clear investment. Measurable return.</h1>
+                <p class="pr-hero__sub">We build revenue recovery systems for UK trades. Pricing is anchored and
+                    transparent — final cost depends on enquiry volume, scope, and integrations.</p>
+                <div class="pr-hero__ctas">
+                    <a href="audit.html" class="btn btn--primary btn--hero">Start Audit Request</a>
+                    <a href="solutions.html" class="btn btn--outline">See solutions</a>
                 </div>
-                <!-- Card 2 -->
-                <div class="prc-addon-card">
-                    <h3>Quote Follow-Up System</h3>
-                    <div class="prc-addon-card__prices">
-                        <div class="prc-addon-card__price-row">
-                            <span class="prc-addon-card__price-label">Setup</span>
-                            <span class="prc-addon-card__price-val">£XXX – £XXXX</span>
-                        </div>
-                        <div class="prc-addon-card__price-row">
-                            <span class="prc-addon-card__price-label">Ongoing</span>
-                            <span class="prc-addon-card__price-val">£XXX/month</span>
-                        </div>
-                    </div>
-                    <ul class="prc-addon-card__includes">
-                        <li>Automated follow-ups</li>
-                        <li>Timed reminders</li>
-                        <li>Response tracking</li>
-                        <li>Conversion uplift monitoring</li>
+                <p class="pr-hero__micro">✅ No calls required • Written recommendation • Clear next step</p>
+            </div>
+            <div>
+                <div class="pr-snapshot">
+                    <span class="pr-snapshot__chip">Starting Investments</span>
+                    <ul class="pr-snapshot__list">
+                        <li>Lead Websites — from £3,500</li>
+                        <li>Follow‑Up Automation — from £1,500 setup + £250/mo</li>
+                        <li>Review Automation — from £950 setup + £150/mo</li>
+                        <li>Revenue Engine — from £7,500 setup + £450/mo</li>
                     </ul>
-                </div>
-                <!-- Card 3 -->
-                <div class="prc-addon-card">
-                    <h3>Review Automation</h3>
-                    <div class="prc-addon-card__prices">
-                        <div class="prc-addon-card__price-row">
-                            <span class="prc-addon-card__price-label">Setup</span>
-                            <span class="prc-addon-card__price-val">£XXX – £XXXX</span>
-                        </div>
-                        <div class="prc-addon-card__price-row">
-                            <span class="prc-addon-card__price-label">Ongoing</span>
-                            <span class="prc-addon-card__price-val">£XXX/month</span>
-                        </div>
-                    </div>
-                    <ul class="prc-addon-card__includes">
-                        <li>Post-job review request</li>
-                        <li>Google link integration</li>
-                        <li>Issue diversion</li>
-                        <li>Review rate improvement</li>
-                    </ul>
+                    <p class="pr-snapshot__foot">Typical ranges shown below. Prices exclude VAT where applicable.</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- ═══ 4. REVENUE ENGINE ═══ -->
-    <section class="prc-engine" id="revenue-engine">
+    <!-- ═══ 2. PRICING GRID ═══ -->
+    <section class="section section--bg" id="pricing-grid">
         <div class="container">
-            <div class="section__header section__header--center">
-                <h2>Full Revenue Engine Installation</h2>
-                <p class="section__sub" style="color:rgba(255,255,255,0.78)">Website + automation layers combined into
-                    one structured system.</p>
+            <div class="section__header">
+                <h2>Pick your starting point</h2>
+                <p style="font-size:16px;line-height:1.63;font-weight:450;color:var(--text-1);margin-top:10px">Start
+                    where the leak is biggest. Add layers once ROI is proven.</p>
             </div>
-            <div class="prc-engine-card">
-                <div class="prc-engine-card__price">From £X,XXX setup</div>
-                <p class="prc-engine-card__ongoing">+ ongoing management</p>
-                <p class="prc-engine-card__scope">Scope dependent.</p>
-                <ul class="prc-engine-card__list">
-                    <li>Lead website</li>
-                    <li>Missed call recovery</li>
-                    <li>Quote follow-up automation</li>
-                    <li>Review automation</li>
-                    <li>Central dashboard</li>
-                    <li>Ongoing optimisation</li>
-                </ul>
-                <a href="audit.html" class="btn btn--primary btn--hero">Start Audit Request</a>
+            <div class="pr-grid">
+                <!-- Card 1 — Lead Websites -->
+                <div class="pr-card">
+                    <div class="pr-card__title">Lead Websites</div>
+                    <div class="pr-card__best">Best for: Outdated site / low conversion / unclear enquiry path</div>
+                    <div class="pr-card__from">Website Installs From</div>
+                    <div class="pr-card__price">£3,500</div>
+                    <div class="pr-card__range">Most builds land £3,500–£6,000 depending on services + areas.</div>
+                    <ul class="pr-card__bullets">
+                        <li>5–10 page structured build</li>
+                        <li>Conversion architecture + CTA flow</li>
+                        <li>Local service/area structure</li>
+                        <li>Click‑to‑call + enquiry flow</li>
+                        <li>Analytics + tracking setup</li>
+                    </ul>
+                    <div class="pr-card__cta">
+                        <a href="audit.html" class="btn btn--outline">Request Website Audit</a>
+                    </div>
+                    <p class="pr-card__trust">If ROI doesn't make sense, we'll tell you directly.</p>
+                </div>
+
+                <!-- Card 2 — Follow-Up Automation -->
+                <div class="pr-card">
+                    <div class="pr-card__title">Follow‑Up Automation</div>
+                    <div class="pr-card__best">Best for: Missed calls, slow replies, quotes going cold</div>
+                    <div class="pr-card__from">Automation Installs From</div>
+                    <div class="pr-card__price">£1,500 setup + £250/mo</div>
+                    <div class="pr-card__range">£1,500–£3,000 setup + £250–£450/mo depending on volume + channels.</div>
+                    <ul class="pr-card__bullets">
+                        <li>Missed‑call text‑back recovery</li>
+                        <li>Instant enquiry acknowledgement</li>
+                        <li>Quote follow‑up sequences</li>
+                        <li>Lead status visibility / logging</li>
+                        <li>Opt‑out friendly messaging rules</li>
+                    </ul>
+                    <div class="pr-card__cta">
+                        <a href="audit.html" class="btn btn--outline">Start Audit Request</a>
+                    </div>
+                </div>
+
+                <!-- Card 3 — Review Automation -->
+                <div class="pr-card">
+                    <div class="pr-card__title">Review Automation</div>
+                    <div class="pr-card__best">Best for: Completed jobs but reviews don't grow consistently</div>
+                    <div class="pr-card__from">Review Engine From</div>
+                    <div class="pr-card__price">£950 setup + £150/mo</div>
+                    <div class="pr-card__range">£950–£1,750 setup + £150–£250/mo depending on job volume + triggers.
+                    </div>
+                    <ul class="pr-card__bullets">
+                        <li>Polite request + one reminder</li>
+                        <li>Direct Google review link</li>
+                        <li>Tracking visibility</li>
+                        <li>Service recovery prompt (ethical)</li>
+                        <li>Opt‑out compliant messaging</li>
+                    </ul>
+                    <div class="pr-card__cta">
+                        <a href="audit.html" class="btn btn--outline">Start Audit Request</a>
+                    </div>
+                </div>
+
+                <!-- Card 4 — Revenue Engine (featured) -->
+                <div class="pr-card pr-card--featured">
+                    <span class="pr-card__badge">Best Value</span>
+                    <div class="pr-card__title">Revenue Engine</div>
+                    <div class="pr-card__best">Best for: End‑to‑end system + measurement</div>
+                    <div class="pr-card__from">Full Engine From</div>
+                    <div class="pr-card__price">£7,500 setup + £450/mo</div>
+                    <div class="pr-card__range">£7,500–£12,000 setup + £450–£750/mo depending on volume + scope.</div>
+                    <ul class="pr-card__bullets">
+                        <li>Lead website + conversion structure</li>
+                        <li>Response + follow‑up automation</li>
+                        <li>Review automation layer</li>
+                        <li>Central measurement & reporting</li>
+                        <li>Ongoing optimisation & refinement</li>
+                    </ul>
+                    <div class="pr-card__cta">
+                        <a href="audit.html" class="btn btn--primary">Start Audit Request</a>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
 
-    <!-- ═══ 5. QUALIFICATION ═══ -->
-    <section class="section section--bg" id="qualification">
+    <!-- ═══ 3. WHAT AFFECTS PRICE ═══ -->
+    <section class="section section--white" id="scope">
         <div class="container">
-            <div class="prc-qual-grid">
-                <div class="prc-qual-card prc-qual-card--for">
-                    <h3>Who This Is For</h3>
+            <div class="section__header section__header--center">
+                <h2>What affects pricing</h2>
+            </div>
+            <div class="pr-drivers">
+                <div class="pr-driver">
+                    <h3>Website scope drivers</h3>
                     <ul>
-                        <li>10+ enquiries per month</li>
-                        <li>Revenue over £20k/month</li>
-                        <li>Serious about growth</li>
-                        <li>Want systems, not more admin</li>
+                        <li>Number of services and service pages</li>
+                        <li>Number of areas you want to target</li>
+                        <li>Current site quality (rebuild vs optimise)</li>
+                        <li>Content and assets available (photos/reviews)</li>
                     </ul>
                 </div>
-                <div class="prc-qual-card prc-qual-card--not">
-                    <h3>Not For</h3>
+                <div class="pr-driver">
+                    <h3>Automation scope drivers</h3>
                     <ul>
-                        <li>Brand new businesses</li>
-                        <li>No inbound traffic</li>
-                        <li>Looking for cheapest option</li>
-                        <li>Not ready to invest</li>
+                        <li>Enquiry volume (how many leads/month)</li>
+                        <li>Channels (SMS/email/WhatsApp)</li>
+                        <li>Booking/CRM integration needs</li>
+                        <li>Number of follow‑up sequences</li>
+                    </ul>
+                </div>
+            </div>
+            <p class="section__micro-proof" style="font-weight:600">We'll confirm scope after the audit and give a
+                written recommendation.</p>
+        </div>
+    </section>
+
+    <!-- ═══ 4. ROI FRAMING ═══ -->
+    <section class="section section--bg" id="roi">
+        <div class="container">
+            <div class="section__header section__header--center">
+                <h2>How to think about ROI</h2>
+            </div>
+            <div class="pr-roi">
+                <p>If you receive 30 enquiries/month, a modest conversion improvement often means several additional
+                    booked jobs over time.</p>
+                <p>For many established trade businesses, one additional booked job per week can cover the cost of a
+                    website rebuild within months.</p>
+                <div class="pr-roi__foot">Results vary. We focus on measurable improvements (calls, forms, response
+                    time, follow‑up).</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ═══ 5. FIT FILTER ═══ -->
+    <section class="section section--white" id="fit">
+        <div class="container">
+            <div class="pr-fit">
+                <div class="pr-fit-card pr-fit-card--good">
+                    <h3>Good fit if</h3>
+                    <ul>
+                        <li>You get 10+ enquiries/month</li>
+                        <li>You want measurable improvement (not a "pretty site")</li>
+                        <li>You can invest at least £3,500 if ROI is clear</li>
+                        <li>You want systems, not more admin</li>
+                    </ul>
+                </div>
+                <div class="pr-fit-card pr-fit-card--not">
+                    <h3>Not a fit if</h3>
+                    <ul>
+                        <li>Brand new business with no inbound demand</li>
+                        <li>Looking for the cheapest provider</li>
+                        <li>Want spam messaging or gimmicks</li>
+                        <li>Not ready to act in the next 1–3 months</li>
                     </ul>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- ═══ 6. ROI CLARITY ═══ -->
-    <section class="section section--white" id="roi-clarity">
+    <!-- ═══ 6. FAQ MINI ═══ -->
+    <section class="section section--bg" id="faq">
         <div class="container">
             <div class="section__header section__header--center">
-                <h2>Why Pricing Isn't Fixed</h2>
-                <p class="section__sub">Because revenue potential varies.</p>
+                <h2>Common questions</h2>
             </div>
-            <div class="prc-roi-block">
-                <p>If you receive <strong>30 enquiries/month</strong> and improve conversion by <strong>15%</strong>,
-                    that's <strong>X additional booked jobs</strong>.</p>
-                <p>Even one additional job per week often covers system cost.</p>
-            </div>
-        </div>
-    </section>
-
-    <!-- ═══ 7. FAQ ═══ -->
-    <section class="section section--bg" id="pricing-faq">
-        <div class="container">
-            <div class="section__header section__header--center">
-                <h2>Common Questions</h2>
-            </div>
-            <div class="hiw-faq">
-                <details class="hiw-faq__item">
-                    <summary>
-                        <span>Why don't you list exact prices?</span>
-                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                            stroke-width="2">
-                            <path d="M6 9l6 6 6-6" stroke-linecap="round" stroke-linejoin="round" />
-                        </svg>
-                    </summary>
-                    <div class="hiw-faq__answer">
-                        <p>Because scope varies. A 5-page plumbing site is different from a 12-page multi-trade build.
-                            We give you a clear range after the audit.</p>
-                    </div>
+            <div class="pr-faq">
+                <details class="pr-faq-item">
+                    <summary>Can I start with just the website?</summary>
+                    <div class="pr-faq-item__body">Yes. Many clients start at £3,500 and add automation once enquiry
+                        volume justifies it.</div>
                 </details>
-                <details class="hiw-faq__item">
-                    <summary>
-                        <span>Is there a contract?</span>
-                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                            stroke-width="2">
-                            <path d="M6 9l6 6 6-6" stroke-linecap="round" stroke-linejoin="round" />
-                        </svg>
-                    </summary>
-                    <div class="hiw-faq__answer">
-                        <p>Website builds are a fixed project. Automation layers run month-to-month — no long-term
-                            lock-in.</p>
-                    </div>
+                <details class="pr-faq-item">
+                    <summary>Is there a contract?</summary>
+                    <div class="pr-faq-item__body">Website installs are one‑off. Ongoing management is monthly and
+                        depends on what's installed.</div>
                 </details>
-                <details class="hiw-faq__item">
-                    <summary>
-                        <span>What if it doesn't improve results?</span>
-                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                            stroke-width="2">
-                            <path d="M6 9l6 6 6-6" stroke-linecap="round" stroke-linejoin="round" />
-                        </svg>
-                    </summary>
-                    <div class="hiw-faq__answer">
-                        <p>We track everything. If something isn't performing, we'll tell you and adjust. If we don't
-                            think we can help, we'll say so during the audit.</p>
-                    </div>
-                </details>
-                <details class="hiw-faq__item">
-                    <summary>
-                        <span>Can I start with just the website?</span>
-                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                            stroke-width="2">
-                            <path d="M6 9l6 6 6-6" stroke-linecap="round" stroke-linejoin="round" />
-                        </svg>
-                    </summary>
-                    <div class="hiw-faq__answer">
-                        <p>Yes. Most clients start with the website and layer in automation once they see it performing.
-                            That's the recommended path.</p>
-                    </div>
+                <details class="pr-faq-item">
+                    <summary>Why not fixed pricing?</summary>
+                    <div class="pr-faq-item__body">Scope and ROI potential vary (services, areas, enquiry volume,
+                        integrations). We confirm after audit.</div>
                 </details>
             </div>
         </div>
     </section>
 
-    <!-- ═══ 8. FINAL CTA ═══ -->
+    <!-- ═══ 7. FINAL CTA ═══ -->
     <section class="cta-band">
         <div class="container">
-            <h2>Serious about improving enquiry flow?</h2>
-            <p>Start with the audit. We'll confirm fit before any build.</p>
+            <h2>Start with the audit. We'll recommend the best starting point.</h2>
+            <p>No calls required. Clear numbers. Direct recommendation.</p>
             <a href="audit.html" class="btn btn--primary btn--hero">Start Audit Request</a>
+            <a href="lead-websites.html" class="pr-cta__escape">Prefer the website first? Lead Websites from £3,500
+                →</a>
         </div>
     </section>
 

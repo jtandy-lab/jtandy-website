@@ -4,15 +4,476 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>How It Works — JTandy Revenue System Installation</title>
+    <title>How It Works — Revenue System Installation Process | JTandy</title>
     <meta name="description"
-        content="A clear, structured process from audit to live system — designed to increase enquiries without disrupting your business.">
+        content="A clear, structured process — from audit to live system — designed to increase enquiries without disrupting your business.">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
-        href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700;800&family=Inter:wght@400;450;500;550;600;650;700;750;800&display=swap"
+        href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700;800&family=Inter:wght@400;450;500;550;600;650;700;750;800;850&display=swap"
         rel="stylesheet">
     <link rel="stylesheet" href="style.css">
+    <style>
+        /* ── How-it-works page-specific ── */
+
+        /* Hero */
+        .hw-hero {
+            background: #FFFFFF;
+            padding: calc(var(--nav-h) + 72px) 0 64px;
+            border-bottom: 1px solid var(--border-0)
+        }
+
+        .hw-hero__grid {
+            display: grid;
+            grid-template-columns: 7fr 5fr;
+            gap: 48px;
+            align-items: start
+        }
+
+        .hw-hero__eyebrow {
+            display: block;
+            font-family: var(--font-body);
+            font-size: 12px;
+            font-weight: 650;
+            letter-spacing: .08em;
+            text-transform: uppercase;
+            color: var(--text-2);
+            margin-bottom: 12px
+        }
+
+        .hw-hero h1 {
+            font-size: clamp(34px, 5vw, 52px);
+            line-height: 1.15;
+            font-weight: 700;
+            color: var(--text-0);
+            letter-spacing: -.02em;
+            max-width: 680px
+        }
+
+        .hw-hero__sub {
+            font-size: 18px;
+            line-height: 1.56;
+            font-weight: 450;
+            color: var(--text-1);
+            margin-top: 14px;
+            max-width: 720px
+        }
+
+        .hw-hero__ctas {
+            display: flex;
+            gap: 12px;
+            margin-top: 22px;
+            flex-wrap: wrap
+        }
+
+        .hw-hero__micro {
+            font-size: 14px;
+            font-weight: 550;
+            color: var(--text-1);
+            margin-top: 12px
+        }
+
+        /* Hero cards */
+        .hw-install-card {
+            background: var(--bg-0);
+            border: 1px solid var(--border-0);
+            border-radius: 16px;
+            padding: 20px;
+            box-shadow: 0 2px 10px rgba(15, 29, 61, .08)
+        }
+
+        .hw-install-card__title {
+            font-family: var(--font-heading);
+            font-size: 16px;
+            font-weight: 700;
+            line-height: 1.38;
+            color: var(--text-0);
+            margin-bottom: 14px
+        }
+
+        .hw-install-row {
+            display: flex;
+            gap: 10px;
+            align-items: flex-start;
+            margin-bottom: 10px
+        }
+
+        .hw-install-row:last-child {
+            margin-bottom: 0
+        }
+
+        .hw-install-row__num {
+            flex-shrink: 0;
+            width: 24px;
+            height: 24px;
+            border-radius: 50%;
+            background: var(--cobalt-0);
+            color: #fff;
+            font-family: var(--font-body);
+            font-size: 12px;
+            font-weight: 800;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-top: 1px
+        }
+
+        .hw-install-row__title {
+            font-size: 14px;
+            font-weight: 650;
+            line-height: 1.43;
+            color: var(--text-0)
+        }
+
+        .hw-install-row__sub {
+            font-size: 12px;
+            font-weight: 450;
+            line-height: 1.5;
+            color: var(--text-1)
+        }
+
+        .hw-audit-card {
+            background: #fff;
+            border: 1px solid var(--border-0);
+            border-radius: 16px;
+            padding: 20px;
+            box-shadow: 0 2px 10px rgba(15, 29, 61, .08);
+            margin-top: 14px
+        }
+
+        .hw-audit-card__title {
+            font-family: var(--font-heading);
+            font-size: 16px;
+            font-weight: 700;
+            line-height: 1.38;
+            color: var(--text-0);
+            margin-bottom: 10px
+        }
+
+        .hw-audit-card ul {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 5px
+        }
+
+        .hw-audit-card li {
+            font-size: 14px;
+            line-height: 1.57;
+            font-weight: 450;
+            color: var(--text-1);
+            padding-left: 18px;
+            position: relative
+        }
+
+        .hw-audit-card li::before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: var(--success-0);
+            font-weight: 700;
+            font-size: 12px
+        }
+
+        .hw-audit-card__note {
+            font-size: 12px;
+            font-weight: 600;
+            color: var(--text-2);
+            margin-top: 10px
+        }
+
+        /* Step cards */
+        .hw-steps {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 16px
+        }
+
+        .hw-step {
+            background: var(--surface-0);
+            border: 1px solid var(--border-0);
+            border-radius: 16px;
+            padding: 22px;
+            box-shadow: 0 2px 10px rgba(15, 29, 61, .08)
+        }
+
+        .hw-step__badge {
+            display: inline-block;
+            font-size: 12px;
+            font-weight: 650;
+            letter-spacing: .04em;
+            text-transform: uppercase;
+            color: var(--cobalt-0);
+            background: rgba(37, 99, 235, .10);
+            border-radius: 999px;
+            padding: 6px 10px;
+            line-height: 1.5
+        }
+
+        .hw-step__title {
+            font-family: var(--font-heading);
+            font-size: 20px;
+            font-weight: 700;
+            line-height: 1.4;
+            color: var(--text-0);
+            margin-top: 12px
+        }
+
+        .hw-step__body {
+            font-size: 15px;
+            line-height: 1.6;
+            font-weight: 450;
+            color: var(--text-1);
+            margin-top: 8px
+        }
+
+        .hw-step__checks {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 5px;
+            margin-top: 12px
+        }
+
+        .hw-step__checks li {
+            font-size: 14px;
+            line-height: 1.57;
+            font-weight: 450;
+            color: var(--text-1);
+            padding-left: 20px;
+            position: relative
+        }
+
+        .hw-step__checks li::before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: var(--success-0);
+            font-weight: 700;
+            font-size: 13px
+        }
+
+        .hw-step__output {
+            font-size: 12px;
+            font-weight: 650;
+            color: var(--text-2);
+            margin-top: 12px;
+            border-top: 1px solid var(--border-0);
+            padding-top: 10px
+        }
+
+        /* Assurance bar */
+        .hw-assurance {
+            background: rgba(22, 163, 74, .10);
+            border: 1px solid rgba(22, 163, 74, .18);
+            border-radius: 16px;
+            padding: 16px 18px;
+            max-width: 1200px;
+            margin: 56px auto
+        }
+
+        .hw-assurance strong {
+            font-family: var(--font-heading);
+            font-size: 16px;
+            font-weight: 700;
+            line-height: 1.38;
+            color: var(--text-0)
+        }
+
+        .hw-assurance span {
+            font-size: 14px;
+            font-weight: 500;
+            line-height: 1.57;
+            color: var(--text-1)
+        }
+
+        /* Timeline */
+        .hw-timeline {
+            background: var(--surface-0);
+            border: 1px solid var(--border-0);
+            border-radius: 16px;
+            padding: 22px;
+            box-shadow: 0 2px 10px rgba(15, 29, 61, .08);
+            max-width: 860px;
+            margin: 0 auto
+        }
+
+        .hw-timeline__row {
+            display: flex;
+            gap: 14px;
+            align-items: flex-start;
+            padding: 14px 0;
+            border-bottom: 1px solid var(--border-0)
+        }
+
+        .hw-timeline__row:last-of-type {
+            border-bottom: none
+        }
+
+        .hw-timeline__chip {
+            flex-shrink: 0;
+            font-size: 12px;
+            font-weight: 650;
+            letter-spacing: .04em;
+            text-transform: uppercase;
+            color: var(--cobalt-0);
+            background: rgba(37, 99, 235, .10);
+            border-radius: 999px;
+            padding: 6px 10px;
+            line-height: 1.5;
+            white-space: nowrap
+        }
+
+        .hw-timeline__title {
+            font-size: 14px;
+            font-weight: 650;
+            line-height: 1.43;
+            color: var(--text-0)
+        }
+
+        .hw-timeline__desc {
+            font-size: 12px;
+            font-weight: 450;
+            line-height: 1.5;
+            color: var(--text-1)
+        }
+
+        .hw-timeline__foot {
+            font-size: 12px;
+            font-weight: 500;
+            color: var(--text-2);
+            margin-top: 14px;
+            border-top: 1px solid var(--border-0);
+            padding-top: 10px
+        }
+
+        /* What we need */
+        .hw-needs {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 16px
+        }
+
+        .hw-need {
+            background: var(--bg-0);
+            border: 1px solid var(--border-0);
+            border-radius: 16px;
+            padding: 22px
+        }
+
+        .hw-need h3 {
+            font-family: var(--font-heading);
+            font-size: 18px;
+            font-weight: 700;
+            line-height: 1.44;
+            margin-bottom: 12px
+        }
+
+        .hw-need ul {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 6px
+        }
+
+        .hw-need li {
+            font-size: 14px;
+            line-height: 1.57;
+            font-weight: 450;
+            color: var(--text-1);
+            padding-left: 20px;
+            position: relative
+        }
+
+        .hw-need li::before {
+            content: '·';
+            position: absolute;
+            left: 4px;
+            font-weight: 700;
+            color: var(--text-2)
+        }
+
+        /* FAQ */
+        .hw-faq {
+            max-width: 800px;
+            margin: 0 auto;
+            display: flex;
+            flex-direction: column;
+            gap: 12px
+        }
+
+        .hw-faq-item {
+            background: var(--surface-0);
+            border: 1px solid var(--border-0);
+            border-radius: 16px;
+            overflow: hidden
+        }
+
+        .hw-faq-item summary {
+            padding: 18px;
+            font-family: var(--font-body);
+            font-size: 15px;
+            font-weight: 650;
+            color: var(--text-0);
+            cursor: pointer;
+            list-style: none;
+            display: flex;
+            justify-content: space-between;
+            align-items: center
+        }
+
+        .hw-faq-item summary::after {
+            content: '+';
+            font-size: 20px;
+            font-weight: 400;
+            color: var(--text-2);
+            transition: transform .2s
+        }
+
+        .hw-faq-item[open] summary::after {
+            content: '−'
+        }
+
+        .hw-faq-item__body {
+            padding: 0 18px 18px;
+            font-size: 15px;
+            line-height: 1.6;
+            color: var(--text-1)
+        }
+
+        /* CTA escape */
+        .hw-cta__escape {
+            display: block;
+            font-size: 14px;
+            font-weight: 600;
+            color: rgba(255, 255, 255, .78);
+            margin-top: 14px;
+            text-decoration: underline;
+            text-underline-offset: 2px;
+            transition: color .15s
+        }
+
+        .hw-cta__escape:hover {
+            color: #fff
+        }
+
+        @media(max-width:768px) {
+
+            .hw-hero__grid,
+            .hw-steps,
+            .hw-needs {
+                grid-template-columns: 1fr
+            }
+
+            .hw-hero {
+                padding: calc(var(--nav-h) + 48px) 0 48px
+            }
+
+            .hw-assurance {
+                margin: 40px 16px
+            }
+        }
+    </style>
 </head>
 
 <body class="page-sub">
@@ -20,10 +481,12 @@
     <!-- ═══ HEADER ═══ -->
     <header class="header" id="header">
         <div class="header__inner">
-            <a href="index.html" class="header__brand">JTANDY</a>
+            <a href="index.html" class="header__brand"><img src="../Assets/Logo/Navy Jtandy Logo.svg" alt="JTandy"
+                    class="header__logo header__logo--navy"><img src="../Assets/Logo/White Jtandy Logo.svg" alt="JTandy"
+                    class="header__logo header__logo--white"></a>
             <nav class="header__nav" id="headerNav">
                 <div class="nav-dropdown">
-                    <a href="index.html#solutions" class="nav-dropdown__trigger">Solutions <span
+                    <a href="solutions.html" class="nav-dropdown__trigger">Solutions <span
                             class="nav-dropdown__arrow">▾</span></a>
                     <div class="nav-dropdown__menu">
                         <a href="lead-websites.html">Lead Websites</a>
@@ -47,178 +510,199 @@
     </header>
 
     <!-- ═══ 1. HERO ═══ -->
-    <section class="hiw-hero" id="hiw-hero">
-        <div class="container hiw-hero__grid">
-            <div class="hiw-hero__copy">
-                <span class="sub-hero__eyebrow">HOW IT WORKS</span>
-                <h1>How The Revenue System Is Installed</h1>
-                <p class="hiw-hero__sub">A clear, structured process — from audit to live system — designed to increase
+    <section class="hw-hero" id="hw-hero">
+        <div class="container hw-hero__grid">
+            <div>
+                <span class="hw-hero__eyebrow">How It Works</span>
+                <h1>How the revenue system is installed</h1>
+                <p class="hw-hero__sub">A clear, structured process — from audit to live system — designed to increase
                     enquiries without disrupting your business.</p>
-                <div class="hiw-hero__ctas">
+                <div class="hw-hero__ctas">
                     <a href="audit.html" class="btn btn--primary btn--hero">Start Audit Request</a>
                     <a href="#steps" class="btn btn--outline">See Example Output</a>
                 </div>
-                <p class="hiw-hero__trust">✅ No calls required &bull; Written breakdown &bull; Clear next step</p>
+                <p class="hw-hero__micro">✅ No calls required • Written breakdown • Clear next step</p>
             </div>
-            <div class="hiw-hero__card">
-                <div class="hiw-process-card">
-                    <h3 class="hiw-process-card__title">The 4-Step Install</h3>
-                    <div class="hiw-process-card__timeline">
-                        <div class="hiw-process-card__row">
-                            <span class="hiw-process-card__num">1</span>
-                            <div>
-                                <strong>Audit</strong>
-                                <span>Find revenue leaks</span>
-                            </div>
-                        </div>
-                        <div class="hiw-process-card__row">
-                            <span class="hiw-process-card__num">2</span>
-                            <div>
-                                <strong>Build</strong>
-                                <span>Website + structure</span>
-                            </div>
-                        </div>
-                        <div class="hiw-process-card__row">
-                            <span class="hiw-process-card__num">3</span>
-                            <div>
-                                <strong>Launch</strong>
-                                <span>Measure performance</span>
-                            </div>
-                        </div>
-                        <div class="hiw-process-card__row">
-                            <span class="hiw-process-card__num">4</span>
-                            <div>
-                                <strong>Automate</strong>
-                                <span>Optional follow-up layer</span>
-                            </div>
+            <div>
+                <!-- Card A: 4-Step Install -->
+                <div class="hw-install-card">
+                    <div class="hw-install-card__title">The 4‑Step Install</div>
+                    <div class="hw-install-row">
+                        <span class="hw-install-row__num">1</span>
+                        <div>
+                            <div class="hw-install-row__title">Audit</div>
+                            <div class="hw-install-row__sub">Find revenue leaks</div>
                         </div>
                     </div>
+                    <div class="hw-install-row">
+                        <span class="hw-install-row__num">2</span>
+                        <div>
+                            <div class="hw-install-row__title">Build</div>
+                            <div class="hw-install-row__sub">Website + structure</div>
+                        </div>
+                    </div>
+                    <div class="hw-install-row">
+                        <span class="hw-install-row__num">3</span>
+                        <div>
+                            <div class="hw-install-row__title">Launch</div>
+                            <div class="hw-install-row__sub">Measure performance</div>
+                        </div>
+                    </div>
+                    <div class="hw-install-row">
+                        <span class="hw-install-row__num">4</span>
+                        <div>
+                            <div class="hw-install-row__title">Automate</div>
+                            <div class="hw-install-row__sub">Optional follow‑up layer</div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Card B: Audit deliverables -->
+                <div class="hw-audit-card">
+                    <div class="hw-audit-card__title">What you get from the audit</div>
+                    <ul>
+                        <li>Your biggest enquiry "leaks" (what's losing jobs)</li>
+                        <li>Recommended starting point (Website / Follow‑Up / Reviews / Engine)</li>
+                        <li>A clear scope outline (what we'd install)</li>
+                        <li>Pricing guidance based on your situation</li>
+                        <li>Next steps you can approve via email (no calls)</li>
+                    </ul>
+                    <p class="hw-audit-card__note">If it's not a fit, we'll tell you directly.</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- ═══ 2. STEP-BY-STEP ═══ -->
+    <!-- ═══ 2. INSTALLATION PROCESS ═══ -->
     <section class="section section--bg" id="steps">
         <div class="container">
-            <div class="section__header section__header--center">
-                <h2>The Installation Process</h2>
-                <p class="section__sub">You stay focused on jobs. We handle the build, testing, and measurement.</p>
+            <div class="section__header">
+                <h2>The installation process</h2>
+                <p style="font-size:18px;line-height:1.56;font-weight:450;color:var(--text-1);margin-top:10px">You stay
+                    focused on jobs. We handle the build, testing, and measurement.</p>
             </div>
-            <div class="hiw-steps-grid">
+            <div class="hw-steps">
                 <!-- Step 1 -->
-                <div class="hiw-step-card">
-                    <span class="hiw-step-card__badge">STEP 1</span>
-                    <h3>Audit &amp; Revenue Diagnosis</h3>
-                    <p>We map your enquiry flow and identify where leads and jobs are being lost.</p>
-                    <ul class="hiw-step-card__checks">
-                        <li>Missed calls + response time</li>
-                        <li>Quote follow-up behaviour</li>
+                <div class="hw-step">
+                    <span class="hw-step__badge">Step 1</span>
+                    <div class="hw-step__title">Audit & revenue diagnosis</div>
+                    <p class="hw-step__body">We map your enquiry flow and identify where leads and jobs are being lost.
+                    </p>
+                    <ul class="hw-step__checks">
+                        <li>Missed calls + response handling</li>
+                        <li>Quote follow‑up behaviour</li>
                         <li>Website call path + trust blocks</li>
                         <li>Baseline metrics to measure ROI</li>
                     </ul>
+                    <p class="hw-step__output">Output: written "Revenue Leak Report" + recommended next step.</p>
                 </div>
                 <!-- Step 2 -->
-                <div class="hiw-step-card">
-                    <span class="hiw-step-card__badge">STEP 2</span>
-                    <h3>Build The Lead Infrastructure</h3>
-                    <p>We rebuild or optimise your website around one objective: enquiries.</p>
-                    <ul class="hiw-step-card__checks">
+                <div class="hw-step">
+                    <span class="hw-step__badge">Step 2</span>
+                    <div class="hw-step__title">Build the lead infrastructure</div>
+                    <p class="hw-step__body">We rebuild or optimise your website around one objective: enquiries.</p>
+                    <ul class="hw-step__checks">
                         <li>Conversion structure + CTA placement</li>
                         <li>Local service / area structure</li>
                         <li>Speed + technical cleanup</li>
                         <li>Tracking setup (calls + forms)</li>
                     </ul>
+                    <p class="hw-step__output">Output: staging preview + launch-ready build.</p>
                 </div>
                 <!-- Step 3 -->
-                <div class="hiw-step-card">
-                    <span class="hiw-step-card__badge">STEP 3</span>
-                    <h3>Launch &amp; Measure</h3>
-                    <p>We deploy safely and monitor performance so nothing breaks during busy weeks.</p>
-                    <ul class="hiw-step-card__checks">
-                        <li>Go-live plan (no downtime)</li>
-                        <li>Test leads + edge cases</li>
+                <div class="hw-step">
+                    <span class="hw-step__badge">Step 3</span>
+                    <div class="hw-step__title">Launch & measure</div>
+                    <p class="hw-step__body">We deploy safely and verify tracking so nothing breaks during busy weeks.
+                    </p>
+                    <ul class="hw-step__checks">
+                        <li>Go‑live plan (avoid downtime)</li>
+                        <li>Test enquiries + edge cases</li>
                         <li>Analytics dashboard baseline</li>
                         <li>Early optimisation pass</li>
                     </ul>
+                    <p class="hw-step__output">Output: live system + measurement baseline.</p>
                 </div>
                 <!-- Step 4 -->
-                <div class="hiw-step-card">
-                    <span class="hiw-step-card__badge">STEP 4</span>
-                    <h3>Optional Automation Layer</h3>
-                    <p>Once the site is performing, we can install follow-up systems to stop leaks.</p>
-                    <ul class="hiw-step-card__checks">
+                <div class="hw-step">
+                    <span class="hw-step__badge">Step 4</span>
+                    <div class="hw-step__title">Optional automation layer</div>
+                    <p class="hw-step__body">Once the website is performing, we can install follow‑up systems to stop
+                        leaks.</p>
+                    <ul class="hw-step__checks">
                         <li>Instant enquiry reply</li>
-                        <li>Missed-call recovery</li>
+                        <li>Missed‑call recovery</li>
                         <li>Quote chase sequence</li>
                         <li>Review requests after job</li>
                     </ul>
+                    <p class="hw-step__output">Output: automated recovery + visibility into lead status.</p>
                 </div>
-            </div>
-
-            <!-- Assurance bar -->
-            <div class="hiw-assurance">
-                <svg class="hiw-assurance__icon" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#16A34A"
-                    stroke-width="2">
-                    <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" stroke-linejoin="round" />
-                    <path d="M9 12l2 2 4-4" stroke-linecap="round" stroke-linejoin="round" />
-                </svg>
-                <p><strong>Conservative setup:</strong> We don't deploy anything spammy or risky. Everything is
-                    rate-limited and opt-out friendly.</p>
             </div>
         </div>
     </section>
 
-    <!-- ═══ 3. TIMELINE ═══ -->
-    <section class="section section--white" id="timeline">
+    <!-- ═══ 3. ASSURANCE BAR ═══ -->
+    <section class="section section--white" style="padding:0">
         <div class="container">
-            <div class="section__header section__header--center">
-                <h2>Typical Timeline</h2>
+            <div class="hw-assurance">
+                <strong>Conservative setup: </strong>
+                <span>We don't deploy anything spammy or risky. Messaging is rate‑limited, opt‑out friendly, and
+                    designed to protect your reputation.</span>
             </div>
-            <div class="hiw-timeline-card">
-                <div class="hiw-timeline-row">
-                    <span class="hiw-timeline-chip">Week 1</span>
-                    <div>
-                        <strong>Audit &amp; Plan</strong>
-                        <p>We review your submission, map structure, and confirm scope.</p>
-                    </div>
-                </div>
-                <div class="hiw-timeline-row">
-                    <span class="hiw-timeline-chip">Week 2–3</span>
-                    <div>
-                        <strong>Build &amp; Optimise</strong>
-                        <p>Pages built, performance tuned, tracking installed.</p>
-                    </div>
-                </div>
-                <div class="hiw-timeline-row">
-                    <span class="hiw-timeline-chip">Week 4</span>
-                    <div>
-                        <strong>Launch &amp; Measure</strong>
-                        <p>Go live, test flows, capture baseline metrics.</p>
-                    </div>
-                </div>
-            </div>
-            <p class="hiw-timeline-note">Exact timing depends on scope and how quickly we get inputs from you.</p>
         </div>
     </section>
 
-    <!-- ═══ 4. WHAT WE NEED FROM YOU ═══ -->
-    <section class="section section--bg" id="from-you">
+    <!-- ═══ 4. TYPICAL TIMELINE ═══ -->
+    <section class="section section--bg" style="padding:72px 0" id="timeline">
         <div class="container">
             <div class="section__header section__header--center">
-                <h2>What We Need From You</h2>
+                <h2>Typical timeline</h2>
             </div>
-            <div class="hiw-needs-grid">
-                <div class="hiw-needs-card">
-                    <h3>Access &amp; Basics</h3>
+            <div class="hw-timeline">
+                <div class="hw-timeline__row">
+                    <span class="hw-timeline__chip">Week 1</span>
+                    <div>
+                        <div class="hw-timeline__title">Audit & plan</div>
+                        <div class="hw-timeline__desc">We review your submission, map structure, and confirm scope.
+                        </div>
+                    </div>
+                </div>
+                <div class="hw-timeline__row">
+                    <span class="hw-timeline__chip">Week 2–3</span>
+                    <div>
+                        <div class="hw-timeline__title">Build & optimise</div>
+                        <div class="hw-timeline__desc">Pages built, performance tuned, tracking installed.</div>
+                    </div>
+                </div>
+                <div class="hw-timeline__row">
+                    <span class="hw-timeline__chip">Week 4</span>
+                    <div>
+                        <div class="hw-timeline__title">Launch & measure</div>
+                        <div class="hw-timeline__desc">Go live, test flows, capture baseline metrics.</div>
+                    </div>
+                </div>
+                <div class="hw-timeline__foot">Exact timing depends on scope and how quickly we get inputs from you.
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ═══ 5. WHAT WE NEED FROM YOU ═══ -->
+    <section class="section section--white" id="inputs">
+        <div class="container">
+            <div class="section__header section__header--center">
+                <h2>What we need from you</h2>
+            </div>
+            <div class="hw-needs">
+                <div class="hw-need">
+                    <h3>Access & basics</h3>
                     <ul>
                         <li>Domain / hosting login (if migrating)</li>
                         <li>Current phone number + email</li>
                         <li>Service list + service areas</li>
                     </ul>
                 </div>
-                <div class="hiw-needs-card">
-                    <h3>Proof &amp; Preferences</h3>
+                <div class="hw-need">
+                    <h3>Proof & preferences</h3>
                     <ul>
                         <li>Existing reviews (Google link)</li>
                         <li>Photos (even phone photos)</li>
@@ -226,80 +710,48 @@
                     </ul>
                 </div>
             </div>
-            <p class="hiw-needs-note">If you don't have everything, we can still start — we'll guide what's needed.</p>
+            <p class="section__micro-proof" style="font-weight:600">If you don't have everything, we can still start —
+                we'll guide what's needed.</p>
         </div>
     </section>
 
-    <!-- ═══ 5. FAQ ═══ -->
-    <section class="section section--white" id="faq">
+    <!-- ═══ 6. FAQ ═══ -->
+    <section class="section section--bg" style="padding:72px 0" id="faq">
         <div class="container">
             <div class="section__header section__header--center">
-                <h2>Common Questions</h2>
+                <h2>Common questions</h2>
             </div>
-            <div class="hiw-faq">
-                <details class="hiw-faq__item">
-                    <summary>
-                        <span>Will this disrupt my business?</span>
-                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                            stroke-width="2">
-                            <path d="M6 9l6 6 6-6" stroke-linecap="round" stroke-linejoin="round" />
-                        </svg>
-                    </summary>
-                    <div class="hiw-faq__answer">
-                        <p>No. Your current setup stays live while we build. Launch is planned to avoid downtime.</p>
-                    </div>
+            <div class="hw-faq">
+                <details class="hw-faq-item">
+                    <summary>Will this disrupt my business?</summary>
+                    <div class="hw-faq-item__body">No. Your current setup stays live while we build. Launch is planned
+                        to avoid downtime.</div>
                 </details>
-                <details class="hiw-faq__item">
-                    <summary>
-                        <span>What if I already have a website?</span>
-                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                            stroke-width="2">
-                            <path d="M6 9l6 6 6-6" stroke-linecap="round" stroke-linejoin="round" />
-                        </svg>
-                    </summary>
-                    <div class="hiw-faq__answer">
-                        <p>We either rebuild (if structure is holding you back) or optimise (if the foundation is
-                            solid).</p>
-                    </div>
+                <details class="hw-faq-item">
+                    <summary>Do we need a call?</summary>
+                    <div class="hw-faq-item__body">No. The audit and approvals can be handled via email. We keep it
+                        simple and structured.</div>
                 </details>
-                <details class="hiw-faq__item">
-                    <summary>
-                        <span>Do I need automation?</span>
-                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                            stroke-width="2">
-                            <path d="M6 9l6 6 6-6" stroke-linecap="round" stroke-linejoin="round" />
-                        </svg>
-                    </summary>
-                    <div class="hiw-faq__answer">
-                        <p>No. The website can stand alone. Automation is an optional layer once you're ready.</p>
-                    </div>
+                <details class="hw-faq-item">
+                    <summary>Can I start with just the website?</summary>
+                    <div class="hw-faq-item__body">Yes. Many clients start with the Lead Website and add automation
+                        when volume justifies it.</div>
                 </details>
-                <details class="hiw-faq__item">
-                    <summary>
-                        <span>How do you measure ROI?</span>
-                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                            stroke-width="2">
-                            <path d="M6 9l6 6 6-6" stroke-linecap="round" stroke-linejoin="round" />
-                        </svg>
-                    </summary>
-                    <div class="hiw-faq__answer">
-                        <p>We track calls, forms, response handling and (where possible) booked jobs, so improvements
-                            are visible.</p>
-                    </div>
+                <details class="hw-faq-item">
+                    <summary>What if it's not a fit?</summary>
+                    <div class="hw-faq-item__body">We'll tell you directly and recommend the next best step.</div>
                 </details>
             </div>
         </div>
     </section>
 
-    <!-- ═══ 6. FINAL CTA ═══ -->
+    <!-- ═══ 7. FINAL CTA ═══ -->
     <section class="cta-band">
         <div class="container">
             <h2>Ready to remove revenue leaks?</h2>
             <p>Submit the audit request and we'll respond with a written breakdown and next step.</p>
-            <div class="cta-band__actions">
-                <a href="audit.html" class="btn btn--primary btn--hero">Start Audit Request</a>
-                <a href="lead-websites.html" class="cta-band__link">See Lead Websites →</a>
-            </div>
+            <a href="audit.html" class="btn btn--primary btn--hero">Start Audit Request</a>
+            <a href="lead-websites.html" class="hw-cta__escape">See Lead Websites →</a>
         </div>
     </section>
 

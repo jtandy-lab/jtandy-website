@@ -6,13 +6,450 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>High-Performance Lead Websites for UK Trades — JTandy</title>
     <meta name="description"
-        content="We build high-performance lead websites engineered to rank locally, load fast, and convert visitors into booked jobs.">
+        content="We build high-performance lead websites engineered to rank locally, load fast, and convert visitors into booked jobs. From £3,500.">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
-        href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700;800&family=Inter:wght@400;450;500;550;600;650;700;750;800&display=swap"
+        href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700;800&family=Inter:wght@400;450;500;550;600;650;700;750;800;850&display=swap"
         rel="stylesheet">
     <link rel="stylesheet" href="style.css">
+    <style>
+        /* ── Lead Websites v2 page-specific ── */
+        .lw-hero {
+            background: #FFFFFF;
+            padding: calc(var(--nav-h) + 72px) 0 64px;
+            border-bottom: 1px solid var(--border-0)
+        }
+
+        .lw-hero__grid {
+            display: grid;
+            grid-template-columns: 7fr 5fr;
+            gap: 48px;
+            align-items: start
+        }
+
+        .lw-hero__eyebrow {
+            display: block;
+            font-family: var(--font-body);
+            font-size: 12px;
+            font-weight: 650;
+            letter-spacing: .08em;
+            text-transform: uppercase;
+            color: var(--text-2);
+            margin-bottom: 12px
+        }
+
+        .lw-hero h1 {
+            font-size: clamp(34px, 5vw, 52px);
+            line-height: 1.15;
+            font-weight: 700;
+            color: var(--text-0);
+            letter-spacing: -.02em
+        }
+
+        .lw-hero__sub {
+            font-size: 18px;
+            line-height: 1.56;
+            font-weight: 450;
+            color: var(--text-1);
+            margin-top: 14px;
+            max-width: 640px
+        }
+
+        .lw-hero__bullets {
+            list-style: none;
+            margin-top: 20px;
+            display: flex;
+            flex-direction: column;
+            gap: 8px
+        }
+
+        .lw-hero__bullets li {
+            font-size: 15px;
+            line-height: 1.6;
+            font-weight: 450;
+            color: var(--text-1);
+            padding-left: 24px;
+            position: relative
+        }
+
+        .lw-hero__bullets li::before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: var(--success-0);
+            font-weight: 700
+        }
+
+        .lw-hero__proof {
+            font-size: 14px;
+            font-weight: 550;
+            color: var(--text-1);
+            margin-top: 10px
+        }
+
+        .lw-hero__ctas {
+            display: flex;
+            gap: 12px;
+            margin-top: 22px;
+            flex-wrap: wrap
+        }
+
+        .lw-hero__right {
+            display: flex;
+            flex-direction: column;
+            gap: 14px
+        }
+
+        .lw-device-card {
+            background: var(--bg-0);
+            border: 1px solid var(--border-0);
+            border-radius: 16px;
+            padding: 16px
+        }
+
+        .lw-device-card__label {
+            display: block;
+            font-size: 12px;
+            font-weight: 650;
+            letter-spacing: .08em;
+            text-transform: uppercase;
+            color: var(--text-2);
+            margin-bottom: 10px
+        }
+
+        .lw-price-card {
+            background: var(--navy-0);
+            border-radius: 16px;
+            padding: 18px
+        }
+
+        .lw-price-card__chip {
+            display: inline-block;
+            font-size: 12px;
+            font-weight: 650;
+            letter-spacing: .06em;
+            text-transform: uppercase;
+            color: rgba(255, 255, 255, .72);
+            background: rgba(255, 255, 255, .08);
+            border-radius: 999px;
+            padding: 6px 10px;
+            line-height: 1.5
+        }
+
+        .lw-price-card__amount {
+            font-family: var(--font-body);
+            font-size: 34px;
+            line-height: 1.12;
+            font-weight: 800;
+            color: #fff;
+            margin-top: 10px
+        }
+
+        .lw-price-card__range {
+            font-size: 13px;
+            line-height: 1.54;
+            font-weight: 500;
+            color: rgba(255, 255, 255, .80);
+            margin-top: 8px
+        }
+
+        .lw-price-card__trust {
+            font-size: 13px;
+            line-height: 1.54;
+            font-weight: 650;
+            color: rgba(255, 255, 255, .88);
+            margin-top: 10px
+        }
+
+        /* Fit Filter */
+        .lw-fit {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 24px
+        }
+
+        .lw-fit-card {
+            background: var(--surface-0);
+            border: 1px solid var(--border-0);
+            border-radius: 16px;
+            padding: 22px
+        }
+
+        .lw-fit-card h3 {
+            font-size: 18px;
+            font-weight: 700;
+            margin-bottom: 14px
+        }
+
+        .lw-fit-card ul {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 8px
+        }
+
+        .lw-fit-card li {
+            font-size: 14px;
+            line-height: 1.57;
+            font-weight: 450;
+            color: var(--text-1);
+            padding-left: 22px;
+            position: relative
+        }
+
+        .lw-fit-card--good li::before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: var(--success-0);
+            font-weight: 700
+        }
+
+        .lw-fit-card--not li::before {
+            content: '✕';
+            position: absolute;
+            left: 0;
+            color: var(--text-2);
+            font-weight: 600
+        }
+
+        /* Before/After */
+        .lw-ba {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 24px
+        }
+
+        .lw-ba-card {
+            background: var(--surface-0);
+            border: 1px solid var(--border-0);
+            border-radius: 16px;
+            padding: 18px;
+            position: relative
+        }
+
+        .lw-ba-badge {
+            display: inline-block;
+            font-size: 12px;
+            font-weight: 650;
+            letter-spacing: .06em;
+            text-transform: uppercase;
+            border-radius: 999px;
+            padding: 4px 10px;
+            margin-bottom: 14px;
+            line-height: 1.5
+        }
+
+        .lw-ba-badge--before {
+            background: rgba(220, 38, 38, .10);
+            color: #DC2626
+        }
+
+        .lw-ba-badge--after {
+            background: rgba(22, 163, 74, .12);
+            color: var(--success-0)
+        }
+
+        .lw-ba-improve {
+            list-style: none;
+            margin-top: 14px;
+            display: flex;
+            flex-direction: column;
+            gap: 6px
+        }
+
+        .lw-ba-improve li {
+            font-size: 14px;
+            line-height: 1.57;
+            font-weight: 450;
+            color: var(--text-1);
+            padding-left: 20px;
+            position: relative
+        }
+
+        .lw-ba-improve li::before {
+            content: '›';
+            position: absolute;
+            left: 0;
+            color: var(--cobalt-0);
+            font-weight: 700;
+            font-size: 16px
+        }
+
+        /* Pillar cards 2x2 */
+        .lw-pillars {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 24px
+        }
+
+        .lw-pillar {
+            background: var(--surface-0);
+            border: 1px solid var(--border-0);
+            border-radius: 16px;
+            padding: 22px
+        }
+
+        .lw-pillar h3 {
+            font-family: var(--font-heading);
+            font-size: 18px;
+            font-weight: 700;
+            line-height: 1.44;
+            margin-bottom: 8px
+        }
+
+        .lw-pillar p {
+            font-size: 15px;
+            line-height: 1.6;
+            color: var(--text-1)
+        }
+
+        /* Metric cards */
+        .lw-metrics {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 20px
+        }
+
+        .lw-metric {
+            background: var(--bg-0);
+            border: 1px solid var(--border-0);
+            border-radius: 16px;
+            padding: 20px
+        }
+
+        .lw-metric__icon {
+            width: 20px;
+            height: 20px;
+            color: rgba(37, 99, 235, .85);
+            margin-bottom: 10px
+        }
+
+        .lw-metric strong {
+            display: block;
+            font-size: 15px;
+            font-weight: 650;
+            line-height: 1.47;
+            margin-bottom: 4px
+        }
+
+        .lw-metric span {
+            font-size: 14px;
+            line-height: 1.57;
+            font-weight: 450;
+            color: var(--text-1)
+        }
+
+        /* Investment card */
+        .lw-invest {
+            background: var(--navy-0);
+            border-radius: 16px;
+            padding: 26px;
+            max-width: 720px;
+            margin: 0 auto;
+            text-align: center
+        }
+
+        .lw-invest__label {
+            font-size: 12px;
+            font-weight: 650;
+            letter-spacing: .06em;
+            text-transform: uppercase;
+            color: rgba(255, 255, 255, .70)
+        }
+
+        .lw-invest__price {
+            font-family: var(--font-body);
+            font-size: 44px;
+            line-height: 1.09;
+            font-weight: 850;
+            color: #fff;
+            margin-top: 10px
+        }
+
+        .lw-invest__range {
+            font-size: 14px;
+            line-height: 1.57;
+            color: rgba(255, 255, 255, .82);
+            margin-top: 12px
+        }
+
+        .lw-invest__risk {
+            font-size: 14px;
+            line-height: 1.57;
+            font-weight: 650;
+            color: rgba(255, 255, 255, .90);
+            margin-top: 10px
+        }
+
+        .lw-invest .btn {
+            margin-top: 20px
+        }
+
+        /* Process 2x2 */
+        .lw-process {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px
+        }
+
+        .lw-process-card {
+            background: var(--surface-0);
+            border: 1px solid var(--border-0);
+            border-radius: 16px;
+            padding: 20px;
+            display: flex;
+            gap: 14px;
+            align-items: flex-start
+        }
+
+        .lw-process-card__num {
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            background: rgba(37, 99, 235, .10);
+            color: var(--cobalt-0);
+            font-weight: 700;
+            font-size: 14px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0
+        }
+
+        .lw-process-card h3 {
+            font-size: 16px;
+            font-weight: 650;
+            margin-bottom: 4px
+        }
+
+        .lw-process-card p {
+            font-size: 14px;
+            line-height: 1.57;
+            color: var(--text-1)
+        }
+
+        /* Responsive */
+        @media(max-width:768px) {
+
+            .lw-hero__grid,
+            .lw-fit,
+            .lw-ba,
+            .lw-pillars,
+            .lw-process {
+                grid-template-columns: 1fr
+            }
+
+            .lw-metrics {
+                grid-template-columns: 1fr 1fr
+            }
+
+            .lw-hero {
+                padding: calc(var(--nav-h) + 48px) 0 48px
+            }
+        }
+    </style>
 </head>
 
 <body class="page-sub">
@@ -20,7 +457,9 @@
     <!-- ═══ HEADER ═══ -->
     <header class="header" id="header">
         <div class="header__inner">
-            <a href="index.html" class="header__brand">JTANDY</a>
+            <a href="index.html" class="header__brand"><img src="../Assets/Logo/Navy Jtandy Logo.svg" alt="JTandy"
+                    class="header__logo header__logo--navy"><img src="../Assets/Logo/White Jtandy Logo.svg" alt="JTandy"
+                    class="header__logo header__logo--white"></a>
             <nav class="header__nav" id="headerNav">
                 <div class="nav-dropdown">
                     <a href="index.html#solutions" class="nav-dropdown__trigger">Solutions <span
@@ -46,76 +485,109 @@
         </div>
     </header>
 
-    <!-- ═══ 1. HERO — Two Column ═══ -->
-    <section class="sub-hero sub-hero--split" id="sub-hero">
-        <div class="container sub-hero__grid">
-            <div class="sub-hero__inner">
-                <span class="sub-hero__eyebrow">Solutions / Lead Websites</span>
-                <h1>If Your Website Isn't Consistently Generating Enquiries, It's Costing You&nbsp;Jobs.</h1>
-                <p class="sub-hero__sub">We build websites that turn visitors into phone calls, form fills, and booked
-                    jobs — not just look good on a screen.</p>
-                <ul class="sub-hero__bullets">
+    <!-- ═══ 1. HERO ═══ -->
+    <section class="lw-hero" id="lw-hero">
+        <div class="container lw-hero__grid">
+            <div class="lw-hero__copy">
+                <span class="lw-hero__eyebrow">Lead Websites for UK Trades</span>
+                <h1>If your website isn't consistently generating enquiries, it's costing you jobs.</h1>
+                <p class="lw-hero__sub">We build lead websites that turn visitors into calls and quote requests — fast,
+                    clear, and built for the way trade customers choose.</p>
+                <ul class="lw-hero__bullets">
                     <li>Loads fast so customers don't leave</li>
-                    <li>Built to appear when local customers search</li>
+                    <li>Built to show up for local searches</li>
                     <li>Designed to maximise calls &amp; quote requests</li>
-                    <li>Ready for automated follow-up when you need it</li>
+                    <li>Ready for automated follow‑up when you need it</li>
                 </ul>
-                <p class="sub-hero__proof-line">Built for plumbers, electricians, roofers &amp; builders across the UK.
-                </p>
-                <div class="sub-hero__ctas">
+                <p class="lw-hero__proof">Built for plumbers, electricians, roofers &amp; builders across the UK.</p>
+                <div class="lw-hero__ctas">
                     <a href="audit.html" class="btn btn--primary btn--hero">Request Website Audit</a>
                     <a href="#visual-proof" class="btn btn--outline">See Example Structure</a>
                 </div>
             </div>
-            <div class="sub-hero__visual">
-                <div class="device-stack device-stack--mobile-lead">
-                    <!-- Desktop (behind, smaller) -->
-                    <div class="device device--desktop">
-                        <div class="device__screen">
-                            <div class="mock-site">
-                                <div class="mock-site__bar">
-                                    <span class="mock-site__logo">MCR Plumbing</span>
-                                    <span class="mock-site__phone">📞 0161 555 0199</span>
+            <div class="lw-hero__right">
+                <div class="lw-device-card">
+                    <span class="lw-device-card__label">Example Build (Demo)</span>
+                    <div class="device-stack device-stack--mobile-lead">
+                        <div class="device device--desktop">
+                            <div class="device__screen">
+                                <div class="mock-site">
+                                    <div class="mock-site__bar">
+                                        <span class="mock-site__logo">MCR Plumbing</span>
+                                        <span class="mock-site__phone">📞 0161 555 0199</span>
+                                    </div>
+                                    <div class="mock-site__hero-img"></div>
+                                    <div class="mock-site__cards">
+                                        <div class="mock-site__card"></div>
+                                        <div class="mock-site__card"></div>
+                                        <div class="mock-site__card"></div>
+                                    </div>
                                 </div>
-                                <div class="mock-site__hero-img"></div>
-                                <div class="mock-site__cards">
-                                    <div class="mock-site__card"></div>
-                                    <div class="mock-site__card"></div>
-                                    <div class="mock-site__card"></div>
+                            </div>
+                        </div>
+                        <div class="device device--phone-lead">
+                            <div class="device__screen">
+                                <div class="mock-site mock-site--mobile">
+                                    <div class="mock-site__bar">
+                                        <span class="mock-site__logo">MCR Plumbing</span>
+                                    </div>
+                                    <div class="mock-site__hero-img"></div>
+                                    <div class="mock-site__cta">Get a Free Quote</div>
+                                    <div class="mock-site__stars">★★★★★ <span>4.9 (128 reviews)</span></div>
+                                    <div class="mock-site__call-btn">📞 Call Now</div>
                                 </div>
                             </div>
                         </div>
                     </div>
-                    <!-- Phone (front, dominant) -->
-                    <div class="device device--phone-lead">
-                        <div class="device__screen">
-                            <div class="mock-site mock-site--mobile">
-                                <div class="mock-site__bar">
-                                    <span class="mock-site__logo">MCR Plumbing</span>
-                                </div>
-                                <div class="mock-site__hero-img"></div>
-                                <div class="mock-site__cta">Get a Free Quote</div>
-                                <div class="mock-site__stars">★★★★★ <span>4.9 (128 reviews)</span></div>
-                                <div class="mock-site__call-btn">📞 Call Now</div>
-                            </div>
-                        </div>
-                    </div>
+                </div>
+                <div class="lw-price-card">
+                    <span class="lw-price-card__chip">Website Installs From</span>
+                    <div class="lw-price-card__amount">£3,500</div>
+                    <p class="lw-price-card__range">Most projects land between £3,500–£6,000 depending on services +
+                        areas.</p>
+                    <p class="lw-price-card__trust">If ROI doesn't make sense, we'll tell you directly.</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- ═══ 2. VISUAL PROOF ═══ -->
-    <section class="section section--bg" id="visual-proof">
+    <!-- ═══ 2. FIT FILTER ═══ -->
+    <section class="section section--bg" id="fit">
+        <div class="container">
+            <div class="lw-fit">
+                <div class="lw-fit-card lw-fit-card--good">
+                    <h3>Good fit if</h3>
+                    <ul>
+                        <li>You're getting 10+ enquiries/month</li>
+                        <li>You want more calls + quote requests without more admin</li>
+                        <li>You're ready to invest £3,500+ if it pays back</li>
+                        <li>You want a website built for conversion + local search</li>
+                    </ul>
+                </div>
+                <div class="lw-fit-card lw-fit-card--not">
+                    <h3>Not a fit if</h3>
+                    <ul>
+                        <li>You're looking for the cheapest website</li>
+                        <li>You have no inbound enquiries yet</li>
+                        <li>You want a "pretty site" with no performance focus</li>
+                        <li>You're not ready to act in the next 1–3 months</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ═══ 3. EXAMPLE CONVERSION STRUCTURE ═══ -->
+    <section class="section section--white" id="visual-proof">
         <div class="container">
             <div class="section__header section__header--center">
                 <h2>Example Conversion Structure</h2>
+                <p class="section__sub">Most trade websites don't have this structure. This isn't design — it's
+                    conversion architecture.</p>
             </div>
             <div class="annotated-preview">
                 <div class="annotated-preview__frame">
-                    <!-- Annotated wireframe built in HTML -->
                     <div class="annotated-wireframe">
-                        <!-- Top bar -->
                         <div class="aw-topbar">
                             <span class="aw-logo">TradeCo</span>
                             <div class="aw-nav-items">
@@ -124,7 +596,6 @@
                             <span class="aw-phone">📞 0800 123 456</span>
                             <div class="aw-callout" data-label="Click-to-Call"></div>
                         </div>
-                        <!-- Hero -->
                         <div class="aw-hero-block">
                             <div class="aw-hero-text">
                                 <div class="aw-h1">Professional Plumbing &amp; Heating Services</div>
@@ -134,7 +605,6 @@
                                 <div class="aw-callout" data-label="Primary Call CTA"></div>
                             </div>
                         </div>
-                        <!-- Services -->
                         <div class="aw-services">
                             <div class="aw-service-card">
                                 <div class="aw-card-icon"></div>
@@ -153,7 +623,6 @@
                             </div>
                             <div class="aw-callout" data-label="Service Hierarchy"></div>
                         </div>
-                        <!-- Reviews -->
                         <div class="aw-reviews">
                             <div class="aw-review">
                                 <div class="aw-stars">★★★★★</div>
@@ -163,17 +632,14 @@
                                 <div class="aw-stars">★★★★★</div>
                                 <div class="aw-body-line"></div>
                             </div>
-                            <div class="aw-callout" data-label="Review Placement"></div>
+                            <div class="aw-callout" data-label="Reviews + Rating Above Fold"></div>
                         </div>
-                        <!-- Contact -->
-                        <!-- Trust block -->
                         <div class="aw-trust">
                             <div class="aw-trust-badge">✓ Gas Safe</div>
                             <div class="aw-trust-badge">✓ Fully Insured</div>
                             <div class="aw-trust-badge">✓ 10yr Warranty</div>
-                            <div class="aw-callout" data-label="Trust Block"></div>
+                            <div class="aw-callout" data-label="Trust Badges"></div>
                         </div>
-                        <!-- Contact -->
                         <div class="aw-contact">
                             <div class="aw-contact-form">
                                 <div class="aw-input"></div>
@@ -181,102 +647,23 @@
                                 <div class="aw-input aw-input--tall"></div>
                                 <div class="aw-cta-btn">Request Quote</div>
                             </div>
-                            <div class="aw-callout" data-label="Clear Quote Path"></div>
+                            <div class="aw-callout" data-label="Quote Path (Frictionless)"></div>
                         </div>
                     </div>
                 </div>
             </div>
-            <p class="section__micro-proof"><strong>Most trade websites don't have this structure.</strong></p>
-            <p class="section__micro-proof">This isn't design. It's conversion architecture.</p>
         </div>
     </section>
 
-    <!-- ═══ 3. PROBLEM REFRAME ═══ -->
-    <section class="section section--white" id="problem">
-        <div class="container">
-            <div class="section__header section__header--center">
-                <h2>Most Trade Websites Don't Lose Traffic.<br>They Lose Paying Jobs.</h2>
-            </div>
-            <div class="pain-grid pain-grid--3">
-                <div class="pain-card">
-                    <div class="pain-card__icon">
-                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                            stroke-width="1.8">
-                            <circle cx="12" cy="12" r="10" />
-                            <path d="M12 6v6l4 2" stroke-linecap="round" />
-                        </svg>
-                    </div>
-                    <h3>Slow &amp; Outdated Builds</h3>
-                    <p>Heavy themes and poor structure reduce trust. Customers leave.</p>
-                </div>
-                <div class="pain-card">
-                    <div class="pain-card__icon">
-                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                            stroke-width="1.8">
-                            <path d="M9 18l6-6-6-6" stroke-linecap="round" stroke-linejoin="round" />
-                        </svg>
-                    </div>
-                    <h3>No Clear Call Path</h3>
-                    <p>Visitors don't know what to do next — so they call someone else.</p>
-                </div>
-                <div class="pain-card">
-                    <div class="pain-card__icon">
-                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                            stroke-width="1.8">
-                            <rect x="3" y="3" width="18" height="18" rx="2" />
-                            <path d="M3 9h18M9 21V9" stroke-linecap="round" />
-                        </svg>
-                    </div>
-                    <h3>No System Behind Enquiries</h3>
-                    <p>Even when leads come in, there's no follow-up engine supporting them.</p>
-                </div>
-            </div>
-            <p class="section__micro-proof">A website should be a lead capture system — not a digital brochure.</p>
-        </div>
-    </section>
-
-    <!-- ═══ 4. ENGINEERED FOR REVENUE ═══ -->
-    <section class="section section--bg" id="differentiators">
-        <div class="container">
-            <div class="section__header section__header--center">
-                <h2>Engineered for Revenue, Not Aesthetics</h2>
-                <p class="section__sub">We don't design websites. We engineer lead systems.</p>
-            </div>
-            <div class="diff-grid">
-                <div class="diff-card">
-                    <span class="diff-card__badge">1</span>
-                    <h3>Structured to Convert</h3>
-                    <p>Every page guides visitors toward one thing: contacting you.</p>
-                </div>
-                <div class="diff-card">
-                    <span class="diff-card__badge">2</span>
-                    <h3>Fast Enough to Keep Them</h3>
-                    <p>Loads in under 2 seconds. No bloated templates. No waiting.</p>
-                </div>
-                <div class="diff-card">
-                    <span class="diff-card__badge">3</span>
-                    <h3>Shows Up When They Search</h3>
-                    <p>Built around your service areas so local customers find you first.</p>
-                </div>
-                <div class="diff-card">
-                    <span class="diff-card__badge">4</span>
-                    <h3>Ready for Follow-Up</h3>
-                    <p>When you're ready, plug in automated replies, missed-call recovery, and quote chase.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- ═══ 5. BEFORE / AFTER ═══ -->
-    <section class="section section--dark" id="before-after">
+    <!-- ═══ 4. BEFORE VS AFTER ═══ -->
+    <section class="section section--bg" id="before-after">
         <div class="container">
             <div class="section__header section__header--center">
                 <h2>Before vs After</h2>
             </div>
-            <div class="ba-compare">
-                <!-- BEFORE -->
-                <div class="ba-side">
-                    <span class="ba-side__label ba-side__label--before">Before</span>
+            <div class="lw-ba">
+                <div class="lw-ba-card">
+                    <span class="lw-ba-badge lw-ba-badge--before">Before</span>
                     <div class="ba-mock ba-mock--before">
                         <div class="ba-mock__bar">
                             <span style="font-weight:600;font-size:11px;color:#446">J&amp;S Plumbing Solutions
@@ -303,9 +690,8 @@
                         </div>
                     </div>
                 </div>
-                <!-- AFTER -->
-                <div class="ba-side">
-                    <span class="ba-side__label ba-side__label--after">After</span>
+                <div class="lw-ba-card">
+                    <span class="lw-ba-badge lw-ba-badge--after">After</span>
                     <div class="ba-mock ba-mock--after">
                         <div class="ba-mock__bar">
                             <span style="font-weight:700;font-size:12px;color:#0f1d3d">J&amp;S Plumbing</span>
@@ -336,90 +722,151 @@
                         <div style="padding:6px 12px;font-size:10px;color:#f59e0b">★★★★★ <span
                                 style="color:#888;font-size:9px">4.9 (128)</span></div>
                     </div>
+                    <ul class="lw-ba-improve">
+                        <li>Faster load times</li>
+                        <li>Clear enquiry flow</li>
+                        <li>Higher call &amp; form conversion</li>
+                        <li>Better visibility into performance</li>
+                    </ul>
                 </div>
-            </div>
-            <div class="ba-results">
-                <p class="ba-results__intro">After install typically improves:</p>
-                <ul class="ba-results__list">
-                    <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                            stroke-width="2">
-                            <path d="M13 17l5-5-5-5M6 17l5-5-5-5" stroke-linecap="round" stroke-linejoin="round" />
-                        </svg> Faster load times</li>
-                    <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                            stroke-width="2">
-                            <path d="M22 12h-4l-3 9L9 3l-3 9H2" stroke-linecap="round" stroke-linejoin="round" />
-                        </svg> Clear enquiry flow</li>
-                    <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                            stroke-width="2">
-                            <path
-                                d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6A19.79 19.79 0 012.12 4.18 2 2 0 014.11 2h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"
-                                stroke-linecap="round" stroke-linejoin="round" />
-                        </svg> Higher call &amp; form conversion</li>
-                    <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                            stroke-width="2">
-                            <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z" stroke-linecap="round"
-                                stroke-linejoin="round" />
-                            <circle cx="12" cy="12" r="3" />
-                        </svg> Better visibility into performance</li>
-                </ul>
             </div>
         </div>
     </section>
 
-    <!-- ═══ 5b. PERFORMANCE PROOF ═══ -->
-    <section class="section section--white" id="proof">
-        <div class="container container--narrow">
+    <!-- ═══ 5. WHY MOST SITES FAIL ═══ -->
+    <section class="section section--white" id="problem">
+        <div class="container">
             <div class="section__header section__header--center">
-                <h2>Typical Improvements After Rebuild</h2>
+                <h2>Most trade websites don't lose traffic.<br>They lose paying jobs.</h2>
             </div>
-            <div class="proof-outcomes">
-                <div class="proof-outcome">
-                    <span class="proof-outcome__icon">⚡</span>
-                    <div>
-                        <strong>Pages load in under 2 seconds</strong>
-                        <span>Customers don't wait around</span>
+            <div class="pain-grid pain-grid--3">
+                <div class="pain-card">
+                    <div class="pain-card__icon">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="1.8">
+                            <circle cx="12" cy="12" r="10" />
+                            <path d="M12 6v6l4 2" stroke-linecap="round" />
+                        </svg>
                     </div>
+                    <h3>Slow &amp; outdated builds</h3>
+                    <p>Heavy themes and messy structure reduce trust. Customers leave.</p>
                 </div>
-                <div class="proof-outcome">
-                    <span class="proof-outcome__icon">📞</span>
-                    <div>
-                        <strong>Your phone number is always visible</strong>
-                        <span>One tap to call from any screen</span>
+                <div class="pain-card">
+                    <div class="pain-card__icon">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="1.8">
+                            <path d="M9 18l6-6-6-6" stroke-linecap="round" stroke-linejoin="round" />
+                        </svg>
                     </div>
+                    <h3>No clear call path</h3>
+                    <p>Visitors don't know what to do next — so they call someone else.</p>
                 </div>
-                <div class="proof-outcome">
-                    <span class="proof-outcome__icon">📊</span>
-                    <div>
-                        <strong>You can see where enquiries come from</strong>
-                        <span>Know what's working and what isn't</span>
+                <div class="pain-card">
+                    <div class="pain-card__icon">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="1.8">
+                            <rect x="3" y="3" width="18" height="18" rx="2" />
+                            <path d="M3 9h18M9 21V9" stroke-linecap="round" />
+                        </svg>
                     </div>
+                    <h3>No system behind enquiries</h3>
+                    <p>Leads come in… then go cold because follow‑up is manual.</p>
                 </div>
-                <div class="proof-outcome">
-                    <span class="proof-outcome__icon">📍</span>
-                    <div>
-                        <strong>Pages for every area you serve</strong>
-                        <span>Show up when local customers search</span>
-                    </div>
+            </div>
+            <p class="section__micro-proof">A website should be a lead capture system — not a digital brochure.</p>
+        </div>
+    </section>
+
+    <!-- ═══ 6. ENGINEERED FOR REVENUE ═══ -->
+    <section class="section section--bg" id="differentiators">
+        <div class="container">
+            <div class="section__header section__header--center">
+                <h2>Engineered for revenue, not aesthetics</h2>
+                <p class="section__sub" style="font-weight:650">We don't design websites. We engineer lead systems.</p>
+            </div>
+            <div class="lw-pillars">
+                <div class="lw-pillar">
+                    <h3>Structured to convert</h3>
+                    <p>Every page guides visitors to call or request a quote.</p>
+                </div>
+                <div class="lw-pillar">
+                    <h3>Fast enough to keep them</h3>
+                    <p>Built to load quickly on mobile so customers don't bounce.</p>
+                </div>
+                <div class="lw-pillar">
+                    <h3>Shows up locally</h3>
+                    <p>Service + area structure that helps you appear when locals search.</p>
+                </div>
+                <div class="lw-pillar">
+                    <h3>Ready for follow‑up</h3>
+                    <p>Add missed‑call recovery and quote chasing when you're ready.</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- ═══ 6. WHAT'S INCLUDED ═══ -->
+    <!-- ═══ 7. TYPICAL IMPROVEMENTS ═══ -->
+    <section class="section section--white" id="proof">
+        <div class="container">
+            <div class="section__header section__header--center">
+                <h2>Typical improvements after rebuild</h2>
+            </div>
+            <div class="lw-metrics">
+                <div class="lw-metric">
+                    <svg class="lw-metric__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                        stroke-width="1.8">
+                        <path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z" stroke-linecap="round" stroke-linejoin="round" />
+                    </svg>
+                    <strong>Faster load</strong>
+                    <span>Customers don't wait around</span>
+                </div>
+                <div class="lw-metric">
+                    <svg class="lw-metric__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                        stroke-width="1.8">
+                        <path
+                            d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6A19.79 19.79 0 012.12 4.18 2 2 0 014.11 2h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"
+                            stroke-linecap="round" stroke-linejoin="round" />
+                    </svg>
+                    <strong>Clear phone visibility</strong>
+                    <span>One tap to call from any screen</span>
+                </div>
+                <div class="lw-metric">
+                    <svg class="lw-metric__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                        stroke-width="1.8">
+                        <path d="M22 12h-4l-3 9L9 3l-3 9H2" stroke-linecap="round" stroke-linejoin="round" />
+                    </svg>
+                    <strong>Better tracking</strong>
+                    <span>See what's working and what isn't</span>
+                </div>
+                <div class="lw-metric">
+                    <svg class="lw-metric__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                        stroke-width="1.8">
+                        <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z" stroke-linecap="round"
+                            stroke-linejoin="round" />
+                        <circle cx="12" cy="10" r="3" />
+                    </svg>
+                    <strong>Local coverage</strong>
+                    <span>Pages for every area you serve</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ═══ 8. INCLUDED + ADD-ONS ═══ -->
     <section class="section section--bg" id="whats-included">
         <div class="container">
             <div class="section__header section__header--center">
-                <h2>Everything Required to Compete Locally</h2>
+                <h2>Everything required to compete locally</h2>
             </div>
             <div class="deliverables-layout">
                 <div class="deliverables-card">
                     <h3>Included</h3>
                     <ul class="deliverables-list deliverables-list--included">
                         <li>5–10 page structured build</li>
-                        <li>Service pages for local ranking</li>
+                        <li>Service pages built for local ranking</li>
                         <li>Clear CTA optimisation</li>
-                        <li>Click-to-call configuration</li>
-                        <li>Contact &amp; booking flow</li>
+                        <li>Click‑to‑call configuration</li>
+                        <li>Contact &amp; quote flow</li>
                         <li>Analytics &amp; tracking</li>
                         <li>Hosting &amp; performance setup</li>
                     </ul>
@@ -427,8 +874,8 @@
                 <div class="deliverables-card deliverables-card--addon">
                     <h3>Optional Add-Ons</h3>
                     <ul class="deliverables-list deliverables-list--addon">
-                        <li>Missed-call automation</li>
-                        <li>Quote follow-up system</li>
+                        <li>Missed‑call automation</li>
+                        <li>Quote follow‑up system</li>
                         <li>Review automation engine</li>
                     </ul>
                     <p class="deliverables-seed">Most clients layer automation once the website is performing.</p>
@@ -437,38 +884,55 @@
         </div>
     </section>
 
-    <!-- ═══ 7. INSTALLATION PROCESS ═══ -->
-    <section class="section section--white" id="process">
+    <!-- ═══ 9. INVESTMENT ═══ -->
+    <section class="section section--white" id="investment">
         <div class="container">
             <div class="section__header section__header--center">
-                <h2>Installation Process</h2>
+                <h2>Investment</h2>
             </div>
-            <div class="audit-steps">
-                <div class="audit-step">
-                    <div class="audit-step__badge">1</div>
-                    <div class="audit-step__content">
-                        <h3>Audit &amp; Structure Plan</h3>
+            <div class="lw-invest">
+                <div class="lw-invest__label">Website Installs From</div>
+                <div class="lw-invest__price">£3,500</div>
+                <p class="lw-invest__range">Most established trade businesses invest £3,500–£6,000 depending on services
+                    + areas.</p>
+                <p class="lw-invest__risk">If ROI doesn't make sense for your business, we'll tell you directly.</p>
+                <a href="audit.html" class="btn btn--primary btn--hero">Request Website Audit</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- ═══ 10. INSTALLATION PROCESS ═══ -->
+    <section class="section section--bg" id="process">
+        <div class="container">
+            <div class="section__header section__header--center">
+                <h2>Installation process</h2>
+            </div>
+            <div class="lw-process">
+                <div class="lw-process-card">
+                    <span class="lw-process-card__num">1</span>
+                    <div>
+                        <h3>Audit &amp; structure plan</h3>
                         <p>We analyse your current site and map conversion improvements.</p>
                     </div>
                 </div>
-                <div class="audit-step">
-                    <div class="audit-step__badge">2</div>
-                    <div class="audit-step__content">
-                        <h3>Build &amp; Optimise</h3>
+                <div class="lw-process-card">
+                    <span class="lw-process-card__num">2</span>
+                    <div>
+                        <h3>Build &amp; optimise</h3>
                         <p>Performance-first rebuild with structured content.</p>
                     </div>
                 </div>
-                <div class="audit-step">
-                    <div class="audit-step__badge">3</div>
-                    <div class="audit-step__content">
-                        <h3>Launch &amp; Measure</h3>
+                <div class="lw-process-card">
+                    <span class="lw-process-card__num">3</span>
+                    <div>
+                        <h3>Launch &amp; measure</h3>
                         <p>Live deployment + tracking dashboard.</p>
                     </div>
                 </div>
-                <div class="audit-step">
-                    <div class="audit-step__badge">4</div>
-                    <div class="audit-step__content">
-                        <h3>Optional Automation Layer</h3>
+                <div class="lw-process-card">
+                    <span class="lw-process-card__num">4</span>
+                    <div>
+                        <h3>Optional automation layer</h3>
                         <p>Add follow-up and missed-call systems when ready.</p>
                     </div>
                 </div>
@@ -476,23 +940,7 @@
         </div>
     </section>
 
-    <!-- ═══ 8. INVESTMENT ═══ -->
-    <section class="section section--bg" id="investment">
-        <div class="container container--narrow">
-            <div class="section__header section__header--center">
-                <h2>Investment</h2>
-            </div>
-            <div class="pricing-frame">
-                <p class="pricing-frame__range">Most serious trade businesses invest between:</p>
-                <div class="pricing-frame__amount">£X,XXX – £X,XXX</div>
-                <p class="pricing-frame__note">Depending on scope and service structure.</p>
-                <p class="pricing-frame__assurance">If ROI doesn't make sense for your business, we'll tell you
-                    directly.</p>
-            </div>
-        </div>
-    </section>
-
-    <!-- ═══ 9. FINAL CTA ═══ -->
+    <!-- ═══ 11. FINAL CTA ═══ -->
     <section class="cta-band">
         <div class="container">
             <h2>If your website isn't actively generating enquiries, it's leaking revenue.</h2>

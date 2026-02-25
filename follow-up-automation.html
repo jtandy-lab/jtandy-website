@@ -4,15 +4,664 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Follow-Up Automation — Stop Losing Jobs to Slow Replies | JTandy</title>
+    <title>Follow-Up Automation for UK Trades — JTandy</title>
     <meta name="description"
-        content="Automated response and follow-up systems that capture missed calls, reply instantly, and recover quotes that would otherwise go cold.">
+        content="Automated follow-up that texts missed callers, replies instantly, chases quotes, and tracks lead status. From £1,500 setup.">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
-        href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700;800&family=Inter:wght@400;450;500;550;600;650;700;750;800&display=swap"
+        href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700;800&family=Inter:wght@400;450;500;550;600;650;700;750;800;850&display=swap"
         rel="stylesheet">
     <link rel="stylesheet" href="style.css">
+    <style>
+        /* ── Follow-Up Automation v2 page-specific ── */
+        .fu-hero {
+            background: #FFFFFF;
+            padding: calc(var(--nav-h) + 72px) 0 64px;
+            border-bottom: 1px solid var(--border-0)
+        }
+
+        .fu-hero__grid {
+            display: grid;
+            grid-template-columns: 7fr 5fr;
+            gap: 48px;
+            align-items: start
+        }
+
+        .fu-hero__eyebrow {
+            display: block;
+            font-family: var(--font-body);
+            font-size: 12px;
+            font-weight: 650;
+            letter-spacing: .08em;
+            text-transform: uppercase;
+            color: var(--text-2);
+            margin-bottom: 12px
+        }
+
+        .fu-hero h1 {
+            font-size: clamp(34px, 5vw, 52px);
+            line-height: 1.15;
+            font-weight: 700;
+            color: var(--text-0);
+            letter-spacing: -.02em
+        }
+
+        .fu-hero__sub {
+            font-size: 18px;
+            line-height: 1.56;
+            font-weight: 450;
+            color: var(--text-1);
+            margin-top: 14px;
+            max-width: 640px
+        }
+
+        .fu-hero__bullets {
+            list-style: none;
+            margin-top: 20px;
+            display: flex;
+            flex-direction: column;
+            gap: 8px
+        }
+
+        .fu-hero__bullets li {
+            font-size: 15px;
+            line-height: 1.6;
+            font-weight: 450;
+            color: var(--text-1);
+            padding-left: 24px;
+            position: relative
+        }
+
+        .fu-hero__bullets li::before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: var(--success-0);
+            font-weight: 700
+        }
+
+        .fu-hero__ctas {
+            display: flex;
+            gap: 12px;
+            margin-top: 22px;
+            flex-wrap: wrap
+        }
+
+        .fu-hero__micro {
+            font-size: 14px;
+            font-weight: 550;
+            color: var(--text-1);
+            margin-top: 12px
+        }
+
+        .fu-hero__right {
+            display: flex;
+            flex-direction: column;
+            gap: 14px
+        }
+
+        /* Flow preview card */
+        .fu-flow-card {
+            background: var(--bg-0);
+            border: 1px solid var(--border-0);
+            border-radius: 16px;
+            padding: 18px;
+            box-shadow: 0 2px 10px rgba(15, 29, 61, .08)
+        }
+
+        .fu-flow-card__title {
+            font-family: var(--font-heading);
+            font-size: 16px;
+            font-weight: 700;
+            line-height: 1.38;
+            color: var(--text-0);
+            margin-bottom: 14px
+        }
+
+        .fu-flow-row {
+            display: flex;
+            align-items: flex-start;
+            gap: 10px;
+            padding: 8px 0;
+            border-bottom: 1px solid rgba(15, 29, 61, .06)
+        }
+
+        .fu-flow-row:last-of-type {
+            border-bottom: none
+        }
+
+        .fu-flow-dot {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background: var(--success-0);
+            flex-shrink: 0;
+            margin-top: 6px
+        }
+
+        .fu-flow-row strong {
+            font-size: 14px;
+            font-weight: 650;
+            line-height: 1.43;
+            color: var(--text-0);
+            display: block
+        }
+
+        .fu-flow-row span {
+            font-size: 12px;
+            font-weight: 450;
+            line-height: 1.5;
+            color: var(--text-1)
+        }
+
+        .fu-flow-chip {
+            display: inline-block;
+            background: rgba(22, 163, 74, .12);
+            color: var(--success-0);
+            font-size: 13px;
+            font-weight: 650;
+            line-height: 1.38;
+            padding: 6px 12px;
+            border-radius: 8px;
+            margin-top: 12px
+        }
+
+        /* Price card */
+        .fu-price-card {
+            background: var(--navy-0);
+            border-radius: 16px;
+            padding: 18px
+        }
+
+        .fu-price-card__chip {
+            display: inline-block;
+            font-size: 12px;
+            font-weight: 650;
+            letter-spacing: .06em;
+            text-transform: uppercase;
+            color: rgba(255, 255, 255, .72);
+            background: rgba(255, 255, 255, .08);
+            border-radius: 999px;
+            padding: 6px 10px;
+            line-height: 1.5
+        }
+
+        .fu-price-card__amount {
+            font-family: var(--font-body);
+            font-size: 28px;
+            line-height: 1.14;
+            font-weight: 800;
+            color: #fff;
+            margin-top: 10px
+        }
+
+        .fu-price-card__secondary {
+            font-size: 16px;
+            line-height: 1.5;
+            font-weight: 650;
+            color: rgba(255, 255, 255, .86);
+            margin-top: 4px
+        }
+
+        .fu-price-card__range {
+            font-size: 13px;
+            line-height: 1.54;
+            font-weight: 500;
+            color: rgba(255, 255, 255, .78);
+            margin-top: 8px
+        }
+
+        .fu-price-card__trust {
+            font-size: 13px;
+            line-height: 1.54;
+            font-weight: 650;
+            color: rgba(255, 255, 255, .90);
+            margin-top: 10px
+        }
+
+        /* Fit filter */
+        .fu-fit {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 24px
+        }
+
+        .fu-fit-card {
+            background: var(--surface-0);
+            border: 1px solid var(--border-0);
+            border-radius: 16px;
+            padding: 22px
+        }
+
+        .fu-fit-card h3 {
+            font-family: var(--font-heading);
+            font-size: 18px;
+            font-weight: 700;
+            line-height: 1.44;
+            margin-bottom: 14px
+        }
+
+        .fu-fit-card ul {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 8px
+        }
+
+        .fu-fit-card li {
+            font-size: 14px;
+            line-height: 1.57;
+            font-weight: 450;
+            color: var(--text-1);
+            padding-left: 22px;
+            position: relative
+        }
+
+        .fu-fit-card--good li::before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: var(--success-0);
+            font-weight: 700
+        }
+
+        .fu-fit-card--not li::before {
+            content: '✕';
+            position: absolute;
+            left: 0;
+            color: var(--text-2);
+            font-weight: 600
+        }
+
+        /* Problem cards */
+        .fu-problems {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px
+        }
+
+        .fu-problem {
+            background: var(--surface-0);
+            border: 1px solid var(--border-0);
+            border-radius: 16px;
+            padding: 22px;
+            box-shadow: 0 2px 10px rgba(15, 29, 61, .08)
+        }
+
+        .fu-problem h3 {
+            font-family: var(--font-heading);
+            font-size: 18px;
+            font-weight: 700;
+            line-height: 1.44;
+            margin-bottom: 8px
+        }
+
+        .fu-problem p {
+            font-size: 15px;
+            line-height: 1.6;
+            color: var(--text-1)
+        }
+
+        /* How it works flow */
+        .fu-flow-grid {
+            display: grid;
+            grid-template-columns: repeat(6, 1fr);
+            gap: 12px;
+            position: relative
+        }
+
+        .fu-flow-grid::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 5%;
+            right: 5%;
+            height: 1px;
+            background: var(--border-1);
+            z-index: 0
+        }
+
+        .fu-node {
+            background: var(--surface-0);
+            border: 1px solid var(--border-0);
+            border-radius: 16px;
+            padding: 16px;
+            position: relative;
+            z-index: 1
+        }
+
+        .fu-node__dot {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background: var(--success-0);
+            margin-bottom: 8px
+        }
+
+        .fu-node strong {
+            font-size: 14px;
+            font-weight: 650;
+            line-height: 1.43;
+            display: block;
+            margin-bottom: 4px
+        }
+
+        .fu-node span {
+            font-size: 12px;
+            font-weight: 450;
+            line-height: 1.5;
+            color: var(--text-1)
+        }
+
+        /* Outcomes 2x2 */
+        .fu-outcomes {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px
+        }
+
+        .fu-outcome {
+            background: var(--bg-0);
+            border: 1px solid var(--border-0);
+            border-radius: 16px;
+            padding: 20px
+        }
+
+        .fu-outcome strong {
+            font-size: 15px;
+            font-weight: 650;
+            line-height: 1.47;
+            display: block;
+            margin-bottom: 4px
+        }
+
+        .fu-outcome span {
+            font-size: 14px;
+            line-height: 1.57;
+            font-weight: 450;
+            color: var(--text-1)
+        }
+
+        /* Before/After */
+        .fu-ba {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 24px
+        }
+
+        .fu-ba-card {
+            background: var(--surface-0);
+            border: 1px solid var(--border-0);
+            border-radius: 16px;
+            padding: 22px
+        }
+
+        .fu-ba-badge {
+            display: inline-block;
+            font-size: 12px;
+            font-weight: 650;
+            letter-spacing: .06em;
+            text-transform: uppercase;
+            border-radius: 999px;
+            padding: 4px 10px;
+            margin-bottom: 14px;
+            line-height: 1.5
+        }
+
+        .fu-ba-badge--before {
+            background: rgba(220, 38, 38, .10);
+            color: #DC2626
+        }
+
+        .fu-ba-badge--after {
+            background: rgba(22, 163, 74, .12);
+            color: var(--success-0)
+        }
+
+        .fu-ba-card ul {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 8px
+        }
+
+        .fu-ba-card li {
+            font-size: 14px;
+            line-height: 1.57;
+            font-weight: 450;
+            color: var(--text-1);
+            padding-left: 20px;
+            position: relative
+        }
+
+        .fu-ba-card--before li::before {
+            content: '→';
+            position: absolute;
+            left: 0;
+            color: var(--text-2)
+        }
+
+        .fu-ba-card--after li::before {
+            content: '→';
+            position: absolute;
+            left: 0;
+            color: var(--success-0)
+        }
+
+        /* Included */
+        .fu-included {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 24px
+        }
+
+        .fu-inc-card {
+            background: var(--bg-0);
+            border: 1px solid var(--border-0);
+            border-radius: 16px;
+            padding: 22px
+        }
+
+        .fu-inc-card h3 {
+            font-family: var(--font-heading);
+            font-size: 18px;
+            font-weight: 700;
+            margin-bottom: 14px
+        }
+
+        .fu-inc-card ul {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 8px
+        }
+
+        .fu-inc-card li {
+            font-size: 14px;
+            line-height: 1.57;
+            font-weight: 450;
+            color: var(--text-1);
+            padding-left: 22px;
+            position: relative
+        }
+
+        .fu-inc-card--yes li::before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: var(--success-0);
+            font-weight: 700
+        }
+
+        .fu-inc-card--no li::before {
+            content: '✕';
+            position: absolute;
+            left: 0;
+            color: var(--text-2);
+            font-weight: 600
+        }
+
+        /* Investment card */
+        .fu-invest {
+            background: var(--navy-0);
+            border-radius: 16px;
+            padding: 26px;
+            max-width: 760px;
+            margin: 0 auto;
+            text-align: center
+        }
+
+        .fu-invest__label {
+            font-size: 12px;
+            font-weight: 650;
+            letter-spacing: .06em;
+            text-transform: uppercase;
+            color: rgba(255, 255, 255, .70)
+        }
+
+        .fu-invest__price {
+            font-family: var(--font-body);
+            font-size: 44px;
+            line-height: 1.09;
+            font-weight: 850;
+            color: #fff;
+            margin-top: 10px
+        }
+
+        .fu-invest__secondary {
+            font-size: 16px;
+            line-height: 1.63;
+            font-weight: 650;
+            color: rgba(255, 255, 255, .88);
+            margin-top: 6px
+        }
+
+        .fu-invest__details {
+            font-size: 13px;
+            line-height: 1.54;
+            color: rgba(255, 255, 255, .78);
+            margin-top: 12px;
+            text-align: left;
+            max-width: 520px;
+            margin-left: auto;
+            margin-right: auto
+        }
+
+        .fu-invest__details ul {
+            list-style: none;
+            margin-top: 6px;
+            display: flex;
+            flex-direction: column;
+            gap: 2px
+        }
+
+        .fu-invest__details li {
+            padding-left: 14px;
+            position: relative
+        }
+
+        .fu-invest__details li::before {
+            content: '·';
+            position: absolute;
+            left: 4px;
+            font-weight: 700
+        }
+
+        .fu-invest__risk {
+            font-size: 14px;
+            line-height: 1.57;
+            font-weight: 650;
+            color: rgba(255, 255, 255, .90);
+            margin-top: 10px
+        }
+
+        .fu-invest .btn {
+            margin-top: 20px
+        }
+
+        .fu-invest__disclaimer {
+            font-size: 12px;
+            line-height: 1.5;
+            color: rgba(255, 255, 255, .62);
+            margin-top: 12px
+        }
+
+        /* FAQ mini */
+        .fu-faq {
+            max-width: 800px;
+            margin: 0 auto;
+            display: flex;
+            flex-direction: column;
+            gap: 12px
+        }
+
+        .fu-faq-item {
+            background: var(--surface-0);
+            border: 1px solid var(--border-0);
+            border-radius: 16px;
+            overflow: hidden
+        }
+
+        .fu-faq-item summary {
+            padding: 18px;
+            font-family: var(--font-heading);
+            font-size: 16px;
+            font-weight: 650;
+            cursor: pointer;
+            list-style: none;
+            display: flex;
+            justify-content: space-between;
+            align-items: center
+        }
+
+        .fu-faq-item summary::after {
+            content: '+';
+            font-size: 20px;
+            font-weight: 400;
+            color: var(--text-2);
+            transition: transform .2s
+        }
+
+        .fu-faq-item[open] summary::after {
+            content: '−'
+        }
+
+        .fu-faq-item__body {
+            padding: 0 18px 18px;
+            font-size: 15px;
+            line-height: 1.6;
+            color: var(--text-1)
+        }
+
+        @media(max-width:768px) {
+
+            .fu-hero__grid,
+            .fu-fit,
+            .fu-ba,
+            .fu-included,
+            .fu-outcomes {
+                grid-template-columns: 1fr
+            }
+
+            .fu-problems {
+                grid-template-columns: 1fr
+            }
+
+            .fu-flow-grid {
+                grid-template-columns: 1fr 1fr;
+                gap: 10px
+            }
+
+            .fu-flow-grid::before {
+                display: none
+            }
+
+            .fu-hero {
+                padding: calc(var(--nav-h) + 48px) 0 48px
+            }
+        }
+    </style>
 </head>
 
 <body class="page-sub">
@@ -20,7 +669,9 @@
     <!-- ═══ HEADER ═══ -->
     <header class="header" id="header">
         <div class="header__inner">
-            <a href="index.html" class="header__brand">JTANDY</a>
+            <a href="index.html" class="header__brand"><img src="../Assets/Logo/Navy Jtandy Logo.svg" alt="JTandy"
+                    class="header__logo header__logo--navy"><img src="../Assets/Logo/White Jtandy Logo.svg" alt="JTandy"
+                    class="header__logo header__logo--white"></a>
             <nav class="header__nav" id="headerNav">
                 <div class="nav-dropdown">
                     <a href="index.html#solutions" class="nav-dropdown__trigger">Solutions <span
@@ -47,133 +698,198 @@
     </header>
 
     <!-- ═══ 1. HERO ═══ -->
-    <section class="fua-hero" id="fua-hero">
-        <div class="container">
-            <span class="sub-hero__eyebrow">FOLLOW-UP AUTOMATION</span>
-            <h1>Stop Losing Jobs to Slow Replies and Missed Calls</h1>
-            <p class="fua-hero__sub">Automated response and follow-up systems that capture missed calls, reply
-                instantly, and recover quotes that would otherwise go cold.</p>
-            <ul class="fua-hero__bullets">
-                <li>Instant enquiry acknowledgement</li>
-                <li>Missed-call text-back</li>
-                <li>Quote follow-up reminders</li>
-                <li>Clear visibility into lead status</li>
-            </ul>
-            <a href="audit.html" class="btn btn--primary btn--hero">Start Audit Request</a>
-        </div>
-    </section>
-
-    <!-- ═══ 2. PROBLEM ═══ -->
-    <section class="section section--bg" id="problem">
-        <div class="container">
-            <div class="section__header section__header--center">
-                <h2>Most Jobs Aren't Lost to Competitors.<br>They're Lost to Delay.</h2>
+    <section class="fu-hero" id="fu-hero">
+        <div class="container fu-hero__grid">
+            <div>
+                <span class="fu-hero__eyebrow">Follow‑Up Automation</span>
+                <h1>Stop losing jobs to missed calls and slow follow‑up.</h1>
+                <p class="fu-hero__sub">We install an always‑on follow‑up system that texts missed callers, replies
+                    instantly to enquiries, chases unanswered quotes, and shows lead status — so no enquiry slips
+                    through when you're on a job.</p>
+                <ul class="fu-hero__bullets">
+                    <li>Instant enquiry acknowledgement (SMS/email)</li>
+                    <li>Missed‑call text‑back (recover lost leads)</li>
+                    <li>Quote follow‑up reminders (stop leads going cold)</li>
+                    <li>Clear visibility into lead status</li>
+                </ul>
+                <div class="fu-hero__ctas">
+                    <a href="audit.html" class="btn btn--primary btn--hero">Start Audit Request</a>
+                    <a href="#how-it-works" class="btn btn--outline">See How It Works</a>
+                </div>
+                <p class="fu-hero__micro">✅ No calls required • Opt‑out friendly • Built for UK trades</p>
             </div>
-            <div class="fua-problem-grid">
-                <div class="fua-problem-card">
-                    <h3>Missed Calls</h3>
-                    <p>If you don't answer, they ring someone else.</p>
+            <div class="fu-hero__right">
+                <div class="fu-flow-card">
+                    <div class="fu-flow-card__title">What happens to an enquiry</div>
+                    <div class="fu-flow-row">
+                        <span class="fu-flow-dot"></span>
+                        <div><strong>Enquiry comes in</strong><span>Call or form submission</span></div>
+                    </div>
+                    <div class="fu-flow-row">
+                        <span class="fu-flow-dot"></span>
+                        <div><strong>Instant reply</strong><span>Customer gets acknowledgement</span></div>
+                    </div>
+                    <div class="fu-flow-row">
+                        <span class="fu-flow-dot"></span>
+                        <div><strong>Qualification</strong><span>Sort by service / urgency</span></div>
+                    </div>
+                    <div class="fu-flow-row">
+                        <span class="fu-flow-dot"></span>
+                        <div><strong>Booking / next step</strong><span>Link or callback prompt</span></div>
+                    </div>
+                    <div class="fu-flow-row">
+                        <span class="fu-flow-dot"></span>
+                        <div><strong>Quote follow‑up</strong><span>Timed reminder if no reply</span></div>
+                    </div>
+                    <span class="fu-flow-chip">Runs 24/7. No chasing.</span>
                 </div>
-                <div class="fua-problem-card">
-                    <h3>Slow Responses</h3>
-                    <p>Even a few hours delay can cost the job.</p>
-                </div>
-                <div class="fua-problem-card">
-                    <h3>No Quote Follow-Up</h3>
-                    <p>Quotes sent. No reminder. Job forgotten.</p>
-                </div>
-            </div>
-            <p class="fua-problem-closer">Automation removes delay from the equation.</p>
-        </div>
-    </section>
-
-    <!-- ═══ 3. HOW THE SYSTEM WORKS ═══ -->
-    <section class="section section--white" id="flow">
-        <div class="container">
-            <div class="section__header section__header--center">
-                <h2>How Follow-Up Automation Works</h2>
-            </div>
-            <div class="fua-flow">
-                <div class="fua-flow__node">
-                    <div class="fua-flow__dot"></div>
-                    <strong>Lead Enquiry</strong>
-                    <span>Customer calls or fills form.</span>
-                </div>
-                <div class="fua-flow__arrow">→</div>
-                <div class="fua-flow__node">
-                    <div class="fua-flow__dot"></div>
-                    <strong>Instant Reply</strong>
-                    <span>Customer receives acknowledgement within minutes.</span>
-                </div>
-                <div class="fua-flow__arrow">→</div>
-                <div class="fua-flow__node">
-                    <div class="fua-flow__dot"></div>
-                    <strong>Qualification</strong>
-                    <span>Lead is categorised by service type.</span>
-                </div>
-                <div class="fua-flow__arrow">→</div>
-                <div class="fua-flow__node">
-                    <div class="fua-flow__dot"></div>
-                    <strong>Booking Link</strong>
-                    <span>Customer can book a time that suits.</span>
-                </div>
-                <div class="fua-flow__arrow">→</div>
-                <div class="fua-flow__node">
-                    <div class="fua-flow__dot"></div>
-                    <strong>Follow-Up Reminder</strong>
-                    <span>Automated message if quote goes unanswered.</span>
-                </div>
-                <div class="fua-flow__arrow">→</div>
-                <div class="fua-flow__node">
-                    <div class="fua-flow__dot"></div>
-                    <strong>Review Request</strong>
-                    <span>Prompt sent after completed job.</span>
+                <div class="fu-price-card">
+                    <span class="fu-price-card__chip">Automation Installs From</span>
+                    <div class="fu-price-card__amount">£1,500 setup</div>
+                    <div class="fu-price-card__secondary">£250/month ongoing</div>
+                    <p class="fu-price-card__range">Typical range £1,500–£3,000 setup + £250–£450/month, depending on
+                        enquiry volume and channels.</p>
+                    <p class="fu-price-card__trust">We only recommend automation when enquiry volume justifies ROI.</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- ═══ 4. WHAT IMPROVES ═══ -->
-    <section class="section section--bg" id="improvements">
+    <!-- ═══ 2. FIT FILTER ═══ -->
+    <section class="section section--bg" id="fit">
         <div class="container">
-            <div class="section__header section__header--center">
-                <h2>What Improves After Installation</h2>
-            </div>
-            <div class="fua-improve-grid">
-                <div class="fua-improve-card">
-                    <h3>Faster First Response</h3>
-                    <p>Often under 2 minutes.</p>
-                </div>
-                <div class="fua-improve-card">
-                    <h3>More Booked Jobs</h3>
-                    <p>Typical uplift when follow-up is consistent.</p>
-                </div>
-                <div class="fua-improve-card">
-                    <h3>Fewer Missed Enquiries</h3>
-                    <p>Missed calls receive automatic response.</p>
-                </div>
-                <div class="fua-improve-card">
-                    <h3>Higher Review Volume</h3>
-                    <p>Follow-up prompts after completed jobs.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- ═══ 5. BEFORE VS AFTER ═══ -->
-    <section class="section section--white" id="scenario">
-        <div class="container">
-            <div class="fua-scenario-grid">
-                <div class="fua-scenario-card fua-scenario-card--before">
-                    <span class="fua-scenario-label fua-scenario-label--before">BEFORE AUTOMATION</span>
+            <div class="fu-fit">
+                <div class="fu-fit-card fu-fit-card--good">
+                    <h3>Good fit if</h3>
                     <ul>
-                        <li>Missed call → no follow-up</li>
+                        <li>You get 10+ enquiries/month</li>
+                        <li>You miss calls when you're busy</li>
+                        <li>Quotes go out but follow‑up is inconsistent</li>
+                        <li>You're ready to invest £1,500+ if it pays back</li>
+                    </ul>
+                </div>
+                <div class="fu-fit-card fu-fit-card--not">
+                    <h3>Not a fit if</h3>
+                    <ul>
+                        <li>You have no steady enquiries yet</li>
+                        <li>You want "AI automations" just to experiment</li>
+                        <li>You're looking for the cheapest option</li>
+                        <li>You don't want any customer messaging</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ═══ 3. PROBLEM ═══ -->
+    <section class="section section--white" id="problem">
+        <div class="container">
+            <div class="section__header section__header--center">
+                <h2>Most jobs aren't lost to competitors.<br>They're lost to delay.</h2>
+            </div>
+            <div class="fu-problems">
+                <div class="fu-problem">
+                    <h3>Missed calls</h3>
+                    <p>If you don't answer, they ring someone else. That job is gone.</p>
+                </div>
+                <div class="fu-problem">
+                    <h3>Slow responses</h3>
+                    <p>Even a few hours can cost the job — customers decide quickly.</p>
+                </div>
+                <div class="fu-problem">
+                    <h3>No quote follow‑up</h3>
+                    <p>Quotes get sent, then forgotten. Consistent follow‑up wins.</p>
+                </div>
+            </div>
+            <p class="section__micro-proof" style="font-weight:650">Automation removes delay from the equation.</p>
+        </div>
+    </section>
+
+    <!-- ═══ 4. HOW IT WORKS ═══ -->
+    <section class="section section--bg" id="how-it-works">
+        <div class="container">
+            <div class="section__header section__header--center">
+                <h2>How follow‑up automation works</h2>
+            </div>
+            <div class="fu-flow-grid">
+                <div class="fu-node">
+                    <div class="fu-node__dot"></div>
+                    <strong>Lead enquiry</strong>
+                    <span>Customer calls or fills a form</span>
+                </div>
+                <div class="fu-node">
+                    <div class="fu-node__dot"></div>
+                    <strong>Instant reply</strong>
+                    <span>Acknowledgement within minutes</span>
+                </div>
+                <div class="fu-node">
+                    <div class="fu-node__dot"></div>
+                    <strong>Qualification</strong>
+                    <span>Categorised by service/urgency</span>
+                </div>
+                <div class="fu-node">
+                    <div class="fu-node__dot"></div>
+                    <strong>Next step</strong>
+                    <span>Booking link or callback prompt</span>
+                </div>
+                <div class="fu-node">
+                    <div class="fu-node__dot"></div>
+                    <strong>Quote follow‑up</strong>
+                    <span>Reminder if no reply</span>
+                </div>
+                <div class="fu-node">
+                    <div class="fu-node__dot"></div>
+                    <strong>Review request</strong>
+                    <span>Prompt after job completion</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ═══ 5. OUTCOMES ═══ -->
+    <section class="section section--white" id="outcomes">
+        <div class="container">
+            <div class="section__header section__header--center">
+                <h2>What improves after installation</h2>
+            </div>
+            <div class="fu-outcomes">
+                <div class="fu-outcome">
+                    <strong>Faster first response</strong>
+                    <span>Often within minutes</span>
+                </div>
+                <div class="fu-outcome">
+                    <strong>More booked jobs</strong>
+                    <span>When follow‑up becomes consistent</span>
+                </div>
+                <div class="fu-outcome">
+                    <strong>Fewer missed enquiries</strong>
+                    <span>Missed calls get a text‑back</span>
+                </div>
+                <div class="fu-outcome">
+                    <strong>Clear visibility</strong>
+                    <span>See lead status and responses</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ═══ 6. BEFORE VS AFTER ═══ -->
+    <section class="section section--bg" id="before-after">
+        <div class="container">
+            <div class="section__header section__header--center">
+                <h2>Before vs after automation</h2>
+            </div>
+            <div class="fu-ba">
+                <div class="fu-ba-card fu-ba-card--before">
+                    <span class="fu-ba-badge fu-ba-badge--before">Before</span>
+                    <ul>
+                        <li>Missed call → no follow‑up</li>
                         <li>Quote sent → no reminder</li>
                         <li>Customer forgets</li>
                     </ul>
                 </div>
-                <div class="fua-scenario-card fua-scenario-card--after">
-                    <span class="fua-scenario-label fua-scenario-label--after">AFTER AUTOMATION</span>
+                <div class="fu-ba-card fu-ba-card--after">
+                    <span class="fu-ba-badge fu-ba-badge--after">After</span>
                     <ul>
                         <li>Missed call → instant text</li>
                         <li>Quote reminder sent</li>
@@ -181,104 +897,94 @@
                     </ul>
                 </div>
             </div>
-            <div class="fua-scenario-closer">
-                <p><strong>Automation doesn't create demand.</strong></p>
-                <p>It captures demand you already have.</p>
-            </div>
+            <p class="section__micro-proof" style="font-weight:650">Automation doesn't create demand — it captures
+                demand you already have.</p>
         </div>
     </section>
 
-    <!-- ═══ 6. WHAT'S INCLUDED ═══ -->
-    <section class="section section--bg" id="included">
+    <!-- ═══ 7. WHAT'S INCLUDED ═══ -->
+    <section class="section section--white" id="whats-included">
         <div class="container">
             <div class="section__header section__header--center">
-                <h2>What's Included in Follow-Up Automation</h2>
+                <h2>What's included</h2>
             </div>
-            <div class="fua-included-card">
-                <ul>
-                    <li>Missed-call recovery</li>
-                    <li>Instant SMS / email acknowledgement</li>
-                    <li>Timed quote reminders</li>
-                    <li>Response tracking</li>
-                    <li>Dashboard visibility</li>
-                    <li>Opt-out compliant messaging</li>
-                </ul>
+            <div class="fu-included">
+                <div class="fu-inc-card fu-inc-card--yes">
+                    <h3>Included</h3>
+                    <ul>
+                        <li>Missed‑call recovery (text‑back)</li>
+                        <li>Instant SMS/email acknowledgement</li>
+                        <li>Timed quote reminders</li>
+                        <li>Response tracking (who replied / who didn't)</li>
+                        <li>Dashboard visibility</li>
+                        <li>Opt‑out compliant messaging</li>
+                    </ul>
+                </div>
+                <div class="fu-inc-card fu-inc-card--no">
+                    <h3>Not included</h3>
+                    <ul>
+                        <li>Running paid ads</li>
+                        <li>Writing your quotes</li>
+                        <li>Managing your phone calls</li>
+                        <li>"Spammy" bulk messaging</li>
+                    </ul>
+                </div>
             </div>
         </div>
     </section>
 
-    <!-- ═══ 7. PRICING ═══ -->
-    <section class="section section--white" id="fua-pricing">
+    <!-- ═══ 8. INVESTMENT ═══ -->
+    <section class="section section--bg" id="investment">
         <div class="container">
             <div class="section__header section__header--center">
                 <h2>Investment</h2>
             </div>
-            <div class="fua-pricing-card">
-                <div class="fua-pricing-card__rows">
-                    <div class="fua-pricing-card__row">
-                        <span class="fua-pricing-card__label">Setup</span>
-                        <span class="fua-pricing-card__value">£XXX – £XXXX</span>
-                    </div>
-                    <div class="fua-pricing-card__row">
-                        <span class="fua-pricing-card__label">Ongoing</span>
-                        <span class="fua-pricing-card__value">£XXX/month</span>
-                    </div>
+            <div class="fu-invest">
+                <div class="fu-invest__label">Automation Installs From</div>
+                <div class="fu-invest__price">£1,500 setup</div>
+                <div class="fu-invest__secondary">£250/month ongoing management</div>
+                <div class="fu-invest__details">
+                    Typical range £1,500–£3,000 setup + £250–£450/month depending on:
+                    <ul>
+                        <li>Enquiry volume</li>
+                        <li>Channels (SMS/email/WhatsApp)</li>
+                        <li>Booking/CRM integration</li>
+                        <li>Number of follow‑up sequences</li>
+                    </ul>
                 </div>
-                <p class="fua-pricing-card__note">Exact cost depends on volume and complexity.</p>
-                <p class="fua-pricing-card__authority">We only recommend automation where enquiry volume justifies ROI.
-                </p>
+                <p class="fu-invest__risk">We only recommend automation where enquiry volume justifies ROI.</p>
+                <a href="audit.html" class="btn btn--primary btn--hero">Start Audit Request</a>
+                <p class="fu-invest__disclaimer">Messaging is rate‑limited and opt‑out friendly.</p>
             </div>
         </div>
     </section>
 
-    <!-- ═══ 8. FAQ MINI ═══ -->
-    <section class="section section--bg" id="fua-faq">
+    <!-- ═══ 9. FAQ MINI ═══ -->
+    <section class="section section--white" id="faq">
         <div class="container">
             <div class="section__header section__header--center">
-                <h2>Common Questions</h2>
+                <h2>Common questions</h2>
             </div>
-            <div class="faq-accordion">
-                <details class="faq-accordion__item">
-                    <summary>
-                        <span>Will this annoy customers?</span>
-                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                            stroke-width="2">
-                            <path d="M6 9l6 6 6-6" stroke-linecap="round" stroke-linejoin="round" />
-                        </svg>
-                    </summary>
-                    <div class="faq-accordion__answer">
-                        <p>No. Messages are structured, limited, and opt-out friendly.</p>
-                    </div>
+            <div class="fu-faq">
+                <details class="fu-faq-item">
+                    <summary>Will this annoy customers?</summary>
+                    <div class="fu-faq-item__body">No. Messages are short, limited, and opt‑out friendly.</div>
                 </details>
-                <details class="faq-accordion__item">
-                    <summary>
-                        <span>Can I use this without rebuilding my website?</span>
-                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                            stroke-width="2">
-                            <path d="M6 9l6 6 6-6" stroke-linecap="round" stroke-linejoin="round" />
-                        </svg>
-                    </summary>
-                    <div class="faq-accordion__answer">
-                        <p>Yes, if your site can capture enquiries properly.</p>
-                    </div>
+                <details class="fu-faq-item">
+                    <summary>Can I use this without a website rebuild?</summary>
+                    <div class="fu-faq-item__body">Yes — if your current site reliably captures enquiries. If not,
+                        we'll recommend fixing the foundation first.</div>
                 </details>
-                <details class="faq-accordion__item">
-                    <summary>
-                        <span>What if I already reply quickly?</span>
-                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                            stroke-width="2">
-                            <path d="M6 9l6 6 6-6" stroke-linecap="round" stroke-linejoin="round" />
-                        </svg>
-                    </summary>
-                    <div class="faq-accordion__answer">
-                        <p>Automation ensures no enquiry slips through during busy periods.</p>
-                    </div>
+                <details class="fu-faq-item">
+                    <summary>What if I already reply quickly?</summary>
+                    <div class="fu-faq-item__body">Automation prevents missed leads during busy periods and makes
+                        follow‑up consistent.</div>
                 </details>
             </div>
         </div>
     </section>
 
-    <!-- ═══ 9. FINAL CTA ═══ -->
+    <!-- ═══ 10. FINAL CTA ═══ -->
     <section class="cta-band">
         <div class="container">
             <h2>If you're already getting enquiries, don't let delay cost you jobs.</h2>

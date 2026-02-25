@@ -4,15 +4,391 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Results — Real Outcomes From UK Trade Businesses | JTandy</title>
+    <title>Results — Measurable Outcomes for UK Trade Businesses | JTandy</title>
     <meta name="description"
-        content="We measure what matters — calls, enquiries, response times, and booked jobs. See real results from UK trade businesses.">
+        content="We track calls, form submissions, first-response time, and follow-up outcomes — so improvements are visible in numbers, not guesswork.">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
-        href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700;800&family=Inter:wght@400;450;500;550;600;650;700;750;800&display=swap"
+        href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700;800&family=Inter:wght@400;450;500;550;600;650;700;750;800;850&display=swap"
         rel="stylesheet">
     <link rel="stylesheet" href="style.css">
+    <style>
+        /* ── Results page-specific ── */
+
+        /* Hero */
+        .rs-hero {
+            background: #FFFFFF;
+            padding: calc(var(--nav-h) + 72px) 0 64px;
+            border-bottom: 1px solid var(--border-0)
+        }
+
+        .rs-hero__grid {
+            display: grid;
+            grid-template-columns: 7fr 5fr;
+            gap: 48px;
+            align-items: start
+        }
+
+        .rs-hero__eyebrow {
+            display: block;
+            font-family: var(--font-body);
+            font-size: 12px;
+            font-weight: 650;
+            letter-spacing: .08em;
+            text-transform: uppercase;
+            color: var(--text-2);
+            margin-bottom: 12px
+        }
+
+        .rs-hero h1 {
+            font-size: clamp(34px, 5vw, 52px);
+            line-height: 1.15;
+            font-weight: 700;
+            color: var(--text-0);
+            letter-spacing: -.02em;
+            max-width: 680px
+        }
+
+        .rs-hero__sub {
+            font-size: 18px;
+            line-height: 1.56;
+            font-weight: 450;
+            color: var(--text-1);
+            margin-top: 14px;
+            max-width: 680px
+        }
+
+        .rs-hero__ctas {
+            display: flex;
+            gap: 12px;
+            margin-top: 22px;
+            flex-wrap: wrap
+        }
+
+        .rs-hero__micro {
+            font-size: 14px;
+            font-weight: 550;
+            color: var(--text-1);
+            margin-top: 12px
+        }
+
+        /* Metrics strip */
+        .rs-metrics {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 16px
+        }
+
+        .rs-metric {
+            background: var(--surface-0);
+            border: 1px solid var(--border-0);
+            border-radius: 16px;
+            padding: 20px;
+            box-shadow: 0 2px 10px rgba(15, 29, 61, .08)
+        }
+
+        .rs-metric__val {
+            font-family: var(--font-body);
+            font-size: 34px;
+            line-height: 1.12;
+            font-weight: 850;
+            color: var(--text-0);
+            margin-bottom: 4px
+        }
+
+        .rs-metric__label {
+            font-size: 12px;
+            font-weight: 650;
+            letter-spacing: .06em;
+            text-transform: uppercase;
+            color: var(--text-2);
+            margin-bottom: 6px
+        }
+
+        .rs-metric__note {
+            font-size: 12px;
+            font-weight: 500;
+            line-height: 1.5;
+            color: var(--text-2)
+        }
+
+        /* Case study before/after */
+        .rs-case {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 24px
+        }
+
+        .rs-case-card {
+            background: var(--surface-0);
+            border: 1px solid var(--border-0);
+            border-radius: 16px;
+            padding: 18px;
+            box-shadow: 0 2px 10px rgba(15, 29, 61, .08)
+        }
+
+        .rs-badge {
+            display: inline-block;
+            font-size: 12px;
+            font-weight: 700;
+            letter-spacing: .04em;
+            text-transform: uppercase;
+            border-radius: 999px;
+            padding: 6px 10px;
+            line-height: 1.5;
+            margin-bottom: 14px
+        }
+
+        .rs-badge--before {
+            background: rgba(220, 38, 38, .10);
+            color: #DC2626
+        }
+
+        .rs-badge--after {
+            background: rgba(22, 163, 74, .12);
+            color: var(--success-0)
+        }
+
+        .rs-case-card__screenshot {
+            width: 100%;
+            height: 180px;
+            border-radius: 10px;
+            background: var(--bg-0);
+            border: 1px solid var(--border-0);
+            margin-bottom: 14px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 13px;
+            font-weight: 600;
+            color: var(--text-2)
+        }
+
+        .rs-case-card ul {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 6px
+        }
+
+        .rs-case-card li {
+            font-size: 14px;
+            line-height: 1.57;
+            font-weight: 450;
+            color: var(--text-1);
+            padding-left: 20px;
+            position: relative
+        }
+
+        .rs-case-card--before li::before {
+            content: '✕';
+            position: absolute;
+            left: 0;
+            color: #DC2626;
+            font-weight: 600;
+            font-size: 12px
+        }
+
+        .rs-case-card--after li::before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: var(--success-0);
+            font-weight: 700;
+            font-size: 13px
+        }
+
+        .rs-case__summary {
+            font-size: 16px;
+            line-height: 1.63;
+            font-weight: 450;
+            color: var(--text-1);
+            margin-top: 18px;
+            max-width: 900px
+        }
+
+        /* Improvements grid */
+        .rs-improve {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 16px
+        }
+
+        .rs-improve-card {
+            background: var(--surface-0);
+            border: 1px solid var(--border-0);
+            border-radius: 16px;
+            padding: 20px
+        }
+
+        .rs-improve-card__icon {
+            width: 20px;
+            height: 20px;
+            color: rgba(37, 99, 235, .85);
+            margin-bottom: 10px
+        }
+
+        .rs-improve-card strong {
+            font-size: 16px;
+            font-weight: 650;
+            line-height: 1.38;
+            display: block;
+            margin-bottom: 4px
+        }
+
+        .rs-improve-card span {
+            font-size: 14px;
+            line-height: 1.57;
+            font-weight: 450;
+            color: var(--text-1)
+        }
+
+        /* Instrumentation cards */
+        .rs-measure {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 16px
+        }
+
+        .rs-measure-card {
+            background: var(--bg-0);
+            border: 1px solid var(--border-0);
+            border-radius: 16px;
+            padding: 20px
+        }
+
+        .rs-measure-card strong {
+            font-size: 15px;
+            font-weight: 650;
+            line-height: 1.47;
+            display: block;
+            margin-bottom: 4px
+        }
+
+        .rs-measure-card span {
+            font-size: 14px;
+            line-height: 1.57;
+            font-weight: 450;
+            color: var(--text-1)
+        }
+
+        /* ROI card */
+        .rs-roi {
+            background: var(--surface-0);
+            border: 1px solid var(--border-0);
+            border-radius: 16px;
+            padding: 22px;
+            max-width: 860px;
+            margin: 0 auto;
+            box-shadow: 0 2px 10px rgba(15, 29, 61, .08)
+        }
+
+        .rs-roi__row {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 12px 0;
+            border-bottom: 1px solid var(--border-0)
+        }
+
+        .rs-roi__row:last-of-type {
+            border-bottom: none
+        }
+
+        .rs-roi__label {
+            font-size: 14px;
+            font-weight: 600;
+            color: var(--text-2)
+        }
+
+        .rs-roi__value {
+            font-size: 18px;
+            font-weight: 750;
+            line-height: 1.44;
+            color: var(--text-0)
+        }
+
+        .rs-roi__foot {
+            font-size: 12px;
+            font-weight: 500;
+            line-height: 1.5;
+            color: var(--text-2);
+            margin-top: 14px;
+            border-top: 1px solid var(--border-0);
+            padding-top: 10px
+        }
+
+        /* Testimonials */
+        .rs-testimonials {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 16px
+        }
+
+        .rs-quote {
+            background: var(--bg-0);
+            border: 1px solid var(--border-0);
+            border-radius: 16px;
+            padding: 22px;
+            display: flex;
+            flex-direction: column
+        }
+
+        .rs-quote__text {
+            font-size: 16px;
+            line-height: 1.63;
+            font-weight: 450;
+            color: var(--text-0);
+            flex: 1
+        }
+
+        .rs-quote__attr {
+            font-size: 13px;
+            font-weight: 650;
+            line-height: 1.54;
+            color: var(--text-2);
+            margin-top: 10px
+        }
+
+        /* CTA escape */
+        .rs-cta__escape {
+            display: block;
+            font-size: 14px;
+            font-weight: 600;
+            color: rgba(255, 255, 255, .78);
+            margin-top: 14px;
+            text-decoration: underline;
+            text-underline-offset: 2px;
+            transition: color .15s
+        }
+
+        .rs-cta__escape:hover {
+            color: #fff
+        }
+
+        @media(max-width:768px) {
+
+            .rs-hero__grid,
+            .rs-case,
+            .rs-measure {
+                grid-template-columns: 1fr
+            }
+
+            .rs-metrics {
+                grid-template-columns: 1fr 1fr
+            }
+
+            .rs-improve,
+            .rs-testimonials {
+                grid-template-columns: 1fr
+            }
+
+            .rs-hero {
+                padding: calc(var(--nav-h) + 48px) 0 48px
+            }
+        }
+    </style>
 </head>
 
 <body class="page-sub">
@@ -20,10 +396,12 @@
     <!-- ═══ HEADER ═══ -->
     <header class="header" id="header">
         <div class="header__inner">
-            <a href="index.html" class="header__brand">JTANDY</a>
+            <a href="index.html" class="header__brand"><img src="../Assets/Logo/Navy Jtandy Logo.svg" alt="JTandy"
+                    class="header__logo header__logo--navy"><img src="../Assets/Logo/White Jtandy Logo.svg" alt="JTandy"
+                    class="header__logo header__logo--white"></a>
             <nav class="header__nav" id="headerNav">
                 <div class="nav-dropdown">
-                    <a href="index.html#solutions" class="nav-dropdown__trigger">Solutions <span
+                    <a href="solutions.html" class="nav-dropdown__trigger">Solutions <span
                             class="nav-dropdown__arrow">▾</span></a>
                     <div class="nav-dropdown__menu">
                         <a href="lead-websites.html">Lead Websites</a>
@@ -47,223 +425,283 @@
     </header>
 
     <!-- ═══ 1. HERO ═══ -->
-    <section class="res-hero" id="res-hero">
-        <div class="container">
-            <span class="sub-hero__eyebrow">RESULTS</span>
-            <h1>Real Results From UK Trade Businesses</h1>
-            <p class="res-hero__sub">We measure what matters — calls, enquiries, response times, and booked jobs. No
-                vanity metrics.</p>
-            <div class="res-metrics-strip">
-                <div class="res-metric-card">
-                    <div class="res-metric-card__value">+22%</div>
-                    <div class="res-metric-card__label">Increase in booked jobs</div>
+    <section class="rs-hero" id="rs-hero">
+        <div class="container rs-hero__grid">
+            <div>
+                <span class="rs-hero__eyebrow">Results</span>
+                <h1>Results you can measure.</h1>
+                <p class="rs-hero__sub">We track calls, form submissions, first‑response time, and follow‑up outcomes —
+                    so improvements are visible in numbers.</p>
+                <div class="rs-hero__ctas">
+                    <a href="audit.html" class="btn btn--primary btn--hero">Start Audit Request</a>
+                    <a href="#case-study" class="btn btn--outline">See Example Case Study</a>
                 </div>
-                <div class="res-metric-card">
-                    <div class="res-metric-card__value">2m 14s</div>
-                    <div class="res-metric-card__label">Average response time</div>
-                </div>
-                <div class="res-metric-card">
-                    <div class="res-metric-card__value">0</div>
-                    <div class="res-metric-card__label">Missed enquiries left unrecovered</div>
-                </div>
-                <div class="res-metric-card">
-                    <div class="res-metric-card__value">+18</div>
-                    <div class="res-metric-card__label">New 5★ reviews in 6 weeks</div>
+                <p class="rs-hero__micro">✅ No calls required • Written breakdown • Clear next step</p>
+            </div>
+            <div>
+                <!-- Metrics preview card -->
+                <div
+                    style="background:var(--bg-0);border:1px solid var(--border-0);border-radius:16px;padding:20px;box-shadow:0 2px 10px rgba(15,29,61,.08)">
+                    <div style="font-family:var(--font-heading);font-size:16px;font-weight:700;margin-bottom:14px">Key
+                        metrics at a glance</div>
+                    <div style="display:flex;flex-direction:column;gap:12px">
+                        <div
+                            style="display:flex;justify-content:space-between;align-items:baseline;border-bottom:1px solid var(--border-0);padding-bottom:10px">
+                            <span style="font-size:14px;font-weight:600;color:var(--text-1)">Booked jobs uplift</span>
+                            <span
+                                style="font-family:var(--font-body);font-size:22px;font-weight:850;color:var(--text-0)">+22%</span>
+                        </div>
+                        <div
+                            style="display:flex;justify-content:space-between;align-items:baseline;border-bottom:1px solid var(--border-0);padding-bottom:10px">
+                            <span style="font-size:14px;font-weight:600;color:var(--text-1)">Avg first response</span>
+                            <span
+                                style="font-family:var(--font-body);font-size:22px;font-weight:850;color:var(--text-0)">2m
+                                14s</span>
+                        </div>
+                        <div
+                            style="display:flex;justify-content:space-between;align-items:baseline;border-bottom:1px solid var(--border-0);padding-bottom:10px">
+                            <span style="font-size:14px;font-weight:600;color:var(--text-1)">Missed-call recovery</span>
+                            <span
+                                style="font-family:var(--font-body);font-size:22px;font-weight:850;color:var(--text-0)">24/7</span>
+                        </div>
+                        <div style="display:flex;justify-content:space-between;align-items:baseline">
+                            <span style="font-size:14px;font-weight:600;color:var(--text-1)">New 5★ reviews</span>
+                            <span
+                                style="font-family:var(--font-body);font-size:22px;font-weight:850;color:var(--text-0)">+18</span>
+                        </div>
+                    </div>
+                    <p
+                        style="font-size:12px;font-weight:600;color:var(--text-2);margin-top:12px;border-top:1px solid var(--border-0);padding-top:10px">
+                        Example install result (anonymised)</p>
                 </div>
             </div>
-            <p class="res-metrics-note">Example install results</p>
         </div>
     </section>
 
-    <!-- ═══ 2. FEATURED CASE STUDY ═══ -->
-    <section class="section section--bg" id="case-study">
+    <!-- ═══ 2. METRICS STRIP ═══ -->
+    <section class="section section--bg" style="padding:56px 0" id="metrics">
+        <div class="container">
+            <div class="rs-metrics">
+                <div class="rs-metric">
+                    <div class="rs-metric__val">+22%</div>
+                    <div class="rs-metric__label">Increase in booked jobs</div>
+                    <div class="rs-metric__note">Example install result (anonymised)</div>
+                </div>
+                <div class="rs-metric">
+                    <div class="rs-metric__val">2m 14s</div>
+                    <div class="rs-metric__label">Average first response</div>
+                    <div class="rs-metric__note">When instant reply is enabled</div>
+                </div>
+                <div class="rs-metric">
+                    <div class="rs-metric__val">24/7</div>
+                    <div class="rs-metric__label">Missed‑call recovery active</div>
+                    <div class="rs-metric__note">So enquiries don't disappear</div>
+                </div>
+                <div class="rs-metric">
+                    <div class="rs-metric__val">+18</div>
+                    <div class="rs-metric__label">New 5★ reviews in 6 weeks</div>
+                    <div class="rs-metric__note">With review automation enabled</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ═══ 3. FEATURED CASE STUDY ═══ -->
+    <section class="section section--white" id="case-study">
         <div class="container">
             <div class="section__header">
-                <h2>Example: Local Plumbing Business</h2>
+                <h2>Example install (anonymised)</h2>
+                <p style="font-size:16px;line-height:1.63;font-weight:450;color:var(--text-1);margin-top:10px">One trade
+                    business. One rebuild + automation layer. Clear measurement.</p>
             </div>
-            <div class="res-case-grid">
-                <!-- Before -->
-                <div class="res-case-side">
-                    <div class="res-case-card">
-                        <span class="res-case-label res-case-label--before">BEFORE</span>
-                        <div class="res-case-mock res-case-mock--before">
-                            <div class="res-case-mock__bar">
-                                <span style="font-weight:600;font-size:11px;color:#446">J&amp;S Plumbing Solutions
-                                    Ltd</span>
-                                <div style="display:flex;gap:6px;font-size:9px;color:#889">
-                                    <span>Home</span><span>Services</span><span>About</span><span>Gallery</span><span>Contact</span>
-                                </div>
-                            </div>
-                            <div class="res-case-mock__hero-old">
-                                <div style="font-size:12px;font-weight:600;color:#335;margin-bottom:4px">Welcome to
-                                    J&amp;S Plumbing</div>
-                                <div class="aw-body-line" style="background:rgba(100,100,140,0.15);width:85%"></div>
-                                <div class="aw-body-line" style="background:rgba(100,100,140,0.15);width:70%"></div>
-                            </div>
-                            <div class="res-case-mock__body-old">
-                                <div class="aw-body-line" style="background:rgba(100,100,140,0.1);width:90%"></div>
-                                <div class="aw-body-line" style="background:rgba(100,100,140,0.1);width:75%"></div>
-                                <div
-                                    style="margin-top:6px;padding:5px 8px;background:#5577aa;color:white;font-size:8px;border-radius:3px;display:inline-block">
-                                    Contact Us</div>
-                            </div>
-                        </div>
-                        <ul class="res-case-issues">
-                            <li>Slow load time</li>
-                            <li>No clear call path</li>
-                            <li>No follow-up system</li>
-                        </ul>
-                    </div>
+            <div class="rs-case">
+                <div class="rs-case-card rs-case-card--before">
+                    <span class="rs-badge rs-badge--before">Before</span>
+                    <div class="rs-case-card__screenshot">Screenshot placeholder</div>
+                    <ul>
+                        <li>Slow load time</li>
+                        <li>No clear call path</li>
+                        <li>No follow‑up system</li>
+                    </ul>
                 </div>
-                <!-- After -->
-                <div class="res-case-side">
-                    <div class="res-case-card">
-                        <span class="res-case-label res-case-label--after">AFTER</span>
-                        <div class="res-case-mock res-case-mock--after">
-                            <div class="res-case-mock__bar">
-                                <span style="font-weight:700;font-size:12px;color:#0f1d3d">J&amp;S Plumbing</span>
-                                <div style="display:flex;gap:10px;font-size:10px;font-weight:500;color:#555">
-                                    <span>Services</span><span>Areas</span><span>Reviews</span>
-                                </div>
-                                <span style="font-size:10px;font-weight:650;color:#2563eb">📞 0800 123 456</span>
-                            </div>
-                            <div class="res-case-mock__hero-new">
-                                <div style="font-size:13px;font-weight:700;color:#fff;margin-bottom:4px">Plumbing &amp;
-                                    Heating — Lincoln</div>
-                                <div class="aw-body-line" style="width:65%"></div>
-                                <div
-                                    style="margin-top:6px;padding:5px 12px;background:#2563eb;color:white;font-size:9px;font-weight:700;border-radius:6px;display:inline-block">
-                                    Get a Free Quote</div>
-                            </div>
-                            <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:4px;padding:8px 10px">
-                                <div
-                                    style="background:#f3f4f6;border-radius:4px;padding:6px;font-size:8px;font-weight:600;color:#0f1d3d">
-                                    Boiler Install</div>
-                                <div
-                                    style="background:#f3f4f6;border-radius:4px;padding:6px;font-size:8px;font-weight:600;color:#0f1d3d">
-                                    Emergency</div>
-                                <div
-                                    style="background:#f3f4f6;border-radius:4px;padding:6px;font-size:8px;font-weight:600;color:#0f1d3d">
-                                    Bathroom</div>
-                            </div>
-                            <div style="padding:4px 10px;font-size:9px;color:#f59e0b">★★★★★ <span
-                                    style="color:#888;font-size:8px">4.9 (128)</span></div>
-                        </div>
-                        <ul class="res-case-wins">
-                            <li>+22% booked jobs</li>
-                            <li>2 min avg response</li>
-                            <li>Clear call CTA on every scroll</li>
-                            <li>Quote follow-up system active</li>
-                        </ul>
-                    </div>
+                <div class="rs-case-card rs-case-card--after">
+                    <span class="rs-badge rs-badge--after">After</span>
+                    <div class="rs-case-card__screenshot">Screenshot placeholder</div>
+                    <ul>
+                        <li>+22% booked jobs (example)</li>
+                        <li>~2 min average first response (example)</li>
+                        <li>Clear call CTA on every scroll</li>
+                        <li>Quote follow‑up system active</li>
+                    </ul>
                 </div>
             </div>
-            <p class="res-case-summary">Within 6 weeks of rebuild, enquiry flow became structured and measurable. Call
-                visibility increased and follow-up automation recovered previously lost quotes.</p>
+            <p class="rs-case__summary">Within 6 weeks of launch, enquiry flow became structured and measurable. Call
+                visibility increased and follow‑up automation recovered quotes that previously went cold.</p>
         </div>
     </section>
 
-    <!-- ═══ 3. STRUCTURED RESULTS GRID ═══ -->
-    <section class="section section--white" id="improvements">
+    <!-- ═══ 4. WHAT TYPICALLY IMPROVES ═══ -->
+    <section class="section section--bg" id="improves">
         <div class="container">
             <div class="section__header section__header--center">
-                <h2>What Typically Improves</h2>
+                <h2>What typically improves</h2>
             </div>
-            <div class="res-improve-grid">
-                <div class="res-improve-card">
-                    <h3>Faster Load Speed</h3>
-                    <p>Under 2 seconds on mobile</p>
+            <div class="rs-improve">
+                <div class="rs-improve-card">
+                    <svg class="rs-improve-card__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                        stroke-width="2">
+                        <path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z" />
+                    </svg>
+                    <strong>Faster load speed</strong>
+                    <span>Under 2 seconds on mobile (targeted)</span>
                 </div>
-                <div class="res-improve-card">
-                    <h3>Clear Call Path</h3>
-                    <p>Primary call-to-action visible at all times</p>
+                <div class="rs-improve-card">
+                    <svg class="rs-improve-card__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                        stroke-width="2">
+                        <path
+                            d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6A19.79 19.79 0 012.12 4.18 2 2 0 014.11 2h3a2 2 0 012 1.72c.127.96.362 1.903.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.338 1.85.573 2.81.7A2 2 0 0122 16.92z" />
+                    </svg>
+                    <strong>Clear call path</strong>
+                    <span>Primary CTA always visible</span>
                 </div>
-                <div class="res-improve-card">
-                    <h3>Higher Enquiry Rate</h3>
-                    <p>More calls + form submissions</p>
+                <div class="rs-improve-card">
+                    <svg class="rs-improve-card__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                        stroke-width="2">
+                        <polyline points="23 6 13.5 15.5 8.5 10.5 1 18" />
+                        <polyline points="17 6 23 6 23 12" />
+                    </svg>
+                    <strong>Higher enquiry rate</strong>
+                    <span>More calls + form submissions</span>
                 </div>
-                <div class="res-improve-card">
-                    <h3>Better Quote Follow-Up</h3>
-                    <p>Automated reminders reduce cold leads</p>
+                <div class="rs-improve-card">
+                    <svg class="rs-improve-card__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                        stroke-width="2">
+                        <path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z" />
+                    </svg>
+                    <strong>Better quote follow‑up</strong>
+                    <span>Reminders reduce cold leads</span>
                 </div>
-                <div class="res-improve-card">
-                    <h3>Improved Review Volume</h3>
-                    <p>Structured review requests increase 5★ ratings</p>
+                <div class="rs-improve-card">
+                    <svg class="rs-improve-card__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                        stroke-width="2">
+                        <polygon
+                            points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" />
+                    </svg>
+                    <strong>Improved review volume</strong>
+                    <span>Consistent review requests</span>
                 </div>
-                <div class="res-improve-card">
-                    <h3>Clear Visibility</h3>
-                    <p>Calls + forms tracked in one dashboard</p>
+                <div class="rs-improve-card">
+                    <svg class="rs-improve-card__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                        stroke-width="2">
+                        <rect x="2" y="3" width="20" height="14" rx="2" ry="2" />
+                        <line x1="8" y1="21" x2="16" y2="21" />
+                        <line x1="12" y1="17" x2="12" y2="21" />
+                    </svg>
+                    <strong>Clear visibility</strong>
+                    <span>Calls + forms tracked in one place</span>
+                </div>
+            </div>
+            <p class="section__micro-proof"
+                style="font-size:12px;font-weight:650;text-transform:uppercase;letter-spacing:.06em;color:var(--text-2)">
+                Outcomes depend on starting point, enquiry volume, and market.</p>
+        </div>
+    </section>
+
+    <!-- ═══ 5. MEASURED, NOT ASSUMED ═══ -->
+    <section class="section section--white" id="measurement">
+        <div class="container">
+            <div class="section__header section__header--center">
+                <h2>Measured. Not assumed.</h2>
+            </div>
+            <p
+                style="font-size:16px;line-height:1.63;font-weight:450;color:var(--text-1);text-align:center;max-width:720px;margin:0 auto 28px">
+                We don't rely on "it feels busier." We track calls, forms, response time, and follow‑up status — so you
+                can see what changed and why.</p>
+            <div class="rs-measure">
+                <div class="rs-measure-card">
+                    <strong>Calls tracked</strong>
+                    <span>Click‑to‑call + call logs</span>
+                </div>
+                <div class="rs-measure-card">
+                    <strong>Forms tracked</strong>
+                    <span>Submissions and source pages</span>
+                </div>
+                <div class="rs-measure-card">
+                    <strong>Response time</strong>
+                    <span>Time‑to‑first‑reply where enabled</span>
+                </div>
+                <div class="rs-measure-card">
+                    <strong>Follow‑up status</strong>
+                    <span>Who replied, who didn't, what converted</span>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- ═══ 4. ROI CLARITY ═══ -->
+    <!-- ═══ 6. ROI EXAMPLE ═══ -->
     <section class="section section--bg" id="roi">
         <div class="container">
             <div class="section__header section__header--center">
-                <h2>Measured. Not Assumed.</h2>
-                <p class="section__sub">We don't rely on "it feels busier." We track calls, form submissions, response
-                    times, and follow-up behaviour — so improvements are visible in numbers.</p>
+                <h2>Example ROI breakdown</h2>
             </div>
-            <div class="res-roi-card">
-                <h3>Example ROI Breakdown</h3>
-                <ul class="res-roi-list">
-                    <li>
-                        <span class="res-roi-list__label">Monthly enquiries before</span>
-                        <span class="res-roi-list__value">32</span>
-                    </li>
-                    <li>
-                        <span class="res-roi-list__label">Monthly enquiries after</span>
-                        <span class="res-roi-list__value">39</span>
-                    </li>
-                    <li>
-                        <span class="res-roi-list__label">Conversion rate improvement</span>
-                        <span class="res-roi-list__value res-roi-list__value--highlight">+18%</span>
-                    </li>
-                    <li>
-                        <span class="res-roi-list__label">Estimated additional revenue impact</span>
-                        <span class="res-roi-list__value res-roi-list__value--highlight">£X,XXX</span>
-                    </li>
-                </ul>
-                <p class="res-roi-note">Figures vary by business size and enquiry volume.</p>
+            <div class="rs-roi">
+                <div class="rs-roi__row">
+                    <span class="rs-roi__label">Monthly enquiries before</span>
+                    <span class="rs-roi__value">32</span>
+                </div>
+                <div class="rs-roi__row">
+                    <span class="rs-roi__label">Monthly enquiries after</span>
+                    <span class="rs-roi__value">39</span>
+                </div>
+                <div class="rs-roi__row">
+                    <span class="rs-roi__label">Conversion improvement</span>
+                    <span class="rs-roi__value">+18%</span>
+                </div>
+                <div class="rs-roi__row">
+                    <span class="rs-roi__label">Estimated additional revenue impact</span>
+                    <span class="rs-roi__value">£X,XXX</span>
+                </div>
+                <div class="rs-roi__foot">Figures vary by business size, average job value, and enquiry volume.</div>
             </div>
         </div>
     </section>
 
-    <!-- ═══ 5. TESTIMONIALS ═══ -->
+    <!-- ═══ 7. TESTIMONIALS ═══ -->
     <section class="section section--white" id="testimonials">
         <div class="container">
             <div class="section__header section__header--center">
-                <h2>Feedback From Early Installs</h2>
+                <h2>Feedback from early installs</h2>
             </div>
-            <div class="res-testimonials-grid">
-                <div class="res-testimonial-card">
-                    <blockquote>"The website went from something I was embarrassed about to something I actively send
-                        customers to. Calls started coming in within 2 weeks."</blockquote>
-                    <cite>— Plumbing business, Lincoln</cite>
+            <div class="rs-testimonials">
+                <div class="rs-quote">
+                    <p class="rs-quote__text">"The website went from something I was embarrassed about to something I
+                        actively send customers to. Calls started coming in quickly."</p>
+                    <span class="rs-quote__attr">— Plumbing business, Lincoln</span>
                 </div>
-                <div class="res-testimonial-card">
-                    <blockquote>"I didn't realise how many quotes I was losing until the follow-up system started
-                        chasing
-                        them. Picked up 3 extra jobs in week one."</blockquote>
-                    <cite>— Roofing contractor, Nottingham</cite>
+                <div class="rs-quote">
+                    <p class="rs-quote__text">"I didn't realise how many quotes I was losing until the follow‑up system
+                        started chasing them. Picked up extra jobs fast."</p>
+                    <span class="rs-quote__attr">— Roofing contractor, Nottingham</span>
                 </div>
-                <div class="res-testimonial-card">
-                    <blockquote>"Simple, clear, and it does what it says. I can see exactly where enquiries are coming
-                        from now."</blockquote>
-                    <cite>— Electrician, Leicester</cite>
+                <div class="rs-quote">
+                    <p class="rs-quote__text">"Simple, clear, and it does what it says. I can see exactly where
+                        enquiries are coming from now."</p>
+                    <span class="rs-quote__attr">— Electrician, Leicester</span>
                 </div>
             </div>
+            <p class="section__micro-proof"
+                style="font-size:12px;font-weight:650;color:var(--text-2);text-transform:none;letter-spacing:0">Names
+                withheld on request.</p>
         </div>
     </section>
 
-    <!-- ═══ 6. FINAL CTA ═══ -->
+    <!-- ═══ 8. FINAL CTA ═══ -->
     <section class="cta-band">
         <div class="container">
             <h2>If you want measurable improvement — start with the audit.</h2>
             <p>Clear numbers. Direct recommendation. No pressure.</p>
             <a href="audit.html" class="btn btn--primary btn--hero">Start Audit Request</a>
+            <a href="pricing.html" class="rs-cta__escape">See Pricing →</a>
         </div>
     </section>
 

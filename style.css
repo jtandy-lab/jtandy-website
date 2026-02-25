@@ -348,9 +348,8 @@ h4 {
     border-bottom-color: rgba(255, 255, 255, 0.08);
 }
 
-.header--dark .header__brand {
-    color: #FFFFFF;
-}
+
+
 
 .header--dark .header__nav a {
     color: rgba(255, 255, 255, 0.72);
@@ -375,12 +374,28 @@ h4 {
 }
 
 .header__brand {
-    font-family: var(--font-heading);
-    font-size: 18px;
-    font-weight: 700;
-    color: var(--text-0);
-    letter-spacing: -0.01em;
     flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    line-height: 0;
+}
+
+.header__logo {
+    height: 28px;
+    width: auto;
+    display: block;
+}
+
+.header__logo--white {
+    display: none;
+}
+
+.header--dark .header__logo--navy {
+    display: none;
+}
+
+.header--dark .header__logo--white {
+    display: block;
 }
 
 .header__nav {

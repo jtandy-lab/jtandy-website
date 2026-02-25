@@ -163,38 +163,55 @@
             background: #F8F7F4;
             border: 1px solid rgba(15, 29, 61, 0.14);
             border-radius: 16px;
-            padding: 20px;
+            padding: 18px;
             box-shadow: 0 2px 10px rgba(15, 29, 61, 0.08);
         }
 
-        .founder-card__top {
-            display: flex;
-            align-items: center;
-            gap: 16px;
+        .founder-card__image-wrapper {
+            width: 100%;
+            aspect-ratio: 1 / 1;
+            border-radius: 16px;
+            border: 1px solid rgba(15, 29, 61, 0.14);
+            background: #FFFFFF;
+            overflow: hidden;
+            position: relative;
         }
 
         .founder-card__avatar {
-            width: 96px;
-            height: 96px;
-            border-radius: 999px;
+            width: 100%;
+            height: 100%;
             object-fit: cover;
-            flex-shrink: 0;
+            object-position: 50% 30%;
+            display: block;
         }
 
-        @media (max-width: 768px) {
-            .founder-card__avatar {
-                width: 72px;
-                height: 72px;
-            }
+        .founder-card__badge {
+            position: absolute;
+            top: 12px;
+            left: 12px;
+            background: rgba(37, 99, 235, 0.12);
+            color: #2563EB;
+            font-family: 'Inter', sans-serif;
+            font-size: 12px;
+            line-height: 18px;
+            font-weight: 650;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            border-radius: 999px;
+            padding: 6px 10px;
+        }
+
+        .founder-card__info {
+            margin-top: 14px;
         }
 
         .founder-card__name {
             font-family: 'Space Grotesk', sans-serif;
-            font-size: 16px;
-            line-height: 22px;
+            font-size: 18px;
+            line-height: 24px;
             font-weight: 700;
             color: #0B1220;
-            margin: 0;
+            margin: 0 0 6px 0;
         }
 
         .founder-card__role {
@@ -612,20 +629,21 @@
                 <!-- Right Column -->
                 <div>
                     <div class="founder-card">
-                        <div class="founder-card__top">
+                        <div class="founder-card__image-wrapper">
+                            <span class="founder-card__badge">FOUNDER‑LED</span>
                             <img src="jtandy-author-pic.jpg" alt="James Tandy" class="founder-card__avatar"
-                                onerror="this.src='https://via.placeholder.com/56x56/0f1d3d/ffffff?text=JT'">
-                            <div>
-                                <h3 class="founder-card__name">James Tandy</h3>
-                                <p class="founder-card__role">Founder, JTANDY</p>
-                            </div>
+                                onerror="this.src='https://via.placeholder.com/400x400/0f1d3d/ffffff?text=JT'">
                         </div>
-                        <p class="founder-card__body">You deal directly with the person building the system — no account
-                            managers, no hand‑offs.</p>
+                        <div class="founder-card__info">
+                            <h3 class="founder-card__name">James Tandy</h3>
+                            <p class="founder-card__role">Founder, JTANDY</p>
+                        </div>
+                        <p class="founder-card__body">You deal directly with the person building the system — no
+                            hand‑offs, no account managers.</p>
                         <div class="founder-card__badges">
-                            <span class="founder-badge">Email-first process</span>
-                            <span class="founder-badge">Built for trades</span>
-                            <span class="founder-badge">ROI measured</span>
+                            <span class="founder-badge">EMAIL‑FIRST</span>
+                            <span class="founder-badge">BUILT FOR TRADES</span>
+                            <span class="founder-badge">ROI MEASURED</span>
                         </div>
                     </div>
                 </div>

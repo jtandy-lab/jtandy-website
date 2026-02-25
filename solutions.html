@@ -1,845 +1,956 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Solutions — Revenue Recovery Systems for UK Trades | JTandy</title>
-    <meta name="description"
-        content="Choose your starting point: Lead Websites, Follow-Up Automation, Review Automation, or the full Revenue Engine. Start with one layer or install the full system.">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <meta
+      name="description"
+      content="Choose your starting point: Lead Websites, Follow-Up Automation, Review Automation, or the full Revenue Engine. Start with one layer or install the full system."
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-        href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700;800&family=Inter:wght@400;450;500;550;600;650;700;750;800;850&display=swap"
-        rel="stylesheet">
-    <link rel="stylesheet" href="style.css">
+      href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700;800&family=Inter:wght@400;450;500;550;600;650;700;750;800;850&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="style.css" />
     <style>
-        /* ── Solutions page-specific ── */
+      /* ── Solutions page-specific ── */
 
-        /* Hero */
-        .sol-hero {
-            background: #FFFFFF;
-            padding: calc(var(--nav-h) + 72px) 0 64px;
-            border-bottom: 1px solid var(--border-0)
-        }
+      /* Hero */
+      .sol-hero {
+        background: #ffffff;
+        padding: calc(var(--nav-h) + 72px) 0 64px;
+        border-bottom: 1px solid var(--border-0);
+      }
 
-        .sol-hero__grid {
-            display: grid;
-            grid-template-columns: 7fr 5fr;
-            gap: 48px;
-            align-items: start
-        }
+      .sol-hero__grid {
+        display: grid;
+        grid-template-columns: 7fr 5fr;
+        gap: 48px;
+        align-items: start;
+      }
 
-        .sol-hero__eyebrow {
-            display: block;
-            font-family: var(--font-body);
-            font-size: 12px;
-            font-weight: 650;
-            letter-spacing: .08em;
-            text-transform: uppercase;
-            color: var(--text-2);
-            margin-bottom: 12px
-        }
+      .sol-hero__eyebrow {
+        display: block;
+        font-family: var(--font-body);
+        font-size: 12px;
+        font-weight: 650;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+        color: var(--text-2);
+        margin-bottom: 12px;
+      }
 
-        .sol-hero h1 {
-            font-size: clamp(34px, 5vw, 52px);
-            line-height: 1.15;
-            font-weight: 700;
-            color: var(--text-0);
-            letter-spacing: -.02em;
-            max-width: 680px
-        }
+      .sol-hero h1 {
+        font-size: clamp(34px, 5vw, 52px);
+        line-height: 1.15;
+        font-weight: 700;
+        color: var(--text-0);
+        letter-spacing: -0.02em;
+        max-width: 680px;
+      }
 
-        .sol-hero__sub {
-            font-size: 18px;
-            line-height: 1.56;
-            font-weight: 450;
-            color: var(--text-1);
-            margin-top: 14px;
-            max-width: 720px
-        }
+      .sol-hero__sub {
+        font-size: 18px;
+        line-height: 1.56;
+        font-weight: 450;
+        color: var(--text-1);
+        margin-top: 14px;
+        max-width: 720px;
+      }
 
-        .sol-hero__ctas {
-            display: flex;
-            gap: 12px;
-            margin-top: 22px;
-            flex-wrap: wrap
-        }
+      .sol-hero__ctas {
+        display: flex;
+        gap: 12px;
+        margin-top: 22px;
+        flex-wrap: wrap;
+      }
 
-        .sol-hero__micro {
-            font-size: 14px;
-            font-weight: 550;
-            color: var(--text-1);
-            margin-top: 12px
-        }
+      .sol-hero__micro {
+        font-size: 14px;
+        font-weight: 550;
+        color: var(--text-1);
+        margin-top: 12px;
+      }
 
-        .sol-hero__right {
-            display: flex;
-            flex-direction: column;
-            gap: 14px
-        }
+      .sol-hero__right {
+        display: flex;
+        flex-direction: column;
+        gap: 14px;
+      }
 
-        /* System overview card */
-        .sol-overview {
-            background: var(--bg-0);
-            border: 1px solid var(--border-0);
-            border-radius: 16px;
-            padding: 20px;
-            box-shadow: 0 2px 10px rgba(15, 29, 61, .08)
-        }
+      /* System overview card */
+      .sol-overview {
+        background: var(--bg-0);
+        border: 1px solid var(--border-0);
+        border-radius: 16px;
+        padding: 20px;
+        box-shadow: 0 2px 10px rgba(15, 29, 61, 0.08);
+      }
 
-        .sol-overview__title {
-            font-family: var(--font-heading);
-            font-size: 16px;
-            font-weight: 700;
-            line-height: 1.38;
-            color: var(--text-0);
-            margin-bottom: 14px
-        }
+      .sol-overview__title {
+        font-family: var(--font-heading);
+        font-size: 16px;
+        font-weight: 700;
+        line-height: 1.38;
+        color: var(--text-0);
+        margin-bottom: 14px;
+      }
 
-        .sol-overview__row {
-            display: flex;
-            align-items: flex-start;
-            gap: 10px;
-            margin-bottom: 10px
-        }
+      .sol-overview__row {
+        display: flex;
+        align-items: flex-start;
+        gap: 10px;
+        margin-bottom: 10px;
+      }
 
-        .sol-overview__row:last-of-type {
-            margin-bottom: 0
-        }
+      .sol-overview__row:last-of-type {
+        margin-bottom: 0;
+      }
 
-        .sol-overview__dot {
-            width: 8px;
-            height: 8px;
-            border-radius: 50%;
-            flex-shrink: 0;
-            margin-top: 6px
-        }
+      .sol-overview__dot {
+        width: 8px;
+        height: 8px;
+        border-radius: 50%;
+        flex-shrink: 0;
+        margin-top: 6px;
+      }
 
-        .sol-overview__dot--live {
-            background: var(--success-0)
-        }
+      .sol-overview__dot--live {
+        background: var(--success-0);
+      }
 
-        .sol-overview__dot--opt {
-            background: rgba(15, 29, 61, .30)
-        }
+      .sol-overview__dot--opt {
+        background: rgba(15, 29, 61, 0.3);
+      }
 
-        .sol-overview__row strong {
-            font-size: 14px;
-            font-weight: 650;
-            line-height: 1.43;
-            color: var(--text-0);
-            display: block
-        }
+      .sol-overview__row strong {
+        font-size: 14px;
+        font-weight: 650;
+        line-height: 1.43;
+        color: var(--text-0);
+        display: block;
+      }
 
-        .sol-overview__row span {
-            font-size: 12px;
-            font-weight: 450;
-            line-height: 1.5;
-            color: var(--text-1)
-        }
+      .sol-overview__row span {
+        font-size: 12px;
+        font-weight: 450;
+        line-height: 1.5;
+        color: var(--text-1);
+      }
 
-        .sol-overview__foot {
-            font-size: 12px;
-            font-weight: 600;
-            line-height: 1.5;
-            color: var(--text-2);
-            margin-top: 14px;
-            border-top: 1px solid var(--border-0);
-            padding-top: 10px
-        }
+      .sol-overview__foot {
+        font-size: 12px;
+        font-weight: 600;
+        line-height: 1.5;
+        color: var(--text-2);
+        margin-top: 14px;
+        border-top: 1px solid var(--border-0);
+        padding-top: 10px;
+      }
 
-        /* Pricing snapshot */
-        .sol-pricing {
-            background: var(--navy-0);
-            border-radius: 16px;
-            padding: 18px
-        }
+      /* Pricing snapshot */
+      .sol-pricing {
+        background: var(--navy-0);
+        border-radius: 16px;
+        padding: 18px;
+      }
 
-        .sol-pricing__chip {
-            display: inline-block;
-            font-size: 12px;
-            font-weight: 650;
-            letter-spacing: .06em;
-            text-transform: uppercase;
-            color: rgba(255, 255, 255, .72);
-            background: rgba(255, 255, 255, .08);
-            border-radius: 999px;
-            padding: 6px 10px;
-            line-height: 1.5;
-            margin-bottom: 12px
-        }
+      .sol-pricing__chip {
+        display: inline-block;
+        font-size: 12px;
+        font-weight: 650;
+        letter-spacing: 0.06em;
+        text-transform: uppercase;
+        color: rgba(255, 255, 255, 0.72);
+        background: rgba(255, 255, 255, 0.08);
+        border-radius: 999px;
+        padding: 6px 10px;
+        line-height: 1.5;
+        margin-bottom: 12px;
+      }
 
-        .sol-pricing__list {
-            list-style: none;
-            display: flex;
-            flex-direction: column;
-            gap: 6px
-        }
+      .sol-pricing__list {
+        list-style: none;
+        display: flex;
+        flex-direction: column;
+        gap: 6px;
+      }
 
-        .sol-pricing__list li {
-            font-size: 14px;
-            line-height: 1.57;
-            font-weight: 600;
-            color: rgba(255, 255, 255, .86)
-        }
+      .sol-pricing__list li {
+        font-size: 14px;
+        line-height: 1.57;
+        font-weight: 600;
+        color: rgba(255, 255, 255, 0.86);
+      }
 
-        .sol-pricing__foot {
-            font-size: 12px;
-            font-weight: 500;
-            line-height: 1.5;
-            color: rgba(255, 255, 255, .68);
-            margin-top: 10px
-        }
+      .sol-pricing__foot {
+        font-size: 12px;
+        font-weight: 500;
+        line-height: 1.5;
+        color: rgba(255, 255, 255, 0.68);
+        margin-top: 10px;
+      }
 
-        /* Solutions grid */
-        .sol-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 16px
-        }
+      /* Solutions grid */
+      .sol-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 16px;
+      }
 
-        .sol-card {
-            background: var(--surface-0);
-            border: 1px solid var(--border-0);
-            border-radius: 16px;
-            padding: 22px;
-            box-shadow: 0 2px 10px rgba(15, 29, 61, .08);
-            transition: border-color .15s, transform .15s, box-shadow .15s;
-            position: relative;
-            display: flex;
-            flex-direction: column
-        }
+      .sol-card {
+        background: var(--surface-0);
+        border: 1px solid var(--border-0);
+        border-radius: 16px;
+        padding: 22px;
+        box-shadow: 0 2px 10px rgba(15, 29, 61, 0.08);
+        transition:
+          border-color 0.15s,
+          transform 0.15s,
+          box-shadow 0.15s;
+        position: relative;
+        display: flex;
+        flex-direction: column;
+      }
 
-        .sol-card:hover {
-            border-color: var(--border-1);
-            transform: translateY(-2px);
-            box-shadow: 0 4px 16px rgba(15, 29, 61, .12)
-        }
+      .sol-card:hover {
+        border-color: var(--border-1);
+        transform: translateY(-2px);
+        box-shadow: 0 4px 16px rgba(15, 29, 61, 0.12);
+      }
 
-        .sol-card__badge {
-            position: absolute;
-            top: 14px;
-            right: 14px;
-            font-size: 12px;
-            font-weight: 700;
-            letter-spacing: .04em;
-            text-transform: uppercase;
-            color: var(--success-0);
-            background: rgba(22, 163, 74, .12);
-            border-radius: 8px;
-            padding: 4px 10px;
-            line-height: 1.5
-        }
+      .sol-card__badge {
+        position: absolute;
+        top: 14px;
+        right: 14px;
+        font-size: 12px;
+        font-weight: 700;
+        letter-spacing: 0.04em;
+        text-transform: uppercase;
+        color: var(--success-0);
+        background: rgba(22, 163, 74, 0.12);
+        border-radius: 8px;
+        padding: 4px 10px;
+        line-height: 1.5;
+      }
 
-        .sol-card__header {
-            display: flex;
-            align-items: center;
-            gap: 12px;
-            margin-bottom: 14px
-        }
+      .sol-card__header {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        margin-bottom: 14px;
+      }
 
-        .sol-card__icon {
-            width: 32px;
-            height: 32px;
-            border-radius: 10px;
-            background: rgba(37, 99, 235, .10);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            flex-shrink: 0
-        }
+      .sol-card__icon {
+        width: 32px;
+        height: 32px;
+        border-radius: 10px;
+        background: rgba(37, 99, 235, 0.1);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-shrink: 0;
+      }
 
-        .sol-card__icon svg {
-            width: 18px;
-            height: 18px;
-            color: var(--cobalt-0)
-        }
+      .sol-card__icon svg {
+        width: 18px;
+        height: 18px;
+        color: var(--cobalt-0);
+      }
 
-        .sol-card__label {
-            font-family: var(--font-body);
-            font-size: 12px;
-            font-weight: 650;
-            letter-spacing: .06em;
-            text-transform: uppercase;
-            color: var(--text-2)
-        }
+      .sol-card__label {
+        font-family: var(--font-body);
+        font-size: 12px;
+        font-weight: 650;
+        letter-spacing: 0.06em;
+        text-transform: uppercase;
+        color: var(--text-2);
+      }
 
-        .sol-card__title {
-            font-family: var(--font-heading);
-            font-size: 20px;
-            font-weight: 700;
-            line-height: 1.4;
-            color: var(--text-0)
-        }
+      .sol-card__title {
+        font-family: var(--font-heading);
+        font-size: 20px;
+        font-weight: 700;
+        line-height: 1.4;
+        color: var(--text-0);
+      }
 
-        .sol-card__body {
-            font-size: 15px;
-            line-height: 1.6;
-            font-weight: 450;
-            color: var(--text-1);
-            margin-bottom: 12px
-        }
+      .sol-card__body {
+        font-size: 15px;
+        line-height: 1.6;
+        font-weight: 450;
+        color: var(--text-1);
+        margin-bottom: 12px;
+      }
 
-        .sol-card__bullets {
-            list-style: none;
-            display: flex;
-            flex-direction: column;
-            gap: 6px;
-            margin-bottom: 16px
-        }
+      .sol-card__bullets {
+        list-style: none;
+        display: flex;
+        flex-direction: column;
+        gap: 6px;
+        margin-bottom: 16px;
+      }
 
-        .sol-card__bullets li {
-            font-size: 14px;
-            line-height: 1.57;
-            font-weight: 450;
-            color: var(--text-1);
-            padding-left: 20px;
-            position: relative
-        }
+      .sol-card__bullets li {
+        font-size: 14px;
+        line-height: 1.57;
+        font-weight: 450;
+        color: var(--text-1);
+        padding-left: 20px;
+        position: relative;
+      }
 
-        .sol-card__bullets li::before {
-            content: '✓';
-            position: absolute;
-            left: 0;
-            color: var(--success-0);
-            font-weight: 700;
-            font-size: 13px
-        }
+      .sol-card__bullets li::before {
+        content: "✓";
+        position: absolute;
+        left: 0;
+        color: var(--success-0);
+        font-weight: 700;
+        font-size: 13px;
+      }
 
-        .sol-card__price {
-            font-size: 14px;
-            line-height: 1.57;
-            font-weight: 700;
-            color: var(--text-0);
-            margin-bottom: 16px
-        }
+      .sol-card__price {
+        font-size: 14px;
+        line-height: 1.57;
+        font-weight: 700;
+        color: var(--text-0);
+        margin-bottom: 16px;
+      }
 
-        .sol-card__price span {
-            color: var(--cobalt-0)
-        }
+      .sol-card__price span {
+        color: var(--cobalt-0);
+      }
 
-        .sol-card__cta {
-            margin-top: auto
-        }
+      .sol-card__cta {
+        margin-top: auto;
+      }
 
-        .sol-card__cta .btn--outline {
-            font-size: 14px;
-            height: 40px;
-            border-radius: 12px;
-            padding: 0 18px
-        }
+      .sol-card__cta .btn--outline {
+        font-size: 14px;
+        height: 40px;
+        border-radius: 12px;
+        padding: 0 18px;
+      }
 
-        .sol-card--featured .sol-card__cta .btn {
-            font-size: 14px;
-            height: 40px;
-            border-radius: 12px;
-            padding: 0 18px
-        }
+      .sol-card--featured .sol-card__cta .btn {
+        font-size: 14px;
+        height: 40px;
+        border-radius: 12px;
+        padding: 0 18px;
+      }
 
-        /* Decision tiles */
-        .sol-decide {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 16px
-        }
+      /* Decision tiles */
+      .sol-decide {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 16px;
+      }
 
-        .sol-tile {
-            background: var(--bg-0);
-            border: 1px solid var(--border-0);
-            border-radius: 16px;
-            padding: 22px
-        }
+      .sol-tile {
+        background: var(--bg-0);
+        border: 1px solid var(--border-0);
+        border-radius: 16px;
+        padding: 22px;
+      }
 
-        .sol-tile h3 {
-            font-family: var(--font-heading);
-            font-size: 18px;
-            font-weight: 700;
-            line-height: 1.44;
-            margin-bottom: 8px
-        }
+      .sol-tile h3 {
+        font-family: var(--font-heading);
+        font-size: 18px;
+        font-weight: 700;
+        line-height: 1.44;
+        margin-bottom: 8px;
+      }
 
-        .sol-tile p {
-            font-size: 15px;
-            line-height: 1.6;
-            font-weight: 450;
-            color: var(--text-1)
-        }
+      .sol-tile p {
+        font-size: 15px;
+        line-height: 1.6;
+        font-weight: 450;
+        color: var(--text-1);
+      }
 
-        /* Outcomes 2x2 */
+      /* Outcomes 2x2 */
+      .sol-outcomes {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 16px;
+      }
+
+      .sol-outcome {
+        background: var(--surface-0);
+        border: 1px solid var(--border-0);
+        border-radius: 16px;
+        padding: 20px;
+      }
+
+      .sol-outcome strong {
+        font-size: 15px;
+        font-weight: 650;
+        line-height: 1.47;
+        display: block;
+        margin-bottom: 4px;
+      }
+
+      .sol-outcome span {
+        font-size: 14px;
+        line-height: 1.57;
+        font-weight: 450;
+        color: var(--text-1);
+      }
+
+      /* Process steps */
+      .sol-process {
+        display: grid;
+        grid-template-columns: repeat(5, 1fr);
+        gap: 12px;
+        position: relative;
+      }
+
+      .sol-process::before {
+        content: "";
+        position: absolute;
+        top: 50%;
+        left: 5%;
+        right: 5%;
+        height: 1px;
+        background: var(--border-1);
+        z-index: 0;
+      }
+
+      .sol-step {
+        background: var(--bg-0);
+        border: 1px solid var(--border-0);
+        border-radius: 16px;
+        padding: 18px;
+        position: relative;
+        z-index: 1;
+      }
+
+      .sol-step__num {
+        width: 24px;
+        height: 24px;
+        border-radius: 50%;
+        background: var(--cobalt-0);
+        color: #fff;
+        font-size: 11px;
+        font-weight: 800;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-bottom: 8px;
+      }
+
+      .sol-step strong {
+        font-size: 14px;
+        font-weight: 650;
+        line-height: 1.43;
+        display: block;
+        margin-bottom: 4px;
+      }
+
+      .sol-step span {
+        font-size: 12px;
+        font-weight: 450;
+        line-height: 1.5;
+        color: var(--text-1);
+      }
+
+      /* CTA escape link */
+      .sol-cta__escape {
+        display: block;
+        font-size: 14px;
+        font-weight: 600;
+        color: rgba(255, 255, 255, 0.78);
+        margin-top: 14px;
+        text-decoration: underline;
+        text-underline-offset: 2px;
+        transition: color 0.15s;
+      }
+
+      .sol-cta__escape:hover {
+        color: #fff;
+      }
+
+      @media (max-width: 768px) {
+        .sol-hero__grid,
+        .sol-grid,
+        .sol-decide,
         .sol-outcomes {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 16px
+          grid-template-columns: 1fr;
         }
 
-        .sol-outcome {
-            background: var(--surface-0);
-            border: 1px solid var(--border-0);
-            border-radius: 16px;
-            padding: 20px
-        }
-
-        .sol-outcome strong {
-            font-size: 15px;
-            font-weight: 650;
-            line-height: 1.47;
-            display: block;
-            margin-bottom: 4px
-        }
-
-        .sol-outcome span {
-            font-size: 14px;
-            line-height: 1.57;
-            font-weight: 450;
-            color: var(--text-1)
-        }
-
-        /* Process steps */
         .sol-process {
-            display: grid;
-            grid-template-columns: repeat(5, 1fr);
-            gap: 12px;
-            position: relative
+          grid-template-columns: 1fr 1fr;
+          gap: 10px;
         }
 
         .sol-process::before {
-            content: '';
-            position: absolute;
-            top: 50%;
-            left: 5%;
-            right: 5%;
-            height: 1px;
-            background: var(--border-1);
-            z-index: 0
+          display: none;
         }
 
-        .sol-step {
-            background: var(--bg-0);
-            border: 1px solid var(--border-0);
-            border-radius: 16px;
-            padding: 18px;
-            position: relative;
-            z-index: 1
+        .sol-hero {
+          padding: calc(var(--nav-h) + 48px) 0 48px;
         }
-
-        .sol-step__num {
-            width: 24px;
-            height: 24px;
-            border-radius: 50%;
-            background: var(--cobalt-0);
-            color: #fff;
-            font-size: 11px;
-            font-weight: 800;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin-bottom: 8px
-        }
-
-        .sol-step strong {
-            font-size: 14px;
-            font-weight: 650;
-            line-height: 1.43;
-            display: block;
-            margin-bottom: 4px
-        }
-
-        .sol-step span {
-            font-size: 12px;
-            font-weight: 450;
-            line-height: 1.5;
-            color: var(--text-1)
-        }
-
-        /* CTA escape link */
-        .sol-cta__escape {
-            display: block;
-            font-size: 14px;
-            font-weight: 600;
-            color: rgba(255, 255, 255, .78);
-            margin-top: 14px;
-            text-decoration: underline;
-            text-underline-offset: 2px;
-            transition: color .15s
-        }
-
-        .sol-cta__escape:hover {
-            color: #fff
-        }
-
-        @media(max-width:768px) {
-
-            .sol-hero__grid,
-            .sol-grid,
-            .sol-decide,
-            .sol-outcomes {
-                grid-template-columns: 1fr
-            }
-
-            .sol-process {
-                grid-template-columns: 1fr 1fr;
-                gap: 10px
-            }
-
-            .sol-process::before {
-                display: none
-            }
-
-            .sol-hero {
-                padding: calc(var(--nav-h) + 48px) 0 48px
-            }
-        }
+      }
     </style>
-</head>
+  </head>
 
-<body class="page-sub">
-
+  <body class="page-sub">
     <!-- ═══ HEADER ═══ -->
     <header class="header" id="header">
-        <div class="header__inner">
-            <a href="index.html" class="header__brand"><img src="img/logo-navy.svg" alt="JTandy"
-                    class="header__logo header__logo--navy"><img src="img/logo-white.svg" alt="JTandy"
-                    class="header__logo header__logo--white"></a>
-            <nav class="header__nav" id="headerNav">
-                <div class="nav-dropdown">
-                    <a href="solutions.html" class="nav-dropdown__trigger">Solutions <span
-                            class="nav-dropdown__arrow">▾</span></a>
-                    <div class="nav-dropdown__menu">
-                        <a href="lead-websites.html">Lead Websites</a>
-                        <a href="follow-up-automation.html">Follow-Up Automation</a>
-                        <a href="review-automation.html">Review Automation</a>
-                        <a href="revenue-engine.html">Revenue Engine</a>
-                    </div>
-                </div>
-                <a href="how-it-works.html">How It Works</a>
-                <a href="results.html">Results</a>
-                <a href="pricing.html">Pricing</a>
-                <a href="faq.html">FAQ</a>
-            </nav>
-            <div class="header__actions">
-                <a href="audit.html" class="btn btn--primary">Start Audit Request</a>
+      <div class="header__inner">
+        <a href="index.html" class="header__brand"
+          ><img
+            src="img/logo-navy.svg"
+            alt="JTandy"
+            class="header__logo header__logo--navy" /><img
+            src="img/logo-white.svg"
+            alt="JTandy"
+            class="header__logo header__logo--white"
+        /></a>
+        <nav class="header__nav" id="headerNav">
+          <div class="nav-dropdown">
+            <a href="solutions.html" class="nav-dropdown__trigger"
+              >Solutions <span class="nav-dropdown__arrow">▾</span></a
+            >
+            <div class="nav-dropdown__menu">
+              <a href="lead-websites.html">Lead Websites</a>
+              <a href="follow-up-automation.html">Follow-Up Automation</a>
+              <a href="review-automation.html">Review Automation</a>
+              <a href="revenue-engine.html">Revenue Engine</a>
             </div>
-            <button class="header__burger" id="headerBurger" aria-label="Menu">
-                <span></span><span></span><span></span>
-            </button>
+          </div>
+          <a href="how-it-works.html">How It Works</a>
+          <a href="results.html">Results</a>
+          <a href="pricing.html">Pricing</a>
+          <a href="faq.html">FAQ</a>
+        </nav>
+        <div class="header__actions">
+          <a href="audit.html" class="btn btn--primary">Start Audit Request</a>
         </div>
+        <button class="header__burger" id="headerBurger" aria-label="Menu">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
     </header>
 
     <!-- ═══ 2. HERO ═══ -->
     <section class="sol-hero" id="sol-hero">
-        <div class="container sol-hero__grid">
-            <div>
-                <span class="sol-hero__eyebrow">Solutions</span>
-                <h1>Choose your starting point. Build the full system when ready.</h1>
-                <p class="sol-hero__sub">JTANDY installs revenue recovery systems for UK trades — websites that convert,
-                    follow‑up that prevents missed jobs, and review engines that compound trust. Start with one layer or
-                    install the full Revenue Engine.</p>
-                <div class="sol-hero__ctas">
-                    <a href="audit.html" class="btn btn--primary btn--hero">Start Audit Request</a>
-                    <a href="#solutions" class="btn btn--outline">See the 4 solutions</a>
-                </div>
-                <p class="sol-hero__micro">✅ No calls required • Written recommendation • Clear next step</p>
-            </div>
-            <div class="sol-hero__right">
-                <div class="sol-overview">
-                    <div class="sol-overview__title">How the layers fit</div>
-                    <div class="sol-overview__row">
-                        <span class="sol-overview__dot sol-overview__dot--live"></span>
-                        <div><strong>Lead Website</strong><span>Foundation that captures calls + quotes</span></div>
-                    </div>
-                    <div class="sol-overview__row">
-                        <span class="sol-overview__dot sol-overview__dot--live"></span>
-                        <div><strong>Follow‑Up Automation</strong><span>Recovers missed calls + cold quotes</span></div>
-                    </div>
-                    <div class="sol-overview__row">
-                        <span class="sol-overview__dot sol-overview__dot--live"></span>
-                        <div><strong>Review Automation</strong><span>Turns jobs into 5★ proof</span></div>
-                    </div>
-                    <div class="sol-overview__row">
-                        <span class="sol-overview__dot sol-overview__dot--opt"></span>
-                        <div><strong>Revenue Engine</strong><span>All layers integrated + measured</span></div>
-                    </div>
-                    <div class="sol-overview__foot">Each layer works alone. Together, they compound.</div>
-                </div>
-                <div class="sol-pricing">
-                    <span class="sol-pricing__chip">Starting Investments</span>
-                    <ul class="sol-pricing__list">
-                        <li>Lead Websites — from £3,500</li>
-                        <li>Follow‑Up Automation — from £1,500 setup + £250/mo</li>
-                        <li>Review Automation — from £950 setup + £150/mo</li>
-                        <li>Revenue Engine — from £7,500 setup + £450/mo</li>
-                    </ul>
-                    <p class="sol-pricing__foot">Exact pricing depends on enquiry volume, scope, and integrations.</p>
-                </div>
-            </div>
+      <div class="container sol-hero__grid">
+        <div>
+          <span class="sol-hero__eyebrow">Solutions</span>
+          <h1>Choose your starting point. Build the full system when ready.</h1>
+          <p class="sol-hero__sub">
+            JTANDY installs revenue recovery systems for UK trades — websites
+            that convert, follow‑up that prevents missed jobs, and review
+            engines that compound trust. Start with one layer or install the
+            full Revenue Engine.
+          </p>
+          <div class="sol-hero__ctas">
+            <a href="audit.html" class="btn btn--primary btn--hero"
+              >Start Audit Request</a
+            >
+            <a href="#solutions" class="btn btn--outline"
+              >See the 4 solutions</a
+            >
+          </div>
+          <p class="sol-hero__micro">
+            ✅ No calls required • Written recommendation • Clear next step
+          </p>
         </div>
+        <div class="sol-hero__right">
+          <div class="sol-overview">
+            <div class="sol-overview__title">How the layers fit</div>
+            <div class="sol-overview__row">
+              <span class="sol-overview__dot sol-overview__dot--live"></span>
+              <div>
+                <strong>Lead Website</strong
+                ><span>Foundation that captures calls + quotes</span>
+              </div>
+            </div>
+            <div class="sol-overview__row">
+              <span class="sol-overview__dot sol-overview__dot--live"></span>
+              <div>
+                <strong>Follow‑Up Automation</strong
+                ><span>Recovers missed calls + cold quotes</span>
+              </div>
+            </div>
+            <div class="sol-overview__row">
+              <span class="sol-overview__dot sol-overview__dot--live"></span>
+              <div>
+                <strong>Review Automation</strong
+                ><span>Turns jobs into 5★ proof</span>
+              </div>
+            </div>
+            <div class="sol-overview__row">
+              <span class="sol-overview__dot sol-overview__dot--opt"></span>
+              <div>
+                <strong>Revenue Engine</strong
+                ><span>All layers integrated + measured</span>
+              </div>
+            </div>
+            <div class="sol-overview__foot">
+              Each layer works alone. Together, they compound.
+            </div>
+          </div>
+          <div class="sol-pricing">
+            <span class="sol-pricing__chip">Starting Investments</span>
+            <ul class="sol-pricing__list">
+              <li>Lead Websites — from £3,500</li>
+              <li>Follow‑Up Automation — from £1,500 setup + £250/mo</li>
+              <li>Review Automation — from £950 setup + £150/mo</li>
+              <li>Revenue Engine — from £7,500 setup + £450/mo</li>
+            </ul>
+            <p class="sol-pricing__foot">
+              Exact pricing depends on enquiry volume, scope, and integrations.
+            </p>
+          </div>
+        </div>
+      </div>
     </section>
 
     <!-- ═══ 3. SOLUTIONS GRID ═══ -->
     <section class="section section--bg" id="solutions">
-        <div class="container">
-            <div class="section__header">
-                <h2>Solutions</h2>
-                <p style="font-size:16px;line-height:1.63;font-weight:450;color:var(--text-1);margin-top:10px">Start
-                    where the leak is biggest. Add layers once ROI is proven.</p>
-            </div>
-            <div class="sol-grid">
-                <!-- Card 1 -->
-                <div class="sol-card">
-                    <div class="sol-card__header">
-                        <div class="sol-card__icon">
-                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                <rect x="3" y="3" width="18" height="18" rx="3" />
-                                <path d="M9 3v18M3 9h18" />
-                            </svg>
-                        </div>
-                        <div>
-                            <div class="sol-card__label">Foundation</div>
-                            <div class="sol-card__title">Lead Websites</div>
-                        </div>
-                    </div>
-                    <p class="sol-card__body">Built to turn visitors into calls and quote requests — fast, clear, and
-                        structured for local search.</p>
-                    <ul class="sol-card__bullets">
-                        <li>Conversion architecture + CTA flow</li>
-                        <li>Local service/area structure</li>
-                        <li>Tracking installed from day one</li>
-                    </ul>
-                    <div class="sol-card__price">From <span>£3,500</span></div>
-                    <div class="sol-card__cta">
-                        <a href="lead-websites.html" class="btn btn--outline">View Lead Websites →</a>
-                    </div>
-                </div>
-
-                <!-- Card 2 -->
-                <div class="sol-card">
-                    <div class="sol-card__header">
-                        <div class="sol-card__icon">
-                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                <path
-                                    d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6A19.79 19.79 0 012.12 4.18 2 2 0 014.11 2h3a2 2 0 012 1.72c.127.96.362 1.903.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.338 1.85.573 2.81.7A2 2 0 0122 16.92z" />
-                            </svg>
-                        </div>
-                        <div>
-                            <div class="sol-card__label">Recovery</div>
-                            <div class="sol-card__title">Follow‑Up Automation</div>
-                        </div>
-                    </div>
-                    <p class="sol-card__body">Recover missed calls, reply instantly, and chase quotes automatically so
-                        no
-                        enquiry slips through when you're busy.</p>
-                    <ul class="sol-card__bullets">
-                        <li>Missed‑call text‑back</li>
-                        <li>Quote follow‑up sequences</li>
-                        <li>Lead status visibility</li>
-                    </ul>
-                    <div class="sol-card__price">From <span>£1,500</span> setup + £250/mo</div>
-                    <div class="sol-card__cta">
-                        <a href="follow-up-automation.html" class="btn btn--outline">View Follow‑Up Automation →</a>
-                    </div>
-                </div>
-
-                <!-- Card 3 -->
-                <div class="sol-card">
-                    <div class="sol-card__header">
-                        <div class="sol-card__icon">
-                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                <polygon
-                                    points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" />
-                            </svg>
-                        </div>
-                        <div>
-                            <div class="sol-card__label">Trust</div>
-                            <div class="sol-card__title">Review Automation</div>
-                        </div>
-                    </div>
-                    <p class="sol-card__body">Turn completed jobs into consistent Google reviews — improving trust and
-                        enquiry conversion without awkward asking.</p>
-                    <ul class="sol-card__bullets">
-                        <li>Polite request + reminder</li>
-                        <li>Direct Google link</li>
-                        <li>Service recovery prompt</li>
-                    </ul>
-                    <div class="sol-card__price">From <span>£950</span> setup + £150/mo</div>
-                    <div class="sol-card__cta">
-                        <a href="review-automation.html" class="btn btn--outline">View Review Automation →</a>
-                    </div>
-                </div>
-
-                <!-- Card 4 — Featured -->
-                <div class="sol-card sol-card--featured">
-                    <span class="sol-card__badge">Best Value</span>
-                    <div class="sol-card__header">
-                        <div class="sol-card__icon">
-                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                <circle cx="12" cy="12" r="10" />
-                                <path
-                                    d="M2 12h20M12 2a15.3 15.3 0 014 10 15.3 15.3 0 01-4 10 15.3 15.3 0 01-4-10 15.3 15.3 0 014-10z" />
-                            </svg>
-                        </div>
-                        <div>
-                            <div class="sol-card__label">Full System</div>
-                            <div class="sol-card__title">Revenue Engine</div>
-                        </div>
-                    </div>
-                    <p class="sol-card__body">All layers integrated into one system: capture → respond → follow up →
-                        review → measure.</p>
-                    <ul class="sol-card__bullets">
-                        <li>Website + automation layers</li>
-                        <li>Central dashboard + measurement</li>
-                        <li>Ongoing optimisation</li>
-                    </ul>
-                    <div class="sol-card__price">From <span>£7,500</span> setup + £450/mo</div>
-                    <div class="sol-card__cta">
-                        <a href="revenue-engine.html" class="btn btn--primary">View Revenue Engine →</a>
-                    </div>
-                </div>
-            </div>
+      <div class="container">
+        <div class="section__header">
+          <h2>Solutions</h2>
+          <p
+            style="
+              font-size: 16px;
+              line-height: 1.63;
+              font-weight: 450;
+              color: var(--text-1);
+              margin-top: 10px;
+            "
+          >
+            Start where the leak is biggest. Add layers once ROI is proven.
+          </p>
         </div>
+        <div class="sol-grid">
+          <!-- Card 1 -->
+          <div class="sol-card">
+            <div class="sol-card__header">
+              <div class="sol-card__icon">
+                <svg
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                >
+                  <rect x="3" y="3" width="18" height="18" rx="3" />
+                  <path d="M9 3v18M3 9h18" />
+                </svg>
+              </div>
+              <div>
+                <div class="sol-card__label">Foundation</div>
+                <div class="sol-card__title">Lead Websites</div>
+              </div>
+            </div>
+            <p class="sol-card__body">
+              Built to turn visitors into calls and quote requests — fast,
+              clear, and structured for local search.
+            </p>
+            <ul class="sol-card__bullets">
+              <li>Conversion architecture + CTA flow</li>
+              <li>Local service/area structure</li>
+              <li>Tracking installed from day one</li>
+            </ul>
+            <div class="sol-card__price">From <span>£3,500</span></div>
+            <div class="sol-card__cta">
+              <a href="lead-websites.html" class="btn btn--outline"
+                >View Lead Websites →</a
+              >
+            </div>
+          </div>
+
+          <!-- Card 2 -->
+          <div class="sol-card">
+            <div class="sol-card__header">
+              <div class="sol-card__icon">
+                <svg
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                >
+                  <path
+                    d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6A19.79 19.79 0 012.12 4.18 2 2 0 014.11 2h3a2 2 0 012 1.72c.127.96.362 1.903.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.338 1.85.573 2.81.7A2 2 0 0122 16.92z"
+                  />
+                </svg>
+              </div>
+              <div>
+                <div class="sol-card__label">Recovery</div>
+                <div class="sol-card__title">Follow‑Up Automation</div>
+              </div>
+            </div>
+            <p class="sol-card__body">
+              Recover missed calls, reply instantly, and chase quotes
+              automatically so no enquiry slips through when you're busy.
+            </p>
+            <ul class="sol-card__bullets">
+              <li>Missed‑call text‑back</li>
+              <li>Quote follow‑up sequences</li>
+              <li>Lead status visibility</li>
+            </ul>
+            <div class="sol-card__price">
+              From <span>£1,500</span> setup + £250/mo
+            </div>
+            <div class="sol-card__cta">
+              <a href="follow-up-automation.html" class="btn btn--outline"
+                >View Follow‑Up Automation →</a
+              >
+            </div>
+          </div>
+
+          <!-- Card 3 -->
+          <div class="sol-card">
+            <div class="sol-card__header">
+              <div class="sol-card__icon">
+                <svg
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                >
+                  <polygon
+                    points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"
+                  />
+                </svg>
+              </div>
+              <div>
+                <div class="sol-card__label">Trust</div>
+                <div class="sol-card__title">Review Automation</div>
+              </div>
+            </div>
+            <p class="sol-card__body">
+              Turn completed jobs into consistent Google reviews — improving
+              trust and enquiry conversion without awkward asking.
+            </p>
+            <ul class="sol-card__bullets">
+              <li>Polite request + reminder</li>
+              <li>Direct Google link</li>
+              <li>Service recovery prompt</li>
+            </ul>
+            <div class="sol-card__price">
+              From <span>£950</span> setup + £150/mo
+            </div>
+            <div class="sol-card__cta">
+              <a href="review-automation.html" class="btn btn--outline"
+                >View Review Automation →</a
+              >
+            </div>
+          </div>
+
+          <!-- Card 4 — Featured -->
+          <div class="sol-card sol-card--featured">
+            <span class="sol-card__badge">Best Value</span>
+            <div class="sol-card__header">
+              <div class="sol-card__icon">
+                <svg
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                >
+                  <circle cx="12" cy="12" r="10" />
+                  <path
+                    d="M2 12h20M12 2a15.3 15.3 0 014 10 15.3 15.3 0 01-4 10 15.3 15.3 0 01-4-10 15.3 15.3 0 014-10z"
+                  />
+                </svg>
+              </div>
+              <div>
+                <div class="sol-card__label">Full System</div>
+                <div class="sol-card__title">Revenue Engine</div>
+              </div>
+            </div>
+            <p class="sol-card__body">
+              All layers integrated into one system: capture → respond → follow
+              up → review → measure.
+            </p>
+            <ul class="sol-card__bullets">
+              <li>Website + automation layers</li>
+              <li>Central dashboard + measurement</li>
+              <li>Ongoing optimisation</li>
+            </ul>
+            <div class="sol-card__price">
+              From <span>£7,500</span> setup + £450/mo
+            </div>
+            <div class="sol-card__cta">
+              <a href="revenue-engine.html" class="btn btn--primary"
+                >View Revenue Engine →</a
+              >
+            </div>
+          </div>
+        </div>
+      </div>
     </section>
 
     <!-- ═══ 4. DECISION TILES ═══ -->
     <section class="section section--white" id="where-to-start">
-        <div class="container">
-            <div class="section__header section__header--center">
-                <h2>Not sure where to start?</h2>
-            </div>
-            <div class="sol-decide">
-                <div class="sol-tile">
-                    <h3>Start with Lead Websites</h3>
-                    <p>If your site is outdated, slow, or doesn't convert into calls/quotes.</p>
-                </div>
-                <div class="sol-tile">
-                    <h3>Start with Follow‑Up Automation</h3>
-                    <p>If you miss calls, reply late, or quotes go cold without chasing.</p>
-                </div>
-                <div class="sol-tile">
-                    <h3>Start with Review Automation</h3>
-                    <p>If you finish jobs but reviews aren't growing consistently.</p>
-                </div>
-                <div class="sol-tile">
-                    <h3>Start with Revenue Engine</h3>
-                    <p>If you want everything integrated and measured end‑to‑end.</p>
-                </div>
-            </div>
-            <p class="section__micro-proof" style="font-weight:650">We'll recommend the best starting point after the
-                audit.</p>
+      <div class="container">
+        <div class="section__header section__header--center">
+          <h2>Not sure where to start?</h2>
         </div>
+        <div class="sol-decide">
+          <div class="sol-tile">
+            <h3>Start with Lead Websites</h3>
+            <p>
+              If your site is outdated, slow, or doesn't convert into
+              calls/quotes.
+            </p>
+          </div>
+          <div class="sol-tile">
+            <h3>Start with Follow‑Up Automation</h3>
+            <p>
+              If you miss calls, reply late, or quotes go cold without chasing.
+            </p>
+          </div>
+          <div class="sol-tile">
+            <h3>Start with Review Automation</h3>
+            <p>If you finish jobs but reviews aren't growing consistently.</p>
+          </div>
+          <div class="sol-tile">
+            <h3>Start with Revenue Engine</h3>
+            <p>If you want everything integrated and measured end‑to‑end.</p>
+          </div>
+        </div>
+        <p class="section__micro-proof" style="font-weight: 650">
+          We'll recommend the best starting point after the audit.
+        </p>
+      </div>
     </section>
 
     <!-- ═══ 5. OUTCOMES ═══ -->
     <section class="section section--bg" id="outcomes">
-        <div class="container">
-            <div class="section__header section__header--center">
-                <h2>What improves when the system is installed</h2>
-            </div>
-            <div class="sol-outcomes">
-                <div class="sol-outcome">
-                    <strong>Faster response</strong>
-                    <span>Customers aren't left waiting</span>
-                </div>
-                <div class="sol-outcome">
-                    <strong>More recovered enquiries</strong>
-                    <span>Missed calls don't disappear</span>
-                </div>
-                <div class="sol-outcome">
-                    <strong>More booked work</strong>
-                    <span>Follow‑up becomes consistent</span>
-                </div>
-                <div class="sol-outcome">
-                    <strong>More reviews over time</strong>
-                    <span>Trust compounds locally</span>
-                </div>
-            </div>
-            <p class="section__micro-proof"
-                style="font-size:12px;font-weight:650;text-transform:uppercase;letter-spacing:.06em;color:var(--text-2)">
-                Results vary by market and enquiry volume. We focus on measurable improvements.</p>
+      <div class="container">
+        <div class="section__header section__header--center">
+          <h2>What improves when the system is installed</h2>
         </div>
+        <div class="sol-outcomes">
+          <div class="sol-outcome">
+            <strong>Faster response</strong>
+            <span>Customers aren't left waiting</span>
+          </div>
+          <div class="sol-outcome">
+            <strong>More recovered enquiries</strong>
+            <span>Missed calls don't disappear</span>
+          </div>
+          <div class="sol-outcome">
+            <strong>More booked work</strong>
+            <span>Follow‑up becomes consistent</span>
+          </div>
+          <div class="sol-outcome">
+            <strong>More reviews over time</strong>
+            <span>Trust compounds locally</span>
+          </div>
+        </div>
+        <p
+          class="section__micro-proof"
+          style="
+            font-size: 12px;
+            font-weight: 650;
+            text-transform: uppercase;
+            letter-spacing: 0.06em;
+            color: var(--text-2);
+          "
+        >
+          Results vary by market and enquiry volume. We focus on measurable
+          improvements.
+        </p>
+      </div>
     </section>
 
     <!-- ═══ 6. PROCESS ═══ -->
     <section class="section section--white" id="process">
-        <div class="container">
-            <div class="section__header section__header--center">
-                <h2>How it works</h2>
-            </div>
-            <div class="sol-process">
-                <div class="sol-step">
-                    <span class="sol-step__num">1</span>
-                    <strong>Audit</strong>
-                    <span>Map leaks + opportunity</span>
-                </div>
-                <div class="sol-step">
-                    <span class="sol-step__num">2</span>
-                    <strong>Plan</strong>
-                    <span>Confirm scope + ROI assumptions</span>
-                </div>
-                <div class="sol-step">
-                    <span class="sol-step__num">3</span>
-                    <strong>Build</strong>
-                    <span>Install the layer(s)</span>
-                </div>
-                <div class="sol-step">
-                    <span class="sol-step__num">4</span>
-                    <strong>Launch</strong>
-                    <span>Controlled rollout</span>
-                </div>
-                <div class="sol-step">
-                    <span class="sol-step__num">5</span>
-                    <strong>Measure</strong>
-                    <span>Track and refine</span>
-                </div>
-            </div>
+      <div class="container">
+        <div class="section__header section__header--center">
+          <h2>How it works</h2>
         </div>
+        <div class="sol-process">
+          <div class="sol-step">
+            <span class="sol-step__num">1</span>
+            <strong>Audit</strong>
+            <span>Map leaks + opportunity</span>
+          </div>
+          <div class="sol-step">
+            <span class="sol-step__num">2</span>
+            <strong>Plan</strong>
+            <span>Confirm scope + ROI assumptions</span>
+          </div>
+          <div class="sol-step">
+            <span class="sol-step__num">3</span>
+            <strong>Build</strong>
+            <span>Install the layer(s)</span>
+          </div>
+          <div class="sol-step">
+            <span class="sol-step__num">4</span>
+            <strong>Launch</strong>
+            <span>Controlled rollout</span>
+          </div>
+          <div class="sol-step">
+            <span class="sol-step__num">5</span>
+            <strong>Measure</strong>
+            <span>Track and refine</span>
+          </div>
+        </div>
+      </div>
     </section>
 
     <!-- ═══ 7. FINAL CTA ═══ -->
     <section class="cta-band">
-        <div class="container">
-            <h2>Start with the audit. We'll recommend the right starting point.</h2>
-            <p>No calls required. Clear numbers. Direct recommendation.</p>
-            <a href="audit.html" class="btn btn--primary btn--hero">Start Audit Request</a>
-            <a href="lead-websites.html" class="sol-cta__escape">Or start with Lead Websites (from £3,500) →</a>
-        </div>
+      <div class="container">
+        <h2>Start with the audit. We'll recommend the right starting point.</h2>
+        <p>No calls required. Clear numbers. Direct recommendation.</p>
+        <a href="audit.html" class="btn btn--primary btn--hero"
+          >Start Audit Request</a
+        >
+        <a href="lead-websites.html" class="sol-cta__escape"
+          >Or start with Lead Websites (from £3,500) →</a
+        >
+      </div>
     </section>
 
     <!-- ═══ FOOTER ═══ -->
     <footer class="footer">
-        <div class="container">
-            <div class="footer__grid">
-                <div class="footer__col">
-                    <div class="footer__brand">JTANDY</div>
-                    <p class="footer__tagline">Revenue recovery systems for UK tradespeople. Automated. Measurable.
-                        Owned.</p>
-                </div>
-                <div class="footer__col">
-                    <h4>Company</h4>
-                    <a href="about.html">About</a>
-                    <a href="work.html">Case Studies</a>
-                    <a href="audit.html">Request Audit</a>
-                </div>
-                <div class="footer__col">
-                    <h4>Solutions</h4>
-                    <a href="lead-websites.html">Lead Websites</a>
-                    <a href="follow-up-automation.html">Follow-Up Automation</a>
-                    <a href="review-automation.html">Review Automation</a>
-                    <a href="revenue-engine.html">Revenue Engine</a>
-                </div>
-                <div class="footer__col">
-                    <h4>Legal</h4>
-                    <a href="#">Privacy Policy</a>
-                    <a href="#">Terms of Service</a>
-                    <a href="#">Cookie Policy</a>
-                </div>
-            </div>
-            <div class="footer__bottom">
-                <span>© 2025 JTandy Automations. All rights reserved.</span>
-            </div>
+      <div class="container">
+        <div class="footer__grid">
+          <div class="footer__col">
+            <div class="footer__brand">JTANDY</div>
+            <p class="footer__tagline">
+              Revenue recovery systems for UK tradespeople. Automated.
+              Measurable. Owned.
+            </p>
+          </div>
+          <div class="footer__col">
+            <h4>Company</h4>
+            <a href="about.html">About</a>
+            <a href="pricing.html">Pricing</a>
+            <a href="contact.html">Contact</a>
+            <a href="work.html">Case Studies</a>
+            <a href="audit.html">Request Audit</a>
+          </div>
+          <div class="footer__col">
+            <h4>Solutions</h4>
+            <a href="lead-websites.html">Lead Websites</a>
+            <a href="follow-up-automation.html">Follow-Up Automation</a>
+            <a href="review-automation.html">Review Automation</a>
+            <a href="revenue-engine.html">Revenue Engine</a>
+          </div>
+          <div class="footer__col">
+            <h4>Legal</h4>
+            <a href="#">Privacy Policy</a>
+            <a href="#">Terms of Service</a>
+            <a href="#">Cookie Policy</a>
+          </div>
         </div>
+        <div class="footer__bottom">
+          <span>© 2025 JTandy Automations. All rights reserved.</span>
+        </div>
+      </div>
     </footer>
 
     <script src="script.js"></script>
-</body>
-
+  </body>
 </html>

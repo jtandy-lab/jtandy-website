@@ -1,848 +1,990 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>About JTANDY — A founder‑led systems firm for UK trades.</title>
-    <meta name="description"
-        content="We build revenue infrastructure — fast websites and follow‑up automation — so missed calls and cold quotes don’t cost you booked jobs.">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <meta
+      name="description"
+      content="We build revenue infrastructure — fast websites and follow‑up automation — so missed calls and cold quotes don’t cost you booked jobs."
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-        href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;450;500;600;650;700;800&display=swap"
-        rel="stylesheet">
-    <link rel="stylesheet" href="style.css">
+      href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;450;500;600;650;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="style.css" />
     <style>
-        /* ── PAGE SPECIFIC CLASSES for V5 ── */
+      /* ── PAGE SPECIFIC CLASSES for V5 ── */
 
-        /* 1) Hero */
+      /* 1) Hero */
+      .about-hero {
+        background: #ffffff;
+        padding: calc(var(--nav-h, 72px) + 88px) 0 64px 0;
+        border-bottom: 1px solid rgba(15, 29, 61, 0.14);
+      }
+
+      @media (max-width: 768px) {
         .about-hero {
-            background: #FFFFFF;
-            padding: calc(var(--nav-h, 72px) + 88px) 0 64px 0;
-            border-bottom: 1px solid rgba(15, 29, 61, 0.14);
+          padding: calc(var(--nav-h, 72px) + 64px) 0 44px 0;
         }
+      }
 
-        @media (max-width: 768px) {
-            .about-hero {
-                padding: calc(var(--nav-h, 72px) + 64px) 0 44px 0;
-            }
-        }
+      .about-hero__grid {
+        display: grid;
+        grid-template-columns: 7fr 5fr;
+        gap: 48px;
+        align-items: center;
+      }
 
+      @media (max-width: 900px) {
         .about-hero__grid {
-            display: grid;
-            grid-template-columns: 7fr 5fr;
-            gap: 48px;
-            align-items: center;
+          grid-template-columns: 1fr;
         }
+      }
 
-        @media (max-width: 900px) {
-            .about-hero__grid {
-                grid-template-columns: 1fr;
-            }
-        }
+      .page-eyebrow {
+        font-family: "Inter", sans-serif;
+        font-size: 12px;
+        line-height: 18px;
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 0.08em;
+        color: rgba(11, 18, 32, 0.56);
+        margin-bottom: 12px;
+        display: block;
+      }
 
-        .page-eyebrow {
-            font-family: 'Inter', sans-serif;
-            font-size: 12px;
-            line-height: 18px;
-            font-weight: 700;
-            text-transform: uppercase;
-            letter-spacing: 0.08em;
-            color: rgba(11, 18, 32, 0.56);
-            margin-bottom: 12px;
-            display: block;
-        }
+      .page-h1 {
+        font-family: "Space Grotesk", sans-serif;
+        font-size: 52px;
+        line-height: 60px;
+        font-weight: 700;
+        color: #0b1220;
+      }
 
+      @media (max-width: 768px) {
         .page-h1 {
-            font-family: 'Space Grotesk', sans-serif;
-            font-size: 52px;
-            line-height: 60px;
-            font-weight: 700;
-            color: #0B1220;
+          font-size: 38px;
+          line-height: 44px;
         }
+      }
 
-        @media (max-width: 768px) {
-            .page-h1 {
-                font-size: 38px;
-                line-height: 44px;
-            }
-        }
+      .page-sub {
+        font-family: "Inter", sans-serif;
+        font-size: 18px;
+        line-height: 28px;
+        font-weight: 450;
+        color: rgba(11, 18, 32, 0.72);
+      }
 
+      @media (max-width: 768px) {
         .page-sub {
-            font-family: 'Inter', sans-serif;
-            font-size: 18px;
-            line-height: 28px;
-            font-weight: 450;
-            color: rgba(11, 18, 32, 0.72);
+          font-size: 16px;
+          line-height: 26px;
         }
+      }
 
-        @media (max-width: 768px) {
-            .page-sub {
-                font-size: 16px;
-                line-height: 26px;
-            }
-        }
+      .hero-bullets {
+        list-style: none;
+        margin: 0 0 20px 0;
+        padding: 0;
+        display: flex;
+        flex-direction: column;
+        gap: 8px;
+      }
 
-        .hero-bullets {
-            list-style: none;
-            margin: 0 0 20px 0;
-            padding: 0;
-            display: flex;
-            flex-direction: column;
-            gap: 8px;
-        }
+      .hero-bullets span {
+        font-family: "Inter", sans-serif;
+        font-size: 15px;
+        line-height: 24px;
+        font-weight: 500;
+        color: rgba(11, 18, 32, 0.72);
+      }
 
-        .hero-bullets span {
-            font-family: 'Inter', sans-serif;
-            font-size: 15px;
-            line-height: 24px;
-            font-weight: 500;
-            color: rgba(11, 18, 32, 0.72);
-        }
+      .hero-cta-wrapper {
+        margin-top: 20px;
+      }
 
-        .hero-cta-wrapper {
-            margin-top: 20px;
-        }
+      .btn--audit {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        height: 48px;
+        border-radius: 14px;
+        background: #2563eb;
+        color: #ffffff;
+        font-family: "Inter", sans-serif;
+        font-size: 14px;
+        line-height: 20px;
+        font-weight: 700;
+        padding: 0 18px;
+        text-decoration: none;
+        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+        transition: background 0.2s ease;
+      }
 
-        .btn--audit {
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            height: 48px;
-            border-radius: 14px;
-            background: #2563EB;
-            color: #FFFFFF;
-            font-family: 'Inter', sans-serif;
-            font-size: 14px;
-            line-height: 20px;
-            font-weight: 700;
-            padding: 0 18px;
-            text-decoration: none;
-            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.10);
-            transition: background 0.2s ease;
-        }
+      .btn--audit:hover {
+        background: #1d4ed8;
+        color: #ffffff;
+      }
 
-        .btn--audit:hover {
-            background: #1D4ED8;
-            color: #FFFFFF;
-        }
+      .hero-microcopy {
+        font-family: "Inter", sans-serif;
+        font-size: 13px;
+        line-height: 20px;
+        font-weight: 600;
+        color: rgba(11, 18, 32, 0.56);
+        margin-top: 10px;
+      }
 
-        .hero-microcopy {
-            font-family: 'Inter', sans-serif;
-            font-size: 13px;
-            line-height: 20px;
-            font-weight: 600;
-            color: rgba(11, 18, 32, 0.56);
-            margin-top: 10px;
-        }
+      .hero-link {
+        font-family: "Inter", sans-serif;
+        font-size: 14px;
+        line-height: 22px;
+        font-weight: 700;
+        color: #2563eb;
+        text-decoration: none;
+        display: inline-block;
+        margin-top: 10px;
+      }
 
-        .hero-link {
-            font-family: 'Inter', sans-serif;
-            font-size: 14px;
-            line-height: 22px;
-            font-weight: 700;
-            color: #2563EB;
-            text-decoration: none;
-            display: inline-block;
-            margin-top: 10px;
-        }
+      .hero-link:hover {
+        text-decoration: underline;
+      }
 
-        .hero-link:hover {
-            text-decoration: underline;
-        }
+      /* Founder Card */
+      .founder-card {
+        background: #f8f7f4;
+        border: 1px solid rgba(15, 29, 61, 0.14);
+        border-radius: 16px;
+        box-shadow: 0 2px 10px rgba(15, 29, 61, 0.08);
+        /* subtle */
+      }
 
-        /* Founder Card */
-        .founder-card {
-            background: #F8F7F4;
-            border: 1px solid rgba(15, 29, 61, 0.14);
-            border-radius: 16px;
-            box-shadow: 0 2px 10px rgba(15, 29, 61, 0.08);
-            /* subtle */
-        }
+      .founder-card__image-wrapper {
+        width: 100%;
+        aspect-ratio: 1 / 1;
+        border: 1px solid rgba(15, 29, 61, 0.14);
+        overflow: hidden;
+        position: relative;
+      }
 
-        .founder-card__image-wrapper {
-            width: 100%;
-            aspect-ratio: 1 / 1;
-            border: 1px solid rgba(15, 29, 61, 0.14);
-            overflow: hidden;
-            position: relative;
-        }
+      .founder-card__avatar {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        object-position: 50% 30%;
+        display: block;
+      }
 
-        .founder-card__avatar {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            object-position: 50% 30%;
-            display: block;
-        }
+      .founder-card__badge {
+        position: absolute;
+        top: 12px;
+        left: 12px;
+        background: rgba(37, 99, 235, 0.12);
+        color: #2563eb;
+        font-family: "Inter", sans-serif;
+        font-size: 12px;
+        line-height: 18px;
+        font-weight: 650;
+        text-transform: uppercase;
+        letter-spacing: 0.08em;
+        border-radius: 999px;
+        padding: 6px 10px;
+      }
 
-        .founder-card__badge {
-            position: absolute;
-            top: 12px;
-            left: 12px;
-            background: rgba(37, 99, 235, 0.12);
-            color: #2563EB;
-            font-family: 'Inter', sans-serif;
-            font-size: 12px;
-            line-height: 18px;
-            font-weight: 650;
-            text-transform: uppercase;
-            letter-spacing: 0.08em;
-            border-radius: 999px;
-            padding: 6px 10px;
-        }
+      .founder-card__name {
+        font-family: "Space Grotesk", sans-serif;
+        font-size: 18px;
+        line-height: 24px;
+        font-weight: 700;
+        color: #0b1220;
+        margin: 0 0 4px 0;
+      }
 
-        .founder-card__name {
-            font-family: 'Space Grotesk', sans-serif;
-            font-size: 18px;
-            line-height: 24px;
-            font-weight: 700;
-            color: #0B1220;
-            margin: 0 0 4px 0;
-        }
+      .founder-card__role {
+        font-family: "Inter", sans-serif;
+        font-size: 13px;
+        line-height: 20px;
+        font-weight: 600;
+        color: rgba(11, 18, 32, 0.56);
+        margin: 0;
+      }
 
-        .founder-card__role {
-            font-family: 'Inter', sans-serif;
-            font-size: 13px;
-            line-height: 20px;
-            font-weight: 600;
-            color: rgba(11, 18, 32, 0.56);
-            margin: 0;
-        }
+      .founder-card__badges {
+        display: flex;
+        flex-wrap: wrap;
+      }
 
-        .founder-card__badges {
-            display: flex;
-            flex-wrap: wrap;
-        }
+      .founder-badge {
+        background: rgba(37, 99, 235, 0.1);
+        color: #2563eb;
+        font-family: "Inter", sans-serif;
+        font-size: 12px;
+        line-height: 18px;
+        font-weight: 650;
+        text-transform: uppercase;
+        border-radius: 999px;
+        padding: 6px 10px;
+      }
 
-        .founder-badge {
-            background: rgba(37, 99, 235, 0.10);
-            color: #2563EB;
-            font-family: 'Inter', sans-serif;
-            font-size: 12px;
-            line-height: 18px;
-            font-weight: 650;
-            text-transform: uppercase;
-            border-radius: 999px;
-            padding: 6px 10px;
-        }
+      /* 2) Why I built JTandy */
+      .section-why-built {
+        background: #f8f7f4;
+        padding: 72px 0 56px 0;
+        border-top: 1px solid rgba(15, 29, 61, 0.14);
+      }
 
-        /* 2) Why I built JTandy */
-        .section-why-built {
-            background: #F8F7F4;
-            padding: 72px 0 56px 0;
-            border-top: 1px solid rgba(15, 29, 61, 0.14);
-        }
+      .why-built__grid {
+        display: grid;
+        grid-template-columns: 7fr 5fr;
+        gap: 48px;
+      }
 
+      @media (max-width: 900px) {
         .why-built__grid {
-            display: grid;
-            grid-template-columns: 7fr 5fr;
-            gap: 48px;
+          grid-template-columns: 1fr;
         }
+      }
 
-        @media (max-width: 900px) {
-            .why-built__grid {
-                grid-template-columns: 1fr;
-            }
-        }
+      .page-h2 {
+        font-family: "Space Grotesk", sans-serif;
+        font-size: 36px;
+        line-height: 44px;
+        font-weight: 700;
+        color: #0b1220;
+        margin-bottom: 24px;
+      }
 
-        .page-h2 {
-            font-family: 'Space Grotesk', sans-serif;
-            font-size: 36px;
-            line-height: 44px;
-            font-weight: 700;
-            color: #0B1220;
-            margin-bottom: 24px;
-        }
+      .why-built__cards {
+        display: flex;
+        flex-direction: column;
+        gap: 16px;
+        margin-bottom: 24px;
+      }
 
-        .why-built__cards {
-            display: flex;
-            flex-direction: column;
-            gap: 16px;
-            margin-bottom: 24px;
-        }
+      .why-built__card {
+        background: #ffffff;
+        border: 1px solid rgba(15, 29, 61, 0.14);
+        border-radius: 16px;
+        padding: 18px;
+        font-family: "Inter", sans-serif;
+        font-size: 14px;
+        line-height: 22px;
+        font-weight: 450;
+        color: rgba(11, 18, 32, 0.72);
+      }
 
-        .why-built__card {
-            background: #FFFFFF;
-            border: 1px solid rgba(15, 29, 61, 0.14);
-            border-radius: 16px;
-            padding: 18px;
-            font-family: 'Inter', sans-serif;
-            font-size: 14px;
-            line-height: 22px;
-            font-weight: 450;
-            color: rgba(11, 18, 32, 0.72);
-        }
+      .btn--outline-sub {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        height: 44px;
+        border-radius: 12px;
+        border: 1px solid rgba(15, 29, 61, 0.22);
+        color: #0b1220;
+        background: transparent;
+        font-family: "Inter", sans-serif;
+        font-size: 14px;
+        line-height: 20px;
+        font-weight: 700;
+        padding: 0 18px;
+        text-decoration: none;
+        transition: background 0.2s ease;
+      }
 
-        .btn--outline-sub {
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            height: 44px;
-            border-radius: 12px;
-            border: 1px solid rgba(15, 29, 61, 0.22);
-            color: #0B1220;
-            background: transparent;
-            font-family: 'Inter', sans-serif;
-            font-size: 14px;
-            line-height: 20px;
-            font-weight: 700;
-            padding: 0 18px;
-            text-decoration: none;
-            transition: background 0.2s ease;
-        }
+      .btn--outline-sub:hover {
+        background: rgba(15, 29, 61, 0.04);
+      }
 
-        .btn--outline-sub:hover {
-            background: rgba(15, 29, 61, 0.04);
-        }
+      .why-built__assets {
+        display: flex;
+        flex-direction: column;
+        gap: 12px;
+      }
 
-        .why-built__assets {
-            display: flex;
-            flex-direction: column;
-            gap: 12px;
-        }
+      .asset-card {
+        background: #ffffff;
+        border: 1px solid rgba(15, 29, 61, 0.14);
+        border-radius: 16px;
+        padding: 14px;
+      }
 
-        .asset-card {
-            background: #FFFFFF;
-            border: 1px solid rgba(15, 29, 61, 0.14);
-            border-radius: 16px;
-            padding: 14px;
-        }
+      .asset-caption {
+        font-family: "Inter", sans-serif;
+        font-size: 12px;
+        line-height: 18px;
+        font-weight: 600;
+        color: rgba(11, 18, 32, 0.56);
+      }
 
-        .asset-caption {
-            font-family: 'Inter', sans-serif;
-            font-size: 12px;
-            line-height: 18px;
-            font-weight: 600;
-            color: rgba(11, 18, 32, 0.56);
-        }
+      .asset-label {
+        font-family: "Inter", sans-serif;
+        font-size: 13px;
+        font-weight: 700;
+        color: #0b1220;
+        text-transform: uppercase;
+        letter-spacing: 0.05em;
+        margin-bottom: 12px;
+      }
 
-        .asset-label {
-            font-family: 'Inter', sans-serif;
-            font-size: 13px;
-            font-weight: 700;
-            color: #0B1220;
-            text-transform: uppercase;
-            letter-spacing: 0.05em;
-            margin-bottom: 12px;
-        }
+      .asset-process-graphic {
+        background: #f8f7f4;
+        border: 1px solid rgba(15, 29, 61, 0.08);
+        border-radius: 8px;
+        padding: 12px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        font-family: "Inter", sans-serif;
+        font-size: 11px;
+        font-weight: 600;
+        color: rgba(11, 18, 32, 0.72);
+        text-transform: uppercase;
+      }
 
-        .asset-process-graphic {
-            background: #F8F7F4;
-            border: 1px solid rgba(15, 29, 61, 0.08);
-            border-radius: 8px;
-            padding: 12px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            font-family: 'Inter', sans-serif;
-            font-size: 11px;
-            font-weight: 600;
-            color: rgba(11, 18, 32, 0.72);
-            text-transform: uppercase;
-        }
+      .asset-chips {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 8px;
+      }
 
-        .asset-chips {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 8px;
-        }
+      .asset-chip {
+        background: #f8f7f4;
+        border: 1px solid rgba(15, 29, 61, 0.14);
+        border-radius: 999px;
+        padding: 6px 10px;
+        font-family: "Inter", sans-serif;
+        font-size: 12px;
+        line-height: 18px;
+        font-weight: 650;
+        text-transform: uppercase;
+        color: #0b1220;
+      }
 
-        .asset-chip {
-            background: #F8F7F4;
-            border: 1px solid rgba(15, 29, 61, 0.14);
-            border-radius: 999px;
-            padding: 6px 10px;
-            font-family: 'Inter', sans-serif;
-            font-size: 12px;
-            line-height: 18px;
-            font-weight: 650;
-            text-transform: uppercase;
-            color: #0B1220;
-        }
+      /* 3) Specialist Positioning */
+      .section-specialist {
+        background: #ffffff;
+        padding: 88px 0 56px 0;
+        border-top: 1px solid rgba(15, 29, 61, 0.14);
+      }
 
-        /* 3) Specialist Positioning */
-        .section-specialist {
-            background: #FFFFFF;
-            padding: 88px 0 56px 0;
-            border-top: 1px solid rgba(15, 29, 61, 0.14);
-        }
+      .specialist-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 24px;
+        margin-bottom: 24px;
+      }
 
+      @media (max-width: 768px) {
         .specialist-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 24px;
-            margin-bottom: 24px;
+          grid-template-columns: 1fr;
         }
+      }
 
-        @media (max-width: 768px) {
-            .specialist-grid {
-                grid-template-columns: 1fr;
-            }
-        }
+      .specialist-card {
+        background: #f8f7f4;
+        border: 1px solid rgba(15, 29, 61, 0.14);
+        border-radius: 16px;
+        padding: 22px;
+        font-family: "Inter", sans-serif;
+        font-size: 15px;
+        line-height: 24px;
+        color: #0b1220;
+      }
 
-        .specialist-card {
-            background: #F8F7F4;
-            border: 1px solid rgba(15, 29, 61, 0.14);
-            border-radius: 16px;
-            padding: 22px;
-            font-family: 'Inter', sans-serif;
-            font-size: 15px;
-            line-height: 24px;
-            color: #0B1220;
-        }
+      .specialist-filter {
+        font-family: "Inter", sans-serif;
+        font-size: 13px;
+        line-height: 20px;
+        font-weight: 650;
+        color: rgba(11, 18, 32, 0.56);
+      }
 
-        .specialist-filter {
-            font-family: 'Inter', sans-serif;
-            font-size: 13px;
-            line-height: 20px;
-            font-weight: 650;
-            color: rgba(11, 18, 32, 0.56);
-        }
+      /* 4) Process */
+      .section-process {
+        background: #f8f7f4;
+        padding: 72px 0 56px 0;
+        border-top: 1px solid rgba(15, 29, 61, 0.14);
+      }
 
-        /* 4) Process */
-        .section-process {
-            background: #F8F7F4;
-            padding: 72px 0 56px 0;
-            border-top: 1px solid rgba(15, 29, 61, 0.14);
-        }
+      .process-h2 {
+        font-size: 30px;
+        line-height: 38px;
+      }
 
-        .process-h2 {
-            font-size: 30px;
-            line-height: 38px;
-        }
+      .process-timeline {
+        display: flex;
+        gap: 16px;
+        margin-bottom: 24px;
+      }
 
+      @media (max-width: 768px) {
         .process-timeline {
-            display: flex;
-            gap: 16px;
-            margin-bottom: 24px;
+          flex-direction: column;
         }
+      }
 
-        @media (max-width: 768px) {
-            .process-timeline {
-                flex-direction: column;
-            }
-        }
+      .process-step {
+        flex: 1;
+        background: #ffffff;
+        border: 1px solid rgba(15, 29, 61, 0.14);
+        border-radius: 16px;
+        padding: 18px;
+        font-family: "Inter", sans-serif;
+        font-size: 15px;
+        font-weight: 600;
+        color: #0b1220;
+      }
 
-        .process-step {
-            flex: 1;
-            background: #FFFFFF;
-            border: 1px solid rgba(15, 29, 61, 0.14);
-            border-radius: 16px;
-            padding: 18px;
-            font-family: 'Inter', sans-serif;
-            font-size: 15px;
-            font-weight: 600;
-            color: #0B1220;
-        }
+      .process-microline {
+        font-family: "Inter", sans-serif;
+        font-size: 13px;
+        line-height: 20px;
+        font-weight: 650;
+        color: rgba(11, 18, 32, 0.56);
+        margin-bottom: 24px;
+      }
 
-        .process-microline {
-            font-family: 'Inter', sans-serif;
-            font-size: 13px;
-            line-height: 20px;
-            font-weight: 650;
-            color: rgba(11, 18, 32, 0.56);
-            margin-bottom: 24px;
-        }
+      .btn--center {
+        display: inline-flex;
+      }
 
-        .btn--center {
-            display: inline-flex;
-        }
+      /* 5) FAQ */
+      .section-faq {
+        background: #ffffff;
+        padding: 72px 0 56px 0;
+        border-top: 1px solid rgba(15, 29, 61, 0.14);
+      }
 
-        /* 5) FAQ */
-        .section-faq {
-            background: #FFFFFF;
-            padding: 72px 0 56px 0;
-            border-top: 1px solid rgba(15, 29, 61, 0.14);
-        }
+      .faq-accordion {
+        max-width: 800px;
+        display: flex;
+        flex-direction: column;
+        gap: 12px;
+      }
 
-        .faq-accordion {
-            max-width: 800px;
-            display: flex;
-            flex-direction: column;
-            gap: 12px;
-        }
+      .faq-item {
+        background: #f8f7f4;
+        border: 1px solid rgba(15, 29, 61, 0.14);
+        border-radius: 14px;
+        overflow: hidden;
+      }
 
-        .faq-item {
-            background: #F8F7F4;
-            border: 1px solid rgba(15, 29, 61, 0.14);
-            border-radius: 14px;
-            overflow: hidden;
-        }
+      .faq-item summary {
+        padding: 16px;
+        font-family: "Inter", sans-serif;
+        font-size: 15px;
+        line-height: 24px;
+        font-weight: 700;
+        color: #0b1220;
+        cursor: pointer;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        list-style: none;
+        /* remove default arrow */
+      }
 
-        .faq-item summary {
-            padding: 16px;
-            font-family: 'Inter', sans-serif;
-            font-size: 15px;
-            line-height: 24px;
-            font-weight: 700;
-            color: #0B1220;
-            cursor: pointer;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            list-style: none;
-            /* remove default arrow */
-        }
+      .faq-item summary::-webkit-details-marker {
+        display: none;
+      }
 
-        .faq-item summary::-webkit-details-marker {
-            display: none;
-        }
+      .faq-item summary::after {
+        content: "+";
+        font-size: 20px;
+        font-weight: 400;
+        color: rgba(11, 18, 32, 0.56);
+        transition: transform 0.2s;
+      }
 
-        .faq-item summary::after {
-            content: '+';
-            font-size: 20px;
-            font-weight: 400;
-            color: rgba(11, 18, 32, 0.56);
-            transition: transform 0.2s;
-        }
+      .faq-item[open] summary::after {
+        content: "−";
+      }
 
-        .faq-item[open] summary::after {
-            content: '−';
-        }
+      .faq-body {
+        padding: 0 16px 16px 16px;
+        font-family: "Inter", sans-serif;
+        font-size: 14px;
+        line-height: 22px;
+        font-weight: 450;
+        color: rgba(11, 18, 32, 0.72);
+      }
 
-        .faq-body {
-            padding: 0 16px 16px 16px;
-            font-family: 'Inter', sans-serif;
-            font-size: 14px;
-            line-height: 22px;
-            font-weight: 450;
-            color: rgba(11, 18, 32, 0.72);
-        }
+      /* 6) CTA BAND */
+      .cta-band--navy {
+        background: #0f1d3d;
+        padding: 64px 0 56px 0;
+      }
 
-        /* 6) CTA BAND */
-        .cta-band--navy {
-            background: #0F1D3D;
-            padding: 64px 0 56px 0;
-        }
+      .cta-band--navy .page-h2 {
+        font-size: 34px;
+        line-height: 42px;
+        color: #ffffff;
+        margin-bottom: 12px;
+      }
 
-        .cta-band--navy .page-h2 {
-            font-size: 34px;
-            line-height: 42px;
-            color: #FFFFFF;
-            margin-bottom: 12px;
-        }
+      .cta-band--navy .page-sub {
+        color: rgba(255, 255, 255, 0.82);
+        font-size: 16px;
+        line-height: 26px;
+        margin-bottom: 32px;
+      }
 
-        .cta-band--navy .page-sub {
-            color: rgba(255, 255, 255, 0.82);
-            font-size: 16px;
-            line-height: 26px;
-            margin-bottom: 32px;
-        }
+      .cta-buttons {
+        display: flex;
+        gap: 16px;
+        flex-wrap: wrap;
+      }
 
-        .cta-buttons {
-            display: flex;
-            gap: 16px;
-            flex-wrap: wrap;
-        }
+      .btn--outline-white {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        height: 48px;
+        border-radius: 14px;
+        border: 1px solid rgba(255, 255, 255, 0.22);
+        color: #ffffff;
+        background: transparent;
+        font-family: "Inter", sans-serif;
+        font-size: 14px;
+        line-height: 20px;
+        font-weight: 700;
+        padding: 0 18px;
+        text-decoration: none;
+        transition: background 0.2s ease;
+      }
 
-        .btn--outline-white {
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            height: 48px;
-            border-radius: 14px;
-            border: 1px solid rgba(255, 255, 255, 0.22);
-            color: #FFFFFF;
-            background: transparent;
-            font-family: 'Inter', sans-serif;
-            font-size: 14px;
-            line-height: 20px;
-            font-weight: 700;
-            padding: 0 18px;
-            text-decoration: none;
-            transition: background 0.2s ease;
-        }
-
-        .btn--outline-white:hover {
-            background: rgba(255, 255, 255, 0.06);
-        }
+      .btn--outline-white:hover {
+        background: rgba(255, 255, 255, 0.06);
+      }
     </style>
-</head>
+  </head>
 
-<body>
+  <body>
     <!-- ═══ HEADER ═══ -->
-    <header class="header" id="header"
-        style="background: rgba(255,255,255,0.92); backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px); border-bottom: 1px solid rgba(15,29,61,0.14);">
-        <div class="header__inner">
-            <a href="index.html" class="header__brand">
-                <img src="img/logo-navy.svg" alt="JTandy" class="header__logo header__logo--navy">
-            </a>
-            <nav class="header__nav" id="headerNav">
-                <div class="nav-dropdown">
-                    <a href="solutions.html" class="nav-dropdown__trigger">Solutions <span
-                            class="nav-dropdown__arrow">▾</span></a>
-                    <div class="nav-dropdown__menu">
-                        <a href="lead-websites.html">Lead Websites</a>
-                        <a href="follow-up-automation.html">Follow-Up Automation</a>
-                        <a href="review-automation.html">Review Automation</a>
-                        <a href="revenue-engine.html">Revenue Engine</a>
-                    </div>
-                </div>
-                <a href="how-it-works.html">How It Works</a>
-                <a href="results.html">Results</a>
-                <a href="pricing.html">Pricing</a>
-                <a href="faq.html">FAQ</a>
-            </nav>
-            <div class="header__actions">
-                <a href="audit.html" class="btn btn--primary" id="headerCta" style="background: #2563EB;">Get Free Lead
-                    Leak Report</a>
+    <header
+      class="header"
+      id="header"
+      style="
+        background: rgba(255, 255, 255, 0.92);
+        backdrop-filter: blur(10px);
+        -webkit-backdrop-filter: blur(10px);
+        border-bottom: 1px solid rgba(15, 29, 61, 0.14);
+      "
+    >
+      <div class="header__inner">
+        <a href="index.html" class="header__brand">
+          <img
+            src="img/logo-navy.svg"
+            alt="JTandy"
+            class="header__logo header__logo--navy"
+          />
+        </a>
+        <nav class="header__nav" id="headerNav">
+          <div class="nav-dropdown">
+            <a href="solutions.html" class="nav-dropdown__trigger"
+              >Solutions <span class="nav-dropdown__arrow">▾</span></a
+            >
+            <div class="nav-dropdown__menu">
+              <a href="lead-websites.html">Lead Websites</a>
+              <a href="follow-up-automation.html">Follow-Up Automation</a>
+              <a href="review-automation.html">Review Automation</a>
+              <a href="revenue-engine.html">Revenue Engine</a>
             </div>
-            <button class="header__burger" id="headerBurger" aria-label="Menu">
-                <span></span><span></span><span></span>
-            </button>
+          </div>
+          <a href="how-it-works.html">How It Works</a>
+          <a href="results.html">Results</a>
+          <a href="pricing.html">Pricing</a>
+          <a href="faq.html">FAQ</a>
+        </nav>
+        <div class="header__actions">
+          <a
+            href="audit.html"
+            class="btn btn--primary"
+            id="headerCta"
+            style="background: #2563eb"
+            >Get Free Lead Leak Report</a
+          >
         </div>
+        <button class="header__burger" id="headerBurger" aria-label="Menu">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
     </header>
 
     <!-- ═══ SECTION 1: HERO ═══ -->
     <section class="about-hero">
-        <div class="container">
-            <div class="about-hero__grid">
-                <!-- Left Column -->
-                <div>
-                    <span class="page-eyebrow">ABOUT</span>
-                    <h1 class="page-h1" style="margin-bottom: 14px; max-width: 700px;">Work directly with a conversion
-                        specialist, not an agency.</h1>
-                    <p class="page-sub" style="margin-bottom: 16px; max-width: 720px; font-weight: 450;">I design and
-                        implement every system myself, focusing on speed, follow‑up and measurable results.</p>
-                    <ul class="hero-bullets">
-                        <li
-                            style="display: flex; gap: 10px; align-items: flex-start; padding-left: 0; margin-bottom: 8px;">
-                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#16A34A"
-                                stroke-width="3" stroke-linecap="round" stroke-linejoin="round"
-                                style="margin-top:4px; flex-shrink: 0;">
-                                <polyline points="20 6 9 17 4 12"></polyline>
-                            </svg>
-                            <span>Written plans — no sales calls.</span>
-                        </li>
-                        <li
-                            style="display: flex; gap: 10px; align-items: flex-start; padding-left: 0; margin-bottom: 8px;">
-                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#16A34A"
-                                stroke-width="3" stroke-linecap="round" stroke-linejoin="round"
-                                style="margin-top:4px; flex-shrink: 0;">
-                                <polyline points="20 6 9 17 4 12"></polyline>
-                            </svg>
-                            <span>Respectful messaging rules — opt‑out friendly and paced.</span>
-                        </li>
-                        <li style="display: flex; gap: 10px; align-items: flex-start; padding-left: 0;">
-                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#16A34A"
-                                stroke-width="3" stroke-linecap="round" stroke-linejoin="round"
-                                style="margin-top:4px; flex-shrink: 0;">
-                                <polyline points="20 6 9 17 4 12"></polyline>
-                            </svg>
-                            <span>Metrics over fluff — we track calls, response times and booked jobs.</span>
-                        </li>
-                    </ul>
-                    <div class="hero-cta-wrapper" style="margin-top: 20px;">
-                        <a href="audit.html" class="btn--audit" style="display: flex; width: max-content;">Get My Lead
-                            Leak Report</a>
-                        <div class="hero-microcopy">I’ll personally review your enquiry flow and send you a written
-                            plan.</div>
-                        <a href="pricing.html" class="hero-link">See pricing →</a>
-                    </div>
-                </div>
-                <!-- Right Column -->
-                <div>
-                    <div class="founder-card" style="padding: 18px;">
-                        <div class="founder-card__image-wrapper" style="border-radius: 16px;">
-                            <span class="founder-card__badge">FOUNDER‑LED</span>
-                            <img src="jtandy-author-pic.jpg" alt="James Tandy" class="founder-card__avatar"
-                                onerror="this.src='img/jtandy-author-pic.jpg'">
-                        </div>
-                        <div class="founder-card__info" style="margin-top: 14px;">
-                            <h3 class="founder-card__name">James Tandy</h3>
-                            <p class="founder-card__role" style="margin-top: 4px;">Founder, JTANDY</p>
-                        </div>
-                        <p class="founder-card__body"
-                            style="font-family: 'Inter', sans-serif; font-size: 14px; line-height: 22px; font-weight: 450; color: rgba(11, 18, 32, 0.72); margin-top: 10px;">
-                            You deal directly with the person building the system — no hand‑offs.
-                        </p>
-                        <div class="founder-card__badges" style="margin-top: 16px; gap: 8px;">
-                            <span class="founder-badge">EMAIL‑FIRST</span>
-                            <span class="founder-badge">TRADE‑FOCUSED</span>
-                            <span class="founder-badge">MEASURED ROI</span>
-                        </div>
-                    </div>
-                </div>
+      <div class="container">
+        <div class="about-hero__grid">
+          <!-- Left Column -->
+          <div>
+            <span class="page-eyebrow">ABOUT</span>
+            <h1 class="page-h1" style="margin-bottom: 14px; max-width: 700px">
+              Work directly with a conversion specialist, not an agency.
+            </h1>
+            <p
+              class="page-sub"
+              style="margin-bottom: 16px; max-width: 720px; font-weight: 450"
+            >
+              I design and implement every system myself, focusing on speed,
+              follow‑up and measurable results.
+            </p>
+            <ul class="hero-bullets">
+              <li
+                style="
+                  display: flex;
+                  gap: 10px;
+                  align-items: flex-start;
+                  padding-left: 0;
+                  margin-bottom: 8px;
+                "
+              >
+                <svg
+                  width="16"
+                  height="16"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="#16A34A"
+                  stroke-width="3"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  style="margin-top: 4px; flex-shrink: 0"
+                >
+                  <polyline points="20 6 9 17 4 12"></polyline>
+                </svg>
+                <span>Written plans — no sales calls.</span>
+              </li>
+              <li
+                style="
+                  display: flex;
+                  gap: 10px;
+                  align-items: flex-start;
+                  padding-left: 0;
+                  margin-bottom: 8px;
+                "
+              >
+                <svg
+                  width="16"
+                  height="16"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="#16A34A"
+                  stroke-width="3"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  style="margin-top: 4px; flex-shrink: 0"
+                >
+                  <polyline points="20 6 9 17 4 12"></polyline>
+                </svg>
+                <span
+                  >Respectful messaging rules — opt‑out friendly and
+                  paced.</span
+                >
+              </li>
+              <li
+                style="
+                  display: flex;
+                  gap: 10px;
+                  align-items: flex-start;
+                  padding-left: 0;
+                "
+              >
+                <svg
+                  width="16"
+                  height="16"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="#16A34A"
+                  stroke-width="3"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  style="margin-top: 4px; flex-shrink: 0"
+                >
+                  <polyline points="20 6 9 17 4 12"></polyline>
+                </svg>
+                <span
+                  >Metrics over fluff — we track calls, response times and
+                  booked jobs.</span
+                >
+              </li>
+            </ul>
+            <div class="hero-cta-wrapper" style="margin-top: 20px">
+              <a
+                href="audit.html"
+                class="btn--audit"
+                style="display: flex; width: max-content"
+                >Get My Lead Leak Report</a
+              >
+              <div class="hero-microcopy">
+                I’ll personally review your enquiry flow and send you a written
+                plan.
+              </div>
+              <a href="pricing.html" class="hero-link">See pricing →</a>
             </div>
+          </div>
+          <!-- Right Column -->
+          <div>
+            <div class="founder-card" style="padding: 18px">
+              <div
+                class="founder-card__image-wrapper"
+                style="border-radius: 16px"
+              >
+                <span class="founder-card__badge">FOUNDER‑LED</span>
+                <img
+                  src="jtandy-author-pic.jpg"
+                  alt="James Tandy"
+                  class="founder-card__avatar"
+                  onerror="this.src = 'img/jtandy-author-pic.jpg'"
+                />
+              </div>
+              <div class="founder-card__info" style="margin-top: 14px">
+                <h3 class="founder-card__name">James Tandy</h3>
+                <p class="founder-card__role" style="margin-top: 4px">
+                  Founder, JTANDY
+                </p>
+              </div>
+              <p
+                class="founder-card__body"
+                style="
+                  font-family: &quot;Inter&quot;, sans-serif;
+                  font-size: 14px;
+                  line-height: 22px;
+                  font-weight: 450;
+                  color: rgba(11, 18, 32, 0.72);
+                  margin-top: 10px;
+                "
+              >
+                You deal directly with the person building the system — no
+                hand‑offs.
+              </p>
+              <div
+                class="founder-card__badges"
+                style="margin-top: 16px; gap: 8px"
+              >
+                <span class="founder-badge">EMAIL‑FIRST</span>
+                <span class="founder-badge">TRADE‑FOCUSED</span>
+                <span class="founder-badge">MEASURED ROI</span>
+              </div>
+            </div>
+          </div>
         </div>
+      </div>
     </section>
 
     <!-- ═══ SECTION 2: WHY I BUILT JTANDY ═══ -->
     <section class="section-why-built">
-        <div class="container">
-            <div class="why-built__grid">
-                <!-- Left Column -->
-                <div class="why-built__copy">
-                    <h2 class="page-h2">Why I built JTandy</h2>
+      <div class="container">
+        <div class="why-built__grid">
+          <!-- Left Column -->
+          <div class="why-built__copy">
+            <h2 class="page-h2">Why I built JTandy</h2>
 
-                    <div class="why-built__cards">
-                        <div class="why-built__card">
-                            I’ve spent a decade working with trades and learnt that most don’t lose jobs on skill — they
-                            lose them on speed and follow‑up. JTandy exists to fix that.
-                        </div>
-                        <div class="why-built__card">
-                            I do the work myself. There’s no sales team, no account managers. You deal with me directly
-                            from start to finish.
-                        </div>
-                        <div class="why-built__card">
-                            Calm, documented process. You know exactly what’s happening at every step: diagnosis, build,
-                            launch, measure.
-                        </div>
-                    </div>
-
-                    <a href="how-it-works.html" class="btn--outline-sub">Read How the System Works →</a>
-                </div>
-                <!-- Right Column -->
-                <div class="why-built__assets">
-                    <div class="asset-card">
-                        <img src="jtandy-author-pic.jpg" alt="Context" onerror="this.src='img/jtandy-author-pic.jpg'"
-                            style="width: 100%; aspect-ratio: 4/3; object-fit: cover; border-radius: 12px; margin-bottom: 12px;">
-                        <p class="asset-caption">Founder-led delivery. Email-first process.</p>
-                    </div>
-                    <div class="asset-card">
-                        <p class="asset-label">Documented process</p>
-                        <div class="asset-process-graphic">
-                            <span>Audit</span> <span style="color: #2563EB;">→</span> <span>Build</span> <span
-                                style="color: #2563EB;">→</span> <span>Launch</span> <span
-                                style="color: #2563EB;">→</span> <span>Measure</span>
-                        </div>
-                    </div>
-                    <div class="asset-card">
-                        <div class="asset-chips">
-                            <span class="asset-chip">10+ YEARS WITH TRADES</span>
-                            <span class="asset-chip">UK-ONLY FOCUS</span>
-                        </div>
-                    </div>
-                </div>
+            <div class="why-built__cards">
+              <div class="why-built__card">
+                I’ve spent a decade working with trades and learnt that most
+                don’t lose jobs on skill — they lose them on speed and
+                follow‑up. JTandy exists to fix that.
+              </div>
+              <div class="why-built__card">
+                I do the work myself. There’s no sales team, no account
+                managers. You deal with me directly from start to finish.
+              </div>
+              <div class="why-built__card">
+                Calm, documented process. You know exactly what’s happening at
+                every step: diagnosis, build, launch, measure.
+              </div>
             </div>
+
+            <a href="how-it-works.html" class="btn--outline-sub"
+              >Read How the System Works →</a
+            >
+          </div>
+          <!-- Right Column -->
+          <div class="why-built__assets">
+            <div class="asset-card">
+              <img
+                src="jtandy-author-pic.jpg"
+                alt="Context"
+                onerror="this.src = 'img/jtandy-author-pic.jpg'"
+                style="
+                  width: 100%;
+                  aspect-ratio: 4/3;
+                  object-fit: cover;
+                  border-radius: 12px;
+                  margin-bottom: 12px;
+                "
+              />
+              <p class="asset-caption">
+                Founder-led delivery. Email-first process.
+              </p>
+            </div>
+            <div class="asset-card">
+              <p class="asset-label">Documented process</p>
+              <div class="asset-process-graphic">
+                <span>Audit</span> <span style="color: #2563eb">→</span>
+                <span>Build</span> <span style="color: #2563eb">→</span>
+                <span>Launch</span> <span style="color: #2563eb">→</span>
+                <span>Measure</span>
+              </div>
+            </div>
+            <div class="asset-card">
+              <div class="asset-chips">
+                <span class="asset-chip">10+ YEARS WITH TRADES</span>
+                <span class="asset-chip">UK-ONLY FOCUS</span>
+              </div>
+            </div>
+          </div>
         </div>
+      </div>
     </section>
 
     <!-- ═══ SECTION 3: SPECIALIST POSITIONING ═══ -->
     <section class="section-specialist">
-        <div class="container">
-            <h2 class="page-h2" style="font-size: 36px; line-height: 44px; text-align: left; margin-bottom: 32px;">A
-                specialist, not a web shop.</h2>
+      <div class="container">
+        <h2
+          class="page-h2"
+          style="
+            font-size: 36px;
+            line-height: 44px;
+            text-align: left;
+            margin-bottom: 32px;
+          "
+        >
+          A specialist, not a web shop.
+        </h2>
 
-            <div class="specialist-grid">
-                <div class="specialist-card">
-                    You’re not dealing with a generic agency or freelancer. I specialise solely in conversion systems
-                    for UK trades.
-                </div>
-                <div class="specialist-card">
-                    Measured outcomes above all else. If you’re looking for a “pretty website,” we’re not a fit. If you
-                    want more booked jobs and clear metrics, let’s talk.
-                </div>
-            </div>
-
-            <p class="specialist-filter">
-                Not for: brand new businesses with no enquiries, or anyone shopping for the cheapest brochure site.
-            </p>
+        <div class="specialist-grid">
+          <div class="specialist-card">
+            You’re not dealing with a generic agency or freelancer. I specialise
+            solely in conversion systems for UK trades.
+          </div>
+          <div class="specialist-card">
+            Measured outcomes above all else. If you’re looking for a “pretty
+            website,” we’re not a fit. If you want more booked jobs and clear
+            metrics, let’s talk.
+          </div>
         </div>
+
+        <p class="specialist-filter">
+          Not for: brand new businesses with no enquiries, or anyone shopping
+          for the cheapest brochure site.
+        </p>
+      </div>
     </section>
 
     <!-- ═══ SECTION 4: PROCESS ═══ -->
     <section class="section-process">
-        <div class="container">
-            <h2 class="page-h2 process-h2">How I work</h2>
+      <div class="container">
+        <h2 class="page-h2 process-h2">How I work</h2>
 
-            <div class="process-timeline">
-                <div class="process-step">
-                    Diagnosis (Lead Leak Report)
-                </div>
-                <div class="process-step">
-                    Plan (scope + ROI)
-                </div>
-                <div class="process-step">
-                    Build + test
-                </div>
-                <div class="process-step">
-                    Launch + measure
-                </div>
-            </div>
-
-            <p class="process-microline">Conservative messaging. No spam. Opt-out friendly.</p>
-
-            <a href="audit.html" class="btn--audit btn--center">Get Your Lead Leak Report →</a>
+        <div class="process-timeline">
+          <div class="process-step">Diagnosis (Lead Leak Report)</div>
+          <div class="process-step">Plan (scope + ROI)</div>
+          <div class="process-step">Build + test</div>
+          <div class="process-step">Launch + measure</div>
         </div>
+
+        <p class="process-microline">
+          Conservative messaging. No spam. Opt-out friendly.
+        </p>
+
+        <a href="audit.html" class="btn--audit btn--center"
+          >Get Your Lead Leak Report →</a
+        >
+      </div>
     </section>
 
     <!-- ═══ SECTION 5: FAQ ═══ -->
     <section class="section-faq">
-        <div class="container">
-            <h2 class="page-h2 faq-h2">FAQs</h2>
+      <div class="container">
+        <h2 class="page-h2 faq-h2">FAQs</h2>
 
-            <div class="faq-accordion">
-                <details class="faq-item">
-                    <summary>Why should I work with a solo specialist instead of an agency?</summary>
-                    <div class="faq-body">You’ll work directly with the person building your system. There’s no
-                        miscommunication via account managers and no hand‑offs.</div>
-                </details>
-                <details class="faq-item">
-                    <summary>What if I need support after launch?</summary>
-                    <div class="faq-body">I provide ongoing support and optimisation as part of the monthly fee. You can
-                        reach me by email anytime.</div>
-                </details>
-                <details class="faq-item">
-                    <summary>Do you work outside the UK?</summary>
-                    <div class="faq-body">No. I focus exclusively on UK trades to stay close to regulations, search
-                        behaviour and messaging rules.</div>
-                </details>
+        <div class="faq-accordion">
+          <details class="faq-item">
+            <summary>
+              Why should I work with a solo specialist instead of an agency?
+            </summary>
+            <div class="faq-body">
+              You’ll work directly with the person building your system. There’s
+              no miscommunication via account managers and no hand‑offs.
             </div>
+          </details>
+          <details class="faq-item">
+            <summary>What if I need support after launch?</summary>
+            <div class="faq-body">
+              I provide ongoing support and optimisation as part of the monthly
+              fee. You can reach me by email anytime.
+            </div>
+          </details>
+          <details class="faq-item">
+            <summary>Do you work outside the UK?</summary>
+            <div class="faq-body">
+              No. I focus exclusively on UK trades to stay close to regulations,
+              search behaviour and messaging rules.
+            </div>
+          </details>
         </div>
+      </div>
     </section>
 
     <!-- ═══ SECTION 6: CTA BAND ═══ -->
     <section class="cta-band--navy">
-        <div class="container">
-            <h2 class="page-h2">Get your Lead Leak Report (written, by email).</h2>
-            <p class="page-sub">I’ll review your enquiry flow and send you a written plan with next steps.</p>
+      <div class="container">
+        <h2 class="page-h2">Get your Lead Leak Report (written, by email).</h2>
+        <p class="page-sub">
+          I’ll review your enquiry flow and send you a written plan with next
+          steps.
+        </p>
 
-            <div class="cta-buttons">
-                <a href="audit.html" class="btn--audit">Get My Lead Leak Report</a>
-                <a href="pricing.html" class="btn--outline-white">See pricing →</a>
-            </div>
+        <div class="cta-buttons">
+          <a href="audit.html" class="btn--audit">Get My Lead Leak Report</a>
+          <a href="pricing.html" class="btn--outline-white">See pricing →</a>
         </div>
+      </div>
     </section>
 
     <!-- ═══ FOOTER ═══ -->
     <footer class="footer">
-        <div class="container">
-            <div class="footer__grid">
-                <div class="footer__col">
-                    <div class="footer__brand">JTANDY</div>
-                    <p class="footer__tagline">Revenue recovery systems for UK tradespeople. Automated. Measurable.
-                        Owned.</p>
-                </div>
-                <div class="footer__col">
-                    <h4>Company</h4>
-                    <a href="about.html">About</a>
-                    <a href="work.html">Case Studies</a>
-                    <a href="audit.html">Start Audit Request</a>
-                </div>
-                <div class="footer__col">
-                    <h4>Solutions</h4>
-                    <a href="lead-websites.html">Lead Websites</a>
-                    <a href="follow-up-automation.html">Follow-Up Automation</a>
-                    <a href="review-automation.html">Review Automation</a>
-                    <a href="revenue-engine.html">Revenue Engine</a>
-                </div>
-                <div class="footer__col">
-                    <h4>Legal</h4>
-                    <a href="#">Privacy Policy</a>
-                    <a href="#">Terms of Service</a>
-                    <a href="#">Cookie Policy</a>
-                </div>
-            </div>
-            <div class="footer__bottom">
-                <span>© 2025 JTandy Automations. All rights reserved.</span>
-            </div>
+      <div class="container">
+        <div class="footer__grid">
+          <div class="footer__col">
+            <div class="footer__brand">JTANDY</div>
+            <p class="footer__tagline">
+              Revenue recovery systems for UK tradespeople. Automated.
+              Measurable. Owned.
+            </p>
+          </div>
+          <div class="footer__col">
+            <h4>Company</h4>
+            <a href="about.html">About</a>
+            <a href="pricing.html">Pricing</a>
+            <a href="contact.html">Contact</a>
+            <a href="work.html">Case Studies</a>
+            <a href="audit.html">Start Audit Request</a>
+          </div>
+          <div class="footer__col">
+            <h4>Solutions</h4>
+            <a href="lead-websites.html">Lead Websites</a>
+            <a href="follow-up-automation.html">Follow-Up Automation</a>
+            <a href="review-automation.html">Review Automation</a>
+            <a href="revenue-engine.html">Revenue Engine</a>
+          </div>
+          <div class="footer__col">
+            <h4>Legal</h4>
+            <a href="#">Privacy Policy</a>
+            <a href="#">Terms of Service</a>
+            <a href="#">Cookie Policy</a>
+          </div>
         </div>
+        <div class="footer__bottom">
+          <span>© 2025 JTandy Automations. All rights reserved.</span>
+        </div>
+      </div>
     </footer>
 
     <script src="script.js"></script>
-</body>
-
+  </body>
 </html>

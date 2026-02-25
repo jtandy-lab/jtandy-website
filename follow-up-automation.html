@@ -1,1228 +1,1391 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Follow-Up Automation for UK Trades — JTandy</title>
-    <meta name="description"
-        content="Automated follow-up that texts missed callers, replies instantly, chases quotes, and tracks lead status. From £1,500 setup.">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <meta
+      name="description"
+      content="Automated follow-up that texts missed callers, replies instantly, chases quotes, and tracks lead status. From £1,500 setup."
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-        href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700;800&family=Inter:wght@400;450;500;550;600;650;700;750;800;850&display=swap"
-        rel="stylesheet">
-    <link rel="stylesheet" href="style.css">
+      href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700;800&family=Inter:wght@400;450;500;550;600;650;700;750;800;850&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="style.css" />
     <style>
-        /* ── Follow-Up Automation v5 page-specific ── */
+      /* ── Follow-Up Automation v5 page-specific ── */
+      .fu-hero {
+        background: #0f1d3d;
+        position: relative;
+        padding: calc(var(--nav-h) + 96px) 0 72px;
+        overflow: hidden;
+      }
+
+      .fu-hero::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background-image:
+          linear-gradient(rgba(255, 255, 255, 0.05) 1px, transparent 1px),
+          linear-gradient(90deg, rgba(255, 255, 255, 0.05) 1px, transparent 1px);
+        background-size: 32px 32px;
+        pointer-events: none;
+      }
+
+      .fu-hero__grid {
+        display: grid;
+        grid-template-columns: 7fr 5fr;
+        gap: 48px;
+        align-items: start;
+        position: relative;
+        z-index: 2;
+      }
+
+      .fu-hero__copy {
+        max-width: 720px;
+      }
+
+      .fu-hero__eyebrow {
+        display: block;
+        font-family: "Inter", sans-serif;
+        font-size: 12px;
+        font-weight: 650;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+        color: rgba(255, 255, 255, 0.6);
+        margin-bottom: 14px;
+      }
+
+      .fu-hero h1 {
+        font-family: "Space Grotesk", sans-serif;
+        font-size: clamp(38px, 5vw, 52px);
+        line-height: 1.15;
+        font-weight: 700;
+        color: #ffffff;
+        letter-spacing: -0.02em;
+      }
+
+      .fu-hero__sub {
+        font-family: "Inter", sans-serif;
+        font-size: clamp(16px, 2vw, 18px);
+        line-height: 1.55;
+        font-weight: 450;
+        color: rgba(255, 255, 255, 0.85);
+        margin-top: 14px;
+      }
+
+      .fu-hero__bullets {
+        list-style: none;
+        margin-top: 16px;
+        display: flex;
+        flex-direction: column;
+        gap: 8px;
+      }
+
+      .fu-hero__bullets li {
+        font-family: "Inter", sans-serif;
+        font-size: 15px;
+        line-height: 1.6;
+        font-weight: 500;
+        color: rgba(255, 255, 255, 0.84);
+        padding-left: 24px;
+        position: relative;
+      }
+
+      .fu-hero__bullets li::before {
+        content: "✓";
+        position: absolute;
+        left: 0;
+        color: #16a34a;
+        font-weight: 700;
+      }
+
+      .fu-hero__ctas {
+        display: flex;
+        gap: 12px;
+        margin-top: 20px;
+        flex-wrap: wrap;
+        align-items: center;
+      }
+
+      .fu-btn-pri {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        height: 48px;
+        border-radius: 14px;
+        background: #2563eb;
+        color: #ffffff !important;
+        font-family: "Inter", sans-serif;
+        font-size: 14px;
+        font-weight: 700;
+        padding: 0 18px;
+        box-shadow: 0 10px 24px rgba(0, 0, 0, 0.18);
+        text-decoration: none;
+        transition: all 0.2s;
+      }
+
+      .fu-btn-pri:hover {
+        background: #1d4ed8;
+        transform: translateY(-1px);
+      }
+
+      .fu-btn-sec {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        height: 48px;
+        border-radius: 14px;
+        border: 1px solid rgba(255, 255, 255, 0.22);
+        color: #ffffff !important;
+        font-family: "Inter", sans-serif;
+        font-size: 14px;
+        font-weight: 700;
+        padding: 0 18px;
+        text-decoration: none;
+        transition: all 0.2s;
+      }
+
+      .fu-btn-sec:hover {
+        background: rgba(255, 255, 255, 0.06);
+      }
+
+      .fu-hero__ctamicro {
+        font-family: "Inter", sans-serif;
+        font-size: 13px;
+        line-height: 1.5;
+        font-weight: 600;
+        color: rgba(255, 255, 255, 0.7);
+        margin-top: 10px;
+        display: block;
+        width: 100%;
+      }
+
+      .fu-hero__micro {
+        font-family: "Inter", sans-serif;
+        font-size: 12px;
+        line-height: 1.5;
+        font-weight: 600;
+        color: rgba(255, 255, 255, 0.62);
+        margin-top: 10px;
+        display: block;
+      }
+
+      /* Hero Right Visual Grid */
+      .fu-visual-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 12px;
+        max-width: 460px;
+      }
+
+      .fu-vcard {
+        background: #ffffff;
+        border: 1px solid rgba(15, 29, 61, 0.14);
+        border-radius: 16px;
+        padding: 12px;
+        box-shadow: 0 12px 30px rgba(0, 0, 0, 0.18);
+        min-height: 150px;
+        display: flex;
+        flex-direction: column;
+      }
+
+      .fu-vcard--1 {
+        border-left: 3px solid #2563eb;
+      }
+
+      .fu-vcard--2 {
+        border-left: 3px solid #0ea5e9;
+      }
+
+      .fu-vcard--3 {
+        border-left: 3px solid #1e3a8a;
+      }
+
+      .fu-vcard--4 {
+        border-left: 3px solid #16a34a;
+      }
+
+      .fu-vcard__chip {
+        display: inline-block;
+        font-family: "Inter", sans-serif;
+        font-size: 10px;
+        font-weight: 700;
+        letter-spacing: 0.05em;
+        text-transform: uppercase;
+        padding: 3px 6px;
+        border-radius: 4px;
+        margin-bottom: 8px;
+        align-self: flex-start;
+      }
+
+      .fu-vcard--1 .fu-vcard__chip {
+        background: rgba(37, 99, 235, 0.1);
+        color: #2563eb;
+      }
+
+      .fu-vcard--2 .fu-vcard__chip {
+        background: rgba(14, 165, 233, 0.1);
+        color: #0ea5e9;
+      }
+
+      .fu-vcard--3 .fu-vcard__chip {
+        background: rgba(30, 58, 138, 0.1);
+        color: #1e3a8a;
+      }
+
+      .fu-vcard--4 .fu-vcard__chip {
+        background: rgba(22, 163, 74, 0.1);
+        color: #16a34a;
+      }
+
+      .fu-vcard__trigger {
+        font-family: "Inter", sans-serif;
+        font-size: 11px;
+        color: rgba(11, 18, 32, 0.56);
+        font-weight: 600;
+        margin-bottom: 6px;
+      }
+
+      .fu-vcard__bubble {
+        background: #f3f4f6;
+        border-radius: 8px;
+        padding: 8px;
+        font-family: "Inter", sans-serif;
+        font-size: 12px;
+        color: #0b1220;
+        line-height: 1.4;
+        margin-bottom: auto;
+      }
+
+      .fu-vcard__list {
+        list-style: none;
+        margin-bottom: auto;
+        display: flex;
+        flex-direction: column;
+        gap: 4px;
+        padding: 0;
+      }
+
+      .fu-vcard__list li {
+        font-family: "Inter", sans-serif;
+        font-size: 11px;
+        color: #0b1220;
+        font-weight: 500;
+        line-height: 1.4;
+      }
+
+      .fu-vcard__outcome {
+        font-family: "Inter", sans-serif;
+        font-size: 11px;
+        color: rgba(11, 18, 32, 0.72);
+        font-weight: 500;
+        margin-top: 8px;
+        border-top: 1px solid rgba(15, 29, 61, 0.08);
+        padding-top: 6px;
+      }
+
+      .fu-visual-footer {
+        grid-column: 1 / -1;
+        font-family: "Inter", sans-serif;
+        font-size: 11px;
+        line-height: 16px;
+        font-weight: 650;
+        color: rgba(255, 255, 255, 0.58);
+        margin-top: 6px;
+        text-align: center;
+      }
+
+      /* Trust & Proof Section */
+      .fu-trust {
+        background: #ffffff;
+        padding: 56px 0;
+        border-top: 1px solid rgba(15, 29, 61, 0.14);
+      }
+
+      .fu-trust__grid {
+        display: grid;
+        grid-template-columns: 7fr 5fr;
+        gap: 48px;
+        align-items: start;
+      }
+
+      .fu-trust h2 {
+        font-family: "Space Grotesk", sans-serif;
+        font-size: 28px;
+        line-height: 1.3;
+        font-weight: 700;
+        color: #0b1220;
+        margin-bottom: 24px;
+      }
+
+      .fu-trust-cards {
+        display: flex;
+        flex-direction: column;
+        gap: 16px;
+      }
+
+      .fu-tcard {
+        background: #f8f7f4;
+        border: 1px solid rgba(15, 29, 61, 0.14);
+        border-radius: 16px;
+        padding: 18px;
+        font-family: "Inter", sans-serif;
+        font-size: 14px;
+        line-height: 22px;
+        font-weight: 450;
+        color: rgba(11, 18, 32, 0.72);
+      }
+
+      .fu-proof-stack {
+        display: flex;
+        flex-direction: column;
+        gap: 16px;
+      }
+
+      .fu-proof-card {
+        background: #ffffff;
+        border: 1px solid rgba(15, 29, 61, 0.14);
+        border-radius: 16px;
+        padding: 16px;
+      }
+
+      .fu-proof-card h3 {
+        font-family: "Space Grotesk", sans-serif;
+        font-size: 16px;
+        line-height: 22px;
+        font-weight: 700;
+        color: #0b1220;
+        margin-bottom: 12px;
+      }
+
+      .fu-flow-diagram {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 8px;
+        font-family: "Inter", sans-serif;
+        font-size: 11px;
+        font-weight: 600;
+        color: rgba(11, 18, 32, 0.72);
+        text-align: center;
+      }
+
+      .fu-flow-node {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 4px;
+        flex: 1;
+      }
+
+      .fu-flow-arr {
+        color: rgba(15, 29, 61, 0.2);
+        font-size: 14px;
+      }
+
+      .fu-dash-img {
+        width: 100%;
+        height: 120px;
+        background: #f3f4f6;
+        border-radius: 8px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-family: "Inter", sans-serif;
+        font-size: 12px;
+        font-weight: 600;
+        color: rgba(11, 18, 32, 0.5);
+        margin-bottom: 8px;
+        border: 1px dashed rgba(15, 29, 61, 0.2);
+      }
+
+      .fu-proof-chips {
+        display: flex;
+        gap: 8px;
+        flex-wrap: wrap;
+      }
+
+      .fu-pchip {
+        background: #f8f7f4;
+        border: 1px solid rgba(15, 29, 61, 0.14);
+        border-radius: 14px;
+        padding: 12px;
+        flex: 1;
+        min-width: 120px;
+      }
+
+      .fu-pchip__num {
+        font-family: "Space Grotesk", sans-serif;
+        font-size: 18px;
+        line-height: 24px;
+        font-weight: 700;
+        color: #0b1220;
+        display: block;
+      }
+
+      .fu-pchip__label {
+        font-family: "Inter", sans-serif;
+        font-size: 12px;
+        line-height: 18px;
+        font-weight: 650;
+        color: rgba(11, 18, 32, 0.72);
+      }
+
+      /* Pain Points */
+      .fu-pain {
+        background: #f8f7f4;
+        padding: 72px 0;
+      }
+
+      .fu-pain h2 {
+        font-family: "Space Grotesk", sans-serif;
+        font-size: 32px;
+        line-height: 40px;
+        font-weight: 700;
+        color: #0b1220;
+        text-align: center;
+        margin-bottom: 40px;
+      }
+
+      .fu-pain__grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 20px;
+        margin-bottom: 40px;
+      }
+
+      .fu-pain-card {
+        background: #ffffff;
+        border: 1px solid rgba(15, 29, 61, 0.14);
+        border-radius: 16px;
+        padding: 20px;
+      }
+
+      .fu-pain-card h4 {
+        font-family: "Space Grotesk", sans-serif;
+        font-size: 18px;
+        font-weight: 700;
+        color: #0b1220;
+        margin-bottom: 8px;
+      }
+
+      .fu-pain-card p {
+        font-family: "Inter", sans-serif;
+        font-size: 14px;
+        line-height: 1.6;
+        color: rgba(11, 18, 32, 0.72);
+      }
+
+      .fu-calc {
+        max-width: 600px;
+        margin: 0 auto;
+        background: #ffffff;
+        border: 1px solid rgba(15, 29, 61, 0.14);
+        border-radius: 16px;
+        padding: 22px;
+        text-align: center;
+      }
+
+      .fu-calc h3 {
+        font-family: "Inter", sans-serif;
+        font-size: 16px;
+        font-weight: 700;
+        color: #0b1220;
+        margin-bottom: 16px;
+      }
+
+      .fu-calc-form {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 12px;
+        margin-bottom: 16px;
+      }
+
+      .fu-input {
+        width: 100%;
+        height: 44px;
+        border: 1px solid rgba(15, 29, 61, 0.2);
+        border-radius: 8px;
+        padding: 0 12px;
+        font-family: "Inter", sans-serif;
+        font-size: 14px;
+        color: #0b1220;
+      }
+
+      .fu-calc p {
+        font-family: "Inter", sans-serif;
+        font-size: 12px;
+        color: rgba(11, 18, 32, 0.56);
+        margin-top: 12px;
+      }
+
+      /* Offer & Diff */
+      .fu-offer {
+        background: #ffffff;
+        padding: 88px 0;
+      }
+
+      .fu-offer h2 {
+        font-family: "Space Grotesk", sans-serif;
+        font-size: 36px;
+        line-height: 44px;
+        font-weight: 700;
+        color: #0b1220;
+        text-align: center;
+        margin-bottom: 32px;
+      }
+
+      .fu-offer__body {
+        max-width: 800px;
+        margin: 0 auto;
+        font-family: "Inter", sans-serif;
+        font-size: 16px;
+        line-height: 26px;
+        font-weight: 450;
+        color: rgba(11, 18, 32, 0.72);
+      }
+
+      .fu-offer__body p {
+        margin-bottom: 24px;
+        text-align: center;
+      }
+
+      .fu-offer__body p:last-of-type {
+        margin-bottom: 0;
+      }
+
+      .fu-principles {
+        display: flex;
+        gap: 12px;
+        justify-content: center;
+        margin-top: 32px;
+        flex-wrap: wrap;
+      }
+
+      .fu-principle {
+        background: #f8f7f4;
+        border: 1px solid rgba(15, 29, 61, 0.14);
+        border-radius: 999px;
+        padding: 8px 16px;
+        font-family: "Inter", sans-serif;
+        font-size: 13px;
+        font-weight: 600;
+        color: #0b1220;
+      }
+
+      /* Before/After */
+      .fu-ba {
+        background: #0f1d3d;
+        padding: 88px 0;
+        color: #ffffff;
+      }
+
+      .fu-ba h2 {
+        font-family: "Space Grotesk", sans-serif;
+        font-size: 32px;
+        line-height: 40px;
+        font-weight: 700;
+        text-align: center;
+        margin-bottom: 40px;
+      }
+
+      .fu-ba__grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 24px;
+        margin-bottom: 40px;
+      }
+
+      .fu-ba-card {
+        background: rgba(255, 255, 255, 0.06);
+        border: 1px solid rgba(255, 255, 255, 0.14);
+        border-radius: 16px;
+        padding: 24px;
+      }
+
+      .fu-ba-card h3 {
+        font-family: "Inter", sans-serif;
+        font-size: 12px;
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 0.1em;
+        margin-bottom: 20px;
+        color: rgba(255, 255, 255, 0.6);
+      }
+
+      .fu-ba-row {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        margin-bottom: 16px;
+        font-family: "Inter", sans-serif;
+        font-size: 14px;
+        font-weight: 500;
+      }
+
+      .fu-ba-row span {
+        color: rgba(255, 255, 255, 0.9);
+      }
+
+      .fu-ba-card--after {
+        background: rgba(22, 163, 74, 0.1);
+        border-color: rgba(22, 163, 74, 0.3);
+      }
+
+      /* Pricing */
+      .fu-pricing {
+        background: #f8f7f4;
+        padding: 88px 0;
+      }
+
+      .fu-pricing h2 {
+        font-family: "Space Grotesk", sans-serif;
+        font-size: 36px;
+        line-height: 44px;
+        font-weight: 700;
+        text-align: center;
+        color: #0b1220;
+        margin-bottom: 16px;
+      }
+
+      .fu-price-value {
+        font-family: "Space Grotesk", sans-serif;
+        font-size: 22px;
+        line-height: 30px;
+        font-weight: 700;
+        color: #0b1220;
+        text-align: center;
+        margin-bottom: 24px;
+      }
+
+      .fu-pricing-grid {
+        max-width: 900px;
+        margin: 0 auto;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 40px;
+        align-items: center;
+      }
+
+      .fu-pricing-text {
+        font-family: "Inter", sans-serif;
+        font-size: 14px;
+        line-height: 22px;
+        font-weight: 500;
+        color: rgba(11, 18, 32, 0.72);
+      }
+
+      .fu-included-card {
+        background: #ffffff;
+        border: 1px solid rgba(15, 29, 61, 0.14);
+        border-radius: 16px;
+        padding: 24px;
+      }
+
+      .fu-included-card h4 {
+        font-family: "Inter", sans-serif;
+        font-size: 16px;
+        font-weight: 700;
+        color: #0b1220;
+        margin-bottom: 16px;
+      }
+
+      .fu-included-card ul {
+        list-style: none;
+        display: flex;
+        flex-direction: column;
+        gap: 12px;
+      }
+
+      .fu-included-card li {
+        font-family: "Inter", sans-serif;
+        font-size: 14px;
+        font-weight: 500;
+        color: rgba(11, 18, 32, 0.85);
+        padding-left: 24px;
+        position: relative;
+      }
+
+      .fu-included-card li::before {
+        content: "✓";
+        color: #16a34a;
+        position: absolute;
+        left: 0;
+        font-weight: 700;
+      }
+
+      /* FAQ */
+      .fu-faq {
+        background: #ffffff;
+        padding: 72px 0;
+      }
+
+      .fu-faq-accordion {
+        max-width: 800px;
+        margin: 0 auto;
+        display: flex;
+        flex-direction: column;
+        gap: 12px;
+      }
+
+      .fu-faq-item {
+        background: #ffffff;
+        border: 1px solid rgba(15, 29, 61, 0.14);
+        border-radius: 14px;
+        overflow: hidden;
+      }
+
+      .fu-faq-item summary {
+        padding: 16px;
+        font-family: "Inter", sans-serif;
+        font-size: 15px;
+        line-height: 24px;
+        font-weight: 700;
+        cursor: pointer;
+        list-style: none;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        color: #0b1220;
+      }
+
+      .fu-faq-item summary::-webkit-details-marker {
+        display: none;
+      }
+
+      .fu-faq-item summary::after {
+        content: "+";
+        font-size: 20px;
+        font-weight: 400;
+        color: rgba(11, 18, 32, 0.56);
+        transition: transform 0.2s;
+      }
+
+      .fu-faq-item[open] summary::after {
+        content: "−";
+      }
+
+      .fu-faq-item__body {
+        padding: 0 16px 16px;
+        font-family: "Inter", sans-serif;
+        font-size: 14px;
+        line-height: 22px;
+        font-weight: 450;
+        color: rgba(11, 18, 32, 0.72);
+      }
+
+      /* Final CTA */
+      .fu-final {
+        background: #0f1d3d;
+        padding: 64px 0;
+        text-align: center;
+        color: #ffffff;
+      }
+
+      .fu-final h2 {
+        font-family: "Space Grotesk", sans-serif;
+        font-size: 32px;
+        font-weight: 700;
+        margin-bottom: 8px;
+      }
+
+      .fu-final p {
+        font-family: "Inter", sans-serif;
+        font-size: 14px;
+        color: rgba(255, 255, 255, 0.7);
+        margin-bottom: 24px;
+      }
+
+      @media (max-width: 768px) {
         .fu-hero {
-            background: #0F1D3D;
-            position: relative;
-            padding: calc(var(--nav-h) + 96px) 0 72px;
-            overflow: hidden;
+          padding: calc(var(--nav-h) + 72px) 0 56px;
         }
 
-        .fu-hero::before {
-            content: '';
-            position: absolute;
-            inset: 0;
-            background-image: linear-gradient(rgba(255, 255, 255, 0.05) 1px, transparent 1px),
-                linear-gradient(90deg, rgba(255, 255, 255, 0.05) 1px, transparent 1px);
-            background-size: 32px 32px;
-            pointer-events: none;
-        }
-
-        .fu-hero__grid {
-            display: grid;
-            grid-template-columns: 7fr 5fr;
-            gap: 48px;
-            align-items: start;
-            position: relative;
-            z-index: 2;
-        }
-
-        .fu-hero__copy {
-            max-width: 720px;
-        }
-
-        .fu-hero__eyebrow {
-            display: block;
-            font-family: 'Inter', sans-serif;
-            font-size: 12px;
-            font-weight: 650;
-            letter-spacing: .08em;
-            text-transform: uppercase;
-            color: rgba(255, 255, 255, 0.60);
-            margin-bottom: 14px;
-        }
-
-        .fu-hero h1 {
-            font-family: 'Space Grotesk', sans-serif;
-            font-size: clamp(38px, 5vw, 52px);
-            line-height: 1.15;
-            font-weight: 700;
-            color: #FFFFFF;
-            letter-spacing: -.02em;
-        }
-
-        .fu-hero__sub {
-            font-family: 'Inter', sans-serif;
-            font-size: clamp(16px, 2vw, 18px);
-            line-height: 1.55;
-            font-weight: 450;
-            color: rgba(255, 255, 255, 0.85);
-            margin-top: 14px;
-        }
-
-        .fu-hero__bullets {
-            list-style: none;
-            margin-top: 16px;
-            display: flex;
-            flex-direction: column;
-            gap: 8px;
-        }
-
-        .fu-hero__bullets li {
-            font-family: 'Inter', sans-serif;
-            font-size: 15px;
-            line-height: 1.6;
-            font-weight: 500;
-            color: rgba(255, 255, 255, 0.84);
-            padding-left: 24px;
-            position: relative;
-        }
-
-        .fu-hero__bullets li::before {
-            content: '✓';
-            position: absolute;
-            left: 0;
-            color: #16A34A;
-            font-weight: 700;
-        }
-
-        .fu-hero__ctas {
-            display: flex;
-            gap: 12px;
-            margin-top: 20px;
-            flex-wrap: wrap;
-            align-items: center;
-        }
-
-        .fu-btn-pri {
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            height: 48px;
-            border-radius: 14px;
-            background: #2563EB;
-            color: #FFFFFF !important;
-            font-family: 'Inter', sans-serif;
-            font-size: 14px;
-            font-weight: 700;
-            padding: 0 18px;
-            box-shadow: 0 10px 24px rgba(0, 0, 0, 0.18);
-            text-decoration: none;
-            transition: all 0.2s;
-        }
-
-        .fu-btn-pri:hover {
-            background: #1D4ED8;
-            transform: translateY(-1px);
-        }
-
-        .fu-btn-sec {
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            height: 48px;
-            border-radius: 14px;
-            border: 1px solid rgba(255, 255, 255, 0.22);
-            color: #FFFFFF !important;
-            font-family: 'Inter', sans-serif;
-            font-size: 14px;
-            font-weight: 700;
-            padding: 0 18px;
-            text-decoration: none;
-            transition: all 0.2s;
-        }
-
-        .fu-btn-sec:hover {
-            background: rgba(255, 255, 255, 0.06);
-        }
-
-        .fu-hero__ctamicro {
-            font-family: 'Inter', sans-serif;
-            font-size: 13px;
-            line-height: 1.5;
-            font-weight: 600;
-            color: rgba(255, 255, 255, 0.70);
-            margin-top: 10px;
-            display: block;
-            width: 100%;
-        }
-
-        .fu-hero__micro {
-            font-family: 'Inter', sans-serif;
-            font-size: 12px;
-            line-height: 1.5;
-            font-weight: 600;
-            color: rgba(255, 255, 255, 0.62);
-            margin-top: 10px;
-            display: block;
-        }
-
-        /* Hero Right Visual Grid */
-        .fu-visual-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 12px;
-            max-width: 460px;
-        }
-
-        .fu-vcard {
-            background: #FFFFFF;
-            border: 1px solid rgba(15, 29, 61, 0.14);
-            border-radius: 16px;
-            padding: 12px;
-            box-shadow: 0 12px 30px rgba(0, 0, 0, 0.18);
-            min-height: 150px;
-            display: flex;
-            flex-direction: column;
-        }
-
-        .fu-vcard--1 {
-            border-left: 3px solid #2563EB;
-        }
-
-        .fu-vcard--2 {
-            border-left: 3px solid #0EA5E9;
-        }
-
-        .fu-vcard--3 {
-            border-left: 3px solid #1E3A8A;
-        }
-
-        .fu-vcard--4 {
-            border-left: 3px solid #16A34A;
-        }
-
-        .fu-vcard__chip {
-            display: inline-block;
-            font-family: 'Inter', sans-serif;
-            font-size: 10px;
-            font-weight: 700;
-            letter-spacing: 0.05em;
-            text-transform: uppercase;
-            padding: 3px 6px;
-            border-radius: 4px;
-            margin-bottom: 8px;
-            align-self: flex-start;
-        }
-
-        .fu-vcard--1 .fu-vcard__chip {
-            background: rgba(37, 99, 235, 0.1);
-            color: #2563EB;
-        }
-
-        .fu-vcard--2 .fu-vcard__chip {
-            background: rgba(14, 165, 233, 0.1);
-            color: #0EA5E9;
-        }
-
-        .fu-vcard--3 .fu-vcard__chip {
-            background: rgba(30, 58, 138, 0.1);
-            color: #1E3A8A;
-        }
-
-        .fu-vcard--4 .fu-vcard__chip {
-            background: rgba(22, 163, 74, 0.1);
-            color: #16A34A;
-        }
-
-        .fu-vcard__trigger {
-            font-family: 'Inter', sans-serif;
-            font-size: 11px;
-            color: rgba(11, 18, 32, 0.56);
-            font-weight: 600;
-            margin-bottom: 6px;
-        }
-
-        .fu-vcard__bubble {
-            background: #F3F4F6;
-            border-radius: 8px;
-            padding: 8px;
-            font-family: 'Inter', sans-serif;
-            font-size: 12px;
-            color: #0B1220;
-            line-height: 1.4;
-            margin-bottom: auto;
-        }
-
-        .fu-vcard__list {
-            list-style: none;
-            margin-bottom: auto;
-            display: flex;
-            flex-direction: column;
-            gap: 4px;
-            padding: 0;
-        }
-
-        .fu-vcard__list li {
-            font-family: 'Inter', sans-serif;
-            font-size: 11px;
-            color: #0B1220;
-            font-weight: 500;
-            line-height: 1.4;
-        }
-
-        .fu-vcard__outcome {
-            font-family: 'Inter', sans-serif;
-            font-size: 11px;
-            color: rgba(11, 18, 32, 0.72);
-            font-weight: 500;
-            margin-top: 8px;
-            border-top: 1px solid rgba(15, 29, 61, 0.08);
-            padding-top: 6px;
-        }
-
-        .fu-visual-footer {
-            grid-column: 1 / -1;
-            font-family: 'Inter', sans-serif;
-            font-size: 11px;
-            line-height: 16px;
-            font-weight: 650;
-            color: rgba(255, 255, 255, 0.58);
-            margin-top: 6px;
-            text-align: center;
-        }
-
-        /* Trust & Proof Section */
-        .fu-trust {
-            background: #FFFFFF;
-            padding: 56px 0;
-            border-top: 1px solid rgba(15, 29, 61, 0.14);
-        }
-
-        .fu-trust__grid {
-            display: grid;
-            grid-template-columns: 7fr 5fr;
-            gap: 48px;
-            align-items: start;
-        }
-
-        .fu-trust h2 {
-            font-family: 'Space Grotesk', sans-serif;
-            font-size: 28px;
-            line-height: 1.3;
-            font-weight: 700;
-            color: #0B1220;
-            margin-bottom: 24px;
-        }
-
-        .fu-trust-cards {
-            display: flex;
-            flex-direction: column;
-            gap: 16px;
-        }
-
-        .fu-tcard {
-            background: #F8F7F4;
-            border: 1px solid rgba(15, 29, 61, 0.14);
-            border-radius: 16px;
-            padding: 18px;
-            font-family: 'Inter', sans-serif;
-            font-size: 14px;
-            line-height: 22px;
-            font-weight: 450;
-            color: rgba(11, 18, 32, 0.72);
-        }
-
-        .fu-proof-stack {
-            display: flex;
-            flex-direction: column;
-            gap: 16px;
-        }
-
-        .fu-proof-card {
-            background: #FFFFFF;
-            border: 1px solid rgba(15, 29, 61, 0.14);
-            border-radius: 16px;
-            padding: 16px;
-        }
-
-        .fu-proof-card h3 {
-            font-family: 'Space Grotesk', sans-serif;
-            font-size: 16px;
-            line-height: 22px;
-            font-weight: 700;
-            color: #0B1220;
-            margin-bottom: 12px;
-        }
-
-        .fu-flow-diagram {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            gap: 8px;
-            font-family: 'Inter', sans-serif;
-            font-size: 11px;
-            font-weight: 600;
-            color: rgba(11, 18, 32, 0.72);
-            text-align: center;
-        }
-
-        .fu-flow-node {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap: 4px;
-            flex: 1;
-        }
-
-        .fu-flow-arr {
-            color: rgba(15, 29, 61, 0.2);
-            font-size: 14px;
-        }
-
-        .fu-dash-img {
-            width: 100%;
-            height: 120px;
-            background: #F3F4F6;
-            border-radius: 8px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-family: 'Inter', sans-serif;
-            font-size: 12px;
-            font-weight: 600;
-            color: rgba(11, 18, 32, 0.5);
-            margin-bottom: 8px;
-            border: 1px dashed rgba(15, 29, 61, 0.2);
-        }
-
-        .fu-proof-chips {
-            display: flex;
-            gap: 8px;
-            flex-wrap: wrap;
-        }
-
-        .fu-pchip {
-            background: #F8F7F4;
-            border: 1px solid rgba(15, 29, 61, 0.14);
-            border-radius: 14px;
-            padding: 12px;
-            flex: 1;
-            min-width: 120px;
-        }
-
-        .fu-pchip__num {
-            font-family: 'Space Grotesk', sans-serif;
-            font-size: 18px;
-            line-height: 24px;
-            font-weight: 700;
-            color: #0B1220;
-            display: block;
-        }
-
-        .fu-pchip__label {
-            font-family: 'Inter', sans-serif;
-            font-size: 12px;
-            line-height: 18px;
-            font-weight: 650;
-            color: rgba(11, 18, 32, 0.72);
-        }
-
-        /* Pain Points */
-        .fu-pain {
-            background: #F8F7F4;
-            padding: 72px 0;
-        }
-
-        .fu-pain h2 {
-            font-family: 'Space Grotesk', sans-serif;
-            font-size: 32px;
-            line-height: 40px;
-            font-weight: 700;
-            color: #0B1220;
-            text-align: center;
-            margin-bottom: 40px;
-        }
-
-        .fu-pain__grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 20px;
-            margin-bottom: 40px;
-        }
-
-        .fu-pain-card {
-            background: #FFFFFF;
-            border: 1px solid rgba(15, 29, 61, 0.14);
-            border-radius: 16px;
-            padding: 20px;
-        }
-
-        .fu-pain-card h4 {
-            font-family: 'Space Grotesk', sans-serif;
-            font-size: 18px;
-            font-weight: 700;
-            color: #0B1220;
-            margin-bottom: 8px;
-        }
-
-        .fu-pain-card p {
-            font-family: 'Inter', sans-serif;
-            font-size: 14px;
-            line-height: 1.6;
-            color: rgba(11, 18, 32, 0.72);
-        }
-
-        .fu-calc {
-            max-width: 600px;
-            margin: 0 auto;
-            background: #FFFFFF;
-            border: 1px solid rgba(15, 29, 61, 0.14);
-            border-radius: 16px;
-            padding: 22px;
-            text-align: center;
-        }
-
-        .fu-calc h3 {
-            font-family: 'Inter', sans-serif;
-            font-size: 16px;
-            font-weight: 700;
-            color: #0B1220;
-            margin-bottom: 16px;
+        .fu-hero__grid,
+        .fu-trust__grid,
+        .fu-pain__grid,
+        .fu-ba__grid,
+        .fu-pricing-grid {
+          grid-template-columns: 1fr;
         }
 
         .fu-calc-form {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 12px;
-            margin-bottom: 16px;
+          grid-template-columns: 1fr;
         }
 
-        .fu-input {
-            width: 100%;
-            height: 44px;
-            border: 1px solid rgba(15, 29, 61, 0.2);
-            border-radius: 8px;
-            padding: 0 12px;
-            font-family: 'Inter', sans-serif;
-            font-size: 14px;
-            color: #0B1220;
+        .fu-hero h1 {
+          font-size: 38px;
+          line-height: 44px;
         }
 
-        .fu-calc p {
-            font-family: 'Inter', sans-serif;
-            font-size: 12px;
-            color: rgba(11, 18, 32, 0.56);
-            margin-top: 12px;
-        }
-
-        /* Offer & Diff */
-        .fu-offer {
-            background: #FFFFFF;
-            padding: 88px 0;
-        }
-
-        .fu-offer h2 {
-            font-family: 'Space Grotesk', sans-serif;
-            font-size: 36px;
-            line-height: 44px;
-            font-weight: 700;
-            color: #0B1220;
-            text-align: center;
-            margin-bottom: 32px;
-        }
-
-        .fu-offer__body {
-            max-width: 800px;
-            margin: 0 auto;
-            font-family: 'Inter', sans-serif;
-            font-size: 16px;
-            line-height: 26px;
-            font-weight: 450;
-            color: rgba(11, 18, 32, 0.72);
-        }
-
-        .fu-offer__body p {
-            margin-bottom: 24px;
-            text-align: center;
-        }
-
-        .fu-offer__body p:last-of-type {
-            margin-bottom: 0;
-        }
-
-        .fu-principles {
-            display: flex;
-            gap: 12px;
-            justify-content: center;
-            margin-top: 32px;
-            flex-wrap: wrap;
-        }
-
-        .fu-principle {
-            background: #F8F7F4;
-            border: 1px solid rgba(15, 29, 61, 0.14);
-            border-radius: 999px;
-            padding: 8px 16px;
-            font-family: 'Inter', sans-serif;
-            font-size: 13px;
-            font-weight: 600;
-            color: #0B1220;
-        }
-
-        /* Before/After */
-        .fu-ba {
-            background: #0F1D3D;
-            padding: 88px 0;
-            color: #FFFFFF;
-        }
-
-        .fu-ba h2 {
-            font-family: 'Space Grotesk', sans-serif;
-            font-size: 32px;
-            line-height: 40px;
-            font-weight: 700;
-            text-align: center;
-            margin-bottom: 40px;
-        }
-
-        .fu-ba__grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 24px;
-            margin-bottom: 40px;
-        }
-
-        .fu-ba-card {
-            background: rgba(255, 255, 255, 0.06);
-            border: 1px solid rgba(255, 255, 255, 0.14);
-            border-radius: 16px;
-            padding: 24px;
-        }
-
-        .fu-ba-card h3 {
-            font-family: 'Inter', sans-serif;
-            font-size: 12px;
-            font-weight: 700;
-            text-transform: uppercase;
-            letter-spacing: 0.1em;
-            margin-bottom: 20px;
-            color: rgba(255, 255, 255, 0.6);
-        }
-
-        .fu-ba-row {
-            display: flex;
-            align-items: center;
-            gap: 12px;
-            margin-bottom: 16px;
-            font-family: 'Inter', sans-serif;
-            font-size: 14px;
-            font-weight: 500;
-        }
-
-        .fu-ba-row span {
-            color: rgba(255, 255, 255, 0.9);
-        }
-
-        .fu-ba-card--after {
-            background: rgba(22, 163, 74, 0.1);
-            border-color: rgba(22, 163, 74, 0.3);
-        }
-
-        /* Pricing */
-        .fu-pricing {
-            background: #F8F7F4;
-            padding: 88px 0;
-        }
-
-        .fu-pricing h2 {
-            font-family: 'Space Grotesk', sans-serif;
-            font-size: 36px;
-            line-height: 44px;
-            font-weight: 700;
-            text-align: center;
-            color: #0B1220;
-            margin-bottom: 16px;
-        }
-
-        .fu-price-value {
-            font-family: 'Space Grotesk', sans-serif;
-            font-size: 22px;
-            line-height: 30px;
-            font-weight: 700;
-            color: #0B1220;
-            text-align: center;
-            margin-bottom: 24px;
-        }
-
-        .fu-pricing-grid {
-            max-width: 900px;
-            margin: 0 auto;
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 40px;
-            align-items: center;
-        }
-
-        .fu-pricing-text {
-            font-family: 'Inter', sans-serif;
-            font-size: 14px;
-            line-height: 22px;
-            font-weight: 500;
-            color: rgba(11, 18, 32, 0.72);
-        }
-
-        .fu-included-card {
-            background: #FFFFFF;
-            border: 1px solid rgba(15, 29, 61, 0.14);
-            border-radius: 16px;
-            padding: 24px;
-        }
-
-        .fu-included-card h4 {
-            font-family: 'Inter', sans-serif;
-            font-size: 16px;
-            font-weight: 700;
-            color: #0B1220;
-            margin-bottom: 16px;
-        }
-
-        .fu-included-card ul {
-            list-style: none;
-            display: flex;
-            flex-direction: column;
-            gap: 12px;
-        }
-
-        .fu-included-card li {
-            font-family: 'Inter', sans-serif;
-            font-size: 14px;
-            font-weight: 500;
-            color: rgba(11, 18, 32, 0.85);
-            padding-left: 24px;
-            position: relative;
-        }
-
-        .fu-included-card li::before {
-            content: '✓';
-            color: #16A34A;
-            position: absolute;
-            left: 0;
-            font-weight: 700;
-        }
-
-        /* FAQ */
+        .fu-trust,
+        .fu-pain,
+        .fu-offer,
+        .fu-ba,
+        .fu-pricing,
         .fu-faq {
-            background: #FFFFFF;
-            padding: 72px 0;
+          padding: 56px 0;
         }
 
-        .fu-faq-accordion {
-            max-width: 800px;
-            margin: 0 auto;
-            display: flex;
-            flex-direction: column;
-            gap: 12px;
+        .fu-btn-sec,
+        .fu-btn-pri {
+          width: 100%;
+          margin-left: 0;
         }
 
-        .fu-faq-item {
-            background: #FFFFFF;
-            border: 1px solid rgba(15, 29, 61, 0.14);
-            border-radius: 14px;
-            overflow: hidden;
+        .fu-hero__ctas {
+          flex-direction: column;
+          width: 100%;
+          align-items: stretch;
         }
-
-        .fu-faq-item summary {
-            padding: 16px;
-            font-family: 'Inter', sans-serif;
-            font-size: 15px;
-            line-height: 24px;
-            font-weight: 700;
-            cursor: pointer;
-            list-style: none;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            color: #0B1220;
-        }
-
-        .fu-faq-item summary::-webkit-details-marker {
-            display: none;
-        }
-
-        .fu-faq-item summary::after {
-            content: '+';
-            font-size: 20px;
-            font-weight: 400;
-            color: rgba(11, 18, 32, 0.56);
-            transition: transform 0.2s;
-        }
-
-        .fu-faq-item[open] summary::after {
-            content: '−';
-        }
-
-        .fu-faq-item__body {
-            padding: 0 16px 16px;
-            font-family: 'Inter', sans-serif;
-            font-size: 14px;
-            line-height: 22px;
-            font-weight: 450;
-            color: rgba(11, 18, 32, 0.72);
-        }
-
-        /* Final CTA */
-        .fu-final {
-            background: #0F1D3D;
-            padding: 64px 0;
-            text-align: center;
-            color: #FFFFFF;
-        }
-
-        .fu-final h2 {
-            font-family: 'Space Grotesk', sans-serif;
-            font-size: 32px;
-            font-weight: 700;
-            margin-bottom: 8px;
-        }
-
-        .fu-final p {
-            font-family: 'Inter', sans-serif;
-            font-size: 14px;
-            color: rgba(255, 255, 255, 0.7);
-            margin-bottom: 24px;
-        }
-
-        @media (max-width: 768px) {
-            .fu-hero {
-                padding: calc(var(--nav-h) + 72px) 0 56px;
-            }
-
-            .fu-hero__grid,
-            .fu-trust__grid,
-            .fu-pain__grid,
-            .fu-ba__grid,
-            .fu-pricing-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .fu-calc-form {
-                grid-template-columns: 1fr;
-            }
-
-            .fu-hero h1 {
-                font-size: 38px;
-                line-height: 44px;
-            }
-
-            .fu-trust,
-            .fu-pain,
-            .fu-offer,
-            .fu-ba,
-            .fu-pricing,
-            .fu-faq {
-                padding: 56px 0;
-            }
-
-            .fu-btn-sec,
-            .fu-btn-pri {
-                width: 100%;
-                margin-left: 0;
-            }
-
-            .fu-hero__ctas {
-                flex-direction: column;
-                width: 100%;
-                align-items: stretch;
-            }
-        }
+      }
     </style>
-</head>
+  </head>
 
-<body class="page-sub">
-
+  <body class="page-sub">
     <!-- ═══ HEADER ═══ -->
-    <header class="header" id="header"
-        style="background: rgba(15,29,61,0.72); backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px); border-bottom: 1px solid rgba(255,255,255,0.10);">
-        <div class="header__inner">
-            <a href="index.html" class="header__brand">
-                <img src="img/logo-white.svg" alt="JTandy" class="header__logo" style="display: block;">
-            </a>
-            <nav class="header__nav" id="headerNav">
-                <div class="nav-dropdown">
-                    <a href="index.html#solutions" class="nav-dropdown__trigger"
-                        style="color: rgba(255,255,255,0.82); font-family: 'Inter', sans-serif; font-weight: 600;">Solutions
-                        <span class="nav-dropdown__arrow">▾</span></a>
-                    <div class="nav-dropdown__menu">
-                        <a href="lead-websites.html">Lead Websites</a>
-                        <a href="follow-up-automation.html">Follow-Up Automation</a>
-                        <a href="review-automation.html">Review Automation</a>
-                        <a href="revenue-engine.html">Revenue Engine</a>
-                    </div>
-                </div>
-                <a href="how-it-works.html"
-                    style="color: rgba(255,255,255,0.82); font-family: 'Inter', sans-serif; font-weight: 600;">How It
-                    Works</a>
-                <a href="results.html"
-                    style="color: rgba(255,255,255,0.82); font-family: 'Inter', sans-serif; font-weight: 600;">Results</a>
-                <a href="pricing.html"
-                    style="color: rgba(255,255,255,0.82); font-family: 'Inter', sans-serif; font-weight: 600;">Pricing</a>
-                <a href="faq.html"
-                    style="color: rgba(255,255,255,0.82); font-family: 'Inter', sans-serif; font-weight: 600;">FAQ</a>
-            </nav>
-            <div class="header__actions">
-                <a href="audit.html" class="btn btn--primary"
-                    style="background: #2563EB; border-color: #2563EB; color: #FFFFFF; font-family: 'Inter', sans-serif; font-weight: 700;">Get
-                    Free Lead Leak Report</a>
+    <header
+      class="header"
+      id="header"
+      style="
+        background: rgba(15, 29, 61, 0.72);
+        backdrop-filter: blur(10px);
+        -webkit-backdrop-filter: blur(10px);
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+      "
+    >
+      <div class="header__inner">
+        <a href="index.html" class="header__brand">
+          <img
+            src="img/logo-white.svg"
+            alt="JTandy"
+            class="header__logo"
+            style="display: block"
+          />
+        </a>
+        <nav class="header__nav" id="headerNav">
+          <div class="nav-dropdown">
+            <a
+              href="index.html#solutions"
+              class="nav-dropdown__trigger"
+              style="
+                color: rgba(255, 255, 255, 0.82);
+                font-family: &quot;Inter&quot;, sans-serif;
+                font-weight: 600;
+              "
+              >Solutions <span class="nav-dropdown__arrow">▾</span></a
+            >
+            <div class="nav-dropdown__menu">
+              <a href="lead-websites.html">Lead Websites</a>
+              <a href="follow-up-automation.html">Follow-Up Automation</a>
+              <a href="review-automation.html">Review Automation</a>
+              <a href="revenue-engine.html">Revenue Engine</a>
             </div>
-            <button class="header__burger" id="headerBurger" aria-label="Menu">
-                <span style="background: #FFF;"></span><span style="background: #FFF;"></span><span
-                    style="background: #FFF;"></span>
-            </button>
+          </div>
+          <a
+            href="how-it-works.html"
+            style="
+              color: rgba(255, 255, 255, 0.82);
+              font-family: &quot;Inter&quot;, sans-serif;
+              font-weight: 600;
+            "
+            >How It Works</a
+          >
+          <a
+            href="results.html"
+            style="
+              color: rgba(255, 255, 255, 0.82);
+              font-family: &quot;Inter&quot;, sans-serif;
+              font-weight: 600;
+            "
+            >Results</a
+          >
+          <a
+            href="pricing.html"
+            style="
+              color: rgba(255, 255, 255, 0.82);
+              font-family: &quot;Inter&quot;, sans-serif;
+              font-weight: 600;
+            "
+            >Pricing</a
+          >
+          <a
+            href="faq.html"
+            style="
+              color: rgba(255, 255, 255, 0.82);
+              font-family: &quot;Inter&quot;, sans-serif;
+              font-weight: 600;
+            "
+            >FAQ</a
+          >
+        </nav>
+        <div class="header__actions">
+          <a
+            href="audit.html"
+            class="btn btn--primary"
+            style="
+              background: #2563eb;
+              border-color: #2563eb;
+              color: #ffffff;
+              font-family: &quot;Inter&quot;, sans-serif;
+              font-weight: 700;
+            "
+            >Get Free Lead Leak Report</a
+          >
         </div>
+        <button class="header__burger" id="headerBurger" aria-label="Menu">
+          <span style="background: #fff"></span
+          ><span style="background: #fff"></span
+          ><span style="background: #fff"></span>
+        </button>
+      </div>
     </header>
 
     <!-- ═══ 1. HERO ═══ -->
     <section class="fu-hero" id="fu-hero">
-        <div class="container fu-hero__grid">
-            <div class="fu-hero__copy">
-                <span class="fu-hero__eyebrow">FOR UK TRADES</span>
-                <h1>Never let a call or quote slip through the cracks again.</h1>
-                <p class="fu-hero__sub">Set up instant replies, quote chases and missed‑call texts that run 24/7,
-                    turning more enquiries into booked jobs.</p>
+      <div class="container fu-hero__grid">
+        <div class="fu-hero__copy">
+          <span class="fu-hero__eyebrow">FOR UK TRADES</span>
+          <h1>Never let a call or quote slip through the cracks again.</h1>
+          <p class="fu-hero__sub">
+            Set up instant replies, quote chases and missed‑call texts that run
+            24/7, turning more enquiries into booked jobs.
+          </p>
 
-                <ul class="fu-hero__bullets">
-                    <li>Reply to every call, message or form within seconds – even out of hours.</li>
-                    <li>Send polite reminders until a quote is accepted or declined.</li>
-                    <li>See every lead's status in one place.</li>
-                </ul>
+          <ul class="fu-hero__bullets">
+            <li>
+              Reply to every call, message or form within seconds – even out of
+              hours.
+            </li>
+            <li>
+              Send polite reminders until a quote is accepted or declined.
+            </li>
+            <li>See every lead's status in one place.</li>
+          </ul>
 
-                <div class="fu-hero__ctas">
-                    <a href="request-audit.html?interest=followup" class="fu-btn-pri">Get My Follow‑Up Plan</a>
-                    <a href="#automation-flow" class="fu-btn-sec">View the Automation Flow</a>
-                    <span class="fu-hero__ctamicro">Find out which follow‑up sequences make sense for your enquiry
-                        volume.</span>
-                </div>
+          <div class="fu-hero__ctas">
+            <a href="request-audit.html?interest=followup" class="fu-btn-pri"
+              >Get My Follow‑Up Plan</a
+            >
+            <a href="#automation-flow" class="fu-btn-sec"
+              >View the Automation Flow</a
+            >
+            <span class="fu-hero__ctamicro"
+              >Find out which follow‑up sequences make sense for your enquiry
+              volume.</span
+            >
+          </div>
 
-                <p class="fu-hero__micro">No calls required • Written plan by email • Opt‑out friendly</p>
-            </div>
-
-            <div class="fu-hero__right">
-                <div class="fu-visual-grid">
-                    <!-- Card A -->
-                    <div class="fu-vcard fu-vcard--1">
-                        <span class="fu-vcard__chip">MISSED CALL</span>
-                        <span class="fu-vcard__trigger">Trigger: "call missed"</span>
-                        <div class="fu-vcard__bubble">Missed you — what's the job + postcode?</div>
-                        <div class="fu-vcard__outcome">Captures job details instantly</div>
-                    </div>
-
-                    <!-- Card B -->
-                    <div class="fu-vcard fu-vcard--2">
-                        <span class="fu-vcard__chip">INSTANT REPLY</span>
-                        <span class="fu-vcard__trigger">Trigger: "form submitted"</span>
-                        <div class="fu-vcard__bubble">Got it — we'll confirm a time shortly.</div>
-                        <div class="fu-vcard__outcome">Sets expectations fast</div>
-                    </div>
-
-                    <!-- Card C -->
-                    <div class="fu-vcard fu-vcard--3">
-                        <span class="fu-vcard__chip">QUOTE CHASE</span>
-                        <span class="fu-vcard__trigger">Trigger: "quote sent • no reply"</span>
-                        <div class="fu-vcard__bubble">Go ahead with the quote? YES/NO</div>
-                        <div class="fu-vcard__outcome">Prevents cold quotes</div>
-                    </div>
-
-                    <!-- Card D -->
-                    <div class="fu-vcard fu-vcard--4">
-                        <span class="fu-vcard__chip">LEAD STATUS</span>
-                        <ul class="fu-vcard__list">
-                            <li>New lead — replied ✅</li>
-                            <li>Quoted — follow‑up sent ⏳</li>
-                            <li>Booked — confirmed ✅</li>
-                        </ul>
-                        <div class="fu-vcard__outcome">See every lead in one place</div>
-                    </div>
-
-                    <div class="fu-visual-footer">Rate‑limited • Opt‑out friendly • Triggered by real enquiries</div>
-                </div>
-            </div>
+          <p class="fu-hero__micro">
+            No calls required • Written plan by email • Opt‑out friendly
+          </p>
         </div>
+
+        <div class="fu-hero__right">
+          <div class="fu-visual-grid">
+            <!-- Card A -->
+            <div class="fu-vcard fu-vcard--1">
+              <span class="fu-vcard__chip">MISSED CALL</span>
+              <span class="fu-vcard__trigger">Trigger: "call missed"</span>
+              <div class="fu-vcard__bubble">
+                Missed you — what's the job + postcode?
+              </div>
+              <div class="fu-vcard__outcome">
+                Captures job details instantly
+              </div>
+            </div>
+
+            <!-- Card B -->
+            <div class="fu-vcard fu-vcard--2">
+              <span class="fu-vcard__chip">INSTANT REPLY</span>
+              <span class="fu-vcard__trigger">Trigger: "form submitted"</span>
+              <div class="fu-vcard__bubble">
+                Got it — we'll confirm a time shortly.
+              </div>
+              <div class="fu-vcard__outcome">Sets expectations fast</div>
+            </div>
+
+            <!-- Card C -->
+            <div class="fu-vcard fu-vcard--3">
+              <span class="fu-vcard__chip">QUOTE CHASE</span>
+              <span class="fu-vcard__trigger"
+                >Trigger: "quote sent • no reply"</span
+              >
+              <div class="fu-vcard__bubble">
+                Go ahead with the quote? YES/NO
+              </div>
+              <div class="fu-vcard__outcome">Prevents cold quotes</div>
+            </div>
+
+            <!-- Card D -->
+            <div class="fu-vcard fu-vcard--4">
+              <span class="fu-vcard__chip">LEAD STATUS</span>
+              <ul class="fu-vcard__list">
+                <li>New lead — replied ✅</li>
+                <li>Quoted — follow‑up sent ⏳</li>
+                <li>Booked — confirmed ✅</li>
+              </ul>
+              <div class="fu-vcard__outcome">See every lead in one place</div>
+            </div>
+
+            <div class="fu-visual-footer">
+              Rate‑limited • Opt‑out friendly • Triggered by real enquiries
+            </div>
+          </div>
+        </div>
+      </div>
     </section>
 
     <!-- ═══ 2. TRUST & PROOF ═══ -->
     <section class="fu-trust" id="trust">
-        <div class="container">
-            <div class="fu-trust__grid">
-                <div>
-                    <h2>Why follow‑up matters</h2>
-                    <div class="fu-trust-cards">
-                        <div class="fu-tcard">
-                            <strong>Trades lose more jobs to delay than to competitors.</strong> If you miss a call or
-                            take hours to respond, the customer moves on. Automated follow‑up removes this delay without
-                            sounding robotic.
-                        </div>
-                        <div class="fu-tcard">
-                            <strong>Polite and compliant.</strong> Messages are rate‑limited, opt‑out friendly and
-                            triggered only when an enquiry or quote is received. We never send bulk spam.
-                        </div>
-                        <div class="fu-tcard">
-                            <strong>Data‑backed impact.</strong> Anonymised installs show up to 15–30% more booked jobs
-                            and first responses under 2 minutes.
-                        </div>
-                    </div>
-                </div>
-                <div class="fu-proof-stack">
-                    <div class="fu-proof-card">
-                        <h3>Automation flow (example)</h3>
-                        <div class="fu-flow-diagram">
-                            <div class="fu-flow-node"><span>Enquiry<br>received</span></div>
-                            <span class="fu-flow-arr">→</span>
-                            <div class="fu-flow-node"><span>Instant<br>reply</span></div>
-                            <span class="fu-flow-arr">→</span>
-                            <div class="fu-flow-node"><span>Qualify<br>&amp; Book</span></div>
-                            <span class="fu-flow-arr">→</span>
-                            <div class="fu-flow-node"><span>Quote<br>follow-up</span></div>
-                        </div>
-                    </div>
-                    <div class="fu-proof-card">
-                        <h3>Lead status dashboard (anonymised)</h3>
-                        <div class="fu-dash-img">[ Dashboard UI Screenshot Placeholder ]</div>
-                        <p style="font-size: 11px; color: rgba(11,18,32,0.6); text-align: center; margin-top: 8px;">New
-                            → Replied → Quoted → Follow-up sent → Booked</p>
-                    </div>
-                    <div class="fu-proof-chips">
-                        <div class="fu-pchip">
-                            <span class="fu-pchip__num">~2 mins</span>
-                            <span class="fu-pchip__label">First response</span>
-                        </div>
-                        <div class="fu-pchip">
-                            <span class="fu-pchip__num">+15–30%</span>
-                            <span class="fu-pchip__label">Booked jobs</span>
-                        </div>
-                        <div class="fu-pchip" style="min-width: 100%;">
-                            <span class="fu-pchip__num">Auto text-back</span>
-                            <span class="fu-pchip__label">For missed calls</span>
-                        </div>
-                    </div>
-                </div>
+      <div class="container">
+        <div class="fu-trust__grid">
+          <div>
+            <h2>Why follow‑up matters</h2>
+            <div class="fu-trust-cards">
+              <div class="fu-tcard">
+                <strong
+                  >Trades lose more jobs to delay than to competitors.</strong
+                >
+                If you miss a call or take hours to respond, the customer moves
+                on. Automated follow‑up removes this delay without sounding
+                robotic.
+              </div>
+              <div class="fu-tcard">
+                <strong>Polite and compliant.</strong> Messages are
+                rate‑limited, opt‑out friendly and triggered only when an
+                enquiry or quote is received. We never send bulk spam.
+              </div>
+              <div class="fu-tcard">
+                <strong>Data‑backed impact.</strong> Anonymised installs show up
+                to 15–30% more booked jobs and first responses under 2 minutes.
+              </div>
             </div>
+          </div>
+          <div class="fu-proof-stack">
+            <div class="fu-proof-card">
+              <h3>Automation flow (example)</h3>
+              <div class="fu-flow-diagram">
+                <div class="fu-flow-node">
+                  <span>Enquiry<br />received</span>
+                </div>
+                <span class="fu-flow-arr">→</span>
+                <div class="fu-flow-node">
+                  <span>Instant<br />reply</span>
+                </div>
+                <span class="fu-flow-arr">→</span>
+                <div class="fu-flow-node">
+                  <span>Qualify<br />&amp; Book</span>
+                </div>
+                <span class="fu-flow-arr">→</span>
+                <div class="fu-flow-node">
+                  <span>Quote<br />follow-up</span>
+                </div>
+              </div>
+            </div>
+            <div class="fu-proof-card">
+              <h3>Lead status dashboard (anonymised)</h3>
+              <div class="fu-dash-img">
+                [ Dashboard UI Screenshot Placeholder ]
+              </div>
+              <p
+                style="
+                  font-size: 11px;
+                  color: rgba(11, 18, 32, 0.6);
+                  text-align: center;
+                  margin-top: 8px;
+                "
+              >
+                New → Replied → Quoted → Follow-up sent → Booked
+              </p>
+            </div>
+            <div class="fu-proof-chips">
+              <div class="fu-pchip">
+                <span class="fu-pchip__num">~2 mins</span>
+                <span class="fu-pchip__label">First response</span>
+              </div>
+              <div class="fu-pchip">
+                <span class="fu-pchip__num">+15–30%</span>
+                <span class="fu-pchip__label">Booked jobs</span>
+              </div>
+              <div class="fu-pchip" style="min-width: 100%">
+                <span class="fu-pchip__num">Auto text-back</span>
+                <span class="fu-pchip__label">For missed calls</span>
+              </div>
+            </div>
+          </div>
         </div>
+      </div>
     </section>
 
     <!-- ═══ 3. PAIN POINTS ═══ -->
     <section class="fu-pain" id="pain">
-        <div class="container">
-            <h2>Where enquiries get lost</h2>
-            <div class="fu-pain__grid">
-                <div class="fu-pain-card">
-                    <h4>Missed calls</h4>
-                    <p>They ring someone else. If you don't answer, they move down the Google Maps list.</p>
-                </div>
-                <div class="fu-pain-card">
-                    <h4>Slow replies</h4>
-                    <p>Even a few hours' delay can cost the job. Customers decide fast regarding trades.</p>
-                </div>
-                <div class="fu-pain-card">
-                    <h4>Unfollowed quotes</h4>
-                    <p>Quotes get sent, then forgotten. Revenue leaks simply from lack of consistent follow-up.</p>
-                </div>
-            </div>
-
-            <div class="fu-calc">
-                <h3>Estimate what slow replies are costing you</h3>
-                <form action="request-audit.html" method="GET">
-                    <input type="hidden" name="interest" value="followup">
-                    <div class="fu-calc-form">
-                        <select name="enquiries" class="fu-input" required>
-                            <option value="" disabled selected>Monthly enquiries...</option>
-                            <option value="10-25">10–25</option>
-                            <option value="25-50">25–50</option>
-                            <option value="50+">50+</option>
-                        </select>
-                        <input type="number" name="jobvalue" class="fu-input" placeholder="Avg job value (£)" required>
-                    </div>
-                    <button type="submit" class="fu-btn-pri" style="width: 100%;">Get My Missed‑Lead Estimate</button>
-                    <p>We'll calculate it manually and email the estimate + recommended sequences.</p>
-                </form>
-            </div>
+      <div class="container">
+        <h2>Where enquiries get lost</h2>
+        <div class="fu-pain__grid">
+          <div class="fu-pain-card">
+            <h4>Missed calls</h4>
+            <p>
+              They ring someone else. If you don't answer, they move down the
+              Google Maps list.
+            </p>
+          </div>
+          <div class="fu-pain-card">
+            <h4>Slow replies</h4>
+            <p>
+              Even a few hours' delay can cost the job. Customers decide fast
+              regarding trades.
+            </p>
+          </div>
+          <div class="fu-pain-card">
+            <h4>Unfollowed quotes</h4>
+            <p>
+              Quotes get sent, then forgotten. Revenue leaks simply from lack of
+              consistent follow-up.
+            </p>
+          </div>
         </div>
+
+        <div class="fu-calc">
+          <h3>Estimate what slow replies are costing you</h3>
+          <form action="request-audit.html" method="GET">
+            <input type="hidden" name="interest" value="followup" />
+            <div class="fu-calc-form">
+              <select name="enquiries" class="fu-input" required>
+                <option value="" disabled selected>Monthly enquiries...</option>
+                <option value="10-25">10–25</option>
+                <option value="25-50">25–50</option>
+                <option value="50+">50+</option>
+              </select>
+              <input
+                type="number"
+                name="jobvalue"
+                class="fu-input"
+                placeholder="Avg job value (£)"
+                required
+              />
+            </div>
+            <button type="submit" class="fu-btn-pri" style="width: 100%">
+              Get My Missed‑Lead Estimate
+            </button>
+            <p>
+              We'll calculate it manually and email the estimate + recommended
+              sequences.
+            </p>
+          </form>
+        </div>
+      </div>
     </section>
 
     <!-- ═══ 4. OFFER & DIFFERENTIATION ═══ -->
     <section class="fu-offer">
-        <div class="container">
-            <h2>Not just autoresponders.</h2>
-            <div class="fu-offer__body">
-                <p>We design custom sequences based on how trades actually sell: missed‑call texts with next‑step
-                    prompts, quote follow‑ups spaced out politely, and reminders to request reviews when jobs are done.
-                    All messages are written in plain English and signed off by you.</p>
-                <p><strong>Fits your tools.</strong> We integrate with your existing form or phone system or provide
-                    simple web‑hooks if you don't have one. You don't need new CRMs or software.</p>
-                <p><strong>Only install when ROI is clear.</strong> If you're not getting at least 10 enquiries/month or
-                    missing calls, we'll advise against this layer.</p>
-            </div>
-            <div class="fu-principles">
-                <span class="fu-principle">Plain English</span>
-                <span class="fu-principle">Signed off by you</span>
-                <span class="fu-principle">Triggered by real actions</span>
-            </div>
+      <div class="container">
+        <h2>Not just autoresponders.</h2>
+        <div class="fu-offer__body">
+          <p>
+            We design custom sequences based on how trades actually sell:
+            missed‑call texts with next‑step prompts, quote follow‑ups spaced
+            out politely, and reminders to request reviews when jobs are done.
+            All messages are written in plain English and signed off by you.
+          </p>
+          <p>
+            <strong>Fits your tools.</strong> We integrate with your existing
+            form or phone system or provide simple web‑hooks if you don't have
+            one. You don't need new CRMs or software.
+          </p>
+          <p>
+            <strong>Only install when ROI is clear.</strong> If you're not
+            getting at least 10 enquiries/month or missing calls, we'll advise
+            against this layer.
+          </p>
         </div>
+        <div class="fu-principles">
+          <span class="fu-principle">Plain English</span>
+          <span class="fu-principle">Signed off by you</span>
+          <span class="fu-principle">Triggered by real actions</span>
+        </div>
+      </div>
     </section>
 
     <!-- ═══ 5. BEFORE VS AFTER ═══ -->
     <section class="fu-ba">
-        <div class="container">
-            <h2>Before vs after follow‑up</h2>
-            <div class="fu-ba__grid">
-                <div class="fu-ba-card fu-ba-card--before">
-                    <h3>Before Automation</h3>
-                    <div class="fu-ba-row">
-                        <span style="color:#DC2626;">✕</span>
-                        <span>Missed call → voicemail → gone</span>
-                    </div>
-                    <div class="fu-ba-row">
-                        <span style="color:#DC2626;">✕</span>
-                        <span>Quote sent → silence</span>
-                    </div>
-                    <div class="fu-ba-row">
-                        <span style="color:#DC2626;">✕</span>
-                        <span>No visibility → "Did they respond?"</span>
-                    </div>
-                </div>
-                <div class="fu-ba-card fu-ba-card--after">
-                    <h3 style="color:#16A34A;">After Automation</h3>
-                    <div class="fu-ba-row">
-                        <span style="color:#16A34A;">✓</span>
-                        <span>Missed call → instant text + job details</span>
-                    </div>
-                    <div class="fu-ba-row">
-                        <span style="color:#16A34A;">✓</span>
-                        <span>Quote reminder → YES/NO capture</span>
-                    </div>
-                    <div class="fu-ba-row">
-                        <span style="color:#16A34A;">✓</span>
-                        <span>Dashboard shows real-time status</span>
-                    </div>
-                </div>
+      <div class="container">
+        <h2>Before vs after follow‑up</h2>
+        <div class="fu-ba__grid">
+          <div class="fu-ba-card fu-ba-card--before">
+            <h3>Before Automation</h3>
+            <div class="fu-ba-row">
+              <span style="color: #dc2626">✕</span>
+              <span>Missed call → voicemail → gone</span>
             </div>
-            <div style="text-align: center;">
-                <a href="request-audit.html?interest=followup&send_sample_sequence=true" class="fu-btn-sec">Get a Sample
-                    Follow‑Up Sequence</a>
-                <p
-                    style="font-family:'Inter', sans-serif; font-size:13px; font-weight:500; color:rgba(255,255,255,0.6); margin-top:12px;">
-                    We'll email you an example message set after you request your plan.</p>
+            <div class="fu-ba-row">
+              <span style="color: #dc2626">✕</span>
+              <span>Quote sent → silence</span>
             </div>
+            <div class="fu-ba-row">
+              <span style="color: #dc2626">✕</span>
+              <span>No visibility → "Did they respond?"</span>
+            </div>
+          </div>
+          <div class="fu-ba-card fu-ba-card--after">
+            <h3 style="color: #16a34a">After Automation</h3>
+            <div class="fu-ba-row">
+              <span style="color: #16a34a">✓</span>
+              <span>Missed call → instant text + job details</span>
+            </div>
+            <div class="fu-ba-row">
+              <span style="color: #16a34a">✓</span>
+              <span>Quote reminder → YES/NO capture</span>
+            </div>
+            <div class="fu-ba-row">
+              <span style="color: #16a34a">✓</span>
+              <span>Dashboard shows real-time status</span>
+            </div>
+          </div>
         </div>
+        <div style="text-align: center">
+          <a
+            href="request-audit.html?interest=followup&send_sample_sequence=true"
+            class="fu-btn-sec"
+            >Get a Sample Follow‑Up Sequence</a
+          >
+          <p
+            style="
+              font-family: &quot;Inter&quot;, sans-serif;
+              font-size: 13px;
+              font-weight: 500;
+              color: rgba(255, 255, 255, 0.6);
+              margin-top: 12px;
+            "
+          >
+            We'll email you an example message set after you request your plan.
+          </p>
+        </div>
+      </div>
     </section>
 
     <!-- ═══ 6. PRICING ═══ -->
     <section class="fu-pricing">
-        <div class="container">
-            <h2>Investment</h2>
-            <div class="fu-price-value">From £1.5k setup + £250/month</div>
+      <div class="container">
+        <h2>Investment</h2>
+        <div class="fu-price-value">From £1.5k setup + £250/month</div>
 
-            <div class="fu-pricing-grid">
-                <div class="fu-pricing-text">
-                    <p>Most clients fall between £1.5k–£3k setup and £250–£450/month depending on enquiry volume, number
-                        of channels (calls, forms, WhatsApp), and quote sequences.</p>
-                    <p style="margin-top: 16px;">We'll confirm what's needed in your Lead Leak Report.</p>
-                </div>
+        <div class="fu-pricing-grid">
+          <div class="fu-pricing-text">
+            <p>
+              Most clients fall between £1.5k–£3k setup and £250–£450/month
+              depending on enquiry volume, number of channels (calls, forms,
+              WhatsApp), and quote sequences.
+            </p>
+            <p style="margin-top: 16px">
+              We'll confirm what's needed in your Lead Leak Report.
+            </p>
+          </div>
 
-                <div class="fu-included-card">
-                    <h4>What's Included</h4>
-                    <ul>
-                        <li>Missed call text-back</li>
-                        <li>Instant reply (forms/messages)</li>
-                        <li>Quote chase sequences</li>
-                        <li>Lead status dashboard</li>
-                        <li>Opt‑out + rate limiting</li>
-                        <li>Setup/testing + message approval</li>
-                    </ul>
-                </div>
-            </div>
+          <div class="fu-included-card">
+            <h4>What's Included</h4>
+            <ul>
+              <li>Missed call text-back</li>
+              <li>Instant reply (forms/messages)</li>
+              <li>Quote chase sequences</li>
+              <li>Lead status dashboard</li>
+              <li>Opt‑out + rate limiting</li>
+              <li>Setup/testing + message approval</li>
+            </ul>
+          </div>
         </div>
+      </div>
     </section>
 
     <!-- ═══ 7. FAQ ═══ -->
     <section class="fu-faq">
-        <div class="container">
-            <div class="fu-faq-accordion">
-                <details class="fu-faq-item" open>
-                    <summary>Will this annoy my customers?</summary>
-                    <div class="fu-faq-item__body">
-                        No. We send polite, single follow‑ups and one reminder. Messages are opt‑out friendly and
-                        triggered by genuine enquiries. We never send bulk promotional spam.
-                    </div>
-                </details>
-                <details class="fu-faq-item">
-                    <summary>Can I use this without changing my website?</summary>
-                    <div class="fu-faq-item__body">
-                        Yes. If your site has standard forms and call tracking, we can integrate the follow‑up layer
-                        directly without a rebuild. We'll assess this precisely in your Lead Leak Report.
-                    </div>
-                </details>
-                <details class="fu-faq-item">
-                    <summary>How do I know it's working?</summary>
-                    <div class="fu-faq-item__body">
-                        You'll see first response times and follow‑up outcomes actively populating in your dashboard. We
-                        also track the booked jobs uplift compared to your previous un-automated baseline.
-                    </div>
-                </details>
+      <div class="container">
+        <div class="fu-faq-accordion">
+          <details class="fu-faq-item" open>
+            <summary>Will this annoy my customers?</summary>
+            <div class="fu-faq-item__body">
+              No. We send polite, single follow‑ups and one reminder. Messages
+              are opt‑out friendly and triggered by genuine enquiries. We never
+              send bulk promotional spam.
             </div>
+          </details>
+          <details class="fu-faq-item">
+            <summary>Can I use this without changing my website?</summary>
+            <div class="fu-faq-item__body">
+              Yes. If your site has standard forms and call tracking, we can
+              integrate the follow‑up layer directly without a rebuild. We'll
+              assess this precisely in your Lead Leak Report.
+            </div>
+          </details>
+          <details class="fu-faq-item">
+            <summary>How do I know it's working?</summary>
+            <div class="fu-faq-item__body">
+              You'll see first response times and follow‑up outcomes actively
+              populating in your dashboard. We also track the booked jobs uplift
+              compared to your previous un-automated baseline.
+            </div>
+          </details>
         </div>
+      </div>
     </section>
 
     <!-- ═══ 8. FINAL CTA ═══ -->
     <section class="fu-final">
-        <div class="container">
-            <h2>Get your follow‑up plan (by email).</h2>
-            <p>We'll recommend sequences based on your enquiry volume.</p>
-            <a href="request-audit.html?interest=followup" class="fu-btn-pri text-white"
-                style="color:white !important;">Get My Follow‑Up Plan</a>
-        </div>
+      <div class="container">
+        <h2>Get your follow‑up plan (by email).</h2>
+        <p>We'll recommend sequences based on your enquiry volume.</p>
+        <a
+          href="request-audit.html?interest=followup"
+          class="fu-btn-pri text-white"
+          style="color: white !important"
+          >Get My Follow‑Up Plan</a
+        >
+      </div>
     </section>
 
     <!-- ═══ FOOTER ═══ -->
     <footer class="footer">
-        <div class="container">
-            <div class="footer__grid">
-                <div class="footer__col">
-                    <div class="footer__brand">JTANDY</div>
-                    <p class="footer__tagline">Revenue recovery systems for UK tradespeople. Automated. Measurable.
-                        Owned.</p>
-                </div>
-                <div class="footer__col">
-                    <h4>Company</h4>
-                    <a href="about.html">About</a>
-                    <a href="work.html">Case Studies</a>
-                    <a href="audit.html">Request Audit</a>
-                </div>
-                <div class="footer__col">
-                    <h4>Solutions</h4>
-                    <a href="lead-websites.html">Lead Websites</a>
-                    <a href="follow-up-automation.html">Follow-Up Automation</a>
-                    <a href="review-automation.html">Review Automation</a>
-                    <a href="revenue-engine.html">Revenue Engine</a>
-                </div>
-                <div class="footer__col">
-                    <h4>Legal</h4>
-                    <a href="#">Privacy Policy</a>
-                    <a href="#">Terms of Service</a>
-                    <a href="#">Cookie Policy</a>
-                </div>
-            </div>
-            <div class="footer__bottom">
-                <span>© 2025 JTandy Automations. All rights reserved.</span>
-            </div>
+      <div class="container">
+        <div class="footer__grid">
+          <div class="footer__col">
+            <div class="footer__brand">JTANDY</div>
+            <p class="footer__tagline">
+              Revenue recovery systems for UK tradespeople. Automated.
+              Measurable. Owned.
+            </p>
+          </div>
+          <div class="footer__col">
+            <h4>Company</h4>
+            <a href="about.html">About</a>
+            <a href="pricing.html">Pricing</a>
+            <a href="contact.html">Contact</a>
+            <a href="work.html">Case Studies</a>
+            <a href="audit.html">Request Audit</a>
+          </div>
+          <div class="footer__col">
+            <h4>Solutions</h4>
+            <a href="lead-websites.html">Lead Websites</a>
+            <a href="follow-up-automation.html">Follow-Up Automation</a>
+            <a href="review-automation.html">Review Automation</a>
+            <a href="revenue-engine.html">Revenue Engine</a>
+          </div>
+          <div class="footer__col">
+            <h4>Legal</h4>
+            <a href="#">Privacy Policy</a>
+            <a href="#">Terms of Service</a>
+            <a href="#">Cookie Policy</a>
+          </div>
         </div>
+        <div class="footer__bottom">
+          <span>© 2025 JTandy Automations. All rights reserved.</span>
+        </div>
+      </div>
     </footer>
 
     <script src="script.js"></script>
-</body>
-
+  </body>
 </html>

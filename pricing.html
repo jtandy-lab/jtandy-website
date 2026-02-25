@@ -1,802 +1,2051 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Pricing — Revenue Recovery Systems for UK Trades | JTandy</title>
-    <meta name="description"
-        content="Clear investment, measurable return. Lead Websites from £3,500, Follow-Up Automation from £1,500, Review Automation from £950, Revenue Engine from £7,500.">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <meta
+      name="description"
+      content="Clear investment, measurable return. Lead Websites from £3,500, Follow-Up Automation from £1,500, Review Automation from £950, Revenue Engine from £7,500."
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-        href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700;800&family=Inter:wght@400;450;500;550;600;650;700;750;800;850&display=swap"
-        rel="stylesheet">
-    <link rel="stylesheet" href="style.css">
+      href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700;800&family=Inter:wght@400;450;500;550;600;650;700;750;800;850&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="style.css" />
     <style>
-        /* Modern V5 Responsive Table Adjustments */
-        @media (max-width: 768px) {
-            .desktop-pricing-table {
-                display: none !important;
-            }
-
-            .mobile-pricing-accordion {
-                display: flex !important;
-                flex-direction: column;
-                gap: 16px;
-            }
-
-            .pr-hero__ctas {
-                flex-direction: column;
-                width: 100%;
-            }
-
-            .pr-hero__ctas a {
-                width: 100%;
-            }
-
-            .pr-hero-headline {
-                font-size: clamp(38px, 6vw, 44px) !important;
-            }
+      /* Modern V5 Responsive Table Adjustments */
+      @media (max-width: 768px) {
+        .desktop-pricing-table {
+          display: none !important;
         }
 
-        @media (min-width: 769px) {
-            .mobile-pricing-accordion {
-                display: none !important;
-            }
+        .mobile-pricing-accordion {
+          display: flex !important;
+          flex-direction: column;
+          gap: 16px;
         }
 
-        /* Table Row Hover & Highlights */
-        .pricing-row {
-            transition: background 0.2s;
-            border-bottom: 1px solid rgba(15, 29, 61, 0.10);
+        .pr-hero__ctas {
+          flex-direction: column;
+          width: 100%;
         }
 
-        .pricing-row:last-child {
-            border-bottom: none;
+        .pr-hero__ctas a {
+          width: 100%;
         }
 
-        .pricing-row:hover {
-            background: rgba(15, 29, 61, 0.03) !important;
+        .pr-hero-headline {
+          font-size: clamp(38px, 6vw, 44px) !important;
         }
+      }
 
-        .pricing-row--lead-site {
-            background: rgba(37, 99, 235, 0.04) !important;
-            border-left: 4px solid #2563EB !important;
+      @media (min-width: 769px) {
+        .mobile-pricing-accordion {
+          display: none !important;
         }
+      }
 
-        .pricing-row--full-engine {
-            background: rgba(22, 163, 74, 0.05) !important;
-            border-left: 4px solid #16A34A !important;
-        }
+      /* Table Row Hover & Highlights */
+      .pricing-row {
+        transition: background 0.2s;
+        border-bottom: 1px solid rgba(15, 29, 61, 0.1);
+      }
 
-        /* Mobile Accordion Details */
-        .mobile-pricing-card summary::-webkit-details-marker {
-            display: none;
-        }
+      .pricing-row:last-child {
+        border-bottom: none;
+      }
 
-        .mobile-pricing-card summary::after {
-            content: '+';
-            font-size: 18px;
-            color: rgba(11, 18, 32, 0.56);
-            transition: transform 0.2s;
-        }
+      .pricing-row:hover {
+        background: rgba(15, 29, 61, 0.03) !important;
+      }
 
-        .mobile-pricing-card[open] summary::after {
-            content: '−';
-        }
+      .pricing-row--lead-site {
+        background: rgba(37, 99, 235, 0.04) !important;
+        border-left: 4px solid #2563eb !important;
+      }
 
-        /* FAQ Details */
-        .pr-faq-item summary::-webkit-details-marker {
-            display: none;
-        }
+      .pricing-row--full-engine {
+        background: rgba(22, 163, 74, 0.05) !important;
+        border-left: 4px solid #16a34a !important;
+      }
 
-        .pr-faq-item summary::after {
-            content: '+';
-            font-size: 20px;
-            font-weight: 400;
-            color: rgba(11, 18, 32, 0.56);
-            transition: transform 0.2s;
-        }
+      /* Mobile Accordion Details */
+      .mobile-pricing-card summary::-webkit-details-marker {
+        display: none;
+      }
 
-        .pr-faq-item[open] summary::after {
-            content: '−';
-        }
+      .mobile-pricing-card summary::after {
+        content: "+";
+        font-size: 18px;
+        color: rgba(11, 18, 32, 0.56);
+        transition: transform 0.2s;
+      }
 
+      .mobile-pricing-card[open] summary::after {
+        content: "−";
+      }
+
+      /* FAQ Details */
+      .pr-faq-item summary::-webkit-details-marker {
+        display: none;
+      }
+
+      .pr-faq-item summary::after {
+        content: "+";
+        font-size: 20px;
+        font-weight: 400;
+        color: rgba(11, 18, 32, 0.56);
+        transition: transform 0.2s;
+      }
+
+      .pr-faq-item[open] summary::after {
+        content: "−";
+      }
+
+      .trust-divider {
+        width: 1px;
+        background: rgba(15, 29, 61, 0.14);
+        display: none;
+      }
+
+      @media (min-width: 768px) {
         .trust-divider {
-            width: 1px;
-            background: rgba(15, 29, 61, 0.14);
-            display: none;
+          display: block;
         }
-
-        @media (min-width: 768px) {
-            .trust-divider {
-                display: block;
-            }
-        }
+      }
     </style>
-</head>
+  </head>
 
-<body class="page-sub">
-
+  <body class="page-sub">
     <!-- ═══ HEADER ═══ -->
-    <header class="header" id="header"
-        style="background: rgba(255,255,255,0.92); backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px); border-bottom: 1px solid rgba(15,29,61,0.14);">
-        <div class="header__inner">
-            <a href="index.html" class="header__brand"><img src="img/logo-navy.svg" alt="JTandy"
-                    class="header__logo header__logo--navy" style="display:block;"><img src="img/logo-white.svg"
-                    alt="JTandy" class="header__logo header__logo--white" style="display:none;"></a>
-            <nav class="header__nav" id="headerNav">
-                <div class="nav-dropdown">
-                    <a href="solutions.html" class="nav-dropdown__trigger">Solutions <span
-                            class="nav-dropdown__arrow">▾</span></a>
-                    <div class="nav-dropdown__menu">
-                        <a href="lead-websites.html">Lead Websites</a>
-                        <a href="follow-up-automation.html">Follow-Up Automation</a>
-                        <a href="review-automation.html">Review Automation</a>
-                        <a href="revenue-engine.html">Revenue Engine</a>
-                    </div>
-                </div>
-                <a href="how-it-works.html">How It Works</a>
-                <a href="results.html">Results</a>
-                <a href="pricing.html" class="is-active">Pricing</a>
-                <a href="faq.html">FAQ</a>
-            </nav>
-            <div class="header__actions">
-                <a href="audit.html?intent=pricing" class="btn btn--primary"
-                    style="background: #2563EB; color: #FFFFFF;">Get Your Pricing & ROI Plan</a>
+    <header
+      class="header"
+      id="header"
+      style="
+        background: rgba(255, 255, 255, 0.92);
+        backdrop-filter: blur(10px);
+        -webkit-backdrop-filter: blur(10px);
+        border-bottom: 1px solid rgba(15, 29, 61, 0.14);
+      "
+    >
+      <div class="header__inner">
+        <a href="index.html" class="header__brand"
+          ><img
+            src="img/logo-navy.svg"
+            alt="JTandy"
+            class="header__logo header__logo--navy"
+            style="display: block" /><img
+            src="img/logo-white.svg"
+            alt="JTandy"
+            class="header__logo header__logo--white"
+            style="display: none"
+        /></a>
+        <nav class="header__nav" id="headerNav">
+          <div class="nav-dropdown">
+            <a href="solutions.html" class="nav-dropdown__trigger"
+              >Solutions <span class="nav-dropdown__arrow">▾</span></a
+            >
+            <div class="nav-dropdown__menu">
+              <a href="lead-websites.html">Lead Websites</a>
+              <a href="follow-up-automation.html">Follow-Up Automation</a>
+              <a href="review-automation.html">Review Automation</a>
+              <a href="revenue-engine.html">Revenue Engine</a>
             </div>
-            <button class="header__burger" id="headerBurger" aria-label="Menu">
-                <span style="background: #0B1220;"></span><span style="background: #0B1220;"></span><span
-                    style="background: #0B1220;"></span>
-            </button>
+          </div>
+          <a href="how-it-works.html">How It Works</a>
+          <a href="results.html">Results</a>
+          <a href="pricing.html" class="is-active">Pricing</a>
+          <a href="faq.html">FAQ</a>
+        </nav>
+        <div class="header__actions">
+          <a
+            href="audit.html?intent=pricing"
+            class="btn btn--primary"
+            style="background: #2563eb; color: #ffffff"
+            >Get Your Pricing & ROI Plan</a
+          >
         </div>
+        <button class="header__burger" id="headerBurger" aria-label="Menu">
+          <span style="background: #0b1220"></span
+          ><span style="background: #0b1220"></span
+          ><span style="background: #0b1220"></span>
+        </button>
+      </div>
     </header>
 
     <!-- ═══ 1. HERO ═══ -->
-    <section class="section" id="hero"
-        style="background: #FFFFFF; padding: clamp(144px, 12vw, 176px) 0 clamp(56px, 8vw, 88px); border-bottom: 1px solid rgba(15,29,61,0.14);">
-        <div class="container" style="max-width: 820px; text-align: center; margin: 0 auto;">
-            <div
-                style="font-family: 'Inter', sans-serif; font-size: 12px; line-height: 1.5; font-weight: 650; text-transform: uppercase; letter-spacing: 0.08em; color: rgba(11,18,32,0.56); margin-bottom: 12px; text-align: left;">
-                PRICING</div>
-
-            <h1 class="pr-hero-headline"
-                style="font-family: 'Space Grotesk', sans-serif; font-size: clamp(38px, 5vw, 52px); line-height: 1.15; font-weight: 700; color: #0B1220; text-align: left;">
-                Know what it costs. See what you get back.</h1>
-
-            <p
-                style="font-family: 'Inter', sans-serif; font-size: 18px; line-height: 1.55; font-weight: 450; color: rgba(11,18,32,0.72); margin-top: 14px; max-width: 780px; text-align: left;">
-                Choose a plan based on your needs and enquiry volume. If the numbers don't stack up, we'll say so.</p>
-
-            <div class="pr-hero__ctas" style="display: flex; gap: 12px; margin-top: 22px; justify-content: flex-start;">
-                <a href="audit.html?intent=pricing"
-                    style="display: inline-flex; height: 48px; padding: 0 18px; align-items: center; justify-content: center; background: #2563EB; border-radius: 14px; color: #FFFFFF; font-family: 'Inter', sans-serif; font-weight: 700; font-size: 14px; text-decoration: none; transition: background 0.2s; box-shadow: 0 8px 20px rgba(0,0,0,0.10);">Get
-                    Your Pricing & ROI Plan</a>
-
-                <a href="#compare-plans"
-                    style="display: inline-flex; height: 48px; padding: 0 18px; align-items: center; justify-content: center; background: transparent; border: 1px solid rgba(15,29,61,0.22); border-radius: 14px; color: #0B1220; font-family: 'Inter', sans-serif; font-weight: 700; font-size: 14px; text-decoration: none; transition: background 0.2s;">Compare
-                    Plans</a>
-            </div>
-
-            <p
-                style="font-family: 'Inter', sans-serif; font-size: 13px; line-height: 1.53; font-weight: 650; color: rgba(11,18,32,0.56); margin-top: 10px; text-align: left;">
-                No calls required • Written recommendation • Clear next step</p>
+    <section
+      class="section"
+      id="hero"
+      style="
+        background: #ffffff;
+        padding: clamp(144px, 12vw, 176px) 0 clamp(56px, 8vw, 88px);
+        border-bottom: 1px solid rgba(15, 29, 61, 0.14);
+      "
+    >
+      <div
+        class="container"
+        style="max-width: 820px; text-align: center; margin: 0 auto"
+      >
+        <div
+          style="
+            font-family: &quot;Inter&quot;, sans-serif;
+            font-size: 12px;
+            line-height: 1.5;
+            font-weight: 650;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            color: rgba(11, 18, 32, 0.56);
+            margin-bottom: 12px;
+            text-align: left;
+          "
+        >
+          PRICING
         </div>
+
+        <h1
+          class="pr-hero-headline"
+          style="
+            font-family: &quot;Space Grotesk&quot;, sans-serif;
+            font-size: clamp(38px, 5vw, 52px);
+            line-height: 1.15;
+            font-weight: 700;
+            color: #0b1220;
+            text-align: left;
+          "
+        >
+          Know what it costs. See what you get back.
+        </h1>
+
+        <p
+          style="
+            font-family: &quot;Inter&quot;, sans-serif;
+            font-size: 18px;
+            line-height: 1.55;
+            font-weight: 450;
+            color: rgba(11, 18, 32, 0.72);
+            margin-top: 14px;
+            max-width: 780px;
+            text-align: left;
+          "
+        >
+          Choose a plan based on your needs and enquiry volume. If the numbers
+          don't stack up, we'll say so.
+        </p>
+
+        <div
+          class="pr-hero__ctas"
+          style="
+            display: flex;
+            gap: 12px;
+            margin-top: 22px;
+            justify-content: flex-start;
+          "
+        >
+          <a
+            href="audit.html?intent=pricing"
+            style="
+              display: inline-flex;
+              height: 48px;
+              padding: 0 18px;
+              align-items: center;
+              justify-content: center;
+              background: #2563eb;
+              border-radius: 14px;
+              color: #ffffff;
+              font-family: &quot;Inter&quot;, sans-serif;
+              font-weight: 700;
+              font-size: 14px;
+              text-decoration: none;
+              transition: background 0.2s;
+              box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+            "
+            >Get Your Pricing & ROI Plan</a
+          >
+
+          <a
+            href="#compare-plans"
+            style="
+              display: inline-flex;
+              height: 48px;
+              padding: 0 18px;
+              align-items: center;
+              justify-content: center;
+              background: transparent;
+              border: 1px solid rgba(15, 29, 61, 0.22);
+              border-radius: 14px;
+              color: #0b1220;
+              font-family: &quot;Inter&quot;, sans-serif;
+              font-weight: 700;
+              font-size: 14px;
+              text-decoration: none;
+              transition: background 0.2s;
+            "
+            >Compare Plans</a
+          >
+        </div>
+
+        <p
+          style="
+            font-family: &quot;Inter&quot;, sans-serif;
+            font-size: 13px;
+            line-height: 1.53;
+            font-weight: 650;
+            color: rgba(11, 18, 32, 0.56);
+            margin-top: 10px;
+            text-align: left;
+          "
+        >
+          No calls required • Written recommendation • Clear next step
+        </p>
+      </div>
     </section>
 
     <!-- ═══ 2. ROI-FIRST TRUST BAR ═══ -->
-    <section class="section" style="background: #F8F7F4; padding: 32px 0; border-top: 1px solid rgba(15,29,61,0.14);">
-        <div class="container">
-            <div
-                style="background: #FFFFFF; border: 1px solid rgba(15,29,61,0.14); border-radius: 16px; padding: 18px; max-width: 1000px; margin: 0 auto; display: flex; gap: 16px; align-items: flex-start;">
-                <div style="color: #2563EB; margin-top: 2px;">
-                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
-                        stroke-linecap="round" stroke-linejoin="round">
-                        <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
-                    </svg>
-                </div>
-                <div>
-                    <p
-                        style="font-family: 'Inter', sans-serif; font-size: 14px; line-height: 1.57; font-weight: 500; color: rgba(11,18,32,0.72); margin: 0;">
-                        <strong>Transparent & ROI‑first:</strong> We'll never upsell you on services you don't need. If
-                        your enquiry or job volume doesn't warrant automation, we'll tell you to stick with the Lead
-                        Site.
-                    </p>
-                    <p
-                        style="font-family: 'Inter', sans-serif; font-size: 13px; line-height: 1.53; font-weight: 650; color: rgba(11,18,32,0.56); margin: 8px 0 0 0;">
-                        All prices exclude VAT. Payment plans available.</p>
-                </div>
-            </div>
+    <section
+      class="section"
+      style="
+        background: #f8f7f4;
+        padding: 32px 0;
+        border-top: 1px solid rgba(15, 29, 61, 0.14);
+      "
+    >
+      <div class="container">
+        <div
+          style="
+            background: #ffffff;
+            border: 1px solid rgba(15, 29, 61, 0.14);
+            border-radius: 16px;
+            padding: 18px;
+            max-width: 1000px;
+            margin: 0 auto;
+            display: flex;
+            gap: 16px;
+            align-items: flex-start;
+          "
+        >
+          <div style="color: #2563eb; margin-top: 2px">
+            <svg
+              width="18"
+              height="18"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            >
+              <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
+            </svg>
+          </div>
+          <div>
+            <p
+              style="
+                font-family: &quot;Inter&quot;, sans-serif;
+                font-size: 14px;
+                line-height: 1.57;
+                font-weight: 500;
+                color: rgba(11, 18, 32, 0.72);
+                margin: 0;
+              "
+            >
+              <strong>Transparent & ROI‑first:</strong> We'll never upsell you
+              on services you don't need. If your enquiry or job volume doesn't
+              warrant automation, we'll tell you to stick with the Lead Site.
+            </p>
+            <p
+              style="
+                font-family: &quot;Inter&quot;, sans-serif;
+                font-size: 13px;
+                line-height: 1.53;
+                font-weight: 650;
+                color: rgba(11, 18, 32, 0.56);
+                margin: 8px 0 0 0;
+              "
+            >
+              All prices exclude VAT. Payment plans available.
+            </p>
+          </div>
         </div>
+      </div>
     </section>
-
 
     <!-- ═══ 3. PRICING TABLE ═══ -->
-    <section class="section" id="pricing-grid" style="background: #FFFFFF; padding: 64px 0 88px;">
-        <div class="container" style="max-width: 1200px;">
-
-            <!-- Desktop Table (Hidden on Mobile) -->
-            <div class="desktop-pricing-table" style="overflow-x: auto; padding-bottom: 24px;">
-                <table style="width: 100%; min-width: 900px; border-collapse: collapse; text-align: left;">
-                    <thead>
-                        <tr style="border-bottom: 2px solid rgba(15,29,61,0.14);">
-                            <th
-                                style="padding: 24px 20px; font-family: 'Space Grotesk', sans-serif; font-size: 14px; font-weight: 700; color: #0B1220; text-transform: uppercase; letter-spacing: 0.05em; width: 25%;">
-                                Plan</th>
-                            <th
-                                style="padding: 24px 20px; font-family: 'Space Grotesk', sans-serif; font-size: 14px; font-weight: 700; color: #0B1220; text-transform: uppercase; letter-spacing: 0.05em; width: 30%;">
-                                Who it's for</th>
-                            <th
-                                style="padding: 24px 20px; font-family: 'Space Grotesk', sans-serif; font-size: 14px; font-weight: 700; color: #0B1220; text-transform: uppercase; letter-spacing: 0.05em; width: 25%;">
-                                What you get</th>
-                            <th
-                                style="padding: 24px 20px; font-family: 'Space Grotesk', sans-serif; font-size: 14px; font-weight: 700; color: #0B1220; text-transform: uppercase; letter-spacing: 0.05em; width: 20%;">
-                                Investment (from)</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <!-- Tier 1 -->
-                        <tr class="pricing-row pricing-row--lead-site">
-                            <td style="padding: 32px 20px; vertical-align: top;">
-                                <div
-                                    style="font-family: 'Space Grotesk', sans-serif; font-size: 20px; font-weight: 700; color: #0B1220; margin-bottom: 6px;">
-                                    Lead Websites</div>
-                                <div
-                                    style="font-family: 'Inter', sans-serif; font-size: 13px; font-weight: 500; color: rgba(11,18,32,0.72); max-width: 220px;">
-                                    Built for conversion, mapped to local search.</div>
-                            </td>
-                            <td
-                                style="padding: 32px 20px; vertical-align: top; font-family: 'Inter', sans-serif; font-size: 14px; line-height: 1.5; color: rgba(11,18,32,0.85);">
-                                Outdated current site, low organic enquiries, or a confusing user journey.
-                            </td>
-                            <td style="padding: 32px 20px; vertical-align: top;">
-                                <ul
-                                    style="list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 8px;">
-                                    <li
-                                        style="font-family: 'Inter', sans-serif; font-size: 14px; font-weight: 500; color: rgba(11,18,32,0.85); display: flex; gap: 8px;">
-                                        <span style="color: #2563EB;">✓</span> 5-10 page structure
-                                    </li>
-                                    <li
-                                        style="font-family: 'Inter', sans-serif; font-size: 14px; font-weight: 500; color: rgba(11,18,32,0.85); display: flex; gap: 8px;">
-                                        <span style="color: #2563EB;">✓</span> Fast loading
-                                    </li>
-                                    <li
-                                        style="font-family: 'Inter', sans-serif; font-size: 14px; font-weight: 500; color: rgba(11,18,32,0.85); display: flex; gap: 8px;">
-                                        <span style="color: #2563EB;">✓</span> Tracking setup
-                                    </li>
-                                </ul>
-                            </td>
-                            <td style="padding: 32px 20px; vertical-align: top;">
-                                <div
-                                    style="font-family: 'Space Grotesk', sans-serif; font-size: 28px; font-weight: 700; color: #0B1220; line-height: 1; margin-bottom: 8px;">
-                                    £3,500</div>
-                                <div
-                                    style="font-family: 'Inter', sans-serif; font-size: 13px; font-weight: 500; color: rgba(11,18,32,0.56);">
-                                    One-off. Range £3.5k–£6k based on scope.</div>
-                            </td>
-                        </tr>
-                        <!-- Tier 2 -->
-                        <tr class="pricing-row">
-                            <td style="padding: 32px 20px; vertical-align: top; border-left: 4px solid transparent;">
-                                <div
-                                    style="font-family: 'Space Grotesk', sans-serif; font-size: 20px; font-weight: 700; color: #0B1220; margin-bottom: 6px;">
-                                    Follow-Up Layer</div>
-                                <div
-                                    style="font-family: 'Inter', sans-serif; font-size: 13px; font-weight: 500; color: rgba(11,18,32,0.72); max-width: 220px;">
-                                    Stop leads going cold. Add to any modern site.</div>
-                            </td>
-                            <td
-                                style="padding: 32px 20px; vertical-align: top; font-family: 'Inter', sans-serif; font-size: 14px; line-height: 1.5; color: rgba(11,18,32,0.85);">
-                                Missing phone calls on site, sending quotes but getting ghosted.
-                            </td>
-                            <td style="padding: 32px 20px; vertical-align: top;">
-                                <ul
-                                    style="list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 8px;">
-                                    <li
-                                        style="font-family: 'Inter', sans-serif; font-size: 14px; font-weight: 500; color: rgba(11,18,32,0.85); display: flex; gap: 8px;">
-                                        <span style="color: rgba(15,29,61,0.22);">✓</span> Missed-call text recovery
-                                    </li>
-                                    <li
-                                        style="font-family: 'Inter', sans-serif; font-size: 14px; font-weight: 500; color: rgba(11,18,32,0.85); display: flex; gap: 8px;">
-                                        <span style="color: rgba(15,29,61,0.22);">✓</span> Quote reminder sequences
-                                    </li>
-                                </ul>
-                            </td>
-                            <td style="padding: 32px 20px; vertical-align: top;">
-                                <div
-                                    style="font-family: 'Space Grotesk', sans-serif; font-size: 28px; font-weight: 700; color: #0B1220; line-height: 1; margin-bottom: 8px;">
-                                    £1,500 <span
-                                        style="font-size: 15px; font-weight: 600; color: rgba(11,18,32,0.56); font-family: 'Inter', sans-serif;">setup</span>
-                                </div>
-                                <div
-                                    style="font-family: 'Inter', sans-serif; font-size: 13px; font-weight: 500; color: rgba(11,18,32,0.56);">
-                                    + £250/mo management</div>
-                            </td>
-                        </tr>
-                        <!-- Tier 3 -->
-                        <tr class="pricing-row">
-                            <td style="padding: 32px 20px; vertical-align: top; border-left: 4px solid transparent;">
-                                <div
-                                    style="font-family: 'Space Grotesk', sans-serif; font-size: 20px; font-weight: 700; color: #0B1220; margin-bottom: 6px;">
-                                    Review Layer</div>
-                                <div
-                                    style="font-family: 'Inter', sans-serif; font-size: 13px; font-weight: 500; color: rgba(11,18,32,0.72); max-width: 220px;">
-                                    Automate feedback collection.</div>
-                            </td>
-                            <td
-                                style="padding: 32px 20px; vertical-align: top; font-family: 'Inter', sans-serif; font-size: 14px; line-height: 1.5; color: rgba(11,18,32,0.85);">
-                                Completing jobs but struggling to build consistent Google reviews.
-                            </td>
-                            <td style="padding: 32px 20px; vertical-align: top;">
-                                <ul
-                                    style="list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 8px;">
-                                    <li
-                                        style="font-family: 'Inter', sans-serif; font-size: 14px; font-weight: 500; color: rgba(11,18,32,0.85); display: flex; gap: 8px;">
-                                        <span style="color: rgba(15,29,61,0.22);">✓</span> Automated review requests
-                                    </li>
-                                    <li
-                                        style="font-family: 'Inter', sans-serif; font-size: 14px; font-weight: 500; color: rgba(11,18,32,0.85); display: flex; gap: 8px;">
-                                        <span style="color: rgba(15,29,61,0.22);">✓</span> Issue recovery prompts
-                                    </li>
-                                </ul>
-                            </td>
-                            <td style="padding: 32px 20px; vertical-align: top;">
-                                <div
-                                    style="font-family: 'Space Grotesk', sans-serif; font-size: 28px; font-weight: 700; color: #0B1220; line-height: 1; margin-bottom: 8px;">
-                                    £950 <span
-                                        style="font-size: 15px; font-weight: 600; color: rgba(11,18,32,0.56); font-family: 'Inter', sans-serif;">setup</span>
-                                </div>
-                                <div
-                                    style="font-family: 'Inter', sans-serif; font-size: 13px; font-weight: 500; color: rgba(11,18,32,0.56);">
-                                    + £150/mo management</div>
-                            </td>
-                        </tr>
-                        <!-- Tier 4 -->
-                        <tr class="pricing-row pricing-row--full-engine">
-                            <td style="padding: 32px 20px; vertical-align: top;">
-                                <div
-                                    style="font-family: 'Space Grotesk', sans-serif; font-size: 20px; font-weight: 700; color: #0B1220; margin-bottom: 6px;">
-                                    Full Revenue Engine</div>
-                                <div
-                                    style="font-family: 'Inter', sans-serif; font-size: 13px; font-weight: 500; color: rgba(11,18,32,0.72); max-width: 220px;">
-                                    Website + all automation layers + tracking.</div>
-                            </td>
-                            <td
-                                style="padding: 32px 20px; vertical-align: top; font-family: 'Inter', sans-serif; font-size: 14px; line-height: 1.5; color: rgba(11,18,32,0.85);">
-                                High enquiry volume, ready to scale, need end-to-end measurable control.
-                            </td>
-                            <td style="padding: 32px 20px; vertical-align: top;">
-                                <ul
-                                    style="list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 8px;">
-                                    <li
-                                        style="font-family: 'Inter', sans-serif; font-size: 14px; font-weight: 500; color: rgba(11,18,32,0.85); display: flex; gap: 8px;">
-                                        <span style="color: #16A34A;">✓</span> Lead Website Build
-                                    </li>
-                                    <li
-                                        style="font-family: 'Inter', sans-serif; font-size: 14px; font-weight: 500; color: rgba(11,18,32,0.85); display: flex; gap: 8px;">
-                                        <span style="color: #16A34A;">✓</span> Follow-up automations
-                                    </li>
-                                    <li
-                                        style="font-family: 'Inter', sans-serif; font-size: 14px; font-weight: 500; color: rgba(11,18,32,0.85); display: flex; gap: 8px;">
-                                        <span style="color: #16A34A;">✓</span> Review system
-                                    </li>
-                                    <li
-                                        style="font-family: 'Inter', sans-serif; font-size: 14px; font-weight: 500; color: rgba(11,18,32,0.85); display: flex; gap: 8px;">
-                                        <span style="color: #16A34A;">✓</span> Reporting dashboard
-                                    </li>
-                                </ul>
-                            </td>
-                            <td style="padding: 32px 20px; vertical-align: top;">
-                                <div
-                                    style="font-family: 'Space Grotesk', sans-serif; font-size: 28px; font-weight: 700; color: #0B1220; line-height: 1; margin-bottom: 8px;">
-                                    £7,500 <span
-                                        style="font-size: 15px; font-weight: 600; color: rgba(11,18,32,0.56); font-family: 'Inter', sans-serif;">setup</span>
-                                </div>
-                                <div
-                                    style="font-family: 'Inter', sans-serif; font-size: 13px; font-weight: 500; color: rgba(11,18,32,0.56);">
-                                    + £450/mo management. Up to £12k setup based on scope.</div>
-                            </td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
-
-            <!-- Mobile Accordion (Hidden on Desktop) -->
-            <div class="mobile-pricing-accordion">
-                <!-- Mobile Tier 1 -->
-                <details class="mobile-pricing-card"
-                    style="background: rgba(37,99,235,0.02); border: 1px solid rgba(37,99,235,0.2); border-left: 4px solid #2563EB; border-radius: 12px; overflow: hidden;"
-                    open>
-                    <summary
-                        style="padding: 24px; cursor: pointer; display: flex; justify-content: space-between; align-items: center; list-style: none;">
-                        <div>
-                            <div
-                                style="font-family: 'Space Grotesk', sans-serif; font-size: 20px; font-weight: 700; color: #0B1220;">
-                                Lead Websites</div>
-                            <div
-                                style="font-family: 'Inter', sans-serif; font-size: 14px; font-weight: 600; color: #2563EB; margin-top: 4px;">
-                                From £3,500</div>
-                        </div>
-                    </summary>
-                    <div style="padding: 0 24px 24px;">
-                        <p
-                            style="font-family: 'Inter', sans-serif; font-size: 14px; line-height: 1.5; color: rgba(11,18,32,0.72); margin-bottom: 16px;">
-                            <strong>Best for:</strong> Outdated site, low organic enquiries, or a confusing user
-                            journey.
-                        </p>
-                        <ul
-                            style="list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 8px;">
-                            <li
-                                style="font-family: 'Inter', sans-serif; font-size: 14px; font-weight: 500; color: rgba(11,18,32,0.85); display: flex; gap: 8px;">
-                                <span style="color: #2563EB;">✓</span> 5-10 page structure
-                            </li>
-                            <li
-                                style="font-family: 'Inter', sans-serif; font-size: 14px; font-weight: 500; color: rgba(11,18,32,0.85); display: flex; gap: 8px;">
-                                <span style="color: #2563EB;">✓</span> Fast loading
-                            </li>
-                            <li
-                                style="font-family: 'Inter', sans-serif; font-size: 14px; font-weight: 500; color: rgba(11,18,32,0.85); display: flex; gap: 8px;">
-                                <span style="color: #2563EB;">✓</span> Tracking setup
-                            </li>
-                        </ul>
-                        <div
-                            style="font-family: 'Inter', sans-serif; font-size: 13px; font-weight: 500; color: rgba(11,18,32,0.56); margin-top: 16px;">
-                            One-off. Range £3.5k–£6k based on scope.</div>
-                    </div>
-                </details>
-
-                <!-- Mobile Tier 2 -->
-                <details class="mobile-pricing-card"
-                    style="background: #FFFFFF; border: 1px solid rgba(15,29,61,0.14); border-left: 4px solid transparent; border-radius: 12px; overflow: hidden;">
-                    <summary
-                        style="padding: 24px; cursor: pointer; display: flex; justify-content: space-between; align-items: center; list-style: none;">
-                        <div>
-                            <div
-                                style="font-family: 'Space Grotesk', sans-serif; font-size: 20px; font-weight: 700; color: #0B1220;">
-                                Follow-Up Layer</div>
-                            <div
-                                style="font-family: 'Inter', sans-serif; font-size: 14px; font-weight: 600; color: #0B1220; margin-top: 4px;">
-                                From £1,500 + £250/mo</div>
-                        </div>
-                    </summary>
-                    <div style="padding: 0 24px 24px;">
-                        <p
-                            style="font-family: 'Inter', sans-serif; font-size: 14px; line-height: 1.5; color: rgba(11,18,32,0.72); margin-bottom: 16px;">
-                            <strong>Best for:</strong> Missing phone calls, sending quotes but getting ghosted.
-                        </p>
-                        <ul
-                            style="list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 8px;">
-                            <li
-                                style="font-family: 'Inter', sans-serif; font-size: 14px; font-weight: 500; color: rgba(11,18,32,0.85); display: flex; gap: 8px;">
-                                <span style="color: rgba(15,29,61,0.22);">✓</span> Missed-call text recovery
-                            </li>
-                            <li
-                                style="font-family: 'Inter', sans-serif; font-size: 14px; font-weight: 500; color: rgba(11,18,32,0.85); display: flex; gap: 8px;">
-                                <span style="color: rgba(15,29,61,0.22);">✓</span> Quote reminder sequences
-                            </li>
-                        </ul>
-                    </div>
-                </details>
-
-                <!-- Mobile Tier 3 -->
-                <details class="mobile-pricing-card"
-                    style="background: #FFFFFF; border: 1px solid rgba(15,29,61,0.14); border-left: 4px solid transparent; border-radius: 12px; overflow: hidden;">
-                    <summary
-                        style="padding: 24px; cursor: pointer; display: flex; justify-content: space-between; align-items: center; list-style: none;">
-                        <div>
-                            <div
-                                style="font-family: 'Space Grotesk', sans-serif; font-size: 20px; font-weight: 700; color: #0B1220;">
-                                Review Layer</div>
-                            <div
-                                style="font-family: 'Inter', sans-serif; font-size: 14px; font-weight: 600; color: #0B1220; margin-top: 4px;">
-                                From £950 + £150/mo</div>
-                        </div>
-                    </summary>
-                    <div style="padding: 0 24px 24px;">
-                        <p
-                            style="font-family: 'Inter', sans-serif; font-size: 14px; line-height: 1.5; color: rgba(11,18,32,0.72); margin-bottom: 16px;">
-                            <strong>Best for:</strong> Completing jobs but struggling to build consistent Google
-                            reviews.
-                        </p>
-                        <ul
-                            style="list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 8px;">
-                            <li
-                                style="font-family: 'Inter', sans-serif; font-size: 14px; font-weight: 500; color: rgba(11,18,32,0.85); display: flex; gap: 8px;">
-                                <span style="color: rgba(15,29,61,0.22);">✓</span> Automated review requests
-                            </li>
-                            <li
-                                style="font-family: 'Inter', sans-serif; font-size: 14px; font-weight: 500; color: rgba(11,18,32,0.85); display: flex; gap: 8px;">
-                                <span style="color: rgba(15,29,61,0.22);">✓</span> Issue recovery prompts
-                            </li>
-                        </ul>
-                    </div>
-                </details>
-
-                <!-- Mobile Tier 4 -->
-                <details class="mobile-pricing-card"
-                    style="background: rgba(22,163,74,0.02); border: 1px solid rgba(22,163,74,0.2); border-left: 4px solid #16A34A; border-radius: 12px; overflow: hidden;">
-                    <summary
-                        style="padding: 24px; cursor: pointer; display: flex; justify-content: space-between; align-items: center; list-style: none;">
-                        <div>
-                            <div
-                                style="font-family: 'Space Grotesk', sans-serif; font-size: 20px; font-weight: 700; color: #0B1220;">
-                                Full Revenue Engine</div>
-                            <div
-                                style="font-family: 'Inter', sans-serif; font-size: 14px; font-weight: 600; color: #16A34A; margin-top: 4px;">
-                                From £7,500 + £450/mo</div>
-                        </div>
-                    </summary>
-                    <div style="padding: 0 24px 24px;">
-                        <p
-                            style="font-family: 'Inter', sans-serif; font-size: 14px; line-height: 1.5; color: rgba(11,18,32,0.72); margin-bottom: 16px;">
-                            <strong>Best for:</strong> High enquiry volume, ready to scale, need end-to-end control.
-                        </p>
-                        <ul
-                            style="list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 8px;">
-                            <li
-                                style="font-family: 'Inter', sans-serif; font-size: 14px; font-weight: 500; color: rgba(11,18,32,0.85); display: flex; gap: 8px;">
-                                <span style="color: #16A34A;">✓</span> Lead Website Build
-                            </li>
-                            <li
-                                style="font-family: 'Inter', sans-serif; font-size: 14px; font-weight: 500; color: rgba(11,18,32,0.85); display: flex; gap: 8px;">
-                                <span style="color: #16A34A;">✓</span> Follow-up automations
-                            </li>
-                            <li
-                                style="font-family: 'Inter', sans-serif; font-size: 14px; font-weight: 500; color: rgba(11,18,32,0.85); display: flex; gap: 8px;">
-                                <span style="color: #16A34A;">✓</span> Review system
-                            </li>
-                            <li
-                                style="font-family: 'Inter', sans-serif; font-size: 14px; font-weight: 500; color: rgba(11,18,32,0.85); display: flex; gap: 8px;">
-                                <span style="color: #16A34A;">✓</span> Reporting dashboard
-                            </li>
-                        </ul>
-                        <div
-                            style="font-family: 'Inter', sans-serif; font-size: 13px; font-weight: 500; color: rgba(11,18,32,0.56); margin-top: 16px;">
-                            Up to £12k setup based on scope.</div>
-                    </div>
-                </details>
-            </div>
-
-            <div style="text-align: center; margin-top: 48px;">
-                <a href="audit.html?intent=pricing"
-                    style="display: inline-flex; height: 48px; padding: 0 24px; align-items: center; justify-content: center; background: #2563EB; border-radius: 14px; color: #FFFFFF; font-family: 'Inter', sans-serif; font-weight: 700; font-size: 14px; text-decoration: none; transition: background 0.2s; box-shadow: 0 8px 20px rgba(0,0,0,0.10);">Get
-                    Your Personalised Pricing Plan</a>
-                <p
-                    style="font-family: 'Inter', sans-serif; font-size: 13px; font-weight: 650; color: rgba(11,18,32,0.56); margin-top: 12px;">
-                    We'll audit your current setup and recommend exactly what you need.</p>
-            </div>
+    <section
+      class="section"
+      id="pricing-grid"
+      style="background: #ffffff; padding: 64px 0 88px"
+    >
+      <div class="container" style="max-width: 1200px">
+        <!-- Desktop Table (Hidden on Mobile) -->
+        <div
+          class="desktop-pricing-table"
+          style="overflow-x: auto; padding-bottom: 24px"
+        >
+          <table
+            style="
+              width: 100%;
+              min-width: 900px;
+              border-collapse: collapse;
+              text-align: left;
+            "
+          >
+            <thead>
+              <tr style="border-bottom: 2px solid rgba(15, 29, 61, 0.14)">
+                <th
+                  style="
+                    padding: 24px 20px;
+                    font-family: &quot;Space Grotesk&quot;, sans-serif;
+                    font-size: 14px;
+                    font-weight: 700;
+                    color: #0b1220;
+                    text-transform: uppercase;
+                    letter-spacing: 0.05em;
+                    width: 25%;
+                  "
+                >
+                  Plan
+                </th>
+                <th
+                  style="
+                    padding: 24px 20px;
+                    font-family: &quot;Space Grotesk&quot;, sans-serif;
+                    font-size: 14px;
+                    font-weight: 700;
+                    color: #0b1220;
+                    text-transform: uppercase;
+                    letter-spacing: 0.05em;
+                    width: 30%;
+                  "
+                >
+                  Who it's for
+                </th>
+                <th
+                  style="
+                    padding: 24px 20px;
+                    font-family: &quot;Space Grotesk&quot;, sans-serif;
+                    font-size: 14px;
+                    font-weight: 700;
+                    color: #0b1220;
+                    text-transform: uppercase;
+                    letter-spacing: 0.05em;
+                    width: 25%;
+                  "
+                >
+                  What you get
+                </th>
+                <th
+                  style="
+                    padding: 24px 20px;
+                    font-family: &quot;Space Grotesk&quot;, sans-serif;
+                    font-size: 14px;
+                    font-weight: 700;
+                    color: #0b1220;
+                    text-transform: uppercase;
+                    letter-spacing: 0.05em;
+                    width: 20%;
+                  "
+                >
+                  Investment (from)
+                </th>
+              </tr>
+            </thead>
+            <tbody>
+              <!-- Tier 1 -->
+              <tr class="pricing-row pricing-row--lead-site">
+                <td style="padding: 32px 20px; vertical-align: top">
+                  <div
+                    style="
+                      font-family: &quot;Space Grotesk&quot;, sans-serif;
+                      font-size: 20px;
+                      font-weight: 700;
+                      color: #0b1220;
+                      margin-bottom: 6px;
+                    "
+                  >
+                    Lead Websites
+                  </div>
+                  <div
+                    style="
+                      font-family: &quot;Inter&quot;, sans-serif;
+                      font-size: 13px;
+                      font-weight: 500;
+                      color: rgba(11, 18, 32, 0.72);
+                      max-width: 220px;
+                    "
+                  >
+                    Built for conversion, mapped to local search.
+                  </div>
+                </td>
+                <td
+                  style="
+                    padding: 32px 20px;
+                    vertical-align: top;
+                    font-family: &quot;Inter&quot;, sans-serif;
+                    font-size: 14px;
+                    line-height: 1.5;
+                    color: rgba(11, 18, 32, 0.85);
+                  "
+                >
+                  Outdated current site, low organic enquiries, or a confusing
+                  user journey.
+                </td>
+                <td style="padding: 32px 20px; vertical-align: top">
+                  <ul
+                    style="
+                      list-style: none;
+                      padding: 0;
+                      margin: 0;
+                      display: flex;
+                      flex-direction: column;
+                      gap: 8px;
+                    "
+                  >
+                    <li
+                      style="
+                        font-family: &quot;Inter&quot;, sans-serif;
+                        font-size: 14px;
+                        font-weight: 500;
+                        color: rgba(11, 18, 32, 0.85);
+                        display: flex;
+                        gap: 8px;
+                      "
+                    >
+                      <span style="color: #2563eb">✓</span> 5-10 page structure
+                    </li>
+                    <li
+                      style="
+                        font-family: &quot;Inter&quot;, sans-serif;
+                        font-size: 14px;
+                        font-weight: 500;
+                        color: rgba(11, 18, 32, 0.85);
+                        display: flex;
+                        gap: 8px;
+                      "
+                    >
+                      <span style="color: #2563eb">✓</span> Fast loading
+                    </li>
+                    <li
+                      style="
+                        font-family: &quot;Inter&quot;, sans-serif;
+                        font-size: 14px;
+                        font-weight: 500;
+                        color: rgba(11, 18, 32, 0.85);
+                        display: flex;
+                        gap: 8px;
+                      "
+                    >
+                      <span style="color: #2563eb">✓</span> Tracking setup
+                    </li>
+                  </ul>
+                </td>
+                <td style="padding: 32px 20px; vertical-align: top">
+                  <div
+                    style="
+                      font-family: &quot;Space Grotesk&quot;, sans-serif;
+                      font-size: 28px;
+                      font-weight: 700;
+                      color: #0b1220;
+                      line-height: 1;
+                      margin-bottom: 8px;
+                    "
+                  >
+                    £3,500
+                  </div>
+                  <div
+                    style="
+                      font-family: &quot;Inter&quot;, sans-serif;
+                      font-size: 13px;
+                      font-weight: 500;
+                      color: rgba(11, 18, 32, 0.56);
+                    "
+                  >
+                    One-off. Range £3.5k–£6k based on scope.
+                  </div>
+                </td>
+              </tr>
+              <!-- Tier 2 -->
+              <tr class="pricing-row">
+                <td
+                  style="
+                    padding: 32px 20px;
+                    vertical-align: top;
+                    border-left: 4px solid transparent;
+                  "
+                >
+                  <div
+                    style="
+                      font-family: &quot;Space Grotesk&quot;, sans-serif;
+                      font-size: 20px;
+                      font-weight: 700;
+                      color: #0b1220;
+                      margin-bottom: 6px;
+                    "
+                  >
+                    Follow-Up Layer
+                  </div>
+                  <div
+                    style="
+                      font-family: &quot;Inter&quot;, sans-serif;
+                      font-size: 13px;
+                      font-weight: 500;
+                      color: rgba(11, 18, 32, 0.72);
+                      max-width: 220px;
+                    "
+                  >
+                    Stop leads going cold. Add to any modern site.
+                  </div>
+                </td>
+                <td
+                  style="
+                    padding: 32px 20px;
+                    vertical-align: top;
+                    font-family: &quot;Inter&quot;, sans-serif;
+                    font-size: 14px;
+                    line-height: 1.5;
+                    color: rgba(11, 18, 32, 0.85);
+                  "
+                >
+                  Missing phone calls on site, sending quotes but getting
+                  ghosted.
+                </td>
+                <td style="padding: 32px 20px; vertical-align: top">
+                  <ul
+                    style="
+                      list-style: none;
+                      padding: 0;
+                      margin: 0;
+                      display: flex;
+                      flex-direction: column;
+                      gap: 8px;
+                    "
+                  >
+                    <li
+                      style="
+                        font-family: &quot;Inter&quot;, sans-serif;
+                        font-size: 14px;
+                        font-weight: 500;
+                        color: rgba(11, 18, 32, 0.85);
+                        display: flex;
+                        gap: 8px;
+                      "
+                    >
+                      <span style="color: rgba(15, 29, 61, 0.22)">✓</span>
+                      Missed-call text recovery
+                    </li>
+                    <li
+                      style="
+                        font-family: &quot;Inter&quot;, sans-serif;
+                        font-size: 14px;
+                        font-weight: 500;
+                        color: rgba(11, 18, 32, 0.85);
+                        display: flex;
+                        gap: 8px;
+                      "
+                    >
+                      <span style="color: rgba(15, 29, 61, 0.22)">✓</span> Quote
+                      reminder sequences
+                    </li>
+                  </ul>
+                </td>
+                <td style="padding: 32px 20px; vertical-align: top">
+                  <div
+                    style="
+                      font-family: &quot;Space Grotesk&quot;, sans-serif;
+                      font-size: 28px;
+                      font-weight: 700;
+                      color: #0b1220;
+                      line-height: 1;
+                      margin-bottom: 8px;
+                    "
+                  >
+                    £1,500
+                    <span
+                      style="
+                        font-size: 15px;
+                        font-weight: 600;
+                        color: rgba(11, 18, 32, 0.56);
+                        font-family: &quot;Inter&quot;, sans-serif;
+                      "
+                      >setup</span
+                    >
+                  </div>
+                  <div
+                    style="
+                      font-family: &quot;Inter&quot;, sans-serif;
+                      font-size: 13px;
+                      font-weight: 500;
+                      color: rgba(11, 18, 32, 0.56);
+                    "
+                  >
+                    + £250/mo management
+                  </div>
+                </td>
+              </tr>
+              <!-- Tier 3 -->
+              <tr class="pricing-row">
+                <td
+                  style="
+                    padding: 32px 20px;
+                    vertical-align: top;
+                    border-left: 4px solid transparent;
+                  "
+                >
+                  <div
+                    style="
+                      font-family: &quot;Space Grotesk&quot;, sans-serif;
+                      font-size: 20px;
+                      font-weight: 700;
+                      color: #0b1220;
+                      margin-bottom: 6px;
+                    "
+                  >
+                    Review Layer
+                  </div>
+                  <div
+                    style="
+                      font-family: &quot;Inter&quot;, sans-serif;
+                      font-size: 13px;
+                      font-weight: 500;
+                      color: rgba(11, 18, 32, 0.72);
+                      max-width: 220px;
+                    "
+                  >
+                    Automate feedback collection.
+                  </div>
+                </td>
+                <td
+                  style="
+                    padding: 32px 20px;
+                    vertical-align: top;
+                    font-family: &quot;Inter&quot;, sans-serif;
+                    font-size: 14px;
+                    line-height: 1.5;
+                    color: rgba(11, 18, 32, 0.85);
+                  "
+                >
+                  Completing jobs but struggling to build consistent Google
+                  reviews.
+                </td>
+                <td style="padding: 32px 20px; vertical-align: top">
+                  <ul
+                    style="
+                      list-style: none;
+                      padding: 0;
+                      margin: 0;
+                      display: flex;
+                      flex-direction: column;
+                      gap: 8px;
+                    "
+                  >
+                    <li
+                      style="
+                        font-family: &quot;Inter&quot;, sans-serif;
+                        font-size: 14px;
+                        font-weight: 500;
+                        color: rgba(11, 18, 32, 0.85);
+                        display: flex;
+                        gap: 8px;
+                      "
+                    >
+                      <span style="color: rgba(15, 29, 61, 0.22)">✓</span>
+                      Automated review requests
+                    </li>
+                    <li
+                      style="
+                        font-family: &quot;Inter&quot;, sans-serif;
+                        font-size: 14px;
+                        font-weight: 500;
+                        color: rgba(11, 18, 32, 0.85);
+                        display: flex;
+                        gap: 8px;
+                      "
+                    >
+                      <span style="color: rgba(15, 29, 61, 0.22)">✓</span> Issue
+                      recovery prompts
+                    </li>
+                  </ul>
+                </td>
+                <td style="padding: 32px 20px; vertical-align: top">
+                  <div
+                    style="
+                      font-family: &quot;Space Grotesk&quot;, sans-serif;
+                      font-size: 28px;
+                      font-weight: 700;
+                      color: #0b1220;
+                      line-height: 1;
+                      margin-bottom: 8px;
+                    "
+                  >
+                    £950
+                    <span
+                      style="
+                        font-size: 15px;
+                        font-weight: 600;
+                        color: rgba(11, 18, 32, 0.56);
+                        font-family: &quot;Inter&quot;, sans-serif;
+                      "
+                      >setup</span
+                    >
+                  </div>
+                  <div
+                    style="
+                      font-family: &quot;Inter&quot;, sans-serif;
+                      font-size: 13px;
+                      font-weight: 500;
+                      color: rgba(11, 18, 32, 0.56);
+                    "
+                  >
+                    + £150/mo management
+                  </div>
+                </td>
+              </tr>
+              <!-- Tier 4 -->
+              <tr class="pricing-row pricing-row--full-engine">
+                <td style="padding: 32px 20px; vertical-align: top">
+                  <div
+                    style="
+                      font-family: &quot;Space Grotesk&quot;, sans-serif;
+                      font-size: 20px;
+                      font-weight: 700;
+                      color: #0b1220;
+                      margin-bottom: 6px;
+                    "
+                  >
+                    Full Revenue Engine
+                  </div>
+                  <div
+                    style="
+                      font-family: &quot;Inter&quot;, sans-serif;
+                      font-size: 13px;
+                      font-weight: 500;
+                      color: rgba(11, 18, 32, 0.72);
+                      max-width: 220px;
+                    "
+                  >
+                    Website + all automation layers + tracking.
+                  </div>
+                </td>
+                <td
+                  style="
+                    padding: 32px 20px;
+                    vertical-align: top;
+                    font-family: &quot;Inter&quot;, sans-serif;
+                    font-size: 14px;
+                    line-height: 1.5;
+                    color: rgba(11, 18, 32, 0.85);
+                  "
+                >
+                  High enquiry volume, ready to scale, need end-to-end
+                  measurable control.
+                </td>
+                <td style="padding: 32px 20px; vertical-align: top">
+                  <ul
+                    style="
+                      list-style: none;
+                      padding: 0;
+                      margin: 0;
+                      display: flex;
+                      flex-direction: column;
+                      gap: 8px;
+                    "
+                  >
+                    <li
+                      style="
+                        font-family: &quot;Inter&quot;, sans-serif;
+                        font-size: 14px;
+                        font-weight: 500;
+                        color: rgba(11, 18, 32, 0.85);
+                        display: flex;
+                        gap: 8px;
+                      "
+                    >
+                      <span style="color: #16a34a">✓</span> Lead Website Build
+                    </li>
+                    <li
+                      style="
+                        font-family: &quot;Inter&quot;, sans-serif;
+                        font-size: 14px;
+                        font-weight: 500;
+                        color: rgba(11, 18, 32, 0.85);
+                        display: flex;
+                        gap: 8px;
+                      "
+                    >
+                      <span style="color: #16a34a">✓</span> Follow-up
+                      automations
+                    </li>
+                    <li
+                      style="
+                        font-family: &quot;Inter&quot;, sans-serif;
+                        font-size: 14px;
+                        font-weight: 500;
+                        color: rgba(11, 18, 32, 0.85);
+                        display: flex;
+                        gap: 8px;
+                      "
+                    >
+                      <span style="color: #16a34a">✓</span> Review system
+                    </li>
+                    <li
+                      style="
+                        font-family: &quot;Inter&quot;, sans-serif;
+                        font-size: 14px;
+                        font-weight: 500;
+                        color: rgba(11, 18, 32, 0.85);
+                        display: flex;
+                        gap: 8px;
+                      "
+                    >
+                      <span style="color: #16a34a">✓</span> Reporting dashboard
+                    </li>
+                  </ul>
+                </td>
+                <td style="padding: 32px 20px; vertical-align: top">
+                  <div
+                    style="
+                      font-family: &quot;Space Grotesk&quot;, sans-serif;
+                      font-size: 28px;
+                      font-weight: 700;
+                      color: #0b1220;
+                      line-height: 1;
+                      margin-bottom: 8px;
+                    "
+                  >
+                    £7,500
+                    <span
+                      style="
+                        font-size: 15px;
+                        font-weight: 600;
+                        color: rgba(11, 18, 32, 0.56);
+                        font-family: &quot;Inter&quot;, sans-serif;
+                      "
+                      >setup</span
+                    >
+                  </div>
+                  <div
+                    style="
+                      font-family: &quot;Inter&quot;, sans-serif;
+                      font-size: 13px;
+                      font-weight: 500;
+                      color: rgba(11, 18, 32, 0.56);
+                    "
+                  >
+                    + £450/mo management. Up to £12k setup based on scope.
+                  </div>
+                </td>
+              </tr>
+            </tbody>
+          </table>
         </div>
+
+        <!-- Mobile Accordion (Hidden on Desktop) -->
+        <div class="mobile-pricing-accordion">
+          <!-- Mobile Tier 1 -->
+          <details
+            class="mobile-pricing-card"
+            style="
+              background: rgba(37, 99, 235, 0.02);
+              border: 1px solid rgba(37, 99, 235, 0.2);
+              border-left: 4px solid #2563eb;
+              border-radius: 12px;
+              overflow: hidden;
+            "
+            open
+          >
+            <summary
+              style="
+                padding: 24px;
+                cursor: pointer;
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                list-style: none;
+              "
+            >
+              <div>
+                <div
+                  style="
+                    font-family: &quot;Space Grotesk&quot;, sans-serif;
+                    font-size: 20px;
+                    font-weight: 700;
+                    color: #0b1220;
+                  "
+                >
+                  Lead Websites
+                </div>
+                <div
+                  style="
+                    font-family: &quot;Inter&quot;, sans-serif;
+                    font-size: 14px;
+                    font-weight: 600;
+                    color: #2563eb;
+                    margin-top: 4px;
+                  "
+                >
+                  From £3,500
+                </div>
+              </div>
+            </summary>
+            <div style="padding: 0 24px 24px">
+              <p
+                style="
+                  font-family: &quot;Inter&quot;, sans-serif;
+                  font-size: 14px;
+                  line-height: 1.5;
+                  color: rgba(11, 18, 32, 0.72);
+                  margin-bottom: 16px;
+                "
+              >
+                <strong>Best for:</strong> Outdated site, low organic enquiries,
+                or a confusing user journey.
+              </p>
+              <ul
+                style="
+                  list-style: none;
+                  padding: 0;
+                  margin: 0;
+                  display: flex;
+                  flex-direction: column;
+                  gap: 8px;
+                "
+              >
+                <li
+                  style="
+                    font-family: &quot;Inter&quot;, sans-serif;
+                    font-size: 14px;
+                    font-weight: 500;
+                    color: rgba(11, 18, 32, 0.85);
+                    display: flex;
+                    gap: 8px;
+                  "
+                >
+                  <span style="color: #2563eb">✓</span> 5-10 page structure
+                </li>
+                <li
+                  style="
+                    font-family: &quot;Inter&quot;, sans-serif;
+                    font-size: 14px;
+                    font-weight: 500;
+                    color: rgba(11, 18, 32, 0.85);
+                    display: flex;
+                    gap: 8px;
+                  "
+                >
+                  <span style="color: #2563eb">✓</span> Fast loading
+                </li>
+                <li
+                  style="
+                    font-family: &quot;Inter&quot;, sans-serif;
+                    font-size: 14px;
+                    font-weight: 500;
+                    color: rgba(11, 18, 32, 0.85);
+                    display: flex;
+                    gap: 8px;
+                  "
+                >
+                  <span style="color: #2563eb">✓</span> Tracking setup
+                </li>
+              </ul>
+              <div
+                style="
+                  font-family: &quot;Inter&quot;, sans-serif;
+                  font-size: 13px;
+                  font-weight: 500;
+                  color: rgba(11, 18, 32, 0.56);
+                  margin-top: 16px;
+                "
+              >
+                One-off. Range £3.5k–£6k based on scope.
+              </div>
+            </div>
+          </details>
+
+          <!-- Mobile Tier 2 -->
+          <details
+            class="mobile-pricing-card"
+            style="
+              background: #ffffff;
+              border: 1px solid rgba(15, 29, 61, 0.14);
+              border-left: 4px solid transparent;
+              border-radius: 12px;
+              overflow: hidden;
+            "
+          >
+            <summary
+              style="
+                padding: 24px;
+                cursor: pointer;
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                list-style: none;
+              "
+            >
+              <div>
+                <div
+                  style="
+                    font-family: &quot;Space Grotesk&quot;, sans-serif;
+                    font-size: 20px;
+                    font-weight: 700;
+                    color: #0b1220;
+                  "
+                >
+                  Follow-Up Layer
+                </div>
+                <div
+                  style="
+                    font-family: &quot;Inter&quot;, sans-serif;
+                    font-size: 14px;
+                    font-weight: 600;
+                    color: #0b1220;
+                    margin-top: 4px;
+                  "
+                >
+                  From £1,500 + £250/mo
+                </div>
+              </div>
+            </summary>
+            <div style="padding: 0 24px 24px">
+              <p
+                style="
+                  font-family: &quot;Inter&quot;, sans-serif;
+                  font-size: 14px;
+                  line-height: 1.5;
+                  color: rgba(11, 18, 32, 0.72);
+                  margin-bottom: 16px;
+                "
+              >
+                <strong>Best for:</strong> Missing phone calls, sending quotes
+                but getting ghosted.
+              </p>
+              <ul
+                style="
+                  list-style: none;
+                  padding: 0;
+                  margin: 0;
+                  display: flex;
+                  flex-direction: column;
+                  gap: 8px;
+                "
+              >
+                <li
+                  style="
+                    font-family: &quot;Inter&quot;, sans-serif;
+                    font-size: 14px;
+                    font-weight: 500;
+                    color: rgba(11, 18, 32, 0.85);
+                    display: flex;
+                    gap: 8px;
+                  "
+                >
+                  <span style="color: rgba(15, 29, 61, 0.22)">✓</span>
+                  Missed-call text recovery
+                </li>
+                <li
+                  style="
+                    font-family: &quot;Inter&quot;, sans-serif;
+                    font-size: 14px;
+                    font-weight: 500;
+                    color: rgba(11, 18, 32, 0.85);
+                    display: flex;
+                    gap: 8px;
+                  "
+                >
+                  <span style="color: rgba(15, 29, 61, 0.22)">✓</span> Quote
+                  reminder sequences
+                </li>
+              </ul>
+            </div>
+          </details>
+
+          <!-- Mobile Tier 3 -->
+          <details
+            class="mobile-pricing-card"
+            style="
+              background: #ffffff;
+              border: 1px solid rgba(15, 29, 61, 0.14);
+              border-left: 4px solid transparent;
+              border-radius: 12px;
+              overflow: hidden;
+            "
+          >
+            <summary
+              style="
+                padding: 24px;
+                cursor: pointer;
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                list-style: none;
+              "
+            >
+              <div>
+                <div
+                  style="
+                    font-family: &quot;Space Grotesk&quot;, sans-serif;
+                    font-size: 20px;
+                    font-weight: 700;
+                    color: #0b1220;
+                  "
+                >
+                  Review Layer
+                </div>
+                <div
+                  style="
+                    font-family: &quot;Inter&quot;, sans-serif;
+                    font-size: 14px;
+                    font-weight: 600;
+                    color: #0b1220;
+                    margin-top: 4px;
+                  "
+                >
+                  From £950 + £150/mo
+                </div>
+              </div>
+            </summary>
+            <div style="padding: 0 24px 24px">
+              <p
+                style="
+                  font-family: &quot;Inter&quot;, sans-serif;
+                  font-size: 14px;
+                  line-height: 1.5;
+                  color: rgba(11, 18, 32, 0.72);
+                  margin-bottom: 16px;
+                "
+              >
+                <strong>Best for:</strong> Completing jobs but struggling to
+                build consistent Google reviews.
+              </p>
+              <ul
+                style="
+                  list-style: none;
+                  padding: 0;
+                  margin: 0;
+                  display: flex;
+                  flex-direction: column;
+                  gap: 8px;
+                "
+              >
+                <li
+                  style="
+                    font-family: &quot;Inter&quot;, sans-serif;
+                    font-size: 14px;
+                    font-weight: 500;
+                    color: rgba(11, 18, 32, 0.85);
+                    display: flex;
+                    gap: 8px;
+                  "
+                >
+                  <span style="color: rgba(15, 29, 61, 0.22)">✓</span> Automated
+                  review requests
+                </li>
+                <li
+                  style="
+                    font-family: &quot;Inter&quot;, sans-serif;
+                    font-size: 14px;
+                    font-weight: 500;
+                    color: rgba(11, 18, 32, 0.85);
+                    display: flex;
+                    gap: 8px;
+                  "
+                >
+                  <span style="color: rgba(15, 29, 61, 0.22)">✓</span> Issue
+                  recovery prompts
+                </li>
+              </ul>
+            </div>
+          </details>
+
+          <!-- Mobile Tier 4 -->
+          <details
+            class="mobile-pricing-card"
+            style="
+              background: rgba(22, 163, 74, 0.02);
+              border: 1px solid rgba(22, 163, 74, 0.2);
+              border-left: 4px solid #16a34a;
+              border-radius: 12px;
+              overflow: hidden;
+            "
+          >
+            <summary
+              style="
+                padding: 24px;
+                cursor: pointer;
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                list-style: none;
+              "
+            >
+              <div>
+                <div
+                  style="
+                    font-family: &quot;Space Grotesk&quot;, sans-serif;
+                    font-size: 20px;
+                    font-weight: 700;
+                    color: #0b1220;
+                  "
+                >
+                  Full Revenue Engine
+                </div>
+                <div
+                  style="
+                    font-family: &quot;Inter&quot;, sans-serif;
+                    font-size: 14px;
+                    font-weight: 600;
+                    color: #16a34a;
+                    margin-top: 4px;
+                  "
+                >
+                  From £7,500 + £450/mo
+                </div>
+              </div>
+            </summary>
+            <div style="padding: 0 24px 24px">
+              <p
+                style="
+                  font-family: &quot;Inter&quot;, sans-serif;
+                  font-size: 14px;
+                  line-height: 1.5;
+                  color: rgba(11, 18, 32, 0.72);
+                  margin-bottom: 16px;
+                "
+              >
+                <strong>Best for:</strong> High enquiry volume, ready to scale,
+                need end-to-end control.
+              </p>
+              <ul
+                style="
+                  list-style: none;
+                  padding: 0;
+                  margin: 0;
+                  display: flex;
+                  flex-direction: column;
+                  gap: 8px;
+                "
+              >
+                <li
+                  style="
+                    font-family: &quot;Inter&quot;, sans-serif;
+                    font-size: 14px;
+                    font-weight: 500;
+                    color: rgba(11, 18, 32, 0.85);
+                    display: flex;
+                    gap: 8px;
+                  "
+                >
+                  <span style="color: #16a34a">✓</span> Lead Website Build
+                </li>
+                <li
+                  style="
+                    font-family: &quot;Inter&quot;, sans-serif;
+                    font-size: 14px;
+                    font-weight: 500;
+                    color: rgba(11, 18, 32, 0.85);
+                    display: flex;
+                    gap: 8px;
+                  "
+                >
+                  <span style="color: #16a34a">✓</span> Follow-up automations
+                </li>
+                <li
+                  style="
+                    font-family: &quot;Inter&quot;, sans-serif;
+                    font-size: 14px;
+                    font-weight: 500;
+                    color: rgba(11, 18, 32, 0.85);
+                    display: flex;
+                    gap: 8px;
+                  "
+                >
+                  <span style="color: #16a34a">✓</span> Review system
+                </li>
+                <li
+                  style="
+                    font-family: &quot;Inter&quot;, sans-serif;
+                    font-size: 14px;
+                    font-weight: 500;
+                    color: rgba(11, 18, 32, 0.85);
+                    display: flex;
+                    gap: 8px;
+                  "
+                >
+                  <span style="color: #16a34a">✓</span> Reporting dashboard
+                </li>
+              </ul>
+              <div
+                style="
+                  font-family: &quot;Inter&quot;, sans-serif;
+                  font-size: 13px;
+                  font-weight: 500;
+                  color: rgba(11, 18, 32, 0.56);
+                  margin-top: 16px;
+                "
+              >
+                Up to £12k setup based on scope.
+              </div>
+            </div>
+          </details>
+        </div>
+
+        <div style="text-align: center; margin-top: 48px">
+          <a
+            href="audit.html?intent=pricing"
+            style="
+              display: inline-flex;
+              height: 48px;
+              padding: 0 24px;
+              align-items: center;
+              justify-content: center;
+              background: #2563eb;
+              border-radius: 14px;
+              color: #ffffff;
+              font-family: &quot;Inter&quot;, sans-serif;
+              font-weight: 700;
+              font-size: 14px;
+              text-decoration: none;
+              transition: background 0.2s;
+              box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+            "
+            >Get Your Personalised Pricing Plan</a
+          >
+          <p
+            style="
+              font-family: &quot;Inter&quot;, sans-serif;
+              font-size: 13px;
+              font-weight: 650;
+              color: rgba(11, 18, 32, 0.56);
+              margin-top: 12px;
+            "
+          >
+            We'll audit your current setup and recommend exactly what you need.
+          </p>
+        </div>
+      </div>
     </section>
     <!-- ═══ 4. FIT FILTER & TRUST ═══ -->
-    <section class="section" id="fit"
-        style="background: #F8F7F4; padding: 88px 0; border-top: 1px solid rgba(15,29,61,0.14);">
-        <div class="container">
-            <div style="text-align: center; margin-bottom: 48px;">
-                <h2
-                    style="font-family: 'Space Grotesk', sans-serif; font-size: clamp(28px, 4vw, 36px); line-height: 1.22; font-weight: 700; color: #0B1220; margin-bottom: 12px;">
-                    Who this works for</h2>
-            </div>
-
-            <div
-                style="display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 24px; max-width: 900px; margin: 0 auto; margin-bottom: 48px;">
-                <!-- Good Fit -->
-                <div
-                    style="background: #FFFFFF; border: 1px solid rgba(15,29,61,0.14); border-radius: 16px; padding: 32px; box-shadow: 0 12px 32px rgba(15,29,61,0.06);">
-                    <h3
-                        style="font-family: 'Space Grotesk', sans-serif; font-size: 20px; font-weight: 700; color: #0B1220; margin-bottom: 20px;">
-                        Good fit if</h3>
-                    <ul
-                        style="list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 12px;">
-                        <li
-                            style="font-family: 'Inter', sans-serif; font-size: 15px; font-weight: 500; color: rgba(11,18,32,0.85); display: flex; gap: 12px; align-items: flex-start;">
-                            <span style="color: #16A34A; font-weight: 700; margin-top: 2px;">✓</span> You get 10+
-                            enquiries/month
-                        </li>
-                        <li
-                            style="font-family: 'Inter', sans-serif; font-size: 15px; font-weight: 500; color: rgba(11,18,32,0.85); display: flex; gap: 12px; align-items: flex-start;">
-                            <span style="color: #16A34A; font-weight: 700; margin-top: 2px;">✓</span> You want
-                            measurable improvement (not a "pretty site")
-                        </li>
-                        <li
-                            style="font-family: 'Inter', sans-serif; font-size: 15px; font-weight: 500; color: rgba(11,18,32,0.85); display: flex; gap: 12px; align-items: flex-start;">
-                            <span style="color: #16A34A; font-weight: 700; margin-top: 2px;">✓</span> You can invest at
-                            least £3,500 if ROI is clear
-                        </li>
-                        <li
-                            style="font-family: 'Inter', sans-serif; font-size: 15px; font-weight: 500; color: rgba(11,18,32,0.85); display: flex; gap: 12px; align-items: flex-start;">
-                            <span style="color: #16A34A; font-weight: 700; margin-top: 2px;">✓</span> You want systems,
-                            not more admin
-                        </li>
-                    </ul>
-                </div>
-
-                <!-- Not a Fit -->
-                <div
-                    style="background: #FFFFFF; border: 1px solid rgba(15,29,61,0.14); border-radius: 16px; padding: 32px; box-shadow: 0 12px 32px rgba(15,29,61,0.06);">
-                    <h3
-                        style="font-family: 'Space Grotesk', sans-serif; font-size: 20px; font-weight: 700; color: #0B1220; margin-bottom: 20px;">
-                        Not a fit if</h3>
-                    <ul
-                        style="list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 12px;">
-                        <li
-                            style="font-family: 'Inter', sans-serif; font-size: 15px; font-weight: 500; color: rgba(11,18,32,0.85); display: flex; gap: 12px; align-items: flex-start;">
-                            <span style="color: #DC2626; font-weight: 700; margin-top: 2px;">✕</span> Brand new business
-                            with no inbound demand
-                        </li>
-                        <li
-                            style="font-family: 'Inter', sans-serif; font-size: 15px; font-weight: 500; color: rgba(11,18,32,0.85); display: flex; gap: 12px; align-items: flex-start;">
-                            <span style="color: #DC2626; font-weight: 700; margin-top: 2px;">✕</span> Looking for the
-                            cheapest provider
-                        </li>
-                        <li
-                            style="font-family: 'Inter', sans-serif; font-size: 15px; font-weight: 500; color: rgba(11,18,32,0.85); display: flex; gap: 12px; align-items: flex-start;">
-                            <span style="color: #DC2626; font-weight: 700; margin-top: 2px;">✕</span> Want spam
-                            messaging or gimmicks
-                        </li>
-                        <li
-                            style="font-family: 'Inter', sans-serif; font-size: 15px; font-weight: 500; color: rgba(11,18,32,0.85); display: flex; gap: 12px; align-items: flex-start;">
-                            <span style="color: #DC2626; font-weight: 700; margin-top: 2px;">✕</span> Not ready to act
-                            in the next 1–3 months
-                        </li>
-                    </ul>
-                </div>
-            </div>
-
-            <!-- Trust Strip -->
-            <div
-                style="background: #FFFFFF; border: 1px solid rgba(15,29,61,0.14); border-radius: 16px; padding: 24px; max-width: 900px; margin: 0 auto; display: flex; flex-wrap: wrap; gap: 24px; justify-content: space-between;">
-                <div style="flex: 1; min-width: 200px; text-align: center;">
-                    <div
-                        style="font-family: 'Inter', sans-serif; font-size: 14px; font-weight: 700; color: #0B1220; margin-bottom: 4px;">
-                        No calls required</div>
-                    <div style="font-family: 'Inter', sans-serif; font-size: 13px; color: rgba(11,18,32,0.72);">Written
-                        recommendation sent to your inbox.</div>
-                </div>
-                <div class="trust-divider"></div>
-                <div style="flex: 1; min-width: 200px; text-align: center;">
-                    <div
-                        style="font-family: 'Inter', sans-serif; font-size: 14px; font-weight: 700; color: #0B1220; margin-bottom: 4px;">
-                        ROI-first approach</div>
-                    <div style="font-family: 'Inter', sans-serif; font-size: 13px; color: rgba(11,18,32,0.72);">If it
-                        won't pay for itself, we'll tell you.</div>
-                </div>
-                <div class="trust-divider"></div>
-                <div style="flex: 1; min-width: 200px; text-align: center;">
-                    <div
-                        style="font-family: 'Inter', sans-serif; font-size: 14px; font-weight: 700; color: #0B1220; margin-bottom: 4px;">
-                        Measured outcomes</div>
-                    <div style="font-family: 'Inter', sans-serif; font-size: 13px; color: rgba(11,18,32,0.72);">Track
-                        phone calls, form fills, and reviews.</div>
-                </div>
-            </div>
+    <section
+      class="section"
+      id="fit"
+      style="
+        background: #f8f7f4;
+        padding: 88px 0;
+        border-top: 1px solid rgba(15, 29, 61, 0.14);
+      "
+    >
+      <div class="container">
+        <div style="text-align: center; margin-bottom: 48px">
+          <h2
+            style="
+              font-family: &quot;Space Grotesk&quot;, sans-serif;
+              font-size: clamp(28px, 4vw, 36px);
+              line-height: 1.22;
+              font-weight: 700;
+              color: #0b1220;
+              margin-bottom: 12px;
+            "
+          >
+            Who this works for
+          </h2>
         </div>
+
+        <div
+          style="
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 24px;
+            max-width: 900px;
+            margin: 0 auto;
+            margin-bottom: 48px;
+          "
+        >
+          <!-- Good Fit -->
+          <div
+            style="
+              background: #ffffff;
+              border: 1px solid rgba(15, 29, 61, 0.14);
+              border-radius: 16px;
+              padding: 32px;
+              box-shadow: 0 12px 32px rgba(15, 29, 61, 0.06);
+            "
+          >
+            <h3
+              style="
+                font-family: &quot;Space Grotesk&quot;, sans-serif;
+                font-size: 20px;
+                font-weight: 700;
+                color: #0b1220;
+                margin-bottom: 20px;
+              "
+            >
+              Good fit if
+            </h3>
+            <ul
+              style="
+                list-style: none;
+                padding: 0;
+                margin: 0;
+                display: flex;
+                flex-direction: column;
+                gap: 12px;
+              "
+            >
+              <li
+                style="
+                  font-family: &quot;Inter&quot;, sans-serif;
+                  font-size: 15px;
+                  font-weight: 500;
+                  color: rgba(11, 18, 32, 0.85);
+                  display: flex;
+                  gap: 12px;
+                  align-items: flex-start;
+                "
+              >
+                <span style="color: #16a34a; font-weight: 700; margin-top: 2px"
+                  >✓</span
+                >
+                You get 10+ enquiries/month
+              </li>
+              <li
+                style="
+                  font-family: &quot;Inter&quot;, sans-serif;
+                  font-size: 15px;
+                  font-weight: 500;
+                  color: rgba(11, 18, 32, 0.85);
+                  display: flex;
+                  gap: 12px;
+                  align-items: flex-start;
+                "
+              >
+                <span style="color: #16a34a; font-weight: 700; margin-top: 2px"
+                  >✓</span
+                >
+                You want measurable improvement (not a "pretty site")
+              </li>
+              <li
+                style="
+                  font-family: &quot;Inter&quot;, sans-serif;
+                  font-size: 15px;
+                  font-weight: 500;
+                  color: rgba(11, 18, 32, 0.85);
+                  display: flex;
+                  gap: 12px;
+                  align-items: flex-start;
+                "
+              >
+                <span style="color: #16a34a; font-weight: 700; margin-top: 2px"
+                  >✓</span
+                >
+                You can invest at least £3,500 if ROI is clear
+              </li>
+              <li
+                style="
+                  font-family: &quot;Inter&quot;, sans-serif;
+                  font-size: 15px;
+                  font-weight: 500;
+                  color: rgba(11, 18, 32, 0.85);
+                  display: flex;
+                  gap: 12px;
+                  align-items: flex-start;
+                "
+              >
+                <span style="color: #16a34a; font-weight: 700; margin-top: 2px"
+                  >✓</span
+                >
+                You want systems, not more admin
+              </li>
+            </ul>
+          </div>
+
+          <!-- Not a Fit -->
+          <div
+            style="
+              background: #ffffff;
+              border: 1px solid rgba(15, 29, 61, 0.14);
+              border-radius: 16px;
+              padding: 32px;
+              box-shadow: 0 12px 32px rgba(15, 29, 61, 0.06);
+            "
+          >
+            <h3
+              style="
+                font-family: &quot;Space Grotesk&quot;, sans-serif;
+                font-size: 20px;
+                font-weight: 700;
+                color: #0b1220;
+                margin-bottom: 20px;
+              "
+            >
+              Not a fit if
+            </h3>
+            <ul
+              style="
+                list-style: none;
+                padding: 0;
+                margin: 0;
+                display: flex;
+                flex-direction: column;
+                gap: 12px;
+              "
+            >
+              <li
+                style="
+                  font-family: &quot;Inter&quot;, sans-serif;
+                  font-size: 15px;
+                  font-weight: 500;
+                  color: rgba(11, 18, 32, 0.85);
+                  display: flex;
+                  gap: 12px;
+                  align-items: flex-start;
+                "
+              >
+                <span style="color: #dc2626; font-weight: 700; margin-top: 2px"
+                  >✕</span
+                >
+                Brand new business with no inbound demand
+              </li>
+              <li
+                style="
+                  font-family: &quot;Inter&quot;, sans-serif;
+                  font-size: 15px;
+                  font-weight: 500;
+                  color: rgba(11, 18, 32, 0.85);
+                  display: flex;
+                  gap: 12px;
+                  align-items: flex-start;
+                "
+              >
+                <span style="color: #dc2626; font-weight: 700; margin-top: 2px"
+                  >✕</span
+                >
+                Looking for the cheapest provider
+              </li>
+              <li
+                style="
+                  font-family: &quot;Inter&quot;, sans-serif;
+                  font-size: 15px;
+                  font-weight: 500;
+                  color: rgba(11, 18, 32, 0.85);
+                  display: flex;
+                  gap: 12px;
+                  align-items: flex-start;
+                "
+              >
+                <span style="color: #dc2626; font-weight: 700; margin-top: 2px"
+                  >✕</span
+                >
+                Want spam messaging or gimmicks
+              </li>
+              <li
+                style="
+                  font-family: &quot;Inter&quot;, sans-serif;
+                  font-size: 15px;
+                  font-weight: 500;
+                  color: rgba(11, 18, 32, 0.85);
+                  display: flex;
+                  gap: 12px;
+                  align-items: flex-start;
+                "
+              >
+                <span style="color: #dc2626; font-weight: 700; margin-top: 2px"
+                  >✕</span
+                >
+                Not ready to act in the next 1–3 months
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Trust Strip -->
+        <div
+          style="
+            background: #ffffff;
+            border: 1px solid rgba(15, 29, 61, 0.14);
+            border-radius: 16px;
+            padding: 24px;
+            max-width: 900px;
+            margin: 0 auto;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 24px;
+            justify-content: space-between;
+          "
+        >
+          <div style="flex: 1; min-width: 200px; text-align: center">
+            <div
+              style="
+                font-family: &quot;Inter&quot;, sans-serif;
+                font-size: 14px;
+                font-weight: 700;
+                color: #0b1220;
+                margin-bottom: 4px;
+              "
+            >
+              No calls required
+            </div>
+            <div
+              style="
+                font-family: &quot;Inter&quot;, sans-serif;
+                font-size: 13px;
+                color: rgba(11, 18, 32, 0.72);
+              "
+            >
+              Written recommendation sent to your inbox.
+            </div>
+          </div>
+          <div class="trust-divider"></div>
+          <div style="flex: 1; min-width: 200px; text-align: center">
+            <div
+              style="
+                font-family: &quot;Inter&quot;, sans-serif;
+                font-size: 14px;
+                font-weight: 700;
+                color: #0b1220;
+                margin-bottom: 4px;
+              "
+            >
+              ROI-first approach
+            </div>
+            <div
+              style="
+                font-family: &quot;Inter&quot;, sans-serif;
+                font-size: 13px;
+                color: rgba(11, 18, 32, 0.72);
+              "
+            >
+              If it won't pay for itself, we'll tell you.
+            </div>
+          </div>
+          <div class="trust-divider"></div>
+          <div style="flex: 1; min-width: 200px; text-align: center">
+            <div
+              style="
+                font-family: &quot;Inter&quot;, sans-serif;
+                font-size: 14px;
+                font-weight: 700;
+                color: #0b1220;
+                margin-bottom: 4px;
+              "
+            >
+              Measured outcomes
+            </div>
+            <div
+              style="
+                font-family: &quot;Inter&quot;, sans-serif;
+                font-size: 13px;
+                color: rgba(11, 18, 32, 0.72);
+              "
+            >
+              Track phone calls, form fills, and reviews.
+            </div>
+          </div>
+        </div>
+      </div>
     </section>
 
     <!-- ═══ 5. FAQ ═══ -->
-    <section class="section" id="faq"
-        style="background: #FFFFFF; padding: 88px 0; border-top: 1px solid rgba(15,29,61,0.14);">
-        <div class="container">
-            <div style="text-align: center; margin-bottom: 48px;">
-                <h2
-                    style="font-family: 'Space Grotesk', sans-serif; font-size: clamp(28px, 4vw, 36px); line-height: 1.22; font-weight: 700; color: #0B1220; margin-bottom: 12px;">
-                    Pricing questions</h2>
-            </div>
-
-            <div style="max-width: 680px; margin: 0 auto; display: flex; flex-direction: column; gap: 16px;">
-                <!-- FAQ 1 -->
-                <details
-                    style="background: #F8F7F4; border: 1px solid rgba(15,29,61,0.14); border-radius: 12px; overflow: hidden;"
-                    class="pr-faq-item">
-                    <summary
-                        style="padding: 24px; font-family: 'Space Grotesk', sans-serif; font-size: 16px; font-weight: 700; color: #0B1220; cursor: pointer; display: flex; justify-content: space-between; align-items: center;">
-                        Can I start with just the website?
-                    </summary>
-                    <div
-                        style="padding: 0 24px 24px; font-family: 'Inter', sans-serif; font-size: 15px; line-height: 1.6; color: rgba(11,18,32,0.72);">
-                        Yes. Many clients start with the Lead Website structure (£3,500) and add automation layers once
-                        their organic enquiry volume reliably increases.
-                    </div>
-                </details>
-
-                <!-- FAQ 2 -->
-                <details
-                    style="background: #F8F7F4; border: 1px solid rgba(15,29,61,0.14); border-radius: 12px; overflow: hidden;"
-                    class="pr-faq-item">
-                    <summary
-                        style="padding: 24px; font-family: 'Space Grotesk', sans-serif; font-size: 16px; font-weight: 700; color: #0B1220; cursor: pointer; display: flex; justify-content: space-between; align-items: center;">
-                        Is there a contract?
-                    </summary>
-                    <div
-                        style="padding: 0 24px 24px; font-family: 'Inter', sans-serif; font-size: 15px; line-height: 1.6; color: rgba(11,18,32,0.72);">
-                        Website builds and setup fees are one-off. Any ongoing automation management is month-to-month.
-                        You own your website completely after launch.
-                    </div>
-                </details>
-
-                <!-- FAQ 3 -->
-                <details
-                    style="background: #F8F7F4; border: 1px solid rgba(15,29,61,0.14); border-radius: 12px; overflow: hidden;"
-                    class="pr-faq-item">
-                    <summary
-                        style="padding: 24px; font-family: 'Space Grotesk', sans-serif; font-size: 16px; font-weight: 700; color: #0B1220; cursor: pointer; display: flex; justify-content: space-between; align-items: center;">
-                        Why don't you offer fixed pricing?
-                    </summary>
-                    <div
-                        style="padding: 0 24px 24px; font-family: 'Inter', sans-serif; font-size: 15px; line-height: 1.6; color: rgba(11,18,32,0.72);">
-                        Every trade business is different. A builder targeting 3 counties with 8 specific services
-                        requires a different architectural scope than a local plumber focusing on one city. We audit
-                        your specific situation and provide a fixed quote before any work begins.
-                    </div>
-                </details>
-            </div>
+    <section
+      class="section"
+      id="faq"
+      style="
+        background: #ffffff;
+        padding: 88px 0;
+        border-top: 1px solid rgba(15, 29, 61, 0.14);
+      "
+    >
+      <div class="container">
+        <div style="text-align: center; margin-bottom: 48px">
+          <h2
+            style="
+              font-family: &quot;Space Grotesk&quot;, sans-serif;
+              font-size: clamp(28px, 4vw, 36px);
+              line-height: 1.22;
+              font-weight: 700;
+              color: #0b1220;
+              margin-bottom: 12px;
+            "
+          >
+            Pricing questions
+          </h2>
         </div>
+
+        <div
+          style="
+            max-width: 680px;
+            margin: 0 auto;
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+          "
+        >
+          <!-- FAQ 1 -->
+          <details
+            style="
+              background: #f8f7f4;
+              border: 1px solid rgba(15, 29, 61, 0.14);
+              border-radius: 12px;
+              overflow: hidden;
+            "
+            class="pr-faq-item"
+          >
+            <summary
+              style="
+                padding: 24px;
+                font-family: &quot;Space Grotesk&quot;, sans-serif;
+                font-size: 16px;
+                font-weight: 700;
+                color: #0b1220;
+                cursor: pointer;
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+              "
+            >
+              Can I start with just the website?
+            </summary>
+            <div
+              style="
+                padding: 0 24px 24px;
+                font-family: &quot;Inter&quot;, sans-serif;
+                font-size: 15px;
+                line-height: 1.6;
+                color: rgba(11, 18, 32, 0.72);
+              "
+            >
+              Yes. Many clients start with the Lead Website structure (£3,500)
+              and add automation layers once their organic enquiry volume
+              reliably increases.
+            </div>
+          </details>
+
+          <!-- FAQ 2 -->
+          <details
+            style="
+              background: #f8f7f4;
+              border: 1px solid rgba(15, 29, 61, 0.14);
+              border-radius: 12px;
+              overflow: hidden;
+            "
+            class="pr-faq-item"
+          >
+            <summary
+              style="
+                padding: 24px;
+                font-family: &quot;Space Grotesk&quot;, sans-serif;
+                font-size: 16px;
+                font-weight: 700;
+                color: #0b1220;
+                cursor: pointer;
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+              "
+            >
+              Is there a contract?
+            </summary>
+            <div
+              style="
+                padding: 0 24px 24px;
+                font-family: &quot;Inter&quot;, sans-serif;
+                font-size: 15px;
+                line-height: 1.6;
+                color: rgba(11, 18, 32, 0.72);
+              "
+            >
+              Website builds and setup fees are one-off. Any ongoing automation
+              management is month-to-month. You own your website completely
+              after launch.
+            </div>
+          </details>
+
+          <!-- FAQ 3 -->
+          <details
+            style="
+              background: #f8f7f4;
+              border: 1px solid rgba(15, 29, 61, 0.14);
+              border-radius: 12px;
+              overflow: hidden;
+            "
+            class="pr-faq-item"
+          >
+            <summary
+              style="
+                padding: 24px;
+                font-family: &quot;Space Grotesk&quot;, sans-serif;
+                font-size: 16px;
+                font-weight: 700;
+                color: #0b1220;
+                cursor: pointer;
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+              "
+            >
+              Why don't you offer fixed pricing?
+            </summary>
+            <div
+              style="
+                padding: 0 24px 24px;
+                font-family: &quot;Inter&quot;, sans-serif;
+                font-size: 15px;
+                line-height: 1.6;
+                color: rgba(11, 18, 32, 0.72);
+              "
+            >
+              Every trade business is different. A builder targeting 3 counties
+              with 8 specific services requires a different architectural scope
+              than a local plumber focusing on one city. We audit your specific
+              situation and provide a fixed quote before any work begins.
+            </div>
+          </details>
+        </div>
+      </div>
     </section>
 
     <!-- ═══ 6. FINAL CTA ═══ -->
-    <section class="section"
-        style="background: #0F1D3D; padding: 100px 0; border-top: 1px solid rgba(255,255,255,0.1);">
-        <div class="container" style="max-width: 800px; text-align: center;">
-            <h2
-                style="font-family: 'Space Grotesk', sans-serif; font-size: clamp(32px, 5vw, 44px); line-height: 1.15; font-weight: 700; color: #FFFFFF; margin-bottom: 20px;">
-                Get your personalised Pricing Plan.</h2>
-            <p
-                style="font-family: 'Inter', sans-serif; font-size: 18px; line-height: 1.6; color: rgba(255,255,255,0.72); margin-bottom: 40px; max-width: 600px; margin-left: auto; margin-right: auto;">
-                We'll audit your current lead flow, map the missing layers, and recommend the most profitable starting
-                point.</p>
+    <section
+      class="section"
+      style="
+        background: #0f1d3d;
+        padding: 100px 0;
+        border-top: 1px solid rgba(255, 255, 255, 0.1);
+      "
+    >
+      <div class="container" style="max-width: 800px; text-align: center">
+        <h2
+          style="
+            font-family: &quot;Space Grotesk&quot;, sans-serif;
+            font-size: clamp(32px, 5vw, 44px);
+            line-height: 1.15;
+            font-weight: 700;
+            color: #ffffff;
+            margin-bottom: 20px;
+          "
+        >
+          Get your personalised Pricing Plan.
+        </h2>
+        <p
+          style="
+            font-family: &quot;Inter&quot;, sans-serif;
+            font-size: 18px;
+            line-height: 1.6;
+            color: rgba(255, 255, 255, 0.72);
+            margin-bottom: 40px;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+          "
+        >
+          We'll audit your current lead flow, map the missing layers, and
+          recommend the most profitable starting point.
+        </p>
 
-            <div style="display: flex; flex-direction: column; align-items: center; gap: 16px;">
-                <a href="audit.html?intent=pricing"
-                    style="display: inline-flex; height: 56px; padding: 0 32px; align-items: center; justify-content: center; background: #2563EB; border-radius: 14px; color: #FFFFFF; font-family: 'Inter', sans-serif; font-weight: 700; font-size: 16px; text-decoration: none; transition: background 0.2s; box-shadow: 0 8px 24px rgba(37,99,235,0.25);">Request
-                    Pricing & ROI Audit</a>
+        <div
+          style="
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 16px;
+          "
+        >
+          <a
+            href="audit.html?intent=pricing"
+            style="
+              display: inline-flex;
+              height: 56px;
+              padding: 0 32px;
+              align-items: center;
+              justify-content: center;
+              background: #2563eb;
+              border-radius: 14px;
+              color: #ffffff;
+              font-family: &quot;Inter&quot;, sans-serif;
+              font-weight: 700;
+              font-size: 16px;
+              text-decoration: none;
+              transition: background 0.2s;
+              box-shadow: 0 8px 24px rgba(37, 99, 235, 0.25);
+            "
+            >Request Pricing & ROI Audit</a
+          >
 
-                <a href="results.html"
-                    style="display: inline-flex; align-items: center; justify-content: center; height: 48px; font-family: 'Inter', sans-serif; font-weight: 600; font-size: 14px; color: rgba(255,255,255,0.86); text-decoration: none; border-bottom: 1px solid rgba(255,255,255,0.3); transition: color 0.2s; padding-bottom: 2px;">Prefer
-                    to see results first? View Case Studies →</a>
-            </div>
-
-            <p
-                style="font-family: 'Inter', sans-serif; font-size: 13px; font-weight: 500; color: rgba(255,255,255,0.56); margin-top: 24px;">
-                No calls required. Written plan sent directly to your inbox.</p>
+          <a
+            href="results.html"
+            style="
+              display: inline-flex;
+              align-items: center;
+              justify-content: center;
+              height: 48px;
+              font-family: &quot;Inter&quot;, sans-serif;
+              font-weight: 600;
+              font-size: 14px;
+              color: rgba(255, 255, 255, 0.86);
+              text-decoration: none;
+              border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+              transition: color 0.2s;
+              padding-bottom: 2px;
+            "
+            >Prefer to see results first? View Case Studies →</a
+          >
         </div>
+
+        <p
+          style="
+            font-family: &quot;Inter&quot;, sans-serif;
+            font-size: 13px;
+            font-weight: 500;
+            color: rgba(255, 255, 255, 0.56);
+            margin-top: 24px;
+          "
+        >
+          No calls required. Written plan sent directly to your inbox.
+        </p>
+      </div>
     </section>
 
     <!-- ═══ FOOTER ═══ -->
     <footer class="footer">
-        <div class="container">
-            <div class="footer__grid">
-                <div class="footer__col">
-                    <div class="footer__brand">JTANDY</div>
-                    <p class="footer__tagline">Revenue recovery systems for UK tradespeople. Automated. Measurable.
-                        Owned.</p>
-                </div>
-                <div class="footer__col">
-                    <h4>Company</h4>
-                    <a href="about.html">About</a>
-                    <a href="work.html">Case Studies</a>
-                    <a href="audit.html">Request Audit</a>
-                </div>
-                <div class="footer__col">
-                    <h4>Solutions</h4>
-                    <a href="lead-websites.html">Lead Websites</a>
-                    <a href="follow-up-automation.html">Follow-Up Automation</a>
-                    <a href="review-automation.html">Review Automation</a>
-                    <a href="revenue-engine.html">Revenue Engine</a>
-                </div>
-                <div class="footer__col">
-                    <h4>Legal</h4>
-                    <a href="#">Privacy Policy</a>
-                    <a href="#">Terms of Service</a>
-                    <a href="#">Cookie Policy</a>
-                </div>
-            </div>
-            <div class="footer__bottom">
-                <span>© 2025 JTandy Automations. All rights reserved.</span>
-            </div>
+      <div class="container">
+        <div class="footer__grid">
+          <div class="footer__col">
+            <div class="footer__brand">JTANDY</div>
+            <p class="footer__tagline">
+              Revenue recovery systems for UK tradespeople. Automated.
+              Measurable. Owned.
+            </p>
+          </div>
+          <div class="footer__col">
+            <h4>Company</h4>
+            <a href="about.html">About</a>
+            <a href="pricing.html">Pricing</a>
+            <a href="contact.html">Contact</a>
+            <a href="work.html">Case Studies</a>
+            <a href="audit.html">Request Audit</a>
+          </div>
+          <div class="footer__col">
+            <h4>Solutions</h4>
+            <a href="lead-websites.html">Lead Websites</a>
+            <a href="follow-up-automation.html">Follow-Up Automation</a>
+            <a href="review-automation.html">Review Automation</a>
+            <a href="revenue-engine.html">Revenue Engine</a>
+          </div>
+          <div class="footer__col">
+            <h4>Legal</h4>
+            <a href="#">Privacy Policy</a>
+            <a href="#">Terms of Service</a>
+            <a href="#">Cookie Policy</a>
+          </div>
         </div>
+        <div class="footer__bottom">
+          <span>© 2025 JTandy Automations. All rights reserved.</span>
+        </div>
+      </div>
     </footer>
 
     <script src="script.js"></script>
-</body>
-
+  </body>
 </html>

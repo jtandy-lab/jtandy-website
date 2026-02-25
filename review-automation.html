@@ -1,1007 +1,1085 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Review Automation for UK Trades — JTandy</title>
-    <meta name="description"
-        content="Automated review requests that turn completed jobs into 5-star Google reviews — polite, compliant, and consistent. From £950 setup.">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <meta
+      name="description"
+      content="Automated review requests that turn completed jobs into 5-star Google reviews — polite, compliant, and consistent. From £950 setup."
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-        href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700;800&family=Inter:wght@400;450;500;550;600;650;700;750;800;850&display=swap"
-        rel="stylesheet">
-    <link rel="stylesheet" href="style.css">
+      href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700;800&family=Inter:wght@400;450;500;550;600;650;700;750;800;850&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="style.css" />
     <style>
-        /* ── Review Automation v2 page-specific ── */
-        .rv-hero {
-            background: #FFFFFF;
-            padding: calc(var(--nav-h) + 72px) 0 64px;
-            border-bottom: 1px solid var(--border-0)
+      /* ── Review Automation v2 page-specific ── */
+      .rv-hero {
+        background: #ffffff;
+        padding: calc(var(--nav-h) + 72px) 0 64px;
+        border-bottom: 1px solid var(--border-0);
+      }
+
+      .rv-hero__grid {
+        display: grid;
+        grid-template-columns: 7fr 5fr;
+        gap: 48px;
+        align-items: start;
+      }
+
+      .rv-hero__eyebrow {
+        display: block;
+        font-family: var(--font-body);
+        font-size: 12px;
+        font-weight: 650;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+        color: var(--text-2);
+        margin-bottom: 12px;
+      }
+
+      .rv-hero h1 {
+        font-size: clamp(34px, 5vw, 52px);
+        line-height: 1.15;
+        font-weight: 700;
+        color: var(--text-0);
+        letter-spacing: -0.02em;
+      }
+
+      .rv-hero__sub {
+        font-size: 18px;
+        line-height: 1.56;
+        font-weight: 450;
+        color: var(--text-1);
+        margin-top: 14px;
+        max-width: 640px;
+      }
+
+      .rv-hero__bullets {
+        list-style: none;
+        margin-top: 20px;
+        display: flex;
+        flex-direction: column;
+        gap: 8px;
+      }
+
+      .rv-hero__bullets li {
+        font-size: 15px;
+        line-height: 1.6;
+        font-weight: 450;
+        color: var(--text-1);
+        padding-left: 24px;
+        position: relative;
+      }
+
+      .rv-hero__bullets li::before {
+        content: "✓";
+        position: absolute;
+        left: 0;
+        color: var(--success-0);
+        font-weight: 700;
+      }
+
+      .rv-hero__ctas {
+        display: flex;
+        gap: 12px;
+        margin-top: 22px;
+        flex-wrap: wrap;
+      }
+
+      .rv-hero__micro {
+        font-size: 14px;
+        font-weight: 550;
+        color: var(--text-1);
+        margin-top: 12px;
+      }
+
+      .rv-hero__right {
+        display: flex;
+        flex-direction: column;
+        gap: 14px;
+      }
+
+      /* SMS preview card */
+      .rv-proof-card {
+        background: var(--bg-0);
+        border: 1px solid var(--border-0);
+        border-radius: 16px;
+        padding: 18px;
+        box-shadow: 0 2px 10px rgba(15, 29, 61, 0.08);
+      }
+
+      .rv-proof-card__title {
+        font-family: var(--font-heading);
+        font-size: 16px;
+        font-weight: 700;
+        line-height: 1.38;
+        color: var(--text-0);
+        margin-bottom: 14px;
+      }
+
+      .rv-sms-bubble {
+        background: #ffffff;
+        border: 1px solid var(--border-0);
+        border-radius: 14px;
+        padding: 14px;
+        font-size: 13px;
+        line-height: 1.54;
+        color: var(--text-1);
+        margin-bottom: 12px;
+      }
+
+      .rv-sms-bubble__link {
+        display: inline-block;
+        margin-top: 8px;
+        font-size: 13px;
+        font-weight: 650;
+        color: var(--cobalt-0);
+        text-decoration: underline;
+      }
+
+      .rv-rating-preview {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        padding: 12px;
+        background: #fff;
+        border: 1px solid var(--border-0);
+        border-radius: 12px;
+      }
+
+      .rv-rating-preview__stars {
+        color: #f59e0b;
+        font-size: 18px;
+        letter-spacing: 2px;
+      }
+
+      .rv-rating-preview__text {
+        font-size: 13px;
+        font-weight: 550;
+        color: var(--text-1);
+      }
+
+      /* Price card */
+      .rv-price-card {
+        background: var(--navy-0);
+        border-radius: 16px;
+        padding: 18px;
+      }
+
+      .rv-price-card__chip {
+        display: inline-block;
+        font-size: 12px;
+        font-weight: 650;
+        letter-spacing: 0.06em;
+        text-transform: uppercase;
+        color: rgba(255, 255, 255, 0.72);
+        background: rgba(255, 255, 255, 0.08);
+        border-radius: 999px;
+        padding: 6px 10px;
+        line-height: 1.5;
+      }
+
+      .rv-price-card__amount {
+        font-family: var(--font-body);
+        font-size: 28px;
+        line-height: 1.14;
+        font-weight: 800;
+        color: #fff;
+        margin-top: 10px;
+      }
+
+      .rv-price-card__secondary {
+        font-size: 16px;
+        line-height: 1.5;
+        font-weight: 650;
+        color: rgba(255, 255, 255, 0.86);
+        margin-top: 4px;
+      }
+
+      .rv-price-card__range {
+        font-size: 13px;
+        line-height: 1.54;
+        font-weight: 500;
+        color: rgba(255, 255, 255, 0.78);
+        margin-top: 8px;
+      }
+
+      .rv-price-card__trust {
+        font-size: 13px;
+        line-height: 1.54;
+        font-weight: 650;
+        color: rgba(255, 255, 255, 0.9);
+        margin-top: 10px;
+      }
+
+      /* Fit filter */
+      .rv-fit {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 24px;
+      }
+
+      .rv-fit-card {
+        background: var(--surface-0);
+        border: 1px solid var(--border-0);
+        border-radius: 16px;
+        padding: 22px;
+      }
+
+      .rv-fit-card h3 {
+        font-family: var(--font-heading);
+        font-size: 18px;
+        font-weight: 700;
+        line-height: 1.44;
+        margin-bottom: 14px;
+      }
+
+      .rv-fit-card ul {
+        list-style: none;
+        display: flex;
+        flex-direction: column;
+        gap: 8px;
+      }
+
+      .rv-fit-card li {
+        font-size: 14px;
+        line-height: 1.57;
+        font-weight: 450;
+        color: var(--text-1);
+        padding-left: 22px;
+        position: relative;
+      }
+
+      .rv-fit-card--good li::before {
+        content: "✓";
+        position: absolute;
+        left: 0;
+        color: var(--success-0);
+        font-weight: 700;
+      }
+
+      .rv-fit-card--not li::before {
+        content: "✕";
+        position: absolute;
+        left: 0;
+        color: var(--text-2);
+        font-weight: 600;
+      }
+
+      /* Why reviews cards */
+      .rv-why {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 20px;
+      }
+
+      .rv-why-card {
+        background: var(--surface-0);
+        border: 1px solid var(--border-0);
+        border-radius: 16px;
+        padding: 22px;
+        box-shadow: 0 2px 10px rgba(15, 29, 61, 0.08);
+      }
+
+      .rv-why-card h3 {
+        font-family: var(--font-heading);
+        font-size: 18px;
+        font-weight: 700;
+        line-height: 1.44;
+        margin-bottom: 8px;
+      }
+
+      .rv-why-card p {
+        font-size: 15px;
+        line-height: 1.6;
+        color: var(--text-1);
+      }
+
+      /* Flow nodes */
+      .rv-flow-grid {
+        display: grid;
+        grid-template-columns: repeat(5, 1fr);
+        gap: 12px;
+        position: relative;
+      }
+
+      .rv-flow-grid::before {
+        content: "";
+        position: absolute;
+        top: 50%;
+        left: 5%;
+        right: 5%;
+        height: 1px;
+        background: var(--border-1);
+        z-index: 0;
+      }
+
+      .rv-node {
+        background: var(--surface-0);
+        border: 1px solid var(--border-0);
+        border-radius: 16px;
+        padding: 16px;
+        position: relative;
+        z-index: 1;
+      }
+
+      .rv-node__dot {
+        width: 8px;
+        height: 8px;
+        border-radius: 50%;
+        background: var(--success-0);
+        margin-bottom: 8px;
+      }
+
+      .rv-node strong {
+        font-size: 14px;
+        font-weight: 650;
+        line-height: 1.43;
+        display: block;
+        margin-bottom: 4px;
+      }
+
+      .rv-node span {
+        font-size: 12px;
+        font-weight: 450;
+        line-height: 1.5;
+        color: var(--text-1);
+      }
+
+      /* Reputation protection */
+      .rv-rep {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 32px;
+        align-items: start;
+      }
+
+      .rv-rep__copy h3 {
+        font-family: var(--font-heading);
+        font-size: 24px;
+        font-weight: 650;
+        line-height: 1.33;
+        margin-bottom: 12px;
+      }
+
+      .rv-rep__copy p {
+        font-size: 16px;
+        line-height: 1.63;
+        color: var(--text-1);
+      }
+
+      .rv-rep__visual {
+        background: var(--bg-0);
+        border: 1px solid var(--border-0);
+        border-radius: 16px;
+        padding: 18px;
+      }
+
+      .rv-rep__flow {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+      }
+
+      .rv-rep__row {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        font-size: 14px;
+        font-weight: 550;
+        color: var(--text-0);
+      }
+
+      .rv-rep__arrow {
+        color: var(--text-2);
+        font-size: 16px;
+      }
+
+      .rv-rep__note {
+        font-size: 12px;
+        line-height: 1.5;
+        color: var(--text-2);
+        margin-top: 14px;
+        border-top: 1px solid var(--border-0);
+        padding-top: 10px;
+      }
+
+      /* Included */
+      .rv-included {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 24px;
+      }
+
+      .rv-inc-card {
+        background: var(--surface-0);
+        border: 1px solid var(--border-0);
+        border-radius: 16px;
+        padding: 22px;
+      }
+
+      .rv-inc-card h3 {
+        font-family: var(--font-heading);
+        font-size: 18px;
+        font-weight: 700;
+        margin-bottom: 14px;
+      }
+
+      .rv-inc-card ul {
+        list-style: none;
+        display: flex;
+        flex-direction: column;
+        gap: 8px;
+      }
+
+      .rv-inc-card li {
+        font-size: 14px;
+        line-height: 1.57;
+        font-weight: 450;
+        color: var(--text-1);
+        padding-left: 22px;
+        position: relative;
+      }
+
+      .rv-inc-card--yes li::before {
+        content: "✓";
+        position: absolute;
+        left: 0;
+        color: var(--success-0);
+        font-weight: 700;
+      }
+
+      .rv-inc-card--no li::before {
+        content: "✕";
+        position: absolute;
+        left: 0;
+        color: var(--text-2);
+        font-weight: 600;
+      }
+
+      /* Outcomes 2x2 */
+      .rv-outcomes {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 20px;
+      }
+
+      .rv-outcome {
+        background: var(--bg-0);
+        border: 1px solid var(--border-0);
+        border-radius: 16px;
+        padding: 20px;
+      }
+
+      .rv-outcome strong {
+        font-size: 15px;
+        font-weight: 650;
+        line-height: 1.47;
+        display: block;
+        margin-bottom: 4px;
+      }
+
+      .rv-outcome span {
+        font-size: 14px;
+        line-height: 1.57;
+        font-weight: 450;
+        color: var(--text-1);
+      }
+
+      /* Investment */
+      .rv-invest {
+        background: var(--navy-0);
+        border-radius: 16px;
+        padding: 26px;
+        max-width: 760px;
+        margin: 0 auto;
+        text-align: center;
+      }
+
+      .rv-invest__label {
+        font-size: 12px;
+        font-weight: 650;
+        letter-spacing: 0.06em;
+        text-transform: uppercase;
+        color: rgba(255, 255, 255, 0.7);
+      }
+
+      .rv-invest__price {
+        font-family: var(--font-body);
+        font-size: 44px;
+        line-height: 1.09;
+        font-weight: 850;
+        color: #fff;
+        margin-top: 10px;
+      }
+
+      .rv-invest__secondary {
+        font-size: 16px;
+        line-height: 1.63;
+        font-weight: 650;
+        color: rgba(255, 255, 255, 0.88);
+        margin-top: 6px;
+      }
+
+      .rv-invest__details {
+        font-size: 13px;
+        line-height: 1.54;
+        color: rgba(255, 255, 255, 0.78);
+        margin-top: 12px;
+        text-align: left;
+        max-width: 520px;
+        margin-left: auto;
+        margin-right: auto;
+      }
+
+      .rv-invest__details ul {
+        list-style: none;
+        margin-top: 6px;
+        display: flex;
+        flex-direction: column;
+        gap: 2px;
+      }
+
+      .rv-invest__details li {
+        padding-left: 14px;
+        position: relative;
+      }
+
+      .rv-invest__details li::before {
+        content: "·";
+        position: absolute;
+        left: 4px;
+        font-weight: 700;
+      }
+
+      .rv-invest__risk {
+        font-size: 14px;
+        line-height: 1.57;
+        font-weight: 650;
+        color: rgba(255, 255, 255, 0.9);
+        margin-top: 10px;
+      }
+
+      .rv-invest .btn {
+        margin-top: 20px;
+      }
+
+      /* FAQ mini */
+      .rv-faq {
+        max-width: 800px;
+        margin: 0 auto;
+        display: flex;
+        flex-direction: column;
+        gap: 12px;
+      }
+
+      .rv-faq-item {
+        background: var(--surface-0);
+        border: 1px solid var(--border-0);
+        border-radius: 16px;
+        overflow: hidden;
+      }
+
+      .rv-faq-item summary {
+        padding: 18px;
+        font-family: var(--font-heading);
+        font-size: 16px;
+        font-weight: 650;
+        cursor: pointer;
+        list-style: none;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+
+      .rv-faq-item summary::after {
+        content: "+";
+        font-size: 20px;
+        font-weight: 400;
+        color: var(--text-2);
+        transition: transform 0.2s;
+      }
+
+      .rv-faq-item[open] summary::after {
+        content: "−";
+      }
+
+      .rv-faq-item__body {
+        padding: 0 18px 18px;
+        font-size: 15px;
+        line-height: 1.6;
+        color: var(--text-1);
+      }
+
+      @media (max-width: 768px) {
+        .rv-hero__grid,
+        .rv-fit,
+        .rv-included,
+        .rv-outcomes,
+        .rv-ba,
+        .rv-rep {
+          grid-template-columns: 1fr;
         }
 
-        .rv-hero__grid {
-            display: grid;
-            grid-template-columns: 7fr 5fr;
-            gap: 48px;
-            align-items: start
-        }
-
-        .rv-hero__eyebrow {
-            display: block;
-            font-family: var(--font-body);
-            font-size: 12px;
-            font-weight: 650;
-            letter-spacing: .08em;
-            text-transform: uppercase;
-            color: var(--text-2);
-            margin-bottom: 12px
-        }
-
-        .rv-hero h1 {
-            font-size: clamp(34px, 5vw, 52px);
-            line-height: 1.15;
-            font-weight: 700;
-            color: var(--text-0);
-            letter-spacing: -.02em
-        }
-
-        .rv-hero__sub {
-            font-size: 18px;
-            line-height: 1.56;
-            font-weight: 450;
-            color: var(--text-1);
-            margin-top: 14px;
-            max-width: 640px
-        }
-
-        .rv-hero__bullets {
-            list-style: none;
-            margin-top: 20px;
-            display: flex;
-            flex-direction: column;
-            gap: 8px
-        }
-
-        .rv-hero__bullets li {
-            font-size: 15px;
-            line-height: 1.6;
-            font-weight: 450;
-            color: var(--text-1);
-            padding-left: 24px;
-            position: relative
-        }
-
-        .rv-hero__bullets li::before {
-            content: '✓';
-            position: absolute;
-            left: 0;
-            color: var(--success-0);
-            font-weight: 700
-        }
-
-        .rv-hero__ctas {
-            display: flex;
-            gap: 12px;
-            margin-top: 22px;
-            flex-wrap: wrap
-        }
-
-        .rv-hero__micro {
-            font-size: 14px;
-            font-weight: 550;
-            color: var(--text-1);
-            margin-top: 12px
-        }
-
-        .rv-hero__right {
-            display: flex;
-            flex-direction: column;
-            gap: 14px
-        }
-
-        /* SMS preview card */
-        .rv-proof-card {
-            background: var(--bg-0);
-            border: 1px solid var(--border-0);
-            border-radius: 16px;
-            padding: 18px;
-            box-shadow: 0 2px 10px rgba(15, 29, 61, .08)
-        }
-
-        .rv-proof-card__title {
-            font-family: var(--font-heading);
-            font-size: 16px;
-            font-weight: 700;
-            line-height: 1.38;
-            color: var(--text-0);
-            margin-bottom: 14px
-        }
-
-        .rv-sms-bubble {
-            background: #FFFFFF;
-            border: 1px solid var(--border-0);
-            border-radius: 14px;
-            padding: 14px;
-            font-size: 13px;
-            line-height: 1.54;
-            color: var(--text-1);
-            margin-bottom: 12px
-        }
-
-        .rv-sms-bubble__link {
-            display: inline-block;
-            margin-top: 8px;
-            font-size: 13px;
-            font-weight: 650;
-            color: var(--cobalt-0);
-            text-decoration: underline
-        }
-
-        .rv-rating-preview {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            padding: 12px;
-            background: #fff;
-            border: 1px solid var(--border-0);
-            border-radius: 12px
-        }
-
-        .rv-rating-preview__stars {
-            color: #F59E0B;
-            font-size: 18px;
-            letter-spacing: 2px
-        }
-
-        .rv-rating-preview__text {
-            font-size: 13px;
-            font-weight: 550;
-            color: var(--text-1)
-        }
-
-        /* Price card */
-        .rv-price-card {
-            background: var(--navy-0);
-            border-radius: 16px;
-            padding: 18px
-        }
-
-        .rv-price-card__chip {
-            display: inline-block;
-            font-size: 12px;
-            font-weight: 650;
-            letter-spacing: .06em;
-            text-transform: uppercase;
-            color: rgba(255, 255, 255, .72);
-            background: rgba(255, 255, 255, .08);
-            border-radius: 999px;
-            padding: 6px 10px;
-            line-height: 1.5
-        }
-
-        .rv-price-card__amount {
-            font-family: var(--font-body);
-            font-size: 28px;
-            line-height: 1.14;
-            font-weight: 800;
-            color: #fff;
-            margin-top: 10px
-        }
-
-        .rv-price-card__secondary {
-            font-size: 16px;
-            line-height: 1.5;
-            font-weight: 650;
-            color: rgba(255, 255, 255, .86);
-            margin-top: 4px
-        }
-
-        .rv-price-card__range {
-            font-size: 13px;
-            line-height: 1.54;
-            font-weight: 500;
-            color: rgba(255, 255, 255, .78);
-            margin-top: 8px
-        }
-
-        .rv-price-card__trust {
-            font-size: 13px;
-            line-height: 1.54;
-            font-weight: 650;
-            color: rgba(255, 255, 255, .90);
-            margin-top: 10px
-        }
-
-        /* Fit filter */
-        .rv-fit {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 24px
-        }
-
-        .rv-fit-card {
-            background: var(--surface-0);
-            border: 1px solid var(--border-0);
-            border-radius: 16px;
-            padding: 22px
-        }
-
-        .rv-fit-card h3 {
-            font-family: var(--font-heading);
-            font-size: 18px;
-            font-weight: 700;
-            line-height: 1.44;
-            margin-bottom: 14px
-        }
-
-        .rv-fit-card ul {
-            list-style: none;
-            display: flex;
-            flex-direction: column;
-            gap: 8px
-        }
-
-        .rv-fit-card li {
-            font-size: 14px;
-            line-height: 1.57;
-            font-weight: 450;
-            color: var(--text-1);
-            padding-left: 22px;
-            position: relative
-        }
-
-        .rv-fit-card--good li::before {
-            content: '✓';
-            position: absolute;
-            left: 0;
-            color: var(--success-0);
-            font-weight: 700
-        }
-
-        .rv-fit-card--not li::before {
-            content: '✕';
-            position: absolute;
-            left: 0;
-            color: var(--text-2);
-            font-weight: 600
-        }
-
-        /* Why reviews cards */
         .rv-why {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 20px
+          grid-template-columns: 1fr;
         }
 
-        .rv-why-card {
-            background: var(--surface-0);
-            border: 1px solid var(--border-0);
-            border-radius: 16px;
-            padding: 22px;
-            box-shadow: 0 2px 10px rgba(15, 29, 61, .08)
-        }
-
-        .rv-why-card h3 {
-            font-family: var(--font-heading);
-            font-size: 18px;
-            font-weight: 700;
-            line-height: 1.44;
-            margin-bottom: 8px
-        }
-
-        .rv-why-card p {
-            font-size: 15px;
-            line-height: 1.6;
-            color: var(--text-1)
-        }
-
-        /* Flow nodes */
         .rv-flow-grid {
-            display: grid;
-            grid-template-columns: repeat(5, 1fr);
-            gap: 12px;
-            position: relative
+          grid-template-columns: 1fr 1fr;
+          gap: 10px;
         }
 
         .rv-flow-grid::before {
-            content: '';
-            position: absolute;
-            top: 50%;
-            left: 5%;
-            right: 5%;
-            height: 1px;
-            background: var(--border-1);
-            z-index: 0
+          display: none;
         }
 
-        .rv-node {
-            background: var(--surface-0);
-            border: 1px solid var(--border-0);
-            border-radius: 16px;
-            padding: 16px;
-            position: relative;
-            z-index: 1
+        .rv-hero {
+          padding: calc(var(--nav-h) + 48px) 0 48px;
         }
-
-        .rv-node__dot {
-            width: 8px;
-            height: 8px;
-            border-radius: 50%;
-            background: var(--success-0);
-            margin-bottom: 8px
-        }
-
-        .rv-node strong {
-            font-size: 14px;
-            font-weight: 650;
-            line-height: 1.43;
-            display: block;
-            margin-bottom: 4px
-        }
-
-        .rv-node span {
-            font-size: 12px;
-            font-weight: 450;
-            line-height: 1.5;
-            color: var(--text-1)
-        }
-
-        /* Reputation protection */
-        .rv-rep {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 32px;
-            align-items: start
-        }
-
-        .rv-rep__copy h3 {
-            font-family: var(--font-heading);
-            font-size: 24px;
-            font-weight: 650;
-            line-height: 1.33;
-            margin-bottom: 12px
-        }
-
-        .rv-rep__copy p {
-            font-size: 16px;
-            line-height: 1.63;
-            color: var(--text-1)
-        }
-
-        .rv-rep__visual {
-            background: var(--bg-0);
-            border: 1px solid var(--border-0);
-            border-radius: 16px;
-            padding: 18px
-        }
-
-        .rv-rep__flow {
-            display: flex;
-            flex-direction: column;
-            gap: 10px
-        }
-
-        .rv-rep__row {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            font-size: 14px;
-            font-weight: 550;
-            color: var(--text-0)
-        }
-
-        .rv-rep__arrow {
-            color: var(--text-2);
-            font-size: 16px
-        }
-
-        .rv-rep__note {
-            font-size: 12px;
-            line-height: 1.5;
-            color: var(--text-2);
-            margin-top: 14px;
-            border-top: 1px solid var(--border-0);
-            padding-top: 10px
-        }
-
-        /* Included */
-        .rv-included {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 24px
-        }
-
-        .rv-inc-card {
-            background: var(--surface-0);
-            border: 1px solid var(--border-0);
-            border-radius: 16px;
-            padding: 22px
-        }
-
-        .rv-inc-card h3 {
-            font-family: var(--font-heading);
-            font-size: 18px;
-            font-weight: 700;
-            margin-bottom: 14px
-        }
-
-        .rv-inc-card ul {
-            list-style: none;
-            display: flex;
-            flex-direction: column;
-            gap: 8px
-        }
-
-        .rv-inc-card li {
-            font-size: 14px;
-            line-height: 1.57;
-            font-weight: 450;
-            color: var(--text-1);
-            padding-left: 22px;
-            position: relative
-        }
-
-        .rv-inc-card--yes li::before {
-            content: '✓';
-            position: absolute;
-            left: 0;
-            color: var(--success-0);
-            font-weight: 700
-        }
-
-        .rv-inc-card--no li::before {
-            content: '✕';
-            position: absolute;
-            left: 0;
-            color: var(--text-2);
-            font-weight: 600
-        }
-
-        /* Outcomes 2x2 */
-        .rv-outcomes {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 20px
-        }
-
-        .rv-outcome {
-            background: var(--bg-0);
-            border: 1px solid var(--border-0);
-            border-radius: 16px;
-            padding: 20px
-        }
-
-        .rv-outcome strong {
-            font-size: 15px;
-            font-weight: 650;
-            line-height: 1.47;
-            display: block;
-            margin-bottom: 4px
-        }
-
-        .rv-outcome span {
-            font-size: 14px;
-            line-height: 1.57;
-            font-weight: 450;
-            color: var(--text-1)
-        }
-
-        /* Investment */
-        .rv-invest {
-            background: var(--navy-0);
-            border-radius: 16px;
-            padding: 26px;
-            max-width: 760px;
-            margin: 0 auto;
-            text-align: center
-        }
-
-        .rv-invest__label {
-            font-size: 12px;
-            font-weight: 650;
-            letter-spacing: .06em;
-            text-transform: uppercase;
-            color: rgba(255, 255, 255, .70)
-        }
-
-        .rv-invest__price {
-            font-family: var(--font-body);
-            font-size: 44px;
-            line-height: 1.09;
-            font-weight: 850;
-            color: #fff;
-            margin-top: 10px
-        }
-
-        .rv-invest__secondary {
-            font-size: 16px;
-            line-height: 1.63;
-            font-weight: 650;
-            color: rgba(255, 255, 255, .88);
-            margin-top: 6px
-        }
-
-        .rv-invest__details {
-            font-size: 13px;
-            line-height: 1.54;
-            color: rgba(255, 255, 255, .78);
-            margin-top: 12px;
-            text-align: left;
-            max-width: 520px;
-            margin-left: auto;
-            margin-right: auto
-        }
-
-        .rv-invest__details ul {
-            list-style: none;
-            margin-top: 6px;
-            display: flex;
-            flex-direction: column;
-            gap: 2px
-        }
-
-        .rv-invest__details li {
-            padding-left: 14px;
-            position: relative
-        }
-
-        .rv-invest__details li::before {
-            content: '·';
-            position: absolute;
-            left: 4px;
-            font-weight: 700
-        }
-
-        .rv-invest__risk {
-            font-size: 14px;
-            line-height: 1.57;
-            font-weight: 650;
-            color: rgba(255, 255, 255, .90);
-            margin-top: 10px
-        }
-
-        .rv-invest .btn {
-            margin-top: 20px
-        }
-
-        /* FAQ mini */
-        .rv-faq {
-            max-width: 800px;
-            margin: 0 auto;
-            display: flex;
-            flex-direction: column;
-            gap: 12px
-        }
-
-        .rv-faq-item {
-            background: var(--surface-0);
-            border: 1px solid var(--border-0);
-            border-radius: 16px;
-            overflow: hidden
-        }
-
-        .rv-faq-item summary {
-            padding: 18px;
-            font-family: var(--font-heading);
-            font-size: 16px;
-            font-weight: 650;
-            cursor: pointer;
-            list-style: none;
-            display: flex;
-            justify-content: space-between;
-            align-items: center
-        }
-
-        .rv-faq-item summary::after {
-            content: '+';
-            font-size: 20px;
-            font-weight: 400;
-            color: var(--text-2);
-            transition: transform .2s
-        }
-
-        .rv-faq-item[open] summary::after {
-            content: '−'
-        }
-
-        .rv-faq-item__body {
-            padding: 0 18px 18px;
-            font-size: 15px;
-            line-height: 1.6;
-            color: var(--text-1)
-        }
-
-        @media(max-width:768px) {
-
-            .rv-hero__grid,
-            .rv-fit,
-            .rv-included,
-            .rv-outcomes,
-            .rv-ba,
-            .rv-rep {
-                grid-template-columns: 1fr
-            }
-
-            .rv-why {
-                grid-template-columns: 1fr
-            }
-
-            .rv-flow-grid {
-                grid-template-columns: 1fr 1fr;
-                gap: 10px
-            }
-
-            .rv-flow-grid::before {
-                display: none
-            }
-
-            .rv-hero {
-                padding: calc(var(--nav-h) + 48px) 0 48px
-            }
-        }
+      }
     </style>
-</head>
+  </head>
 
-<body class="page-sub">
-
+  <body class="page-sub">
     <!-- ═══ HEADER ═══ -->
     <header class="header" id="header">
-        <div class="header__inner">
-            <a href="index.html" class="header__brand"><img src="img/logo-navy.svg" alt="JTandy"
-                    class="header__logo header__logo--navy"><img src="img/logo-white.svg" alt="JTandy"
-                    class="header__logo header__logo--white"></a>
-            <nav class="header__nav" id="headerNav">
-                <div class="nav-dropdown">
-                    <a href="index.html#solutions" class="nav-dropdown__trigger">Solutions <span
-                            class="nav-dropdown__arrow">▾</span></a>
-                    <div class="nav-dropdown__menu">
-                        <a href="lead-websites.html">Lead Websites</a>
-                        <a href="follow-up-automation.html">Follow-Up Automation</a>
-                        <a href="review-automation.html">Review Automation</a>
-                        <a href="revenue-engine.html">Revenue Engine</a>
-                    </div>
-                </div>
-                <a href="how-it-works.html">How It Works</a>
-                <a href="results.html">Results</a>
-                <a href="pricing.html">Pricing</a>
-                <a href="faq.html">FAQ</a>
-            </nav>
-            <div class="header__actions">
-                <a href="audit.html" class="btn btn--primary">Start Audit Request</a>
+      <div class="header__inner">
+        <a href="index.html" class="header__brand"
+          ><img
+            src="img/logo-navy.svg"
+            alt="JTandy"
+            class="header__logo header__logo--navy" /><img
+            src="img/logo-white.svg"
+            alt="JTandy"
+            class="header__logo header__logo--white"
+        /></a>
+        <nav class="header__nav" id="headerNav">
+          <div class="nav-dropdown">
+            <a href="index.html#solutions" class="nav-dropdown__trigger"
+              >Solutions <span class="nav-dropdown__arrow">▾</span></a
+            >
+            <div class="nav-dropdown__menu">
+              <a href="lead-websites.html">Lead Websites</a>
+              <a href="follow-up-automation.html">Follow-Up Automation</a>
+              <a href="review-automation.html">Review Automation</a>
+              <a href="revenue-engine.html">Revenue Engine</a>
             </div>
-            <button class="header__burger" id="headerBurger" aria-label="Menu">
-                <span></span><span></span><span></span>
-            </button>
+          </div>
+          <a href="how-it-works.html">How It Works</a>
+          <a href="results.html">Results</a>
+          <a href="pricing.html">Pricing</a>
+          <a href="faq.html">FAQ</a>
+        </nav>
+        <div class="header__actions">
+          <a href="audit.html" class="btn btn--primary">Start Audit Request</a>
         </div>
+        <button class="header__burger" id="headerBurger" aria-label="Menu">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
     </header>
 
     <!-- ═══ 1. HERO ═══ -->
     <section class="rv-hero" id="rv-hero">
-        <div class="container rv-hero__grid">
-            <div>
-                <span class="rv-hero__eyebrow">Review Automation</span>
-                <h1>Turn completed jobs into 5★ reviews — consistently.</h1>
-                <p class="rv-hero__sub">We install a polite, automated review request system that makes it easy for
-                    customers to leave a Google review — improving trust, local visibility, and enquiry conversion
-                    without awkward chasing.</p>
-                <ul class="rv-hero__bullets">
-                    <li>Automatic review request after job completion</li>
-                    <li>Direct Google review link (one‑tap)</li>
-                    <li>Polite reminder if no action</li>
-                    <li>Service‑recovery prompt for unhappy customers (ethical + compliant)</li>
-                </ul>
-                <div class="rv-hero__ctas">
-                    <a href="audit.html" class="btn btn--primary btn--hero">Start Audit Request</a>
-                    <a href="#how-it-works" class="btn btn--outline">See How It Works</a>
-                </div>
-                <p class="rv-hero__micro">✅ No review incentives • No review gating • Opt‑out friendly</p>
-            </div>
-            <div class="rv-hero__right">
-                <div class="rv-proof-card">
-                    <div class="rv-proof-card__title">What customers see</div>
-                    <div class="rv-sms-bubble">
-                        "Thanks for choosing <strong>MCR Plumbing</strong>. If we did a good job, would you mind leaving
-                        a quick Google review? It really helps local trades like us."
-                        <br><a class="rv-sms-bubble__link" href="#">Leave a review →</a>
-                    </div>
-                    <div class="rv-rating-preview">
-                        <span class="rv-rating-preview__stars">★★★★★</span>
-                        <span class="rv-rating-preview__text">4.9 (128 reviews) on Google</span>
-                    </div>
-                </div>
-                <div class="rv-price-card">
-                    <span class="rv-price-card__chip">Review Engine From</span>
-                    <div class="rv-price-card__amount">£950 setup</div>
-                    <div class="rv-price-card__secondary">£150/month ongoing</div>
-                    <p class="rv-price-card__range">Typical range £950–£1,750 setup + £150–£250/month, depending on job
-                        volume and channels.</p>
-                    <p class="rv-price-card__trust">Only recommended where job volume justifies ROI.</p>
-                </div>
-            </div>
+      <div class="container rv-hero__grid">
+        <div>
+          <span class="rv-hero__eyebrow">Review Automation</span>
+          <h1>Turn completed jobs into 5★ reviews — consistently.</h1>
+          <p class="rv-hero__sub">
+            We install a polite, automated review request system that makes it
+            easy for customers to leave a Google review — improving trust, local
+            visibility, and enquiry conversion without awkward chasing.
+          </p>
+          <ul class="rv-hero__bullets">
+            <li>Automatic review request after job completion</li>
+            <li>Direct Google review link (one‑tap)</li>
+            <li>Polite reminder if no action</li>
+            <li>
+              Service‑recovery prompt for unhappy customers (ethical +
+              compliant)
+            </li>
+          </ul>
+          <div class="rv-hero__ctas">
+            <a href="audit.html" class="btn btn--primary btn--hero"
+              >Start Audit Request</a
+            >
+            <a href="#how-it-works" class="btn btn--outline"
+              >See How It Works</a
+            >
+          </div>
+          <p class="rv-hero__micro">
+            ✅ No review incentives • No review gating • Opt‑out friendly
+          </p>
         </div>
+        <div class="rv-hero__right">
+          <div class="rv-proof-card">
+            <div class="rv-proof-card__title">What customers see</div>
+            <div class="rv-sms-bubble">
+              "Thanks for choosing <strong>MCR Plumbing</strong>. If we did a
+              good job, would you mind leaving a quick Google review? It really
+              helps local trades like us." <br /><a
+                class="rv-sms-bubble__link"
+                href="#"
+                >Leave a review →</a
+              >
+            </div>
+            <div class="rv-rating-preview">
+              <span class="rv-rating-preview__stars">★★★★★</span>
+              <span class="rv-rating-preview__text"
+                >4.9 (128 reviews) on Google</span
+              >
+            </div>
+          </div>
+          <div class="rv-price-card">
+            <span class="rv-price-card__chip">Review Engine From</span>
+            <div class="rv-price-card__amount">£950 setup</div>
+            <div class="rv-price-card__secondary">£150/month ongoing</div>
+            <p class="rv-price-card__range">
+              Typical range £950–£1,750 setup + £150–£250/month, depending on
+              job volume and channels.
+            </p>
+            <p class="rv-price-card__trust">
+              Only recommended where job volume justifies ROI.
+            </p>
+          </div>
+        </div>
+      </div>
     </section>
 
     <!-- ═══ 2. FIT FILTER ═══ -->
     <section class="section section--bg" id="fit">
-        <div class="container">
-            <div class="rv-fit">
-                <div class="rv-fit-card rv-fit-card--good">
-                    <h3>Good fit if</h3>
-                    <ul>
-                        <li>You complete 10+ jobs/month</li>
-                        <li>You want more calls from Google and better trust on click</li>
-                        <li>You're ready to invest £950+ if it pays back</li>
-                        <li>You want a consistent system (not "remember to ask")</li>
-                    </ul>
-                </div>
-                <div class="rv-fit-card rv-fit-card--not">
-                    <h3>Not a fit if</h3>
-                    <ul>
-                        <li>You want to buy reviews or "only ask happy customers"</li>
-                        <li>You have very low job volume (no trigger point)</li>
-                        <li>You want review spam or heavy messaging</li>
-                        <li>You're looking for the cheapest option</li>
-                    </ul>
-                </div>
-            </div>
+      <div class="container">
+        <div class="rv-fit">
+          <div class="rv-fit-card rv-fit-card--good">
+            <h3>Good fit if</h3>
+            <ul>
+              <li>You complete 10+ jobs/month</li>
+              <li>You want more calls from Google and better trust on click</li>
+              <li>You're ready to invest £950+ if it pays back</li>
+              <li>You want a consistent system (not "remember to ask")</li>
+            </ul>
+          </div>
+          <div class="rv-fit-card rv-fit-card--not">
+            <h3>Not a fit if</h3>
+            <ul>
+              <li>You want to buy reviews or "only ask happy customers"</li>
+              <li>You have very low job volume (no trigger point)</li>
+              <li>You want review spam or heavy messaging</li>
+              <li>You're looking for the cheapest option</li>
+            </ul>
+          </div>
         </div>
+      </div>
     </section>
 
     <!-- ═══ 3. WHY REVIEWS MATTER ═══ -->
     <section class="section section--white" id="why">
-        <div class="container">
-            <div class="section__header section__header--center">
-                <h2>More reviews = more calls</h2>
-            </div>
-            <div class="rv-why">
-                <div class="rv-why-card">
-                    <h3>Local visibility</h3>
-                    <p>Consistent, recent reviews improve trust and can support local discovery.</p>
-                </div>
-                <div class="rv-why-card">
-                    <h3>Trust at first click</h3>
-                    <p>Customers compare stars and review counts before calling.</p>
-                </div>
-                <div class="rv-why-card">
-                    <h3>Higher conversion</h3>
-                    <p>Strong review proof increases enquiries from the same traffic.</p>
-                </div>
-            </div>
-            <p class="section__micro-proof" style="font-weight:650">If your competitors have 80 reviews and you have
-                12, you're behind before the call even happens.</p>
+      <div class="container">
+        <div class="section__header section__header--center">
+          <h2>More reviews = more calls</h2>
         </div>
+        <div class="rv-why">
+          <div class="rv-why-card">
+            <h3>Local visibility</h3>
+            <p>
+              Consistent, recent reviews improve trust and can support local
+              discovery.
+            </p>
+          </div>
+          <div class="rv-why-card">
+            <h3>Trust at first click</h3>
+            <p>Customers compare stars and review counts before calling.</p>
+          </div>
+          <div class="rv-why-card">
+            <h3>Higher conversion</h3>
+            <p>
+              Strong review proof increases enquiries from the same traffic.
+            </p>
+          </div>
+        </div>
+        <p class="section__micro-proof" style="font-weight: 650">
+          If your competitors have 80 reviews and you have 12, you're behind
+          before the call even happens.
+        </p>
+      </div>
     </section>
 
     <!-- ═══ 4. HOW IT WORKS ═══ -->
     <section class="section section--bg" id="how-it-works">
-        <div class="container">
-            <div class="section__header section__header--center">
-                <h2>How review automation works</h2>
-            </div>
-            <div class="rv-flow-grid">
-                <div class="rv-node">
-                    <div class="rv-node__dot"></div>
-                    <strong>Job completed</strong>
-                    <span>Work finished and confirmed</span>
-                </div>
-                <div class="rv-node">
-                    <div class="rv-node__dot"></div>
-                    <strong>Request sent</strong>
-                    <span>Polite message with direct Google link</span>
-                </div>
-                <div class="rv-node">
-                    <div class="rv-node__dot"></div>
-                    <strong>Customer taps link</strong>
-                    <span>One tap to leave a review</span>
-                </div>
-                <div class="rv-node">
-                    <div class="rv-node__dot"></div>
-                    <strong>Reminder</strong>
-                    <span>If no action after a few days, one follow‑up</span>
-                </div>
-                <div class="rv-node">
-                    <div class="rv-node__dot"></div>
-                    <strong>Tracked</strong>
-                    <span>Review count and request status visible</span>
-                </div>
-            </div>
+      <div class="container">
+        <div class="section__header section__header--center">
+          <h2>How review automation works</h2>
         </div>
+        <div class="rv-flow-grid">
+          <div class="rv-node">
+            <div class="rv-node__dot"></div>
+            <strong>Job completed</strong>
+            <span>Work finished and confirmed</span>
+          </div>
+          <div class="rv-node">
+            <div class="rv-node__dot"></div>
+            <strong>Request sent</strong>
+            <span>Polite message with direct Google link</span>
+          </div>
+          <div class="rv-node">
+            <div class="rv-node__dot"></div>
+            <strong>Customer taps link</strong>
+            <span>One tap to leave a review</span>
+          </div>
+          <div class="rv-node">
+            <div class="rv-node__dot"></div>
+            <strong>Reminder</strong>
+            <span>If no action after a few days, one follow‑up</span>
+          </div>
+          <div class="rv-node">
+            <div class="rv-node__dot"></div>
+            <strong>Tracked</strong>
+            <span>Review count and request status visible</span>
+          </div>
+        </div>
+      </div>
     </section>
 
     <!-- ═══ 5. REPUTATION PROTECTION ═══ -->
     <section class="section section--white" id="reputation">
-        <div class="container">
-            <div class="section__header section__header--center">
-                <h2>Protect your reputation with service recovery</h2>
-            </div>
-            <div class="rv-rep">
-                <div class="rv-rep__copy">
-                    <h3>Feedback first. Fix fast.</h3>
-                    <p>If a customer indicates an issue, we prompt them to contact you so you can resolve it quickly —
-                        while keeping the review request process compliant and opt‑out friendly.</p>
-                </div>
-                <div class="rv-rep__visual">
-                    <div class="rv-rep__flow">
-                        <div class="rv-rep__row">
-                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                                stroke-width="2">
-                                <circle cx="12" cy="12" r="10" />
-                                <path d="M12 8v4m0 4h.01" stroke-linecap="round" />
-                            </svg>
-                            Issue flagged <span class="rv-rep__arrow">→</span> Contact link / callback request
-                        </div>
-                        <div class="rv-rep__row">
-                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                                stroke-width="2">
-                                <circle cx="12" cy="12" r="10" />
-                                <path d="M8 12l2 2 4-4" stroke-linecap="round" stroke-linejoin="round" />
-                            </svg>
-                            All customers <span class="rv-rep__arrow">→</span> Google review link remains available
-                        </div>
-                    </div>
-                    <p class="rv-rep__note">We don't incentivise reviews or block customers from leaving one.</p>
-                </div>
-            </div>
+      <div class="container">
+        <div class="section__header section__header--center">
+          <h2>Protect your reputation with service recovery</h2>
         </div>
+        <div class="rv-rep">
+          <div class="rv-rep__copy">
+            <h3>Feedback first. Fix fast.</h3>
+            <p>
+              If a customer indicates an issue, we prompt them to contact you so
+              you can resolve it quickly — while keeping the review request
+              process compliant and opt‑out friendly.
+            </p>
+          </div>
+          <div class="rv-rep__visual">
+            <div class="rv-rep__flow">
+              <div class="rv-rep__row">
+                <svg
+                  width="18"
+                  height="18"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                >
+                  <circle cx="12" cy="12" r="10" />
+                  <path d="M12 8v4m0 4h.01" stroke-linecap="round" />
+                </svg>
+                Issue flagged <span class="rv-rep__arrow">→</span> Contact link
+                / callback request
+              </div>
+              <div class="rv-rep__row">
+                <svg
+                  width="18"
+                  height="18"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                >
+                  <circle cx="12" cy="12" r="10" />
+                  <path
+                    d="M8 12l2 2 4-4"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  />
+                </svg>
+                All customers <span class="rv-rep__arrow">→</span> Google review
+                link remains available
+              </div>
+            </div>
+            <p class="rv-rep__note">
+              We don't incentivise reviews or block customers from leaving one.
+            </p>
+          </div>
+        </div>
+      </div>
     </section>
 
     <!-- ═══ 6. WHAT'S INCLUDED ═══ -->
     <section class="section section--bg" id="whats-included">
-        <div class="container">
-            <div class="section__header section__header--center">
-                <h2>What's included</h2>
-            </div>
-            <div class="rv-included">
-                <div class="rv-inc-card rv-inc-card--yes">
-                    <h3>Included</h3>
-                    <ul>
-                        <li>Google review link integration</li>
-                        <li>SMS/email review request templates</li>
-                        <li>One polite reminder</li>
-                        <li>Service recovery prompt (issue capture)</li>
-                        <li>Review tracking visibility</li>
-                        <li>Opt‑out compliant messaging</li>
-                    </ul>
-                </div>
-                <div class="rv-inc-card rv-inc-card--no">
-                    <h3>Not included</h3>
-                    <ul>
-                        <li>Buying/faking reviews</li>
-                        <li>Discounts or incentives for reviews</li>
-                        <li>Review "gating" systems</li>
-                        <li>Spammy multi-message campaigns</li>
-                    </ul>
-                </div>
-            </div>
+      <div class="container">
+        <div class="section__header section__header--center">
+          <h2>What's included</h2>
         </div>
+        <div class="rv-included">
+          <div class="rv-inc-card rv-inc-card--yes">
+            <h3>Included</h3>
+            <ul>
+              <li>Google review link integration</li>
+              <li>SMS/email review request templates</li>
+              <li>One polite reminder</li>
+              <li>Service recovery prompt (issue capture)</li>
+              <li>Review tracking visibility</li>
+              <li>Opt‑out compliant messaging</li>
+            </ul>
+          </div>
+          <div class="rv-inc-card rv-inc-card--no">
+            <h3>Not included</h3>
+            <ul>
+              <li>Buying/faking reviews</li>
+              <li>Discounts or incentives for reviews</li>
+              <li>Review "gating" systems</li>
+              <li>Spammy multi-message campaigns</li>
+            </ul>
+          </div>
+        </div>
+      </div>
     </section>
 
     <!-- ═══ 7. TYPICAL OUTCOMES ═══ -->
     <section class="section section--white" id="outcomes">
-        <div class="container">
-            <div class="section__header section__header--center">
-                <h2>Typical outcomes</h2>
-            </div>
-            <div class="rv-outcomes">
-                <div class="rv-outcome">
-                    <strong>More reviews over time</strong>
-                    <span>Consistent requests beat "remembering"</span>
-                </div>
-                <div class="rv-outcome">
-                    <strong>Stronger trust</strong>
-                    <span>More proof at first click</span>
-                </div>
-                <div class="rv-outcome">
-                    <strong>Better enquiry confidence</strong>
-                    <span>More people choose you</span>
-                </div>
-                <div class="rv-outcome">
-                    <strong>Less admin</strong>
-                    <span>No awkward asking, no forgetting</span>
-                </div>
-            </div>
-            <p class="section__micro-proof">Most businesses see steady review growth within weeks once the system is
-                live.</p>
+      <div class="container">
+        <div class="section__header section__header--center">
+          <h2>Typical outcomes</h2>
         </div>
+        <div class="rv-outcomes">
+          <div class="rv-outcome">
+            <strong>More reviews over time</strong>
+            <span>Consistent requests beat "remembering"</span>
+          </div>
+          <div class="rv-outcome">
+            <strong>Stronger trust</strong>
+            <span>More proof at first click</span>
+          </div>
+          <div class="rv-outcome">
+            <strong>Better enquiry confidence</strong>
+            <span>More people choose you</span>
+          </div>
+          <div class="rv-outcome">
+            <strong>Less admin</strong>
+            <span>No awkward asking, no forgetting</span>
+          </div>
+        </div>
+        <p class="section__micro-proof">
+          Most businesses see steady review growth within weeks once the system
+          is live.
+        </p>
+      </div>
     </section>
 
     <!-- ═══ 8. INVESTMENT ═══ -->
     <section class="section section--bg" id="investment">
-        <div class="container">
-            <div class="section__header section__header--center">
-                <h2>Investment</h2>
-            </div>
-            <div class="rv-invest">
-                <div class="rv-invest__label">Review Engine From</div>
-                <div class="rv-invest__price">£950 setup</div>
-                <div class="rv-invest__secondary">£150/month ongoing management</div>
-                <div class="rv-invest__details">
-                    Typical range £950–£1,750 setup + £150–£250/month depending on:
-                    <ul>
-                        <li>Job volume</li>
-                        <li>Channels (SMS/email/WhatsApp)</li>
-                        <li>How job completion is tracked</li>
-                        <li>Number of templates (trade services)</li>
-                    </ul>
-                </div>
-                <p class="rv-invest__risk">We only recommend this where job volume makes it worthwhile.</p>
-                <a href="audit.html" class="btn btn--primary btn--hero">Start Audit Request</a>
-            </div>
+      <div class="container">
+        <div class="section__header section__header--center">
+          <h2>Investment</h2>
         </div>
+        <div class="rv-invest">
+          <div class="rv-invest__label">Review Engine From</div>
+          <div class="rv-invest__price">£950 setup</div>
+          <div class="rv-invest__secondary">£150/month ongoing management</div>
+          <div class="rv-invest__details">
+            Typical range £950–£1,750 setup + £150–£250/month depending on:
+            <ul>
+              <li>Job volume</li>
+              <li>Channels (SMS/email/WhatsApp)</li>
+              <li>How job completion is tracked</li>
+              <li>Number of templates (trade services)</li>
+            </ul>
+          </div>
+          <p class="rv-invest__risk">
+            We only recommend this where job volume makes it worthwhile.
+          </p>
+          <a href="audit.html" class="btn btn--primary btn--hero"
+            >Start Audit Request</a
+          >
+        </div>
+      </div>
     </section>
 
     <!-- ═══ 9. FAQ MINI ═══ -->
     <section class="section section--white" id="faq">
-        <div class="container">
-            <div class="section__header section__header--center">
-                <h2>Common questions</h2>
-            </div>
-            <div class="rv-faq">
-                <details class="rv-faq-item">
-                    <summary>Will this annoy customers?</summary>
-                    <div class="rv-faq-item__body">No. Messages are polite, limited, and opt‑out friendly.</div>
-                </details>
-                <details class="rv-faq-item">
-                    <summary>Is this compliant?</summary>
-                    <div class="rv-faq-item__body">We don't incentivise reviews or block customers from leaving one. We
-                        keep messaging conservative.</div>
-                </details>
-                <details class="rv-faq-item">
-                    <summary>Can I run this without your website rebuild?</summary>
-                    <div class="rv-faq-item__body">Yes, as long as you have a reliable way to trigger "job completed"
-                        and a Google Business Profile.</div>
-                </details>
-            </div>
+      <div class="container">
+        <div class="section__header section__header--center">
+          <h2>Common questions</h2>
         </div>
+        <div class="rv-faq">
+          <details class="rv-faq-item">
+            <summary>Will this annoy customers?</summary>
+            <div class="rv-faq-item__body">
+              No. Messages are polite, limited, and opt‑out friendly.
+            </div>
+          </details>
+          <details class="rv-faq-item">
+            <summary>Is this compliant?</summary>
+            <div class="rv-faq-item__body">
+              We don't incentivise reviews or block customers from leaving one.
+              We keep messaging conservative.
+            </div>
+          </details>
+          <details class="rv-faq-item">
+            <summary>Can I run this without your website rebuild?</summary>
+            <div class="rv-faq-item__body">
+              Yes, as long as you have a reliable way to trigger "job completed"
+              and a Google Business Profile.
+            </div>
+          </details>
+        </div>
+      </div>
     </section>
 
     <!-- ═══ 10. FINAL CTA ═══ -->
     <section class="cta-band">
-        <div class="container">
-            <h2>If you're completing jobs, you should be collecting reviews.</h2>
-            <p>Start with the audit and we'll confirm if review automation makes sense for you.</p>
-            <a href="audit.html" class="btn btn--primary btn--hero">Start Audit Request</a>
-        </div>
+      <div class="container">
+        <h2>If you're completing jobs, you should be collecting reviews.</h2>
+        <p>
+          Start with the audit and we'll confirm if review automation makes
+          sense for you.
+        </p>
+        <a href="audit.html" class="btn btn--primary btn--hero"
+          >Start Audit Request</a
+        >
+      </div>
     </section>
 
     <!-- ═══ FOOTER ═══ -->
     <footer class="footer">
-        <div class="container">
-            <div class="footer__grid">
-                <div class="footer__col">
-                    <div class="footer__brand">JTANDY</div>
-                    <p class="footer__tagline">Revenue recovery systems for UK tradespeople. Automated. Measurable.
-                        Owned.</p>
-                </div>
-                <div class="footer__col">
-                    <h4>Company</h4>
-                    <a href="about.html">About</a>
-                    <a href="work.html">Case Studies</a>
-                    <a href="audit.html">Request Audit</a>
-                </div>
-                <div class="footer__col">
-                    <h4>Solutions</h4>
-                    <a href="lead-websites.html">Lead Websites</a>
-                    <a href="follow-up-automation.html">Follow-Up Automation</a>
-                    <a href="review-automation.html">Review Automation</a>
-                    <a href="revenue-engine.html">Revenue Engine</a>
-                </div>
-                <div class="footer__col">
-                    <h4>Legal</h4>
-                    <a href="#">Privacy Policy</a>
-                    <a href="#">Terms of Service</a>
-                    <a href="#">Cookie Policy</a>
-                </div>
-            </div>
-            <div class="footer__bottom">
-                <span>© 2025 JTandy Automations. All rights reserved.</span>
-            </div>
+      <div class="container">
+        <div class="footer__grid">
+          <div class="footer__col">
+            <div class="footer__brand">JTANDY</div>
+            <p class="footer__tagline">
+              Revenue recovery systems for UK tradespeople. Automated.
+              Measurable. Owned.
+            </p>
+          </div>
+          <div class="footer__col">
+            <h4>Company</h4>
+            <a href="about.html">About</a>
+            <a href="pricing.html">Pricing</a>
+            <a href="contact.html">Contact</a>
+            <a href="work.html">Case Studies</a>
+            <a href="audit.html">Request Audit</a>
+          </div>
+          <div class="footer__col">
+            <h4>Solutions</h4>
+            <a href="lead-websites.html">Lead Websites</a>
+            <a href="follow-up-automation.html">Follow-Up Automation</a>
+            <a href="review-automation.html">Review Automation</a>
+            <a href="revenue-engine.html">Revenue Engine</a>
+          </div>
+          <div class="footer__col">
+            <h4>Legal</h4>
+            <a href="#">Privacy Policy</a>
+            <a href="#">Terms of Service</a>
+            <a href="#">Cookie Policy</a>
+          </div>
         </div>
+        <div class="footer__bottom">
+          <span>© 2025 JTandy Automations. All rights reserved.</span>
+        </div>
+      </div>
     </footer>
 
     <script src="script.js"></script>
-</body>
-
+  </body>
 </html>

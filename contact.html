@@ -1,0 +1,726 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Contact JTandy — Revenue Systems for UK Trades</title>
+    <meta
+      name="description"
+      content="Get in touch with JTandy for questions, or request your personalized Lead Leak Report to get a comprehensive revenue system plan."
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700;800&family=Inter:wght@400;450;500;550;600;650;700;750;800;850&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="style.css" />
+    <style>
+      /* ── Contact page-specific V5 ── */
+      .page-contact {
+        background-color: var(--bg-0);
+      }
+
+      /* V5 Light Header */
+      .header--light {
+        background: rgba(255, 255, 255, 0.92);
+        backdrop-filter: blur(10px);
+        -webkit-backdrop-filter: blur(10px);
+        border-bottom: 1px solid rgba(15, 29, 61, 0.14);
+      }
+
+      .header--light .header__nav a {
+        color: rgba(11, 18, 32, 0.72);
+      }
+
+      .header--light .header__nav a:hover {
+        color: #0b1220;
+      }
+
+      /* 1. Hero */
+      .contact-hero {
+        background-color: #ffffff;
+        padding: calc(var(--nav-h) + 88px) 0 48px;
+        border-bottom: 1px solid rgba(15, 29, 61, 0.14);
+      }
+
+      @media (max-width: 900px) {
+        .contact-hero {
+          padding: calc(var(--nav-h) + 64px) 0 44px;
+        }
+      }
+
+      .contact-hero__grid {
+        display: grid;
+        grid-template-columns: 7fr 5fr;
+        gap: 48px;
+        align-items: center;
+      }
+
+      @media (max-width: 900px) {
+        .contact-hero__grid {
+          grid-template-columns: 1fr;
+          gap: 40px;
+        }
+      }
+
+      .contact-hero__eyebrow {
+        display: block;
+        font-family: var(--font-body);
+        font-size: 12px;
+        line-height: 18px;
+        font-weight: 650;
+        text-transform: uppercase;
+        letter-spacing: 0.08em;
+        color: rgba(11, 18, 32, 0.56);
+        margin-bottom: 12px;
+      }
+
+      .contact-hero__title {
+        font-family: var(--font-heading);
+        font-size: clamp(38px, 5vw, 52px);
+        line-height: 1.15;
+        font-weight: 700;
+        color: #0b1220;
+      }
+
+      .contact-hero__sub {
+        font-family: var(--font-body);
+        font-size: 18px;
+        line-height: 28px;
+        font-weight: 450;
+        color: rgba(11, 18, 32, 0.72);
+        margin-top: 14px;
+        max-width: 760px;
+      }
+
+      .contact-hero__actions {
+        margin-top: 20px;
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        align-items: flex-start;
+      }
+
+      .contact-hero__btn {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        height: 48px;
+        padding: 0 18px;
+        background-color: #2563eb;
+        color: #ffffff;
+        font-family: var(--font-body);
+        font-size: 14px;
+        font-weight: 700;
+        border-radius: 14px;
+        text-decoration: none;
+        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+        transition: all 0.2s ease;
+      }
+
+      .contact-hero__btn:hover {
+        background-color: #1d4ed8;
+        transform: translateY(-1px);
+      }
+
+      .contact-hero__micro {
+        font-family: var(--font-body);
+        font-size: 13px;
+        line-height: 20px;
+        font-weight: 650;
+        color: rgba(11, 18, 32, 0.56);
+        margin-top: 10px;
+      }
+
+      .contact-hero__link {
+        font-family: var(--font-body);
+        font-size: 14px;
+        line-height: 22px;
+        font-weight: 700;
+        color: #2563eb;
+        text-decoration: none;
+        margin-top: 8px;
+      }
+
+      .contact-hero__link:hover {
+        text-decoration: underline;
+      }
+
+      /* Quick contact card */
+      .quick-contact {
+        background-color: #f8f7f4;
+        border: 1px solid rgba(15, 29, 61, 0.14);
+        border-radius: 16px;
+        padding: 18px;
+      }
+
+      .quick-contact__title {
+        font-family: var(--font-heading);
+        font-size: 16px;
+        line-height: 22px;
+        font-weight: 700;
+        color: #0b1220;
+        margin-bottom: 16px;
+      }
+
+      .quick-contact__block {
+        margin-bottom: 20px;
+      }
+
+      .quick-contact__block:last-child {
+        margin-bottom: 0;
+      }
+
+      .quick-contact__value {
+        font-family: var(--font-body);
+        font-size: 14px;
+        line-height: 22px;
+        font-weight: 700;
+        color: #0b1220;
+      }
+
+      .quick-contact__helper {
+        font-family: var(--font-body);
+        font-size: 13px;
+        line-height: 20px;
+        font-weight: 600;
+        color: rgba(11, 18, 32, 0.56);
+        margin-top: 2px;
+      }
+
+      .quick-contact__badge-wrap {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        margin-bottom: 16px;
+      }
+
+      .quick-contact__badge {
+        background-color: rgba(37, 99, 235, 0.1);
+        color: #2563eb;
+        font-family: var(--font-body);
+        font-size: 12px;
+        line-height: 18px;
+        font-weight: 650;
+        padding: 6px 10px;
+        border-radius: 999px;
+        display: inline-block;
+      }
+
+      /* 2. Strip section */
+      .contact-strip {
+        background-color: #0f1d3d;
+        padding: 32px 0;
+        text-align: center;
+      }
+
+      .contact-strip__title {
+        font-family: var(--font-heading);
+        font-size: 20px;
+        line-height: 28px;
+        font-weight: 700;
+        color: #ffffff;
+        margin-bottom: 8px;
+      }
+
+      .contact-strip__sub {
+        font-family: var(--font-body);
+        font-size: 14px;
+        line-height: 22px;
+        font-weight: 450;
+        color: rgba(255, 255, 255, 0.82);
+        margin-bottom: 16px;
+      }
+
+      .contact-strip__btn {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        height: 48px;
+        padding: 0 18px;
+        background-color: #2563eb;
+        color: #ffffff;
+        font-family: var(--font-body);
+        font-size: 14px;
+        font-weight: 700;
+        border-radius: 14px;
+        text-decoration: none;
+        transition: all 0.2s ease;
+      }
+
+      .contact-strip__btn:hover {
+        background-color: #1d4ed8;
+      }
+
+      /* 3. Form Section */
+      .contact-form-section {
+        background-color: #ffffff;
+        padding: 72px 0 88px;
+        border-top: 1px solid rgba(15, 29, 61, 0.14);
+      }
+
+      .contact-form-section__grid {
+        display: grid;
+        grid-template-columns: 7fr 5fr;
+        gap: 48px;
+        align-items: start;
+      }
+
+      @media (max-width: 900px) {
+        .contact-form-section__grid {
+          grid-template-columns: 1fr;
+          gap: 40px;
+        }
+      }
+
+      .form-card {
+        background-color: #f8f7f4;
+        border: 1px solid rgba(15, 29, 61, 0.14);
+        border-radius: 16px;
+        padding: 22px;
+      }
+
+      .form-card__title {
+        font-family: var(--font-heading);
+        font-size: 22px;
+        line-height: 30px;
+        font-weight: 700;
+        color: #0b1220;
+        margin-bottom: 8px;
+      }
+
+      .form-card__helper {
+        font-family: var(--font-body);
+        font-size: 14px;
+        line-height: 22px;
+        font-weight: 450;
+        color: rgba(11, 18, 32, 0.72);
+        margin-bottom: 24px;
+      }
+
+      .contact-form {
+        display: flex;
+        flex-direction: column;
+        gap: 16px;
+      }
+
+      .form-group {
+        display: flex;
+        flex-direction: column;
+        gap: 8px;
+      }
+
+      .form-label {
+        font-family: var(--font-body);
+        font-size: 12px;
+        line-height: 18px;
+        text-transform: uppercase;
+        font-weight: 650;
+        letter-spacing: 0.08em;
+        color: rgba(11, 18, 32, 0.56);
+      }
+
+      .form-input,
+      .form-select,
+      .form-textarea {
+        background-color: #ffffff;
+        border: 1px solid rgba(15, 29, 61, 0.18);
+        border-radius: 12px;
+        padding: 10px 12px;
+        font-family: var(--font-body);
+        font-size: 14px;
+        line-height: 22px;
+        font-weight: 500;
+        color: #0b1220;
+        transition: border-color 0.2s ease;
+        width: 100%;
+        box-sizing: border-box;
+      }
+
+      .form-input:focus,
+      .form-select:focus,
+      .form-textarea:focus {
+        outline: none;
+        border-color: rgba(37, 99, 235, 0.55);
+      }
+
+      .form-input,
+      .form-select {
+        height: 44px;
+      }
+
+      .form-textarea {
+        height: 120px;
+        resize: vertical;
+      }
+
+      .form-submit {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        height: 48px;
+        padding: 0 18px;
+        background-color: #2563eb;
+        color: #ffffff;
+        font-family: var(--font-body);
+        font-size: 14px;
+        font-weight: 700;
+        border-radius: 14px;
+        text-decoration: none;
+        border: none;
+        cursor: pointer;
+        margin-top: 12px;
+        transition: all 0.2s ease;
+      }
+
+      .form-submit:hover {
+        background-color: #1d4ed8;
+      }
+
+      .form-submit-micro {
+        font-family: var(--font-body);
+        font-size: 12px;
+        line-height: 18px;
+        font-weight: 600;
+        color: rgba(11, 18, 32, 0.56);
+        margin-top: 6px;
+        text-align: center;
+      }
+
+      .guidance-card {
+        background-color: #ffffff;
+        border: 1px solid rgba(15, 29, 61, 0.14);
+        border-radius: 16px;
+        padding: 22px;
+      }
+
+      .guidance-card__title {
+        font-family: var(--font-heading);
+        font-size: 18px;
+        line-height: 26px;
+        font-weight: 700;
+        color: #0b1220;
+        margin-bottom: 16px;
+      }
+
+      .guidance-bullets {
+        list-style: none;
+        padding: 0;
+        margin: 0 0 24px 0;
+        display: flex;
+        flex-direction: column;
+        gap: 12px;
+      }
+
+      .guidance-bullets li {
+        font-family: var(--font-body);
+        font-size: 14px;
+        line-height: 22px;
+        font-weight: 500;
+        color: #0b1220;
+        padding-left: 28px;
+        position: relative;
+      }
+
+      .guidance-bullets li::before {
+        content: "";
+        position: absolute;
+        left: 0;
+        top: 2px;
+        width: 18px;
+        height: 18px;
+        background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20' fill='%2316A34A'><path fill-rule='evenodd' d='M16.704 4.153a.75.75 0 01.143 1.052l-8 10.5a.75.75 0 01-1.127.075l-4.5-4.5a.75.75 0 011.06-1.06l3.894 3.893 7.48-9.817a.75.75 0 011.05-.143z' clip-rule='evenodd' /></svg>");
+        background-repeat: no-repeat;
+        background-size: contain;
+      }
+
+      .btn--guidance-outline {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        height: 44px;
+        padding: 0 16px;
+        border: 1px solid rgba(15, 29, 61, 0.22);
+        background-color: transparent;
+        border-radius: 12px;
+        font-family: var(--font-body);
+        font-size: 14px;
+        font-weight: 700;
+        color: #0b1220;
+        text-decoration: none;
+        transition: background 0.2s ease;
+      }
+
+      .btn--guidance-outline:hover {
+        background-color: rgba(15, 29, 61, 0.04);
+      }
+    </style>
+  </head>
+
+  <body class="page-contact">
+    <!-- ═══ HEADER ═══ -->
+    <header class="header header--light" id="header">
+      <div class="header__inner">
+        <a href="index.html" class="header__brand">
+          <img
+            src="img/logo-navy.svg"
+            alt="JTandy"
+            class="header__logo header__logo--navy"
+          />
+          <img
+            src="img/logo-white.svg"
+            alt="JTandy"
+            class="header__logo header__logo--white"
+            style="display: none"
+          />
+        </a>
+        <nav class="header__nav" id="headerNav">
+          <div class="nav-dropdown">
+            <button class="nav-dropdown__trigger">
+              Solutions
+              <svg
+                width="16"
+                height="16"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+              >
+                <path d="M6 9l6 6 6-6" />
+              </svg>
+            </button>
+            <div class="nav-dropdown__menu">
+              <a href="lead-websites.html">Lead Websites</a>
+              <a href="follow-up-automation.html">Follow-Up Automation</a>
+              <a href="review-automation.html">Review Automation</a>
+              <a href="revenue-engine.html">The Revenue Engine</a>
+            </div>
+          </div>
+          <a href="how-it-works.html">How It Works</a>
+          <a href="pricing.html">Pricing</a>
+          <a href="results.html">Results</a>
+          <a href="request-audit.html" class="btn btn--nav-cta"
+            >Get Free Lead Leak Report</a
+          >
+        </nav>
+        <div class="header__actions">
+          <button
+            class="header__mobile-toggle"
+            id="mobileToggle"
+            aria-label="Toggle Menu"
+          >
+            <svg
+              width="24"
+              height="24"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+            >
+              <path d="M4 6h16M4 12h16M4 18h16" />
+            </svg>
+          </button>
+        </div>
+      </div>
+    </header>
+
+    <!-- ═══ 1. HERO ═══ -->
+    <section class="contact-hero">
+      <div class="container contact-hero__grid">
+        <div class="contact-hero__content">
+          <span class="contact-hero__eyebrow">CONTACT</span>
+          <h1 class="contact-hero__title">
+            Get in touch &mdash; or get your plan first.
+          </h1>
+          <p class="contact-hero__sub">
+            If you want a personalised recommendation, the fastest route is the
+            Lead Leak Report. If you just have a question, use the contact form
+            below.
+          </p>
+          <div class="contact-hero__actions">
+            <a href="request-audit.html" class="contact-hero__btn"
+              >Get My Lead Leak Report</a
+            >
+            <p class="contact-hero__micro">
+              No calls required &bull; Written plan by email &bull; Takes 2
+              minutes
+            </p>
+            <a href="#form-section" class="contact-hero__link"
+              >Or send a message &rarr;</a
+            >
+          </div>
+        </div>
+
+        <div class="quick-contact">
+          <h3 class="quick-contact__title">Direct contact</h3>
+
+          <div class="quick-contact__badge-wrap">
+            <span class="quick-contact__badge">
+              Typical reply: within 48 hours
+            </span>
+          </div>
+
+          <div class="quick-contact__block">
+            <div class="quick-contact__value">info@jtandy.com</div>
+            <div class="quick-contact__helper">Best for new enquiries.</div>
+          </div>
+
+          <div class="quick-contact__block">
+            <div class="quick-contact__value">+44 (0) 7954 602 143</div>
+            <div class="quick-contact__helper">
+              If you&#8217;re a prospect, please use the Lead Leak Report so I
+              can review properly.
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══ 2. BEST NEXT STEP STRIP ═══ -->
+    <section class="contact-strip">
+      <div class="container">
+        <h2 class="contact-strip__title">
+          Want a personalised plan? Request the Lead Leak Report.
+        </h2>
+        <p class="contact-strip__sub">
+          I&#8217;ll review your enquiry flow and send a written recommendation
+          and pricing range by email.
+        </p>
+        <a href="request-audit.html" class="contact-strip__btn"
+          >Get My Lead Leak Report</a
+        >
+      </div>
+    </section>
+
+    <!-- ═══ 3. CONTACT FORM ═══ -->
+    <section class="contact-form-section" id="form-section">
+      <div class="container contact-form-section__grid">
+        <div class="form-card">
+          <h2 class="form-card__title">Send a message</h2>
+          <p class="form-card__helper">
+            Use this if you have a specific question. For a tailored
+            recommendation, request the Lead Leak Report instead.
+          </p>
+
+          <form action="#" method="POST" class="contact-form">
+            <div class="form-group">
+              <label for="name" class="form-label">Name</label>
+              <input
+                type="text"
+                id="name"
+                name="name"
+                class="form-input"
+                required
+              />
+            </div>
+
+            <div class="form-group">
+              <label for="email" class="form-label">Email</label>
+              <input
+                type="email"
+                id="email"
+                name="email"
+                class="form-input"
+                required
+              />
+            </div>
+
+            <div class="form-group">
+              <label for="phone" class="form-label">Phone (optional)</label>
+              <input type="tel" id="phone" name="phone" class="form-input" />
+            </div>
+
+            <div class="form-group">
+              <label for="topic" class="form-label"
+                >What do you need? (optional)</label
+              >
+              <select id="topic" name="topic" class="form-select">
+                <option value="general">General question</option>
+                <option value="report">
+                  Already requested Lead Leak Report
+                </option>
+                <option value="client">Existing client support</option>
+              </select>
+            </div>
+
+            <div class="form-group">
+              <label for="message" class="form-label">Message</label>
+              <textarea
+                id="message"
+                name="message"
+                class="form-textarea"
+                required
+              ></textarea>
+            </div>
+
+            <button type="submit" class="form-submit">Send Message</button>
+            <p class="form-submit-micro">
+              No spam. Your details are only used to reply.
+            </p>
+          </form>
+        </div>
+
+        <div class="guidance-card">
+          <h3 class="guidance-card__title">Before you message</h3>
+          <ul class="guidance-bullets">
+            <li>
+              If you want a tailored plan, use the Lead Leak Report (fastest).
+            </li>
+            <li>
+              If you already submitted the report, mention your business name.
+            </li>
+            <li>
+              If you&#8217;re an existing client, include your domain + best
+              contact number.
+            </li>
+          </ul>
+          <a href="request-audit.html" class="btn--guidance-outline"
+            >Get My Lead Leak Report</a
+          >
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══ FOOTER ═══ -->
+    <footer class="footer">
+      <div class="container">
+        <div class="footer__grid">
+          <div class="footer__col">
+            <div class="footer__brand">JTANDY</div>
+            <p class="footer__tagline">
+              Revenue recovery systems for UK tradespeople. Automated.
+              Measurable. Owned.
+            </p>
+          </div>
+          <div class="footer__col">
+            <h4>Company</h4>
+            <a href="about.html">About</a>
+            <a href="pricing.html">Pricing</a>
+            <a href="contact.html">Contact</a>
+            <a href="work.html">Case Studies</a>
+            <a href="request-audit.html">Request Audit</a>
+          </div>
+          <div class="footer__col">
+            <h4>Solutions</h4>
+            <a href="lead-websites.html">Lead Websites</a>
+            <a href="follow-up-automation.html">Follow-Up Automation</a>
+            <a href="review-automation.html">Review Automation</a>
+            <a href="revenue-engine.html">The Revenue Engine</a>
+          </div>
+          <div class="footer__col">
+            <h4>Legal</h4>
+            <a href="#">Privacy Policy</a>
+            <a href="#">Terms of Service</a>
+            <a href="#">Cookie Policy</a>
+          </div>
+        </div>
+        <div class="footer__bottom">
+          <span>© 2025 JTandy Automations. All rights reserved.</span>
+        </div>
+      </div>
+    </footer>
+
+    <script src="script.js"></script>
+  </body>
+</html>

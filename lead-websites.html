@@ -15,440 +15,670 @@
     <link rel="stylesheet" href="style.css">
     <style>
         /* ── Lead Websites v2 page-specific ── */
+        .page-sub .header {
+            background: rgba(255, 255, 255, 0.92);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border-bottom: 1px solid rgba(15, 29, 61, 0.14);
+        }
+
+        .page-sub .header__nav>a,
+        .page-sub .nav-dropdown__trigger {
+            font-family: 'Inter', sans-serif;
+            font-size: 14px;
+            font-weight: 600;
+            color: rgba(11, 18, 32, 0.72);
+        }
+
+        .page-sub .header__nav>a:hover,
+        .page-sub .nav-dropdown__trigger:hover {
+            color: #0B1220;
+        }
+
+        .page-sub .header__actions .btn--primary {
+            background: #2563EB;
+            color: #FFFFFF;
+            font-family: 'Inter', sans-serif;
+            font-size: 14px;
+            font-weight: 700;
+            height: 48px;
+            border-radius: 14px;
+            padding: 0 18px;
+            display: inline-flex;
+            align-items: center;
+        }
+
+        .page-sub .header__actions .btn--primary:hover {
+            background: #1D4ED8;
+        }
+
+        /* 1. HERO */
         .lw-hero {
             background: #FFFFFF;
-            padding: calc(var(--nav-h) + 72px) 0 64px;
-            border-bottom: 1px solid var(--border-0)
+            padding: calc(var(--nav-h) + 92px) 0 64px;
         }
 
         .lw-hero__grid {
             display: grid;
             grid-template-columns: 7fr 5fr;
             gap: 48px;
-            align-items: start
+            align-items: center;
         }
 
         .lw-hero__eyebrow {
             display: block;
-            font-family: var(--font-body);
+            font-family: 'Inter', sans-serif;
             font-size: 12px;
-            font-weight: 650;
-            letter-spacing: .08em;
+            line-height: 18px;
+            font-weight: 700;
             text-transform: uppercase;
-            color: var(--text-2);
-            margin-bottom: 12px
+            letter-spacing: 0.08em;
+            color: rgba(11, 18, 32, 0.56);
+            margin-bottom: 12px;
         }
 
         .lw-hero h1 {
-            font-size: clamp(34px, 5vw, 52px);
-            line-height: 1.15;
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 50px;
+            line-height: 58px;
             font-weight: 700;
-            color: var(--text-0);
-            letter-spacing: -.02em
+            color: #0B1220;
+            max-width: 680px;
+            margin: 0;
         }
 
         .lw-hero__sub {
+            font-family: 'Inter', sans-serif;
             font-size: 18px;
-            line-height: 1.56;
+            line-height: 28px;
             font-weight: 450;
-            color: var(--text-1);
+            color: rgba(11, 18, 32, 0.72);
             margin-top: 14px;
-            max-width: 640px
+            max-width: 720px;
         }
 
         .lw-hero__bullets {
             list-style: none;
-            margin-top: 20px;
+            margin-top: 16px;
             display: flex;
             flex-direction: column;
-            gap: 8px
+            gap: 8px;
+            padding: 0;
         }
 
         .lw-hero__bullets li {
+            font-family: 'Inter', sans-serif;
             font-size: 15px;
-            line-height: 1.6;
-            font-weight: 450;
-            color: var(--text-1);
+            line-height: 24px;
+            font-weight: 500;
+            color: rgba(11, 18, 32, 0.72);
             padding-left: 24px;
-            position: relative
+            position: relative;
         }
 
         .lw-hero__bullets li::before {
-            content: '✓';
+            content: '';
             position: absolute;
             left: 0;
-            color: var(--success-0);
-            font-weight: 700
-        }
-
-        .lw-hero__proof {
-            font-size: 14px;
-            font-weight: 550;
-            color: var(--text-1);
-            margin-top: 10px
+            top: 4px;
+            width: 16px;
+            height: 16px;
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%2316A34A' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='20 6 9 17 4 12'%3E%3C/polyline%3E%3C/svg%3E");
+            background-size: contain;
+            background-repeat: no-repeat;
         }
 
         .lw-hero__ctas {
             display: flex;
             gap: 12px;
-            margin-top: 22px;
-            flex-wrap: wrap
+            margin-top: 20px;
+            flex-wrap: wrap;
+            align-items: center;
         }
 
-        .lw-hero__right {
+        .lw-btn-pri {
+            height: 48px;
+            border-radius: 14px;
+            background: #2563EB;
+            color: #FFFFFF !important;
+            font-family: 'Inter', sans-serif;
+            font-size: 14px;
+            font-weight: 700;
+            padding: 0 18px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+            box-shadow: 0 10px 24px rgba(0, 0, 0, 0.10);
+            transition: background 0.2s ease;
+        }
+
+        .lw-btn-pri:hover {
+            background: #1D4ED8;
+        }
+
+        .lw-btn-sec {
+            height: 48px;
+            border-radius: 14px;
+            border: 1px solid rgba(15, 29, 61, 0.22);
+            background: transparent;
+            color: #0B1220 !important;
+            font-family: 'Inter', sans-serif;
+            font-size: 14px;
+            font-weight: 700;
+            padding: 0 18px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+            transition: background 0.2s ease;
+        }
+
+        .lw-btn-sec:hover {
+            background: rgba(15, 29, 61, 0.04);
+        }
+
+        .lw-hero__microcopy {
+            font-family: 'Inter', sans-serif;
+            font-size: 13px;
+            line-height: 20px;
+            font-weight: 600;
+            color: rgba(11, 18, 32, 0.56);
+            margin-top: 10px;
+            display: block;
+        }
+
+        .lw-hero__visual {
+            background: #FFFFFF;
+            border: 1px solid rgba(15, 29, 61, 0.14);
+            border-radius: 18px;
+            padding: 14px;
+            box-shadow: 0 12px 30px rgba(0, 0, 0, 0.12);
+        }
+
+        .lw-hero__visual-img-container {
+            aspect-ratio: 16 / 10;
+            border-radius: 12px;
+            border: 1px solid rgba(15, 29, 61, 0.12);
+            overflow: hidden;
+            background: #F8F7F4;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
+
+        .lw-hero__visual-img-container .wireframe-placeholder {
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, #F8FAFC 0%, #E2E8F0 100%);
+            border-radius: 8px;
+            border: 1px dashed rgba(15, 29, 61, 0.2);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: rgba(11, 18, 32, 0.4);
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 18px;
+            font-weight: 600;
+        }
+
+        .lw-hero__visual-caption {
+            font-family: 'Inter', sans-serif;
+            font-size: 12px;
+            line-height: 18px;
+            font-weight: 600;
+            color: rgba(11, 18, 32, 0.56);
+            margin-top: 10px;
+            text-align: center;
+            display: block;
+        }
+
+        .lw-hero__visual-chips {
+            display: flex;
+            justify-content: center;
+            gap: 8px;
+            margin-top: 12px;
+            flex-wrap: wrap;
+        }
+
+        .lw-hero__visual-chip {
+            background: #F8F7F4;
+            border: 1px solid rgba(15, 29, 61, 0.14);
+            border-radius: 999px;
+            padding: 8px 10px;
+            font-family: 'Inter', sans-serif;
+            font-size: 12px;
+            line-height: 18px;
+            font-weight: 700;
+            color: #0B1220;
+        }
+
+        /* 2. TRUST & PROOF */
+        .lw-trust {
+            background: #F8F7F4;
+            padding: 44px 0;
+            border-top: 1px solid rgba(15, 29, 61, 0.14);
+        }
+
+        .lw-trust__grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 24px;
+        }
+
+        .lw-trust-card {
+            background: #FFFFFF;
+            border: 1px solid rgba(15, 29, 61, 0.14);
+            border-radius: 16px;
+            padding: 20px;
+            box-shadow: 0 2px 10px rgba(15, 29, 61, 0.06);
+        }
+
+        .lw-trust-card h3 {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 18px;
+            line-height: 26px;
+            font-weight: 700;
+            color: #0B1220;
+            margin-bottom: 8px;
+        }
+
+        .lw-trust-card p {
+            font-family: 'Inter', sans-serif;
+            font-size: 14px;
+            line-height: 22px;
+            font-weight: 450;
+            color: rgba(11, 18, 32, 0.72);
+        }
+
+        .lw-proof-row {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 24px;
+            margin-top: 24px;
+        }
+
+        .lw-proof-thumb {
+            background: #FFFFFF;
+            border: 1px solid rgba(15, 29, 61, 0.14);
+            border-radius: 14px;
+            padding: 10px;
             display: flex;
             flex-direction: column;
-            gap: 14px
+            gap: 8px;
         }
 
-        .lw-device-card {
-            background: var(--bg-0);
-            border: 1px solid var(--border-0);
-            border-radius: 16px;
-            padding: 16px
+        .lw-proof-thumb__img {
+            aspect-ratio: 4 / 3;
+            border-radius: 10px;
+            background: linear-gradient(135deg, #F8FAFC 0%, #E2E8F0 100%);
+            border: 1px dashed rgba(15, 29, 61, 0.15);
+            display: flex;
+            align-items: center;
+            justify-content: center;
         }
 
-        .lw-device-card__label {
-            display: block;
+        .lw-proof-thumb__caption {
+            font-family: 'Inter', sans-serif;
             font-size: 12px;
-            font-weight: 650;
-            letter-spacing: .08em;
-            text-transform: uppercase;
-            color: var(--text-2);
-            margin-bottom: 10px
+            line-height: 18px;
+            font-weight: 600;
+            color: rgba(11, 18, 32, 0.56);
+            text-align: center;
         }
 
-        .lw-price-card {
-            background: var(--navy-0);
-            border-radius: 16px;
-            padding: 18px
-        }
-
-        .lw-price-card__chip {
-            display: inline-block;
-            font-size: 12px;
-            font-weight: 650;
-            letter-spacing: .06em;
-            text-transform: uppercase;
-            color: rgba(255, 255, 255, .72);
-            background: rgba(255, 255, 255, .08);
-            border-radius: 999px;
-            padding: 6px 10px;
-            line-height: 1.5
-        }
-
-        .lw-price-card__amount {
-            font-family: var(--font-body);
-            font-size: 34px;
-            line-height: 1.12;
-            font-weight: 800;
-            color: #fff;
-            margin-top: 10px
-        }
-
-        .lw-price-card__range {
-            font-size: 13px;
-            line-height: 1.54;
-            font-weight: 500;
-            color: rgba(255, 255, 255, .80);
-            margin-top: 8px
-        }
-
-        .lw-price-card__trust {
-            font-size: 13px;
-            line-height: 1.54;
-            font-weight: 650;
-            color: rgba(255, 255, 255, .88);
-            margin-top: 10px
-        }
-
-        /* Fit Filter */
+        /* 3. GOOD FIT */
         .lw-fit {
+            background: #FFFFFF;
+            padding: 72px 0;
+        }
+
+        .lw-fit__grid {
             display: grid;
             grid-template-columns: 1fr 1fr;
-            gap: 24px
+            gap: 24px;
         }
 
         .lw-fit-card {
-            background: var(--surface-0);
-            border: 1px solid var(--border-0);
+            background: #F8F7F4;
+            border: 1px solid rgba(15, 29, 61, 0.14);
             border-radius: 16px;
-            padding: 22px
+            padding: 22px;
         }
 
         .lw-fit-card h3 {
+            font-family: 'Space Grotesk', sans-serif;
             font-size: 18px;
+            line-height: 26px;
             font-weight: 700;
-            margin-bottom: 14px
+            color: #0B1220;
+            margin-bottom: 14px;
         }
 
         .lw-fit-card ul {
             list-style: none;
             display: flex;
             flex-direction: column;
-            gap: 8px
+            gap: 12px;
         }
 
         .lw-fit-card li {
+            font-family: 'Inter', sans-serif;
             font-size: 14px;
-            line-height: 1.57;
-            font-weight: 450;
-            color: var(--text-1);
-            padding-left: 22px;
-            position: relative
+            line-height: 22px;
+            font-weight: 500;
+            color: rgba(11, 18, 32, 1);
+            padding-left: 24px;
+            position: relative;
         }
 
         .lw-fit-card--good li::before {
-            content: '✓';
+            content: '';
             position: absolute;
             left: 0;
-            color: var(--success-0);
-            font-weight: 700
+            top: 2px;
+            width: 16px;
+            height: 16px;
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%2316A34A' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='20 6 9 17 4 12'%3E%3C/polyline%3E%3C/svg%3E");
+            background-size: contain;
+            background-repeat: no-repeat;
         }
 
         .lw-fit-card--not li::before {
-            content: '✕';
+            content: '';
             position: absolute;
             left: 0;
-            color: var(--text-2);
-            font-weight: 600
+            top: 2px;
+            width: 16px;
+            height: 16px;
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23DC2626' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'%3E%3Cline x1='18' y1='6' x2='6' y2='18'%3E%3C/line%3E%3Cline x1='6' y1='6' x2='18' y2='18'%3E%3C/line%3E%3C/svg%3E");
+            background-size: contain;
+            background-repeat: no-repeat;
         }
 
-        /* Before/After */
-        .lw-ba {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 24px
+        .lw-fit__cta-cont {
+            margin-top: 24px;
         }
 
-        .lw-ba-card {
-            background: var(--surface-0);
-            border: 1px solid var(--border-0);
-            border-radius: 16px;
-            padding: 18px;
-            position: relative
-        }
-
-        .lw-ba-badge {
+        .lw-link-cta {
+            font-family: 'Inter', sans-serif;
+            font-size: 14px;
+            line-height: 22px;
+            font-weight: 700;
+            color: #2563EB;
+            text-decoration: none;
             display: inline-block;
-            font-size: 12px;
-            font-weight: 650;
-            letter-spacing: .06em;
-            text-transform: uppercase;
-            border-radius: 999px;
-            padding: 4px 10px;
-            margin-bottom: 14px;
-            line-height: 1.5
         }
 
-        .lw-ba-badge--before {
-            background: rgba(220, 38, 38, .10);
-            color: #DC2626
+        .lw-link-cta:hover {
+            text-decoration: underline;
         }
 
-        .lw-ba-badge--after {
-            background: rgba(22, 163, 74, .12);
-            color: var(--success-0)
+        /* 4. OFFER & DIFF */
+        .lw-diff {
+            background: #F8F7F4;
+            padding: 88px 0;
+            border-top: 1px solid rgba(15, 29, 61, 0.14);
         }
 
-        .lw-ba-improve {
-            list-style: none;
-            margin-top: 14px;
-            display: flex;
-            flex-direction: column;
-            gap: 6px
-        }
-
-        .lw-ba-improve li {
-            font-size: 14px;
-            line-height: 1.57;
-            font-weight: 450;
-            color: var(--text-1);
-            padding-left: 20px;
-            position: relative
-        }
-
-        .lw-ba-improve li::before {
-            content: '›';
-            position: absolute;
-            left: 0;
-            color: var(--cobalt-0);
+        .lw-diff__header h2 {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 36px;
+            line-height: 44px;
             font-weight: 700;
-            font-size: 16px
+            color: #0B1220;
+            margin-bottom: 12px;
         }
 
-        /* Pillar cards 2x2 */
-        .lw-pillars {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 24px
-        }
-
-        .lw-pillar {
-            background: var(--surface-0);
-            border: 1px solid var(--border-0);
-            border-radius: 16px;
-            padding: 22px
-        }
-
-        .lw-pillar h3 {
-            font-family: var(--font-heading);
-            font-size: 18px;
-            font-weight: 700;
-            line-height: 1.44;
-            margin-bottom: 8px
-        }
-
-        .lw-pillar p {
-            font-size: 15px;
-            line-height: 1.6;
-            color: var(--text-1)
-        }
-
-        /* Metric cards */
-        .lw-metrics {
-            display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            gap: 20px
-        }
-
-        .lw-metric {
-            background: var(--bg-0);
-            border: 1px solid var(--border-0);
-            border-radius: 16px;
-            padding: 20px
-        }
-
-        .lw-metric__icon {
-            width: 20px;
-            height: 20px;
-            color: rgba(37, 99, 235, .85);
-            margin-bottom: 10px
-        }
-
-        .lw-metric strong {
-            display: block;
-            font-size: 15px;
-            font-weight: 650;
-            line-height: 1.47;
-            margin-bottom: 4px
-        }
-
-        .lw-metric span {
-            font-size: 14px;
-            line-height: 1.57;
-            font-weight: 450;
-            color: var(--text-1)
-        }
-
-        /* Investment card */
-        .lw-invest {
-            background: var(--navy-0);
-            border-radius: 16px;
-            padding: 26px;
-            max-width: 720px;
-            margin: 0 auto;
-            text-align: center
-        }
-
-        .lw-invest__label {
-            font-size: 12px;
-            font-weight: 650;
-            letter-spacing: .06em;
-            text-transform: uppercase;
-            color: rgba(255, 255, 255, .70)
-        }
-
-        .lw-invest__price {
-            font-family: var(--font-body);
-            font-size: 44px;
-            line-height: 1.09;
-            font-weight: 850;
-            color: #fff;
-            margin-top: 10px
-        }
-
-        .lw-invest__range {
-            font-size: 14px;
-            line-height: 1.57;
-            color: rgba(255, 255, 255, .82);
-            margin-top: 12px
-        }
-
-        .lw-invest__risk {
-            font-size: 14px;
-            line-height: 1.57;
-            font-weight: 650;
-            color: rgba(255, 255, 255, .90);
-            margin-top: 10px
-        }
-
-        .lw-invest .btn {
-            margin-top: 20px
-        }
-
-        /* Process 2x2 */
-        .lw-process {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 20px
-        }
-
-        .lw-process-card {
-            background: var(--surface-0);
-            border: 1px solid var(--border-0);
-            border-radius: 16px;
-            padding: 20px;
-            display: flex;
-            gap: 14px;
-            align-items: flex-start
-        }
-
-        .lw-process-card__num {
-            width: 32px;
-            height: 32px;
-            border-radius: 50%;
-            background: rgba(37, 99, 235, .10);
-            color: var(--cobalt-0);
-            font-weight: 700;
-            font-size: 14px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            flex-shrink: 0
-        }
-
-        .lw-process-card h3 {
+        .lw-diff__header p {
+            font-family: 'Inter', sans-serif;
             font-size: 16px;
+            line-height: 26px;
+            font-weight: 450;
+            color: rgba(11, 18, 32, 0.72);
+            max-width: 900px;
+        }
+
+        .lw-diff__grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 24px;
+            margin-top: 32px;
+            margin-bottom: 32px;
+        }
+
+        /* 5. CONVERSION LAYOUT */
+        .lw-conv {
+            background: #FFFFFF;
+            padding: 88px 0;
+        }
+
+        .lw-conv__main {
+            background: #F8F7F4;
+            border: 1px solid rgba(15, 29, 61, 0.14);
+            border-radius: 18px;
+            padding: 16px;
+            margin-top: 32px;
+        }
+
+        .lw-conv__img-wrap {
+            border-radius: 12px;
+            overflow: hidden;
+            display: block;
+            width: 100%;
+            background: #eee;
+            aspect-ratio: 16/9;
+        }
+
+        .lw-conv__legend {
+            display: flex;
+            gap: 12px;
+            margin-top: 16px;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        .lw-conv__chip {
+            background: rgba(37, 99, 235, 0.10);
+            color: #2563EB;
+            font-family: 'Inter', sans-serif;
+            font-size: 12px;
+            line-height: 18px;
             font-weight: 650;
-            margin-bottom: 4px
+            text-transform: uppercase;
+            padding: 6px 12px;
+            border-radius: 999px;
         }
 
-        .lw-process-card p {
+        /* 6. WHATS INCLUDED */
+        .lw-deliver {
+            background: #F8F7F4;
+            padding: 72px 0;
+        }
+
+        .lw-deliver__grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 24px;
+        }
+
+        /* 7. TIMELINE */
+        .lw-timeline {
+            background: #FFFFFF;
+            padding: 72px 0;
+        }
+
+        .lw-timeline__grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 24px;
+            margin-top: 32px;
+        }
+
+        .lw-timeline__assurance {
+            background: rgba(22, 163, 74, 0.10);
+            border: 1px solid rgba(22, 163, 74, 0.18);
+            border-radius: 16px;
+            padding: 16px;
+            margin-top: 24px;
+            font-family: 'Inter', sans-serif;
             font-size: 14px;
-            line-height: 1.57;
-            color: var(--text-1)
+            font-weight: 600;
+            color: #16A34A;
+            text-align: center;
         }
 
-        /* Responsive */
+        /* 8. PRICING */
+        .lw-pricing {
+            background: #F8F7F4;
+            padding: 88px 0;
+            border-top: 1px solid rgba(15, 29, 61, 0.14);
+        }
+
+        .lw-pricing__hero-line {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 22px;
+            line-height: 30px;
+            font-weight: 700;
+            color: #0B1220;
+            margin-bottom: 8px;
+        }
+
+        .lw-pricing__sub {
+            font-family: 'Inter', sans-serif;
+            font-size: 14px;
+            line-height: 22px;
+            font-weight: 500;
+            color: rgba(11, 18, 32, 0.72);
+            max-width: 600px;
+            margin: 0 auto 32px;
+        }
+
+        .lw-pricing__table-wrapper {
+            background: #FFFFFF;
+            border: 1px solid rgba(15, 29, 61, 0.14);
+            border-radius: 16px;
+            padding: 14px;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .lw-ptable__row {
+            display: flex;
+            justify-content: space-between;
+            padding: 16px 20px;
+            border-bottom: 1px solid rgba(15, 29, 61, 0.10);
+            font-family: 'Inter', sans-serif;
+            font-size: 14px;
+            line-height: 22px;
+            align-items: center;
+        }
+
+        .lw-ptable__row:last-child {
+            border-bottom: none;
+        }
+
+        .lw-ptable__header {
+            font-size: 12px;
+            line-height: 18px;
+            font-weight: 650;
+            text-transform: uppercase;
+            color: rgba(11, 18, 32, 0.56);
+            padding: 12px 20px;
+        }
+
+        .lw-ptable__row--highlight {
+            background: rgba(37, 99, 235, 0.06);
+            border-left: 3px solid #2563EB;
+            border-radius: 4px;
+        }
+
+        .lw-ptable__name {
+            font-weight: 500;
+            color: #0B1220;
+        }
+
+        .lw-ptable__price {
+            font-weight: 800;
+            color: #0B1220;
+        }
+
+        .lw-pricing__micro {
+            font-family: 'Inter', sans-serif;
+            font-size: 13px;
+            line-height: 20px;
+            font-weight: 600;
+            color: rgba(11, 18, 32, 0.56);
+            text-align: center;
+            margin-top: 16px;
+            margin-bottom: 24px;
+        }
+
+        /* 9. FINAL CTA */
+        .lw-final {
+            background: #0F1D3D;
+            padding: 64px 0;
+            text-align: center;
+        }
+
+        .lw-final h2 {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 34px;
+            line-height: 42px;
+            font-weight: 700;
+            color: #FFFFFF;
+            margin-bottom: 12px;
+        }
+
+        .lw-final p {
+            font-family: 'Inter', sans-serif;
+            font-size: 16px;
+            line-height: 26px;
+            font-weight: 450;
+            color: rgba(255, 255, 255, 0.82);
+            margin-bottom: 32px;
+        }
+
+        /* 10. FAQ */
+        .lw-faq {
+            background: #FFFFFF;
+            padding: 72px 0;
+        }
+
         @media(max-width:768px) {
-
-            .lw-hero__grid,
-            .lw-fit,
-            .lw-ba,
-            .lw-pillars,
-            .lw-process {
-                grid-template-columns: 1fr
-            }
-
-            .lw-metrics {
-                grid-template-columns: 1fr 1fr
-            }
-
             .lw-hero {
-                padding: calc(var(--nav-h) + 48px) 0 48px
+                padding: calc(var(--nav-h) + 72px) 0 48px;
+            }
+
+            .lw-hero h1 {
+                font-size: 36px;
+                line-height: 42px;
+            }
+
+            .lw-hero__sub {
+                font-size: 16px;
+                line-height: 26px;
+            }
+
+            .lw-diff {
+                padding: 56px 0;
+            }
+
+            .lw-fit {
+                padding: 56px 0;
+            }
+
+            .lw-trust__grid,
+            .lw-proof-row,
+            .lw-fit__grid,
+            .lw-diff__grid,
+            .lw-timeline__grid,
+            .lw-deliver__grid {
+                grid-template-columns: 1fr;
             }
         }
+    </style>
     </style>
 </head>
 
@@ -477,7 +707,7 @@
                 <a href="faq.html">FAQ</a>
             </nav>
             <div class="header__actions">
-                <a href="audit.html" class="btn btn--primary">Start Audit Request</a>
+                <a href="audit.html" class="btn btn--primary">Get Free Lead Leak Report</a>
             </div>
             <button class="header__burger" id="headerBurger" aria-label="Menu">
                 <span></span><span></span><span></span>
@@ -489,463 +719,308 @@
     <section class="lw-hero" id="lw-hero">
         <div class="container lw-hero__grid">
             <div class="lw-hero__copy">
-                <span class="lw-hero__eyebrow">Lead Websites for UK Trades</span>
-                <h1>If your website isn't consistently generating enquiries, it's costing you jobs.</h1>
-                <p class="lw-hero__sub">We build lead websites that turn visitors into calls and quote requests — fast,
-                    clear, and built for the way trade customers choose.</p>
+                <span class="lw-hero__eyebrow">SOLUTIONS / LEAD WEBSITES</span>
+                <h1>If your website isn't actively generating enquiries, it's leaking revenue.</h1>
+                <p class="lw-hero__sub">We engineer conversion-focused lead websites that turn local traffic into booked
+                    jobs — structured for speed, trust, and frictionless quote requests.</p>
                 <ul class="lw-hero__bullets">
-                    <li>Loads fast so customers don't leave</li>
-                    <li>Built to show up for local searches</li>
-                    <li>Designed to maximise calls &amp; quote requests</li>
-                    <li>Ready for automated follow‑up when you need it</li>
+                    <li>Built so customers don't leave before asking for a quote</li>
+                    <li>Structured to show up locally when they search</li>
+                    <li>Designed to maximise calls &amp; project requests</li>
+                    <li>Ready for automated follow‑up when you decide to layer it on</li>
                 </ul>
-                <p class="lw-hero__proof">Built for plumbers, electricians, roofers &amp; builders across the UK.</p>
                 <div class="lw-hero__ctas">
-                    <a href="audit.html" class="btn btn--primary btn--hero">Request Website Audit</a>
-                    <a href="#visual-proof" class="btn btn--outline">See Example Structure</a>
+                    <a href="audit.html" class="lw-btn-pri">Get My Lead Site Plan</a>
+                    <a href="#visual-proof" class="lw-btn-sec">See a Conversion Layout</a>
                 </div>
+                <span class="lw-hero__microcopy">Takes ~2 mins. No hard sell. Just an honest assessment.</span>
             </div>
-            <div class="lw-hero__right">
-                <div class="lw-device-card">
-                    <span class="lw-device-card__label">Example Build (Demo)</span>
-                    <div class="device-stack device-stack--mobile-lead">
-                        <div class="device device--desktop">
-                            <div class="device__screen">
-                                <div class="mock-site">
-                                    <div class="mock-site__bar">
-                                        <span class="mock-site__logo">MCR Plumbing</span>
-                                        <span class="mock-site__phone">📞 0161 555 0199</span>
-                                    </div>
-                                    <div class="mock-site__hero-img"></div>
-                                    <div class="mock-site__cards">
-                                        <div class="mock-site__card"></div>
-                                        <div class="mock-site__card"></div>
-                                        <div class="mock-site__card"></div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="device device--phone-lead">
-                            <div class="device__screen">
-                                <div class="mock-site mock-site--mobile">
-                                    <div class="mock-site__bar">
-                                        <span class="mock-site__logo">MCR Plumbing</span>
-                                    </div>
-                                    <div class="mock-site__hero-img"></div>
-                                    <div class="mock-site__cta">Get a Free Quote</div>
-                                    <div class="mock-site__stars">★★★★★ <span>4.9 (128 reviews)</span></div>
-                                    <div class="mock-site__call-btn">📞 Call Now</div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+            <div class="lw-hero__visual">
+                <div class="lw-hero__visual-img-container">
+                    <div class="wireframe-placeholder">Conversion Layout Example</div>
                 </div>
-                <div class="lw-price-card">
-                    <span class="lw-price-card__chip">Website Installs From</span>
-                    <div class="lw-price-card__amount">£3,500</div>
-                    <p class="lw-price-card__range">Most projects land between £3,500–£6,000 depending on services +
-                        areas.</p>
-                    <p class="lw-price-card__trust">If ROI doesn't make sense, we'll tell you directly.</p>
+                <span class="lw-hero__visual-caption">Lead Site Architecture Stack</span>
+                <div class="lw-hero__visual-chips">
+                    <span class="lw-hero__visual-chip">Speed: &lt;2s Mobile</span>
+                    <span class="lw-hero__visual-chip">CTA Always Visible</span>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- ═══ 2. FIT FILTER ═══ -->
-    <section class="section section--bg" id="fit">
+    <!-- ═══ 2. TRUST & PROOF ═══ -->
+    <section class="lw-trust">
+        <div class="container lw-trust__grid">
+            <div class="lw-trust-card">
+                <h3>Engineered, not templated</h3>
+                <p>We don't use heavy, bloated themes like most agencies. Every site is built for raw performance
+                    because slower sites lose jobs.</p>
+            </div>
+            <div class="lw-trust-card">
+                <h3>Local search friendly</h3>
+                <p>Your site structure dictates your local visibility. We build the precise service + area hierarchy
+                    needed to dominate local maps.</p>
+            </div>
+            <div class="lw-trust-card">
+                <h3>Ready for growth</h3>
+                <p>Start with a high-conversion foundation, then easily layer on missed-call automation and review
+                    generation when you're ready.</p>
+            </div>
+        </div>
         <div class="container">
-            <div class="lw-fit">
+            <div class="lw-proof-row">
+                <div class="lw-proof-thumb">
+                    <div class="lw-proof-thumb__img">Page Speed KPI</div>
+                    <span class="lw-proof-thumb__caption">Mobile Core Vitals</span>
+                </div>
+                <div class="lw-proof-thumb">
+                    <div class="lw-proof-thumb__img">Local Maps</div>
+                    <span class="lw-proof-thumb__caption">Local Search Visibility</span>
+                </div>
+                <div class="lw-proof-thumb">
+                    <div class="lw-proof-thumb__img">Annotated Flow</div>
+                    <span class="lw-proof-thumb__caption">Conversion Pathways</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ═══ 3. FIT FILTER ═══ -->
+    <section class="lw-fit" id="fit">
+        <div class="container">
+            <div class="lw-fit__grid">
                 <div class="lw-fit-card lw-fit-card--good">
                     <h3>Good fit if</h3>
                     <ul>
                         <li>You're getting 10+ enquiries/month</li>
-                        <li>You want more calls + quote requests without more admin</li>
-                        <li>You're ready to invest £3,500+ if it pays back</li>
-                        <li>You want a website built for conversion + local search</li>
+                        <li>You want more calls &amp; quotes without more admin</li>
+                        <li>You're ready to invest ~£3.5k+ if it pays back</li>
+                        <li>You want a website engine built for search &amp; conversion</li>
                     </ul>
                 </div>
                 <div class="lw-fit-card lw-fit-card--not">
                     <h3>Not a fit if</h3>
                     <ul>
-                        <li>You're looking for the cheapest website</li>
-                        <li>You have no inbound enquiries yet</li>
-                        <li>You want a "pretty site" with no performance focus</li>
-                        <li>You're not ready to act in the next 1–3 months</li>
+                        <li>You're looking for the absolute cheapest website</li>
+                        <li>You have virtually zero inbound enquiries right now</li>
+                        <li>You want a "pretty digital brochure" with no performance focus</li>
+                        <li>You're not ready to commit in the next 1–3 months</li>
                     </ul>
                 </div>
             </div>
+            <div class="lw-fit__cta-cont text-center">
+                <a href="audit.html" class="lw-link-cta">Get My Lead Site Plan &rarr;</a>
+            </div>
         </div>
     </section>
 
-    <!-- ═══ 3. EXAMPLE CONVERSION STRUCTURE ═══ -->
-    <section class="section section--white" id="visual-proof">
+    <!-- ═══ 4. OFFER & DIFFERENTIATION ═══ -->
+    <section class="lw-diff" id="problem">
         <div class="container">
-            <div class="section__header section__header--center">
-                <h2>Example Conversion Structure</h2>
-                <p class="section__sub">Most trade websites don't have this structure. This isn't design — it's
-                    conversion architecture.</p>
+            <div class="lw-diff__header text-center">
+                <h2>Why most trade websites fail</h2>
+                <p class="mx-auto" style="max-width: 700px; margin: 0 auto;">They are built like digital brochures,
+                    designed to look pretty rather than engineer an enquiry. We build revenue systems.</p>
             </div>
-            <div class="annotated-preview">
-                <div class="annotated-preview__frame">
-                    <div class="annotated-wireframe">
-                        <div class="aw-topbar">
-                            <span class="aw-logo">TradeCo</span>
-                            <div class="aw-nav-items">
-                                <span>Services</span><span>Areas</span><span>Reviews</span><span>Contact</span>
-                            </div>
-                            <span class="aw-phone">📞 0800 123 456</span>
-                            <div class="aw-callout" data-label="Click-to-Call"></div>
-                        </div>
-                        <div class="aw-hero-block">
-                            <div class="aw-hero-text">
-                                <div class="aw-h1">Professional Plumbing &amp; Heating Services</div>
-                                <div class="aw-body-line"></div>
-                                <div class="aw-body-line aw-body-line--short"></div>
-                                <div class="aw-cta-btn">Get a Free Quote</div>
-                                <div class="aw-callout" data-label="Primary Call CTA"></div>
-                            </div>
-                        </div>
-                        <div class="aw-services">
-                            <div class="aw-service-card">
-                                <div class="aw-card-icon"></div>
-                                <div class="aw-card-title">Boiler Install</div>
-                                <div class="aw-body-line"></div>
-                            </div>
-                            <div class="aw-service-card">
-                                <div class="aw-card-icon"></div>
-                                <div class="aw-card-title">Emergency Repair</div>
-                                <div class="aw-body-line"></div>
-                            </div>
-                            <div class="aw-service-card">
-                                <div class="aw-card-icon"></div>
-                                <div class="aw-card-title">Bathroom Fit</div>
-                                <div class="aw-body-line"></div>
-                            </div>
-                            <div class="aw-callout" data-label="Service Hierarchy"></div>
-                        </div>
-                        <div class="aw-reviews">
-                            <div class="aw-review">
-                                <div class="aw-stars">★★★★★</div>
-                                <div class="aw-body-line"></div>
-                            </div>
-                            <div class="aw-review">
-                                <div class="aw-stars">★★★★★</div>
-                                <div class="aw-body-line"></div>
-                            </div>
-                            <div class="aw-callout" data-label="Reviews + Rating Above Fold"></div>
-                        </div>
-                        <div class="aw-trust">
-                            <div class="aw-trust-badge">✓ Gas Safe</div>
-                            <div class="aw-trust-badge">✓ Fully Insured</div>
-                            <div class="aw-trust-badge">✓ 10yr Warranty</div>
-                            <div class="aw-callout" data-label="Trust Badges"></div>
-                        </div>
-                        <div class="aw-contact">
-                            <div class="aw-contact-form">
-                                <div class="aw-input"></div>
-                                <div class="aw-input"></div>
-                                <div class="aw-input aw-input--tall"></div>
-                                <div class="aw-cta-btn">Request Quote</div>
-                            </div>
-                            <div class="aw-callout" data-label="Quote Path (Frictionless)"></div>
-                        </div>
-                    </div>
+            <div class="lw-diff__grid">
+                <div class="lw-trust-card">
+                    <h3>No templated bloat</h3>
+                    <p>Heavy themes slow down load times. We use clean, lightweight code so your site loads instantly on
+                        3G and 4G mobile connections.</p>
+                </div>
+                <div class="lw-trust-card">
+                    <h3>Built to convert</h3>
+                    <p>Every element ensures the user knows exactly how to contact you. Click-to-call buttons and quote
+                        forms are always visible.</p>
+                </div>
+                <div class="lw-trust-card">
+                    <h3>Launch fast</h3>
+                    <p>Stop waiting months for a redesign. Our engineered approach means we deploy high-performance
+                        sites in 2–4 weeks.</p>
+                </div>
+            </div>
+            <div class="text-center" style="text-align: center;">
+                <a href="#conversion-layout" class="lw-btn-sec">Get Your Site Structure Plan &rarr;</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- ═══ 5. CONVERSION LAYOUT ═══ -->
+    <section class="lw-conv" id="conversion-layout">
+        <div class="container">
+            <div class="text-center" style="text-align: center;">
+                <h2
+                    style="font-family: 'Space Grotesk', sans-serif; font-size: 34px; font-weight: 700; color: #0B1220;">
+                    Conversion Layout Architecture</h2>
+                <p class="lw-hero__sub mx-auto" style="margin: 12px auto 0;">This isn't web design. It's conversion
+                    engineering.</p>
+            </div>
+            <div class="lw-conv__main">
+                <div class="lw-conv__img-wrap">
+                    <div class="wireframe-placeholder">Full Page Annotated Screenshot Example</div>
+                </div>
+                <div class="lw-conv__legend">
+                    <span class="lw-conv__chip">1. Primary CTA</span>
+                    <span class="lw-conv__chip">2. Service Hierarchy</span>
+                    <span class="lw-conv__chip">3. Sticky Contact Bar</span>
+                    <span class="lw-conv__chip">4. Trust Badges</span>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- ═══ 4. BEFORE VS AFTER ═══ -->
-    <section class="section section--bg" id="before-after">
+    <!-- ═══ 6. WHAT'S INCLUDED ═══ -->
+    <section class="lw-deliver" id="whats-included">
         <div class="container">
-            <div class="section__header section__header--center">
-                <h2>Before vs After</h2>
+            <div class="text-center" style="text-align: center; margin-bottom: 32px;">
+                <h2
+                    style="font-family: 'Space Grotesk', sans-serif; font-size: 34px; font-weight: 700; color: #0B1220;">
+                    Everything required to compete locally</h2>
             </div>
-            <div class="lw-ba">
-                <div class="lw-ba-card">
-                    <span class="lw-ba-badge lw-ba-badge--before">Before</span>
-                    <div class="ba-mock ba-mock--before">
-                        <div class="ba-mock__bar">
-                            <span style="font-weight:600;font-size:11px;color:#446">J&amp;S Plumbing Solutions
-                                Ltd</span>
-                            <div style="display:flex;gap:8px;font-size:10px;color:#889">
-                                <span>Home</span><span>Services</span><span>About
-                                    Us</span><span>Gallery</span><span>Testimonials</span><span>Blog</span><span>Contact</span>
-                            </div>
-                        </div>
-                        <div class="ba-mock__hero-old">
-                            <div style="font-size:13px;font-weight:600;color:#335;margin-bottom:4px">Welcome to J&amp;S
-                                Plumbing Solutions</div>
-                            <div class="aw-body-line" style="background:rgba(100,100,140,0.15);width:90%"></div>
-                            <div class="aw-body-line" style="background:rgba(100,100,140,0.15);width:75%"></div>
-                            <div class="aw-body-line" style="background:rgba(100,100,140,0.15);width:60%"></div>
-                        </div>
-                        <div class="ba-mock__body-old">
-                            <div class="aw-body-line" style="background:rgba(100,100,140,0.1);width:95%"></div>
-                            <div class="aw-body-line" style="background:rgba(100,100,140,0.1);width:80%"></div>
-                            <div class="aw-body-line" style="background:rgba(100,100,140,0.1);width:88%"></div>
-                            <div
-                                style="margin-top:8px;padding:6px 10px;background:#5577aa;color:white;font-size:9px;border-radius:3px;display:inline-block">
-                                Contact Us Today!</div>
-                        </div>
-                    </div>
-                </div>
-                <div class="lw-ba-card">
-                    <span class="lw-ba-badge lw-ba-badge--after">After</span>
-                    <div class="ba-mock ba-mock--after">
-                        <div class="ba-mock__bar">
-                            <span style="font-weight:700;font-size:12px;color:#0f1d3d">J&amp;S Plumbing</span>
-                            <div style="display:flex;gap:12px;font-size:10px;font-weight:500;color:#555">
-                                <span>Services</span><span>Areas</span><span>Reviews</span>
-                            </div>
-                            <span style="font-size:10px;font-weight:650;color:#2563eb">📞 0800 123 456</span>
-                        </div>
-                        <div class="ba-mock__hero-new">
-                            <div style="font-size:14px;font-weight:700;color:#fff;margin-bottom:6px">Plumbing &amp;
-                                Heating — Lincoln</div>
-                            <div class="aw-body-line" style="width:70%"></div>
-                            <div
-                                style="margin-top:8px;padding:6px 14px;background:#2563eb;color:white;font-size:10px;font-weight:700;border-radius:6px;display:inline-block">
-                                Get a Free Quote</div>
-                        </div>
-                        <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:6px;padding:10px 12px">
-                            <div
-                                style="background:#f3f4f6;border-radius:4px;padding:8px;font-size:9px;font-weight:600;color:#0f1d3d">
-                                Boiler Install</div>
-                            <div
-                                style="background:#f3f4f6;border-radius:4px;padding:8px;font-size:9px;font-weight:600;color:#0f1d3d">
-                                Emergency</div>
-                            <div
-                                style="background:#f3f4f6;border-radius:4px;padding:8px;font-size:9px;font-weight:600;color:#0f1d3d">
-                                Bathroom</div>
-                        </div>
-                        <div style="padding:6px 12px;font-size:10px;color:#f59e0b">★★★★★ <span
-                                style="color:#888;font-size:9px">4.9 (128)</span></div>
-                    </div>
-                    <ul class="lw-ba-improve">
-                        <li>Faster load times</li>
-                        <li>Clear enquiry flow</li>
-                        <li>Higher call &amp; form conversion</li>
-                        <li>Better visibility into performance</li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- ═══ 5. WHY MOST SITES FAIL ═══ -->
-    <section class="section section--white" id="problem">
-        <div class="container">
-            <div class="section__header section__header--center">
-                <h2>Most trade websites don't lose traffic.<br>They lose paying jobs.</h2>
-            </div>
-            <div class="pain-grid pain-grid--3">
-                <div class="pain-card">
-                    <div class="pain-card__icon">
-                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                            stroke-width="1.8">
-                            <circle cx="12" cy="12" r="10" />
-                            <path d="M12 6v6l4 2" stroke-linecap="round" />
-                        </svg>
-                    </div>
-                    <h3>Slow &amp; outdated builds</h3>
-                    <p>Heavy themes and messy structure reduce trust. Customers leave.</p>
-                </div>
-                <div class="pain-card">
-                    <div class="pain-card__icon">
-                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                            stroke-width="1.8">
-                            <path d="M9 18l6-6-6-6" stroke-linecap="round" stroke-linejoin="round" />
-                        </svg>
-                    </div>
-                    <h3>No clear call path</h3>
-                    <p>Visitors don't know what to do next — so they call someone else.</p>
-                </div>
-                <div class="pain-card">
-                    <div class="pain-card__icon">
-                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                            stroke-width="1.8">
-                            <rect x="3" y="3" width="18" height="18" rx="2" />
-                            <path d="M3 9h18M9 21V9" stroke-linecap="round" />
-                        </svg>
-                    </div>
-                    <h3>No system behind enquiries</h3>
-                    <p>Leads come in… then go cold because follow‑up is manual.</p>
-                </div>
-            </div>
-            <p class="section__micro-proof">A website should be a lead capture system — not a digital brochure.</p>
-        </div>
-    </section>
-
-    <!-- ═══ 6. ENGINEERED FOR REVENUE ═══ -->
-    <section class="section section--bg" id="differentiators">
-        <div class="container">
-            <div class="section__header section__header--center">
-                <h2>Engineered for revenue, not aesthetics</h2>
-                <p class="section__sub" style="font-weight:650">We don't design websites. We engineer lead systems.</p>
-            </div>
-            <div class="lw-pillars">
-                <div class="lw-pillar">
-                    <h3>Structured to convert</h3>
-                    <p>Every page guides visitors to call or request a quote.</p>
-                </div>
-                <div class="lw-pillar">
-                    <h3>Fast enough to keep them</h3>
-                    <p>Built to load quickly on mobile so customers don't bounce.</p>
-                </div>
-                <div class="lw-pillar">
-                    <h3>Shows up locally</h3>
-                    <p>Service + area structure that helps you appear when locals search.</p>
-                </div>
-                <div class="lw-pillar">
-                    <h3>Ready for follow‑up</h3>
-                    <p>Add missed‑call recovery and quote chasing when you're ready.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- ═══ 7. TYPICAL IMPROVEMENTS ═══ -->
-    <section class="section section--white" id="proof">
-        <div class="container">
-            <div class="section__header section__header--center">
-                <h2>Typical improvements after rebuild</h2>
-            </div>
-            <div class="lw-metrics">
-                <div class="lw-metric">
-                    <svg class="lw-metric__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                        stroke-width="1.8">
-                        <path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z" stroke-linecap="round" stroke-linejoin="round" />
-                    </svg>
-                    <strong>Faster load</strong>
-                    <span>Customers don't wait around</span>
-                </div>
-                <div class="lw-metric">
-                    <svg class="lw-metric__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                        stroke-width="1.8">
-                        <path
-                            d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6A19.79 19.79 0 012.12 4.18 2 2 0 014.11 2h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"
-                            stroke-linecap="round" stroke-linejoin="round" />
-                    </svg>
-                    <strong>Clear phone visibility</strong>
-                    <span>One tap to call from any screen</span>
-                </div>
-                <div class="lw-metric">
-                    <svg class="lw-metric__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                        stroke-width="1.8">
-                        <path d="M22 12h-4l-3 9L9 3l-3 9H2" stroke-linecap="round" stroke-linejoin="round" />
-                    </svg>
-                    <strong>Better tracking</strong>
-                    <span>See what's working and what isn't</span>
-                </div>
-                <div class="lw-metric">
-                    <svg class="lw-metric__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                        stroke-width="1.8">
-                        <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z" stroke-linecap="round"
-                            stroke-linejoin="round" />
-                        <circle cx="12" cy="10" r="3" />
-                    </svg>
-                    <strong>Local coverage</strong>
-                    <span>Pages for every area you serve</span>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- ═══ 8. INCLUDED + ADD-ONS ═══ -->
-    <section class="section section--bg" id="whats-included">
-        <div class="container">
-            <div class="section__header section__header--center">
-                <h2>Everything required to compete locally</h2>
-            </div>
-            <div class="deliverables-layout">
-                <div class="deliverables-card">
-                    <h3>Included</h3>
-                    <ul class="deliverables-list deliverables-list--included">
-                        <li>5–10 page structured build</li>
+            <div class="lw-deliver__grid">
+                <div class="lw-fit-card lw-fit-card--good">
+                    <h3>Included in Build</h3>
+                    <ul>
+                        <li>5–10 page structured site build</li>
                         <li>Service pages built for local ranking</li>
-                        <li>Clear CTA optimisation</li>
-                        <li>Click‑to‑call configuration</li>
-                        <li>Contact &amp; quote flow</li>
-                        <li>Analytics &amp; tracking</li>
-                        <li>Hosting &amp; performance setup</li>
+                        <li>Clear CTA &amp; conversion optimisation</li>
+                        <li>Click‑to‑call mobile configuration</li>
+                        <li>Frictionless contact &amp; quote flow</li>
+                        <li>High-performance hosting setup</li>
                     </ul>
                 </div>
-                <div class="deliverables-card deliverables-card--addon">
+                <div class="lw-fit-card lw-fit-card--good">
                     <h3>Optional Add-Ons</h3>
-                    <ul class="deliverables-list deliverables-list--addon">
-                        <li>Missed‑call automation</li>
-                        <li>Quote follow‑up system</li>
-                        <li>Review automation engine</li>
+                    <ul>
+                        <li>Missed‑call text-back automation</li>
+                        <li>Automated quote follow‑up system</li>
+                        <li>Review request automation engine</li>
                     </ul>
-                    <p class="deliverables-seed">Most clients layer automation once the website is performing.</p>
+                    <p class="lw-hero__microcopy mt-4" style="margin-top: 16px;">Most clients layer automation once the
+                        core website is performing.</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- ═══ 9. INVESTMENT ═══ -->
-    <section class="section section--white" id="investment">
+    <!-- ═══ 7. TIMELINE / INSTALLATION ═══ -->
+    <section class="lw-timeline" id="timeline">
         <div class="container">
-            <div class="section__header section__header--center">
-                <h2>Investment</h2>
+            <div class="text-center" style="text-align: center;">
+                <h2
+                    style="font-family: 'Space Grotesk', sans-serif; font-size: 34px; font-weight: 700; color: #0B1220;">
+                    Typical build timeline: 2–4 weeks</h2>
             </div>
-            <div class="lw-invest">
-                <div class="lw-invest__label">Website Installs From</div>
-                <div class="lw-invest__price">£3,500</div>
-                <p class="lw-invest__range">Most established trade businesses invest £3,500–£6,000 depending on services
-                    + areas.</p>
-                <p class="lw-invest__risk">If ROI doesn't make sense for your business, we'll tell you directly.</p>
-                <a href="audit.html" class="btn btn--primary btn--hero">Request Website Audit</a>
+            <div class="lw-timeline__grid">
+                <div class="lw-trust-card">
+                    <h3>1. Structure Plan</h3>
+                    <p>We audit your service area and map the precise page structure required to rank and convert.</p>
+                </div>
+                <div class="lw-trust-card">
+                    <h3>2. Build &amp; Optimise</h3>
+                    <p>We engineer the site for speed, applying our proven conversion layout and mobile-first
+                        architecture.</p>
+                </div>
+                <div class="lw-trust-card">
+                    <h3>3. Launch &amp; Measure</h3>
+                    <p>We deploy the site, establish performance baselines, and monitor the initial enquiry flow.</p>
+                </div>
+            </div>
+            <div class="lw-timeline__assurance">
+                We handle the technical migration entirely. Zero downtime for your current site or emails.
             </div>
         </div>
     </section>
 
-    <!-- ═══ 10. INSTALLATION PROCESS ═══ -->
-    <section class="section section--bg" id="process">
+    <!-- ═══ 8. PRICING ═══ -->
+    <section class="lw-pricing" id="pricing">
         <div class="container">
-            <div class="section__header section__header--center">
-                <h2>Installation process</h2>
+            <div class="text-center" style="text-align: center;">
+                <h2 class="lw-pricing__hero-line">From £3,500 one-off</h2>
+                <p class="lw-pricing__sub">Transparent pricing based on the size of your service area and required
+                    service pages.</p>
             </div>
-            <div class="lw-process">
-                <div class="lw-process-card">
-                    <span class="lw-process-card__num">1</span>
-                    <div>
-                        <h3>Audit &amp; structure plan</h3>
-                        <p>We analyse your current site and map conversion improvements.</p>
-                    </div>
+
+            <div class="lw-pricing__table-wrapper">
+                <div class="lw-ptable__header">Core Capabilities</div>
+
+                <div class="lw-ptable__row">
+                    <span class="lw-ptable__name">Standard Brochure Site</span>
+                    <span class="lw-ptable__price"
+                        style="color: rgba(11, 18, 32, 0.4); text-decoration: line-through;">Not Offered</span>
                 </div>
-                <div class="lw-process-card">
-                    <span class="lw-process-card__num">2</span>
-                    <div>
-                        <h3>Build &amp; optimise</h3>
-                        <p>Performance-first rebuild with structured content.</p>
-                    </div>
+
+                <div class="lw-ptable__row lw-ptable__row--highlight">
+                    <span class="lw-ptable__name">High-Performance Lead Site</span>
+                    <span class="lw-ptable__price">£3,500+</span>
                 </div>
-                <div class="lw-process-card">
-                    <span class="lw-process-card__num">3</span>
-                    <div>
-                        <h3>Launch &amp; measure</h3>
-                        <p>Live deployment + tracking dashboard.</p>
-                    </div>
+
+                <div class="lw-ptable__row">
+                    <span class="lw-ptable__name">Lead Site + Automation Layer</span>
+                    <span class="lw-ptable__price">Custom Quote</span>
                 </div>
-                <div class="lw-process-card">
-                    <span class="lw-process-card__num">4</span>
-                    <div>
-                        <h3>Optional automation layer</h3>
-                        <p>Add follow-up and missed-call systems when ready.</p>
-                    </div>
-                </div>
+            </div>
+
+            <p class="lw-pricing__micro">If the ROI doesn't make sense for your business, we'll tell you directly.</p>
+            <div class="text-center" style="text-align: center;">
+                <a href="audit.html" class="lw-btn-pri">Book a 10-Minute Layout Walkthrough &rarr;</a>
             </div>
         </div>
     </section>
 
-    <!-- ═══ 11. FINAL CTA ═══ -->
-    <section class="cta-band">
+    <!-- ═══ 9. FINAL CTA ═══ -->
+    <section class="lw-final">
         <div class="container">
-            <h2>If your website isn't actively generating enquiries, it's leaking revenue.</h2>
+            <h2>If your site isn't generating enquiries, it's leaking revenue.</h2>
             <p>No pressure. Clear numbers. Direct recommendation.</p>
-            <a href="audit.html" class="btn btn--primary btn--hero">Request Website Audit</a>
+            <a href="audit.html" class="lw-btn-pri text-white" style="color:white !important;">Get My Lead Site Plan</a>
+        </div>
+    </section>
+
+    <!-- ═══ 10. FAQ ═══ -->
+    <section class="lw-faq" id="faq">
+        <div class="container">
+            <div class="section__header section__header--left">
+                <h2>Frequently Asked Questions</h2>
+            </div>
+            <div class="faq-accordion" style="max-width: 800px;">
+                <details class="faq-item" open>
+                    <summary class="faq-item__trigger">
+                        <span class="faq-item__title">Why are your sites more expensive than standard web design?</span>
+                        <span class="faq-item__icon">+</span>
+                    </summary>
+                    <div class="faq-item__content">
+                        <p>Standard web design focuses on aesthetics ("brochure sites"). We engineer lead generation
+                            systems. Our pricing reflects the structural planning, conversion architecture, and local
+                            SEO foundation required to actually turn visitors into paying jobs. A £500 site is an
+                            expense; a £3,500 lead site is an asset that pays for itself.</p>
+                    </div>
+                </details>
+
+                <details class="faq-item">
+                    <summary class="faq-item__trigger">
+                        <span class="faq-item__title">Do I need the automation layer straight away?</span>
+                        <span class="faq-item__icon">+</span>
+                    </summary>
+                    <div class="faq-item__content">
+                        <p>No. We actually recommend starting with the core Lead Website. Once the site is generating a
+                            consistent flow of inbound enquiries, you can seamlessly layer on missed-call text-back and
+                            quote follow-ups to plug any operational leaks.</p>
+                    </div>
+                </details>
+
+                <details class="faq-item">
+                    <summary class="faq-item__trigger">
+                        <span class="faq-item__title">Will I lose my current rankings if I switch?</span>
+                        <span class="faq-item__icon">+</span>
+                    </summary>
+                    <div class="faq-item__content">
+                        <p>We handle the technical migration extremely carefully. We map and redirect all your existing
+                            URLs to ensure you don't lose any current authority, while the new structure gives you a
+                            much stronger foundation to grow your rankings further.</p>
+                    </div>
+                </details>
+            </div>
         </div>
     </section>
 

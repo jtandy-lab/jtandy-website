@@ -4,32 +4,659 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>JTandy — Stop Losing Jobs to Slow Replies | AI Automation for UK Trades</title>
+    <title>JTandy — Win More Booked Jobs Without Chasing Leads | UK Trades</title>
     <meta name="description"
-        content="JTANDY builds high-performance websites and AI automations for UK tradespeople. Respond in minutes, recover missed enquiries, and turn follow-ups into booked work.">
+        content="We install a fast website and automated follow-up system that texts missed callers, chases unanswered quotes, and asks for reviews — so you stop losing work to delays.">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
-        href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;450;500;550;600;650;700;750;800;850&family=JetBrains+Mono:wght@400;500;700&display=swap"
+        href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;650;700;800&family=Inter:wght@400;450;500;550;600;650;700;750;800;850&display=swap"
         rel="stylesheet">
     <link rel="stylesheet" href="style.css">
+    <style>
+        /* ── HERO ── */
+        .hero {
+            background: #0F1D3D;
+            background-image:
+                linear-gradient(rgba(255, 255, 255, 0.04) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(255, 255, 255, 0.04) 1px, transparent 1px);
+            background-size: 48px 48px;
+            padding: calc(var(--nav-h, 80px) + 100px) 0 80px;
+            display: flex;
+            align-items: center;
+            overflow: hidden;
+        }
+
+        .hero>.container {
+            width: 100%;
+        }
+
+        .hero__grid {
+            display: grid;
+            grid-template-columns: 3fr 2fr;
+            gap: 48px;
+            align-items: center;
+        }
+
+        .hero__eyebrow {
+            display: block;
+            font-family: var(--font-body);
+            font-size: 12px;
+            line-height: 1.5;
+            font-weight: 650;
+            letter-spacing: .08em;
+            text-transform: uppercase;
+            color: rgba(255, 255, 255, 0.65);
+            margin-bottom: 16px;
+        }
+
+        .hero h1 {
+            font-family: var(--font-heading);
+            font-size: 56px;
+            line-height: 1.14;
+            font-weight: 700;
+            color: #fff;
+            max-width: 640px;
+        }
+
+        .hero__sub {
+            font-family: var(--font-body);
+            font-size: 18px;
+            line-height: 1.56;
+            font-weight: 450;
+            color: rgba(255, 255, 255, 0.85);
+            margin-top: 18px;
+            max-width: 620px;
+        }
+
+        .hero__bullets {
+            list-style: none;
+            margin-top: 18px;
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+
+        .hero__bullets li {
+            font-family: var(--font-body);
+            font-size: 15px;
+            line-height: 1.6;
+            font-weight: 500;
+            color: rgba(255, 255, 255, 0.84);
+            padding-left: 26px;
+            position: relative;
+        }
+
+        .hero__bullets li::before {
+            content: '\2713';
+            position: absolute;
+            left: 0;
+            color: #16A34A;
+            font-weight: 700;
+            font-size: 16px;
+        }
+
+        .hero__ctas {
+            margin-top: 22px;
+        }
+
+        .btn--hero {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            font-family: var(--font-body);
+            font-size: 14px;
+            line-height: 1.43;
+            font-weight: 700;
+            height: 50px;
+            padding: 0 20px;
+            border-radius: 14px;
+            background: #2563EB;
+            color: #fff;
+            border: none;
+            text-decoration: none;
+            cursor: pointer;
+            transition: background .18s ease;
+        }
+
+        .btn--hero:hover {
+            background: #1D4ED8;
+        }
+
+        .hero__micro {
+            font-family: var(--font-body);
+            font-size: 13px;
+            line-height: 1.54;
+            font-weight: 500;
+            color: rgba(255, 255, 255, 0.70);
+            margin-top: 10px;
+        }
+
+        /* Hero right: flow card */
+        .hero-flow {
+            background: #fff;
+            border-radius: 16px;
+            padding: 18px;
+            box-shadow: 0 12px 30px rgba(0, 0, 0, 0.18);
+        }
+
+        .hero-flow__title {
+            font-family: var(--font-heading);
+            font-size: 16px;
+            line-height: 1.375;
+            font-weight: 700;
+            color: #0B1220;
+            margin-bottom: 14px;
+        }
+
+        .hero-flow__row {
+            display: flex;
+            gap: 10px;
+            align-items: flex-start;
+            padding: 8px 0;
+        }
+
+        .hero-flow__row+.hero-flow__row {
+            border-top: 1px solid rgba(15, 29, 61, 0.08);
+        }
+
+        .hero-flow__dot {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background: #16A34A;
+            flex-shrink: 0;
+            margin-top: 6px;
+        }
+
+        .hero-flow__row h4 {
+            font-family: var(--font-body);
+            font-size: 14px;
+            line-height: 1.43;
+            font-weight: 600;
+            color: #0B1220;
+            margin-bottom: 2px;
+        }
+
+        .hero-flow__row p {
+            font-family: var(--font-body);
+            font-size: 12px;
+            line-height: 1.5;
+            font-weight: 450;
+            color: rgba(11, 18, 32, 0.65);
+        }
+
+        .hero-flow__pill {
+            display: inline-block;
+            background: rgba(22, 163, 74, 0.12);
+            color: #16A34A;
+            font-family: var(--font-body);
+            font-size: 12px;
+            line-height: 1.5;
+            font-weight: 600;
+            padding: 6px 10px;
+            border-radius: 999px;
+            margin-top: 12px;
+        }
+
+        .hero-flow__note {
+            font-family: var(--font-body);
+            font-size: 11px;
+            line-height: 1.45;
+            font-weight: 500;
+            color: rgba(11, 18, 32, 0.50);
+            margin-top: 6px;
+        }
+
+        /* ── 3. PAIN CARDS ── */
+        .pain__cards {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 16px;
+            margin-top: 32px;
+        }
+
+        .pain-card {
+            background: var(--surface-0);
+            border: 1px solid var(--border-0);
+            border-radius: 16px;
+            padding: 22px;
+        }
+
+        .pain-card h3 {
+            font-family: var(--font-heading);
+            font-size: 18px;
+            font-weight: 700;
+            line-height: 1.44;
+            margin-bottom: 8px;
+        }
+
+        .pain-card p {
+            font-size: 15px;
+            line-height: 1.6;
+            font-weight: 450;
+            color: var(--text-1);
+        }
+
+        .pain__close {
+            font-size: 14px;
+            font-weight: 650;
+            color: var(--text-1);
+            margin-top: 22px;
+        }
+
+        /* ── 4. INSTALL CARDS ── */
+        .install__grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 16px;
+            margin-top: 32px;
+        }
+
+        .install-card {
+            background: var(--surface-0);
+            border: 1px solid var(--border-0);
+            border-radius: 16px;
+            padding: 22px;
+            display: flex;
+            flex-direction: column;
+            transition: box-shadow .18s ease;
+        }
+
+        .install-card:hover {
+            box-shadow: 0 2px 10px rgba(15, 29, 61, .08);
+        }
+
+        .install-card--featured {
+            border: 2px solid rgba(37, 99, 235, .55);
+            background: rgba(37, 99, 235, .04);
+            box-shadow: none;
+        }
+
+        .install-card__header {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            flex-wrap: wrap;
+            margin-bottom: 10px;
+        }
+
+        .install-card__price {
+            display: inline-block;
+            font-family: var(--font-body);
+            font-size: 12px;
+            font-weight: 650;
+            letter-spacing: .04em;
+            text-transform: uppercase;
+            background: rgba(37, 99, 235, .10);
+            color: var(--cobalt-0);
+            padding: 5px 10px;
+            border-radius: 999px;
+        }
+
+        .install-card__badge {
+            display: inline-block;
+            font-family: var(--font-body);
+            font-size: 11px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: .04em;
+            background: rgba(22, 163, 74, .12);
+            color: var(--success-0);
+            padding: 4px 8px;
+            border-radius: 6px;
+        }
+
+        .install-card h3 {
+            font-family: var(--font-heading);
+            font-size: 20px;
+            font-weight: 700;
+            line-height: 1.4;
+            margin-bottom: 6px;
+        }
+
+        .install-card>p {
+            font-size: 15px;
+            line-height: 1.6;
+            font-weight: 450;
+            color: var(--text-1);
+            margin-bottom: 10px;
+        }
+
+        .install-card__bullets {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 3px;
+            margin-bottom: 14px;
+        }
+
+        .install-card__bullets li {
+            font-size: 14px;
+            line-height: 1.57;
+            color: var(--text-1);
+            padding-left: 16px;
+            position: relative;
+        }
+
+        .install-card__bullets li::before {
+            content: '•';
+            position: absolute;
+            left: 0;
+            font-weight: 700;
+            color: var(--text-2);
+        }
+
+        .install-card__link {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            font-family: var(--font-body);
+            font-size: 14px;
+            font-weight: 650;
+            height: 40px;
+            padding: 0 16px;
+            border-radius: 12px;
+            border: 1px solid var(--border-1, rgba(15, 29, 61, .16));
+            color: var(--text-0);
+            text-decoration: none;
+            margin-top: auto;
+            transition: background .18s ease;
+        }
+
+        .install-card__link:hover {
+            background: rgba(15, 29, 61, .04);
+        }
+
+        .install-card__btn-featured {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            font-family: var(--font-body);
+            font-size: 14px;
+            font-weight: 700;
+            height: 40px;
+            padding: 0 20px;
+            border-radius: 12px;
+            background: var(--cobalt-0);
+            color: #fff;
+            text-decoration: none;
+            margin-top: auto;
+            border: none;
+            cursor: pointer;
+            transition: background .18s ease;
+        }
+
+        .install-card__btn-featured:hover {
+            background: var(--cobalt-1, #1D4ED8);
+        }
+
+        /* ── 5. PROCESS STEPS ── */
+        .process__grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 16px;
+            margin-top: 32px;
+        }
+
+        .process-card {
+            background: var(--surface-0);
+            border: 1px solid var(--border-0);
+            border-radius: 16px;
+            padding: 22px;
+        }
+
+        .process-card__badge {
+            width: 28px;
+            height: 28px;
+            border-radius: 50%;
+            background: var(--cobalt-0);
+            color: #fff;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: var(--font-body);
+            font-size: 13px;
+            font-weight: 700;
+            margin-bottom: 12px;
+        }
+
+        .process-card h3 {
+            font-family: var(--font-heading);
+            font-size: 18px;
+            font-weight: 700;
+            margin-bottom: 6px;
+        }
+
+        .process-card p {
+            font-size: 15px;
+            line-height: 1.6;
+            font-weight: 450;
+            color: var(--text-1);
+            margin-bottom: 6px;
+        }
+
+        .process-card__output {
+            font-size: 13px;
+            font-weight: 650;
+            color: var(--text-2);
+            font-style: italic;
+        }
+
+        .assurance-band {
+            background: rgba(22, 163, 74, .10);
+            border: 1px solid rgba(22, 163, 74, .18);
+            border-radius: 16px;
+            padding: 16px 18px;
+            margin-top: 20px;
+            font-size: 14px;
+            font-weight: 600;
+            color: var(--text-1);
+            line-height: 1.5;
+        }
+
+        /* ── 6. PROOF METRICS ── */
+        .proof__grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 16px;
+            margin-top: 32px;
+        }
+
+        .proof-card {
+            background: var(--bg-0);
+            border: 1px solid var(--border-0);
+            border-radius: 16px;
+            padding: 20px;
+            text-align: center;
+        }
+
+        .proof-card__value {
+            font-family: var(--font-body);
+            font-size: 34px;
+            font-weight: 850;
+            color: var(--text-0);
+            line-height: 1.12;
+        }
+
+        .proof-card__label {
+            font-family: var(--font-body);
+            font-size: 12px;
+            font-weight: 650;
+            text-transform: uppercase;
+            letter-spacing: .06em;
+            color: var(--text-2);
+            margin-top: 6px;
+        }
+
+        .proof-card__micro {
+            font-size: 12px;
+            font-weight: 500;
+            color: var(--text-2);
+            margin-top: 2px;
+        }
+
+        .proof__caption {
+            font-family: var(--font-body);
+            font-size: 14px;
+            line-height: 1.57;
+            font-weight: 600;
+            color: var(--text-1);
+            margin-top: 8px;
+        }
+
+        .proof__foot {
+            font-size: 12px;
+            color: var(--text-2);
+            margin-top: 16px;
+        }
+
+        .proof__cta {
+            margin-top: 18px;
+        }
+
+        /* ── 7. FAQ PREVIEW ── */
+        .faq-preview {
+            background: var(--bg-0);
+            padding: 72px 0 56px;
+            border-top: 1px solid var(--border-0);
+        }
+
+        .faq-item {
+            background: var(--surface-0);
+            border: 1px solid var(--border-0);
+            border-radius: 16px;
+            margin-bottom: 8px;
+            overflow: hidden;
+        }
+
+        .faq-item__q {
+            width: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 18px;
+            border: none;
+            background: none;
+            font-family: var(--font-body);
+            font-size: 15px;
+            font-weight: 650;
+            color: var(--text-0);
+            text-align: left;
+            cursor: pointer;
+            line-height: 1.4;
+        }
+
+        .faq-item__q::after {
+            content: '+';
+            font-size: 20px;
+            font-weight: 400;
+            color: var(--text-2);
+            flex-shrink: 0;
+            margin-left: 12px;
+            transition: transform .18s ease;
+        }
+
+        .faq-item.open .faq-item__q::after {
+            content: '−';
+        }
+
+        .faq-item__a {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height .3s ease;
+        }
+
+        .faq-item.open .faq-item__a {
+            max-height: 300px;
+        }
+
+        .faq-item__a-inner {
+            padding: 0 18px 18px;
+            font-size: 14px;
+            line-height: 1.6;
+            color: var(--text-1);
+            border-top: 1px solid var(--border-0);
+            padding-top: 14px;
+        }
+
+        .faq-preview__link {
+            display: inline-block;
+            margin-top: 14px;
+            font-size: 14px;
+            font-weight: 650;
+            color: var(--cobalt-0);
+            text-decoration: none;
+        }
+
+        .faq-preview__link:hover {
+            text-decoration: underline;
+        }
+
+        /* ── RESPONSIVE ── */
+        @media (max-width: 900px) {
+            .hero {
+                padding: calc(var(--nav-h, 80px) + 72px) 0 56px;
+            }
+
+            .hero h1 {
+                font-size: 38px;
+                line-height: 1.16;
+            }
+
+            .hero__sub {
+                font-size: 16px;
+                line-height: 1.62;
+            }
+
+            .hero__grid {
+                grid-template-columns: 1fr;
+            }
+
+            .btn--hero {
+                width: 100%;
+                justify-content: center;
+            }
+
+            .pain__cards,
+            .process__grid {
+                grid-template-columns: 1fr;
+            }
+
+            .install__grid {
+                grid-template-columns: 1fr;
+            }
+
+            .proof__grid {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+
+        @media (max-width: 600px) {
+            .proof__grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
 </head>
 
 <body>
 
-    <!-- ═══ HEADER ═══ -->
+    <!-- ═══ 1. HEADER ═══ -->
     <header class="header" id="header">
         <div class="header__inner">
-            <a href="index.html" class="header__brand">JTANDY</a>
+            <a href="index.html" class="header__brand"><img src="../Assets/Logo/Navy Jtandy Logo.svg" alt="JTandy"
+                    class="header__logo header__logo--navy"><img src="../Assets/Logo/White Jtandy Logo.svg" alt="JTandy"
+                    class="header__logo header__logo--white"></a>
             <nav class="header__nav" id="headerNav">
                 <div class="nav-dropdown">
-                    <a href="index.html#solutions" class="nav-dropdown__trigger">Solutions <span
+                    <a href="solutions.html" class="nav-dropdown__trigger">Solutions <span
                             class="nav-dropdown__arrow">▾</span></a>
                     <div class="nav-dropdown__menu">
-                        <a href="revenue-engine.html">Revenue Engine</a>
                         <a href="lead-websites.html">Lead Websites</a>
                         <a href="follow-up-automation.html">Follow-Up Automation</a>
                         <a href="review-automation.html">Review Automation</a>
+                        <a href="revenue-engine.html">Revenue Engine</a>
                     </div>
                 </div>
                 <a href="how-it-works.html">How It Works</a>
@@ -46,440 +673,513 @@
         </div>
     </header>
 
-    <!-- ═══ HERO ═══ -->
+    <!-- ═══ 2. HERO ═══ -->
     <section class="hero" id="hero">
-        <div class="hero__grid-bg"></div>
-        <div class="container hero__layout">
-            <!-- Left column -->
-            <div class="hero__copy">
-                <span class="hero__eyebrow">For UK Trades</span>
-                <h1>Install a 24/7<br><span class="hero__emphasis">Revenue Engine</span><br><span
-                        class="hero__resolve">for Your Trade Business.</span></h1>
-                <p class="hero__sub">High-performance websites and AI automations that respond in minutes,
-                    recover missed enquiries, and turn follow-ups into booked jobs — with measurable ROI in one
-                    dashboard.</p>
-                <div class="hero__ctas">
-                    <a href="audit.html" class="btn btn--primary btn--hero">Book AI Audit</a>
-                    <a href="#how-it-works" class="btn btn--ghost-light">See the System</a>
+        <div class="container">
+            <div class="hero__grid">
+                <!-- LEFT: Copy -->
+                <div>
+                    <span class="hero__eyebrow">For UK Trades</span>
+                    <h1>Missed calls and slow follow‑ups are costing you booked jobs.</h1>
+                    <p class="hero__sub">We install a fast website + automated follow‑up that replies to missed calls,
+                        chases quotes, and requests reviews — so you stop losing work to delay.</p>
+                    <ul class="hero__bullets">
+                        <li>Missed call? Instant text‑back.</li>
+                        <li>Quote sent? It follows up.</li>
+                        <li>Job done? Review request goes out.</li>
+                    </ul>
+                    <div class="hero__ctas">
+                        <a href="audit.html" class="btn--hero">Start Audit Request</a>
+                    </div>
+                    <p class="hero__micro">Takes 2–3 minutes • No calls • Reply by email within 48 hours</p>
                 </div>
-                <p class="hero__trust">✅ Built for UK trades &bull; Setup in days &bull; Measured ROI dashboard</p>
 
-                <!-- KPI Cards -->
-                <div class="kpi-grid">
-                    <div class="kpi kpi--primary">
-                        <span class="kpi__label">Response Time</span>
-                        <span class="kpi__value">2 minutes</span>
-                        <span class="kpi__note">Typical after setup</span>
-                    </div>
-                    <div class="kpi kpi--primary">
-                        <span class="kpi__label">Follow-Up Conversion</span>
-                        <span class="kpi__value">+15–30%</span>
-                        <span class="kpi__note">From automated chase sequences</span>
-                    </div>
-                    <div class="kpi">
-                        <span class="kpi__label">Missed Call Recovery</span>
-                        <span class="kpi__value">0 leads lost</span>
-                        <span class="kpi__note">Auto text-back + booking</span>
-                    </div>
-                    <div class="kpi">
-                        <span class="kpi__label">Tracking</span>
-                        <span class="kpi__value">1 dashboard</span>
-                        <span class="kpi__note">Leads, bookings, ROI</span>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Right column: System Diagram -->
-            <div class="hero__diagram">
-                <div class="diagram-card">
-                    <div class="diagram-card__header">
-                        <h3 class="diagram-card__title">Lead Capture → Booking Engine</h3>
-                        <p class="diagram-card__subtitle">Always-on follow-up + qualification</p>
-                    </div>
-                    <div class="diagram-card__flow">
-                        <div class="flow-step">
-                            <div class="flow-step__content">
-                                <span class="flow-step__title">Website / Google / Ads</span>
-                                <span class="flow-step__micro">Enquiry captured instantly</span>
+                <!-- RIGHT: Flow card -->
+                <div>
+                    <div class="hero-flow">
+                        <div class="hero-flow__title">When a customer contacts you…</div>
+                        <div class="hero-flow__row">
+                            <div class="hero-flow__dot"></div>
+                            <div>
+                                <h4>They call or request a quote</h4>
+                                <p>From Google, your website, or ads.</p>
                             </div>
                         </div>
-                        <div class="flow-step__line"></div>
-                        <div class="flow-step flow-step--live">
-                            <div class="flow-step__content">
-                                <span class="flow-step__title">Instant reply (SMS / WhatsApp / Email)</span>
-                                <span class="flow-step__micro">Customer gets a response within minutes</span>
+                        <div class="hero-flow__row">
+                            <div class="hero-flow__dot"></div>
+                            <div>
+                                <h4>If you miss it, they get a text</h4>
+                                <p>"Sorry we missed you — what's the job + postcode?"</p>
                             </div>
                         </div>
-                        <div class="flow-step__line"></div>
-                        <div class="flow-step">
-                            <div class="flow-step__content">
-                                <span class="flow-step__title">Qualification questions</span>
-                                <span class="flow-step__micro">Filters time-wasters before you call</span>
+                        <div class="hero-flow__row">
+                            <div class="hero-flow__dot"></div>
+                            <div>
+                                <h4>You get the job details</h4>
+                                <p>Call back or they book in.</p>
                             </div>
                         </div>
-                        <div class="flow-step__line"></div>
-                        <div class="flow-step flow-step--live">
-                            <div class="flow-step__content">
-                                <span class="flow-step__title">Booking link + reminders</span>
-                                <span class="flow-step__micro">Surveys booked without back-and-forth</span>
+                        <div class="hero-flow__row">
+                            <div class="hero-flow__dot"></div>
+                            <div>
+                                <h4>Quotes get followed up</h4>
+                                <p>Until they reply yes/no.</p>
                             </div>
                         </div>
-                        <div class="flow-step__line"></div>
-                        <div class="flow-step">
-                            <div class="flow-step__content">
-                                <span class="flow-step__title">Review request after job</span>
-                                <span class="flow-step__micro">More 5★ reviews, automatically</span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="diagram-card__badge">
-                        <span class="badge badge--success">Runs 24/7. No chasing.</span>
+                        <div class="hero-flow__pill">Runs 24/7. No chasing.</div>
+                        <div class="hero-flow__note">Conservative messaging. Opt‑out friendly.</div>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- ═══ PROBLEM ═══ -->
-    <section class="section section--bg" id="problem">
+    <!-- ═══ 3. PAIN CARDS ═══ -->
+    <section class="section section--bg" id="pain">
         <div class="container">
             <div class="section__header">
                 <h2>Most trades don't lose work on skill — they lose it on speed.</h2>
-                <p class="section__sub">In most local markets, the first company to respond and follow up wins.
-                    We install the system that makes that automatic.</p>
             </div>
-            <div class="pain-grid">
+            <div class="pain__cards">
                 <div class="pain-card">
-                    <div class="pain-card__icon">
-                        <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
-                            <path
-                                d="M17 12.5C17 13.163 16.7366 13.7989 16.2678 14.2678C15.7989 14.7366 15.163 15 14.5 15H6.5L3 18V5.5C3 4.83696 3.26339 4.20107 3.73223 3.73223C4.20107 3.26339 4.83696 3 5.5 3H14.5C15.163 3 15.7989 3.26339 16.2678 3.73223C16.7366 4.20107 17 4.83696 17 5.5V12.5Z"
-                                stroke="currentColor" stroke-width="1.5" stroke-linecap="round"
-                                stroke-linejoin="round" />
-                            <line x1="7" y1="8" x2="13" y2="8" stroke="currentColor" stroke-width="1.5"
-                                stroke-linecap="round" />
-                            <line x1="7" y1="11" x2="10" y2="11" stroke="currentColor" stroke-width="1.5"
-                                stroke-linecap="round" />
-                        </svg>
-                    </div>
                     <h3>Missed calls = missed jobs</h3>
-                    <p>If you don't answer, they ring the next company. Every missed call is potential revenue you'll
-                        never see.</p>
+                    <p>If you don't answer, they ring the next company. That job is gone.</p>
                 </div>
                 <div class="pain-card">
-                    <div class="pain-card__icon">
-                        <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
-                            <circle cx="10" cy="10" r="7" stroke="currentColor" stroke-width="1.5" />
-                            <polyline points="10,6 10,10 13,12" stroke="currentColor" stroke-width="1.5"
-                                stroke-linecap="round" stroke-linejoin="round" />
-                        </svg>
-                    </div>
-                    <h3>Slow follow-up kills conversion</h3>
-                    <p>Quotes sent, then silence. Customers decide quickly — often within hours. Delay costs jobs.</p>
+                    <h3>Cold quotes</h3>
+                    <p>Quotes go out… then silence. Without follow‑up, many never convert.</p>
                 </div>
                 <div class="pain-card">
-                    <div class="pain-card__icon">
-                        <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
-                            <rect x="3" y="4" width="14" height="12" rx="2" stroke="currentColor" stroke-width="1.5" />
-                            <line x1="7" y1="8" x2="13" y2="8" stroke="currentColor" stroke-width="1.5"
-                                stroke-linecap="round" />
-                            <line x1="7" y1="12" x2="11" y2="12" stroke="currentColor" stroke-width="1.5"
-                                stroke-linecap="round" />
-                        </svg>
-                    </div>
-                    <h3>Admin steals evenings — and margins</h3>
-                    <p>Reminders, scheduling, reviews, chasing. Time lost to admin is revenue lost on site.</p>
+                    <h3>No review system</h3>
+                    <p>Even great work doesn't translate into trust unless reviews keep coming in.</p>
                 </div>
             </div>
-            <p class="section__micro-proof">We remove the revenue leaks — and show you the numbers in black and white.
-            </p>
+            <p class="pain__close">We install the fix — and show the numbers in black and white.</p>
         </div>
     </section>
 
-    <!-- ═══ SOLUTIONS ═══ -->
-    <section class="section section--white" id="solutions">
+    <!-- ═══ 4. WHAT WE INSTALL ═══ -->
+    <section class="section" id="install">
         <div class="container">
             <div class="section__header">
-                <h2>One system. Four revenue levers.</h2>
-                <p class="section__sub">You can start with one lever, or install the full engine. Everything is modular
-                    and measurable.</p>
+                <h2>What we install</h2>
             </div>
-            <div class="solutions-layout">
-                <!-- Left overview -->
-                <div class="solutions-overview">
-                    <h3>What you get</h3>
-                    <ul class="check-list">
-                        <li>Sub-second site speed + conversion UX</li>
-                        <li>Instant enquiry response (SMS/WhatsApp/email)</li>
-                        <li>Missed-call recovery + follow-ups</li>
-                        <li>Qualification + booking automation</li>
-                        <li>Review generation + reputation lift</li>
-                        <li>ROI dashboard (leads → booked → £)</li>
+            <div class="install__grid">
+                <!-- Card 1: Lead Website -->
+                <div class="install-card">
+                    <div class="install-card__header">
+                        <span class="install-card__price">From £3,500</span>
+                    </div>
+                    <h3>Lead Website</h3>
+                    <p>A fast, structured website built to generate calls and quote requests.</p>
+                    <ul class="install-card__bullets">
+                        <li>Fast on mobile</li>
+                        <li>Clear "Call / Quote" path</li>
+                        <li>Local service + area structure</li>
                     </ul>
+                    <a href="lead-websites.html" class="install-card__link">View Lead Websites</a>
                 </div>
-                <!-- Right: module cards -->
-                <div class="modules-stack">
-                    <div class="module-card">
-                        <span class="chip chip--cobalt">Website</span>
-                        <h3>High-Performance Lead Website</h3>
-                        <p class="module-card__outcome">Turn clicks into calls and quote requests.</p>
-                        <p>Built for speed, trust, and local intent. Clear services, proof, and frictionless contact
-                            paths.</p>
-                        <ul class="module-card__list">
-                            <li>Fast load times (Core Web Vitals)</li>
-                            <li>Local SEO structure</li>
-                            <li>Conversion layout for trades</li>
-                        </ul>
+
+                <!-- Card 2: Follow-Up Automation -->
+                <div class="install-card">
+                    <div class="install-card__header">
+                        <span class="install-card__price">From £1,500 setup + £250/mo</span>
                     </div>
-                    <div class="module-card">
-                        <span class="chip chip--cobalt">Response</span>
-                        <h3>Instant Enquiry Reply</h3>
-                        <p class="module-card__outcome">Respond in minutes — even when you're on a job.</p>
-                        <p>Auto-reply via SMS/WhatsApp/email to confirm the enquiry, set expectations, and route the
-                            next step.</p>
-                        <ul class="module-card__list">
-                            <li>Auto acknowledgement</li>
-                            <li>Capture job details</li>
-                            <li>Route urgent leads</li>
-                        </ul>
+                    <h3>Follow‑Up Automation</h3>
+                    <p>Missed‑call text‑back and quote follow‑ups so enquiries don't disappear.</p>
+                    <ul class="install-card__bullets">
+                        <li>Text‑back</li>
+                        <li>Quote reminders</li>
+                        <li>Lead status visibility</li>
+                    </ul>
+                    <a href="follow-up-automation.html" class="install-card__link">View Follow‑Up</a>
+                </div>
+
+                <!-- Card 3: Review Automation -->
+                <div class="install-card">
+                    <div class="install-card__header">
+                        <span class="install-card__price">From £950 setup + £150/mo</span>
                     </div>
-                    <div class="module-card">
-                        <span class="chip chip--cobalt">Recovery</span>
-                        <h3>Missed-Call + Follow-Up Engine</h3>
-                        <p class="module-card__outcome">Recover leads that would otherwise disappear.</p>
-                        <p>Missed call text-back, quote chasing, and timed follow-ups that run without you remembering.
-                        </p>
-                        <ul class="module-card__list">
-                            <li>Missed call text-back</li>
-                            <li>Quote follow-up sequence</li>
-                            <li>No-show reminders</li>
-                        </ul>
+                    <h3>Review Automation</h3>
+                    <p>Polite review requests after jobs to grow Google proof consistently.</p>
+                    <ul class="install-card__bullets">
+                        <li>Google link</li>
+                        <li>One reminder</li>
+                        <li>Service recovery prompt</li>
+                    </ul>
+                    <a href="review-automation.html" class="install-card__link">View Reviews</a>
+                </div>
+
+                <!-- Card 4: Full Revenue Engine (featured) -->
+                <div class="install-card install-card--featured">
+                    <div class="install-card__header">
+                        <span class="install-card__price">From £7,500 setup + £450/mo</span>
+                        <span class="install-card__badge">Best Value</span>
                     </div>
-                    <div class="module-card">
-                        <span class="chip chip--cobalt">Reputation</span>
-                        <h3>Review & Referral Automations</h3>
-                        <p class="module-card__outcome">More 5★ reviews, more inbound leads.</p>
-                        <p>Post-job review requests and light-touch referral nudges — automated, polite, consistent.</p>
-                        <ul class="module-card__list">
-                            <li>Review request timing</li>
-                            <li>Link to Google</li>
-                            <li>Escalate issues privately</li>
-                        </ul>
-                    </div>
+                    <h3>Full Revenue Engine</h3>
+                    <p>Everything integrated: capture → respond → follow‑up → reviews → measurement.</p>
+                    <ul class="install-card__bullets">
+                        <li>Full system</li>
+                        <li>Dashboard reporting</li>
+                        <li>Ongoing optimisation</li>
+                    </ul>
+                    <a href="revenue-engine.html" class="install-card__btn-featured">View Revenue Engine</a>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- ═══ HOW IT WORKS ═══ -->
-    <section class="section section--bg" id="how-it-works">
+    <!-- ═══ 5. HOW IT WORKS ═══ -->
+    <section class="section section--bg" id="process">
+        <div class="container">
+            <div class="section__header">
+                <h2>How we install it (without disruption)</h2>
+            </div>
+            <div class="process__grid">
+                <div class="process-card">
+                    <div class="process-card__badge">1</div>
+                    <h3>Audit (by email)</h3>
+                    <p>We identify where enquiries leak: missed calls, slow replies, cold quotes.</p>
+                    <span class="process-card__output">Output: written recommendation + pricing guidance.</span>
+                </div>
+                <div class="process-card">
+                    <div class="process-card__badge">2</div>
+                    <h3>Install + test</h3>
+                    <p>We build the website/automation in a controlled setup and test edge cases.</p>
+                    <span class="process-card__output">Output: reliable system you can trust.</span>
+                </div>
+                <div class="process-card">
+                    <div class="process-card__badge">3</div>
+                    <h3>Launch + measure</h3>
+                    <p>You can see enquiries, response speed, follow‑up status, and review flow.</p>
+                    <span class="process-card__output">Output: measurable improvement, not guesswork.</span>
+                </div>
+            </div>
+            <div class="assurance-band">Conservative setup: rate‑limited, opt‑out friendly messaging. No spam.</div>
+        </div>
+    </section>
+
+    <!-- ═══ 6. PROOF PREVIEW ═══ -->
+    <section class="section" id="proof">
         <div class="container">
             <div class="section__header section__header--center">
-                <h2>Install the engine in 7 days.</h2>
+                <h2>Proof you can see (example reporting)</h2>
+                <p class="proof__caption">Example: Plumbing business (6 weeks after install).<br>Measured: response
+                    speed, follow‑ups sent, bookings, review growth.</p>
             </div>
-            <div class="timeline">
-                <div class="timeline-step">
-                    <div class="timeline-step__badge">1</div>
-                    <h3>Audit + baseline</h3>
-                    <p>We measure your current leak points: response time, missed calls, follow-ups, booking friction.
-                    </p>
+            <div class="proof__grid">
+                <div class="proof-card">
+                    <div class="proof-card__value">+22%</div>
+                    <div class="proof-card__label">Bookings</div>
+                    <div class="proof-card__micro">(example)</div>
                 </div>
-                <div class="timeline-step__connector"></div>
-                <div class="timeline-step">
-                    <div class="timeline-step__badge">2</div>
-                    <h3>Build + wire the flows</h3>
-                    <p>Website + automations installed: instant replies, qualification, booking, and follow-ups.</p>
+                <div class="proof-card">
+                    <div class="proof-card__value">2m 14s</div>
+                    <div class="proof-card__label">First Response</div>
+                    <div class="proof-card__micro">(example)</div>
                 </div>
-                <div class="timeline-step__connector"></div>
-                <div class="timeline-step">
-                    <div class="timeline-step__badge">3</div>
-                    <h3>Test + harden</h3>
-                    <p>We run test leads, edge cases, and failure modes so it's reliable when you're busy.</p>
+                <div class="proof-card">
+                    <div class="proof-card__value">+18</div>
+                    <div class="proof-card__label">5★ Reviews / 6 weeks</div>
+                    <div class="proof-card__micro">(example)</div>
                 </div>
-                <div class="timeline-step__connector"></div>
-                <div class="timeline-step">
-                    <div class="timeline-step__badge">4</div>
-                    <h3>Launch + measure ROI</h3>
-                    <p>Dashboard shows: enquiries → booked jobs → revenue impact. We iterate based on the numbers.</p>
+                <div class="proof-card">
+                    <div class="proof-card__value">~6 hrs</div>
+                    <div class="proof-card__label">Admin Time Saved / week</div>
+                    <div class="proof-card__micro">(estimate)</div>
                 </div>
             </div>
-            <div class="assurance-box">
-                <strong>Conservative setup:</strong> We never deploy anything that could spam customers or break your
-                existing phone/email flow.
+            <p class="proof__foot">Example figures shown to illustrate typical reporting. Actual results vary.</p>
+            <div class="proof__cta">
+                <a href="results.html" class="btn btn--outline">See Results →</a>
             </div>
         </div>
     </section>
 
-    <!-- ═══ RESULTS ═══ -->
-    <section class="section section--white" id="results">
+    <!-- ═══ 7. ABOUT BLOCK ═══ -->
+    <section class="section section--white" id="about-preview"
+        style="padding: 72px 0 56px; border-top: 1px solid rgba(15,29,61,0.14);">
         <div class="container">
-            <div class="section__header section__header--center">
-                <h2>Results you can see in a dashboard.</h2>
-            </div>
-            <div class="results-layout">
-                <!-- Case study card -->
-                <div class="case-card">
-                    <div class="case-card__header">
-                        <h3>Example: Local trades business</h3>
-                        <span class="chip chip--muted">6 weeks after install</span>
+            <style>
+                .about-preview__layout {
+                    display: grid;
+                    grid-template-columns: 4fr 8fr;
+                    gap: 48px;
+                    align-items: start;
+                }
+
+                @media (max-width: 900px) {
+                    .about-preview__layout {
+                        grid-template-columns: 1fr;
+                        gap: 32px;
+                    }
+                }
+
+                /* Local styles for this block */
+                .home-founder-card {
+                    background: #F8F7F4;
+                    border: 1px solid rgba(15, 29, 61, 0.14);
+                    border-radius: 16px;
+                    padding: 18px;
+                }
+
+                .home-founder-card__top {
+                    display: flex;
+                    align-items: center;
+                    gap: 16px;
+                }
+
+                .home-founder-card__avatar {
+                    width: 72px;
+                    height: 72px;
+                    border-radius: 999px;
+                    object-fit: cover;
+                    flex-shrink: 0;
+                }
+
+                @media (max-width: 768px) {
+                    .home-founder-card__avatar {
+                        width: 56px;
+                        height: 56px;
+                    }
+                }
+
+                .home-founder-card__name {
+                    font-family: 'Space Grotesk', sans-serif;
+                    font-size: 16px;
+                    line-height: 22px;
+                    font-weight: 700;
+                    color: #0B1220;
+                    margin: 0;
+                }
+
+                .home-founder-card__role {
+                    font-family: 'Inter', sans-serif;
+                    font-size: 13px;
+                    line-height: 20px;
+                    font-weight: 600;
+                    color: rgba(11, 18, 32, 0.56);
+                    margin: 0;
+                }
+
+                .home-founder-card__body {
+                    font-family: 'Inter', sans-serif;
+                    font-size: 14px;
+                    line-height: 22px;
+                    font-weight: 450;
+                    color: rgba(11, 18, 32, 0.72);
+                    margin-top: 8px;
+                }
+
+                .home-founder-card__link {
+                    display: inline-block;
+                    font-family: 'Inter', sans-serif;
+                    font-size: 14px;
+                    line-height: 22px;
+                    font-weight: 650;
+                    color: #2563EB;
+                    text-decoration: none;
+                    margin-top: 8px;
+                }
+
+                .home-founder-card__link:hover {
+                    text-decoration: underline;
+                }
+
+                .home-about-content__eyebrow {
+                    font-family: 'Inter', sans-serif;
+                    font-size: 12px;
+                    line-height: 18px;
+                    font-weight: 650;
+                    text-transform: uppercase;
+                    letter-spacing: 0.08em;
+                    color: rgba(11, 18, 32, 0.56);
+                    display: block;
+                    margin-bottom: 10px;
+                }
+
+                .home-about-content__h3 {
+                    font-family: 'Space Grotesk', sans-serif;
+                    font-size: 24px;
+                    line-height: 32px;
+                    font-weight: 700;
+                    color: #0B1220;
+                    margin-bottom: 10px;
+                }
+
+                .home-about-content__body {
+                    font-family: 'Inter', sans-serif;
+                    font-size: 16px;
+                    line-height: 26px;
+                    font-weight: 450;
+                    color: rgba(11, 18, 32, 0.72);
+                    margin-top: 10px;
+                    max-width: 760px;
+                }
+
+                .home-about-bullets {
+                    list-style: none;
+                    margin-top: 16px;
+                    display: flex;
+                    flex-direction: column;
+                    gap: 8px;
+                }
+
+                .home-about-bullets li {
+                    font-family: 'Inter', sans-serif;
+                    font-size: 14px;
+                    line-height: 22px;
+                    font-weight: 500;
+                    color: rgba(11, 18, 32, 0.72);
+                    padding-left: 24px;
+                    position: relative;
+                }
+
+                .home-about-bullets li::before {
+                    content: '\2713';
+                    position: absolute;
+                    left: 0;
+                    color: #16A34A;
+                    font-weight: 700;
+                    font-size: 16px;
+                }
+
+                .home-about-cta-row {
+                    display: flex;
+                    align-items: center;
+                    gap: 16px;
+                    margin-top: 24px;
+                    flex-wrap: wrap;
+                }
+
+                .home-about-btn {
+                    display: inline-flex;
+                    align-items: center;
+                    justify-content: center;
+                    font-family: 'Inter', sans-serif;
+                    font-size: 14px;
+                    line-height: 20px;
+                    font-weight: 700;
+                    height: 44px;
+                    padding: 0 16px;
+                    border-radius: 12px;
+                    background: #2563EB;
+                    color: #FFFFFF;
+                    text-decoration: none;
+                    transition: background 0.2s ease;
+                }
+
+                .home-about-btn:hover {
+                    background: #1D4ED8;
+                }
+
+                .home-about-link {
+                    font-family: 'Inter', sans-serif;
+                    font-size: 14px;
+                    line-height: 20px;
+                    font-weight: 650;
+                    color: #2563EB;
+                    text-decoration: none;
+                }
+
+                .home-about-link:hover {
+                    text-decoration: underline;
+                }
+            </style>
+            <div class="about-preview__layout">
+                <!-- Left: Founder mini-card -->
+                <div>
+                    <div class="home-founder-card">
+                        <div class="home-founder-card__top">
+                            <img src="james-tandy.jpg" alt="James Tandy" class="home-founder-card__avatar"
+                                onerror="this.src='https://via.placeholder.com/72x72/0f1d3d/ffffff?text=JT'">
+                            <div>
+                                <h4 class="home-founder-card__name">James Tandy</h4>
+                                <p class="home-founder-card__role">Founder, JTANDY</p>
+                            </div>
+                        </div>
+                        <p class="home-founder-card__body">You deal directly with the builder — no hand‑offs.</p>
+                        <a href="about.html" class="home-founder-card__link">About JTANDY →</a>
                     </div>
-                    <div class="case-card__metrics">
-                        <div class="case-metric">
-                            <span class="case-metric__value">+22%</span>
-                            <span class="case-metric__label">Bookings</span>
-                        </div>
-                        <div class="case-metric">
-                            <span class="case-metric__value">2m 14s</span>
-                            <span class="case-metric__label">Avg First Response</span>
-                        </div>
-                        <div class="case-metric">
-                            <span class="case-metric__value">+18</span>
-                            <span class="case-metric__label">Reviews (5★)</span>
-                        </div>
-                        <div class="case-metric">
-                            <span class="case-metric__value">-6 hrs/wk</span>
-                            <span class="case-metric__label">Admin Time</span>
-                        </div>
-                    </div>
-                    <p class="case-card__disclaimer">Example figures shown to illustrate typical reporting. Actual
-                        results vary by market and offer.</p>
                 </div>
-                <!-- Faux dashboard -->
-                <div class="dash-card">
-                    <div class="dash-card__header">
-                        <h3>ROI Dashboard</h3>
-                        <span class="badge badge--success-sm">Live</span>
-                    </div>
-                    <div class="dash-card__rows">
-                        <div class="dash-row">
-                            <span>Leads today</span><strong>7</strong>
-                        </div>
-                        <div class="dash-row">
-                            <span>Response time avg</span><strong>2:08</strong>
-                        </div>
-                        <div class="dash-row">
-                            <span>Booked surveys</span><strong>3</strong>
-                        </div>
-                        <div class="dash-row">
-                            <span>Quote follow-ups sent</span><strong>12</strong>
-                        </div>
-                        <div class="dash-row">
-                            <span>Reviews requested</span><strong>5</strong>
-                        </div>
+
+                <!-- Right: About headline + copy -->
+                <div>
+                    <span class="home-about-content__eyebrow">FOUNDER‑LED. SYSTEMS‑FIRST.</span>
+                    <h3 class="home-about-content__h3">Built like infrastructure — not a "nice website."</h3>
+                    <p class="home-about-content__body">We build fast websites and conservative follow‑up automation for
+                        UK trades — so missed calls and cold quotes don’t cost booked jobs.</p>
+                    <ul class="home-about-bullets">
+                        <li>Email-first: written recommendation before any build</li>
+                        <li>Conservative messaging: opt‑out friendly, rate‑limited</li>
+                        <li>Measured outcomes: calls, response speed, follow‑ups, reviews</li>
+                    </ul>
+                    <div class="home-about-cta-row">
+                        <a href="audit.html" class="home-about-btn">Start Audit Request</a>
+                        <a href="about.html" class="home-about-link">About JTANDY →</a>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- ═══ PRICING ═══ -->
-    <section class="section section--bg" id="pricing">
+    <!-- ═══ 8. FAQ PREVIEW ═══ -->
+    <section class="faq-preview" id="faq-preview">
         <div class="container">
-            <div class="section__header section__header--center">
-                <h2>Start small. Expand when it pays.</h2>
-            </div>
-            <div class="pricing-grid">
-                <div class="plan-card">
-                    <h3>Starter System</h3>
-                    <p class="plan-card__best">Get the basics live fast.</p>
-                    <div class="plan-card__includes">
-                        <p class="plan-card__includes-label">Includes:</p>
-                        <ul>
-                            <li>High-performance lead website</li>
-                            <li>Instant enquiry reply</li>
-                            <li>Basic SEO setup</li>
-                        </ul>
-                    </div>
-                    <a href="audit.html" class="btn btn--outline btn--full">Get Started</a>
-                </div>
-                <div class="plan-card plan-card--highlight">
-                    <span class="plan-card__ribbon">Most Popular</span>
-                    <h3>Growth Engine</h3>
-                    <p class="plan-card__best">Recover leads + follow-ups.</p>
-                    <div class="plan-card__includes">
-                        <p class="plan-card__includes-label">Includes:</p>
-                        <ul>
-                            <li>Everything in Starter</li>
-                            <li>Missed-call recovery</li>
-                            <li>Quote follow-up sequences</li>
-                            <li>Booking automation</li>
-                        </ul>
-                    </div>
-                    <a href="audit.html" class="btn btn--primary btn--full">Book AI Audit</a>
-                </div>
-                <div class="plan-card">
-                    <h3>Full Automation</h3>
-                    <p class="plan-card__best">End-to-end bookings + reviews.</p>
-                    <div class="plan-card__includes">
-                        <p class="plan-card__includes-label">Includes:</p>
-                        <ul>
-                            <li>Everything in Growth</li>
-                            <li>Review & referral engine</li>
-                            <li>ROI dashboard & reporting</li>
-                            <li>Quarterly optimisation</li>
-                        </ul>
-                    </div>
-                    <a href="audit.html" class="btn btn--outline btn--full">Get Started</a>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- ═══ FAQ ═══ -->
-    <section class="section section--white" id="faq">
-        <div class="container container--narrow">
-            <div class="section__header section__header--center">
+            <div class="section__header">
                 <h2>Frequently asked questions</h2>
             </div>
-            <div class="faq-list">
-                <details class="faq-item">
-                    <summary>Will this annoy customers with too many messages?</summary>
-                    <div class="faq-item__answer">
-                        <p>No. Every message is carefully designed to feel helpful, not spammy. We follow conservative
-                            contact rules — a confirmation, one follow-up, and a review request. That's it. You can
-                            adjust everything.</p>
+            <div class="faq-accordion" id="faqAccordion">
+                <div class="faq-item">
+                    <button class="faq-item__q" aria-expanded="false">Will this annoy customers with too many
+                        messages?</button>
+                    <div class="faq-item__a">
+                        <div class="faq-item__a-inner">No. We use conservative messaging: one initial text, one
+                            follow‑up, and a clear opt‑out. Your customers stay in control, and we monitor satisfaction
+                            signals.</div>
                     </div>
-                </details>
-                <details class="faq-item">
-                    <summary>What if we already have a website?</summary>
-                    <div class="faq-item__answer">
-                        <p>We can either optimise your existing site for conversions or build a new high-performance
-                            page alongside it. Most trades see better results with a dedicated lead page, but we'll
-                            assess what works for you in the audit.</p>
+                </div>
+                <div class="faq-item">
+                    <button class="faq-item__q" aria-expanded="false">What if we already have a website?</button>
+                    <div class="faq-item__a">
+                        <div class="faq-item__a-inner">We'll audit it. If it's fast, structured, and generating
+                            enquiries — great. If not, we'll recommend a rebuild with clear reasoning and expected
+                            impact.</div>
                     </div>
-                </details>
-                <details class="faq-item">
-                    <summary>Can this work with my current phone number and email?</summary>
-                    <div class="faq-item__answer">
-                        <p>Yes. We wire everything into your existing phone number, email, and tools. No new systems to
-                            learn. The automations run invisibly behind what you already use.</p>
+                </div>
+                <div class="faq-item">
+                    <button class="faq-item__q" aria-expanded="false">Can this work with my current phone number and
+                        email?</button>
+                    <div class="faq-item__a">
+                        <div class="faq-item__a-inner">Yes. We integrate with your existing number and email. No
+                            new phone lines or confusing systems needed.</div>
                     </div>
-                </details>
-                <details class="faq-item">
-                    <summary>How do you measure ROI?</summary>
-                    <div class="faq-item__answer">
-                        <p>You get a live dashboard that tracks enquiries, response times, follow-ups sent, bookings
-                            made, and reviews generated. You can see exactly what the system is doing and what it's
-                            worth in real numbers.</p>
+                </div>
+                <div class="faq-item">
+                    <button class="faq-item__q" aria-expanded="false">How do you measure ROI?</button>
+                    <div class="faq-item__a">
+                        <div class="faq-item__a-inner">We track enquiry volume, response time, quote follow‑up rate,
+                            conversion rate, and review velocity. You get a dashboard — no guesswork.</div>
                     </div>
-                </details>
-                <details class="faq-item">
-                    <summary>How quickly can we launch?</summary>
-                    <div class="faq-item__answer">
-                        <p>Most systems go live within 7 days. We audit in day 1–2, build in 3–5, test on day 6, and
-                            launch day 7. Complex setups may take up to 14 days.</p>
+                </div>
+                <div class="faq-item">
+                    <button class="faq-item__q" aria-expanded="false">How quickly can we launch?</button>
+                    <div class="faq-item__a">
+                        <div class="faq-item__a-inner">Follow‑up automation can go live within 1 week from audit
+                            sign‑off. Website installs typically take 2–4 weeks depending on complexity.</div>
                     </div>
-                </details>
+                </div>
             </div>
+            <a href="faq.html" class="faq-preview__link">View all FAQs →</a>
         </div>
     </section>
 
-    <!-- ═══ FINAL CTA ═══ -->
-    <section class="cta-band" id="cta">
+    <!-- ═══ 8. FINAL CTA ═══ -->
+    <section class="cta-band">
         <div class="container">
             <h2>See what you're losing each week.</h2>
-            <p>We'll map your lead leaks and show the fastest automation wins.</p>
-            <a href="audit.html" class="btn btn--primary btn--hero">Book AI Audit</a>
+            <p>We'll map your lead leaks and reply with a written recommendation (no calls).</p>
+            <a href="audit.html" class="btn btn--primary btn--hero">Start Audit Request</a>
         </div>
     </section>
 
@@ -496,10 +1196,10 @@
                     <h4>Company</h4>
                     <a href="about.html">About</a>
                     <a href="work.html">Case Studies</a>
-                    <a href="audit.html">Book Audit</a>
+                    <a href="audit.html">Start Audit Request</a>
                 </div>
                 <div class="footer__col">
-                    <h4>Services</h4>
+                    <h4>Solutions</h4>
                     <a href="lead-websites.html">Lead Websites</a>
                     <a href="follow-up-automation.html">Follow-Up Automation</a>
                     <a href="review-automation.html">Review Automation</a>
@@ -519,6 +1219,19 @@
     </footer>
 
     <script src="script.js"></script>
+    <script>
+        /* ── FAQ accordion ── */
+        document.querySelectorAll('.faq-item__q').forEach(btn => {
+            btn.addEventListener('click', () => {
+                const item = btn.parentElement;
+                const wasOpen = item.classList.contains('open');
+                // Close siblings
+                document.querySelectorAll('.faq-item').forEach(i => i.classList.remove('open'));
+                if (!wasOpen) item.classList.add('open');
+                btn.setAttribute('aria-expanded', !wasOpen);
+            });
+        });
+    </script>
 </body>
 
 </html>

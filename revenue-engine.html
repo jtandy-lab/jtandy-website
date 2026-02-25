@@ -14,22 +14,22 @@
         rel="stylesheet">
     <link rel="stylesheet" href="style.css">
     <style>
-        /* ── Revenue Engine v2 page-specific ── */
+        /* ── Revenue Engine v5 page-specific ── */
 
-        /* Hero (navy) */
         .re-hero {
-            background: var(--navy-0);
-            padding: calc(var(--nav-h) + 96px) 0 88px;
+            background: #0F1D3D;
+            padding: calc(var(--nav-h, 72px) + 96px) 0 72px;
             position: relative;
-            overflow: hidden
+            overflow: hidden;
         }
 
         .re-hero::before {
             content: '';
             position: absolute;
             inset: 0;
-            background: repeating-linear-gradient(90deg, rgba(255, 255, 255, .04) 0, rgba(255, 255, 255, .04) 1px, transparent 1px, transparent 80px), repeating-linear-gradient(0deg, rgba(255, 255, 255, .04) 0, rgba(255, 255, 255, .04) 1px, transparent 1px, transparent 80px);
-            pointer-events: none
+            background: repeating-linear-gradient(90deg, rgba(255, 255, 255, 0.05) 0, rgba(255, 255, 255, 0.05) 1px, transparent 1px, transparent 24px),
+                repeating-linear-gradient(0deg, rgba(255, 255, 255, 0.05) 0, rgba(255, 255, 255, 0.05) 1px, transparent 1px, transparent 24px);
+            pointer-events: none;
         }
 
         .re-hero__grid {
@@ -38,696 +38,254 @@
             gap: 48px;
             align-items: start;
             position: relative;
-            z-index: 1
+            z-index: 1;
         }
 
         .re-hero__eyebrow {
             display: block;
-            font-family: var(--font-body);
+            font-family: 'Inter', sans-serif;
             font-size: 12px;
+            line-height: 1.5;
             font-weight: 650;
-            letter-spacing: .08em;
+            letter-spacing: 0.08em;
             text-transform: uppercase;
-            color: rgba(255, 255, 255, .65);
-            margin-bottom: 12px
+            color: rgba(255, 255, 255, 0.60);
+            margin-bottom: 14px;
         }
 
         .re-hero h1 {
-            font-size: clamp(36px, 5.4vw, 56px);
-            line-height: 1.14;
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: clamp(38px, 5.4vw, 52px);
+            line-height: 1.15;
             font-weight: 700;
-            color: #fff;
-            letter-spacing: -.02em
+            color: #FFFFFF;
+            max-width: 680px;
+            letter-spacing: -0.02em;
         }
 
         .re-hero__sub {
-            font-size: 18px;
-            line-height: 1.56;
+            font-family: 'Inter', sans-serif;
+            font-size: clamp(16px, 2vw, 18px);
+            line-height: 1.55;
             font-weight: 450;
-            color: rgba(255, 255, 255, .85);
-            margin-top: 16px;
-            max-width: 640px
+            color: rgba(255, 255, 255, 0.85);
+            margin-top: 14px;
+            max-width: 720px;
         }
 
         .re-hero__bullets {
             list-style: none;
-            margin-top: 20px;
+            margin-top: 16px;
             display: flex;
             flex-direction: column;
-            gap: 8px
+            gap: 8px;
+            padding: 0;
         }
 
         .re-hero__bullets li {
+            font-family: 'Inter', sans-serif;
             font-size: 15px;
             line-height: 1.6;
-            font-weight: 450;
-            color: rgba(255, 255, 255, .84);
+            font-weight: 500;
+            color: rgba(255, 255, 255, 0.84);
             padding-left: 24px;
-            position: relative
+            position: relative;
         }
 
         .re-hero__bullets li::before {
             content: '✓';
             position: absolute;
             left: 0;
-            color: var(--success-0);
-            font-weight: 700
+            color: #16A34A;
+            font-weight: 700;
         }
 
         .re-hero__ctas {
             display: flex;
             gap: 12px;
-            margin-top: 22px;
-            flex-wrap: wrap
+            margin-top: 20px;
+            flex-wrap: wrap;
+            align-items: center;
         }
 
-        .re-hero .btn--outline {
-            border-color: rgba(255, 255, 255, .28);
-            color: #fff
-        }
-
-        .re-hero .btn--outline:hover {
-            background: rgba(255, 255, 255, .06)
-        }
-
-        .re-hero__micro {
-            font-size: 14px;
-            font-weight: 550;
-            color: rgba(255, 255, 255, .78);
-            margin-top: 12px
-        }
-
-        .re-hero__right {
-            display: flex;
-            flex-direction: column;
-            gap: 14px
-        }
-
-        /* Revenue flow card */
-        .re-flow-card {
-            background: #fff;
-            border-radius: 16px;
-            padding: 20px;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, .18)
-        }
-
-        .re-flow-card__title {
-            font-family: var(--font-heading);
-            font-size: 16px;
-            font-weight: 700;
-            line-height: 1.38;
-            color: var(--text-0);
-            margin-bottom: 14px
-        }
-
-        .re-flow-node {
-            display: flex;
-            align-items: flex-start;
-            gap: 10px;
-            background: var(--bg-0);
-            border: 1px solid var(--border-0);
-            border-radius: 14px;
-            padding: 12px 14px;
-            margin-bottom: 6px
-        }
-
-        .re-flow-node:last-of-type {
-            margin-bottom: 0
-        }
-
-        .re-flow-node__dot {
-            width: 8px;
-            height: 8px;
-            border-radius: 50%;
-            flex-shrink: 0;
-            margin-top: 5px
-        }
-
-        .re-flow-node__dot--green {
-            background: var(--success-0)
-        }
-
-        .re-flow-node__dot--default {
-            background: var(--border-1)
-        }
-
-        .re-flow-node strong {
+        .re-hero__ctamicro {
+            font-family: 'Inter', sans-serif;
             font-size: 13px;
-            font-weight: 650;
-            line-height: 1.38;
-            color: var(--text-0);
-            display: block
-        }
-
-        .re-flow-node span {
-            font-size: 12px;
-            font-weight: 450;
             line-height: 1.5;
-            color: var(--text-1)
-        }
-
-        .re-flow-chip {
-            display: inline-block;
-            background: rgba(22, 163, 74, .12);
-            color: var(--success-0);
-            font-size: 13px;
-            font-weight: 650;
-            line-height: 1.38;
-            padding: 6px 12px;
-            border-radius: 8px;
-            margin-top: 12px
-        }
-
-        /* Price card (glass on navy) */
-        .re-price-card {
-            background: rgba(255, 255, 255, .06);
-            border: 1px solid rgba(255, 255, 255, .16);
-            border-radius: 16px;
-            padding: 18px
-        }
-
-        .re-price-card__chip {
-            display: inline-block;
-            font-size: 12px;
-            font-weight: 650;
-            letter-spacing: .06em;
-            text-transform: uppercase;
-            color: rgba(255, 255, 255, .78);
-            background: rgba(255, 255, 255, .10);
-            border-radius: 999px;
-            padding: 6px 10px;
-            line-height: 1.5
-        }
-
-        .re-price-card__amount {
-            font-family: var(--font-body);
-            font-size: 30px;
-            line-height: 1.13;
-            font-weight: 850;
-            color: #fff;
-            margin-top: 10px
-        }
-
-        .re-price-card__secondary {
-            font-size: 15px;
-            line-height: 1.6;
-            font-weight: 650;
-            color: rgba(255, 255, 255, .86);
-            margin-top: 4px
-        }
-
-        .re-price-card__range {
-            font-size: 13px;
-            line-height: 1.54;
-            font-weight: 500;
-            color: rgba(255, 255, 255, .74);
-            margin-top: 8px
-        }
-
-        .re-price-card__trust {
-            font-size: 13px;
-            line-height: 1.54;
-            font-weight: 650;
-            color: rgba(255, 255, 255, .90);
-            margin-top: 10px
-        }
-
-        .re-price-card__escape {
-            display: block;
-            font-size: 13px;
             font-weight: 600;
-            color: rgba(255, 255, 255, .78);
-            margin-top: 12px;
-            text-decoration: underline;
-            text-underline-offset: 2px;
-            transition: color .15s
+            color: rgba(255, 255, 255, 0.70);
+            flex-basis: 100%;
+            margin-top: 10px;
         }
 
-        .re-price-card__escape:hover {
-            color: #fff
-        }
-
-        /* What it replaces */
-        .re-replaces {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 20px
-        }
-
-        .re-replace {
-            background: var(--surface-0);
-            border: 1px solid var(--border-0);
-            border-radius: 16px;
-            padding: 22px;
-            box-shadow: 0 2px 10px rgba(15, 29, 61, .08)
-        }
-
-        .re-replace h3 {
-            font-family: var(--font-heading);
-            font-size: 18px;
-            font-weight: 700;
-            line-height: 1.44;
-            margin-bottom: 8px
-        }
-
-        .re-replace p {
-            font-size: 15px;
-            line-height: 1.6;
-            color: var(--text-1)
-        }
-
-        /* 4 layers */
-        .re-layers {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 20px
-        }
-
-        .re-layer {
-            background: var(--surface-0);
-            border: 1px solid var(--border-0);
-            border-radius: 16px;
-            padding: 22px;
-            display: flex;
-            gap: 14px;
-            align-items: flex-start
-        }
-
-        .re-layer__num {
-            width: 28px;
-            height: 28px;
-            border-radius: 50%;
-            background: var(--cobalt-0);
-            color: #fff;
-            font-family: var(--font-body);
+        .re-hero__trustline {
+            font-family: 'Inter', sans-serif;
             font-size: 12px;
-            font-weight: 800;
-            display: flex;
+            line-height: 1.5;
+            font-weight: 600;
+            color: rgba(255, 255, 255, 0.62);
+            margin-top: 10px;
+        }
+
+        .re-btn-pri {
+            display: inline-flex;
             align-items: center;
             justify-content: center;
-            flex-shrink: 0
-        }
-
-        .re-layer h3 {
-            font-family: var(--font-heading);
-            font-size: 18px;
+            height: 48px;
+            padding: 0 24px;
+            background: #2563EB;
+            color: #FFFFFF;
+            font-family: 'Inter', sans-serif;
+            font-size: 14px;
             font-weight: 700;
-            line-height: 1.44;
-            margin-bottom: 6px
+            border-radius: 14px;
+            text-decoration: none;
+            transition: background 0.2s;
+            box-shadow: 0 10px 24px rgba(0, 0, 0, 0.18);
         }
 
-        .re-layer p {
-            font-size: 15px;
-            line-height: 1.6;
-            color: var(--text-1)
+        .re-btn-pri:hover {
+            background: #1D4ED8;
+            color: #FFFFFF;
         }
 
-        /* E2E flow */
-        .re-e2e {
-            display: grid;
-            grid-template-columns: repeat(6, 1fr);
-            gap: 12px;
-            position: relative
-        }
-
-        .re-e2e::before {
-            content: '';
-            position: absolute;
-            top: 50%;
-            left: 5%;
-            right: 5%;
-            height: 1px;
-            background: var(--border-1);
-            z-index: 0
-        }
-
-        .re-e2e-node {
-            background: var(--bg-0);
-            border: 1px solid var(--border-0);
-            border-radius: 16px;
-            padding: 16px;
-            position: relative;
-            z-index: 1
-        }
-
-        .re-e2e-node__dot {
-            width: 8px;
-            height: 8px;
-            border-radius: 50%;
-            margin-bottom: 8px
-        }
-
-        .re-e2e-node__dot--green {
-            background: var(--success-0)
-        }
-
-        .re-e2e-node__dot--default {
-            background: var(--border-1)
-        }
-
-        .re-e2e-node strong {
-            font-size: 14px;
-            font-weight: 650;
-            line-height: 1.43;
-            display: block;
-            margin-bottom: 4px
-        }
-
-        .re-e2e-node span {
-            font-size: 12px;
-            font-weight: 450;
-            line-height: 1.5;
-            color: var(--text-1)
-        }
-
-        /* Metric cards */
-        .re-metrics {
-            display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            gap: 16px
-        }
-
-        .re-metric {
-            background: var(--surface-0);
-            border: 1px solid var(--border-0);
-            border-radius: 16px;
-            padding: 20px;
-            text-align: center
-        }
-
-        .re-metric__value {
-            font-family: var(--font-body);
-            font-size: 34px;
-            line-height: 1.12;
-            font-weight: 850;
-            color: var(--text-0);
-            margin-bottom: 6px
-        }
-
-        .re-metric__label {
-            font-size: 12px;
-            font-weight: 650;
-            letter-spacing: .06em;
-            text-transform: uppercase;
-            color: var(--text-2)
-        }
-
-        .re-metric__body {
-            font-size: 13px;
-            line-height: 1.46;
-            font-weight: 450;
-            color: var(--text-1);
-            margin-top: 6px
-        }
-
-        /* Fit filter */
-        .re-fit {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 24px
-        }
-
-        .re-fit-card {
-            background: var(--bg-0);
-            border: 1px solid var(--border-0);
-            border-radius: 16px;
-            padding: 22px
-        }
-
-        .re-fit-card h3 {
-            font-family: var(--font-heading);
-            font-size: 18px;
-            font-weight: 700;
-            line-height: 1.44;
-            margin-bottom: 14px
-        }
-
-        .re-fit-card ul {
-            list-style: none;
-            display: flex;
-            flex-direction: column;
-            gap: 8px
-        }
-
-        .re-fit-card li {
-            font-size: 14px;
-            line-height: 1.57;
-            font-weight: 450;
-            color: var(--text-1);
-            padding-left: 22px;
-            position: relative
-        }
-
-        .re-fit-card--good li::before {
-            content: '✓';
-            position: absolute;
-            left: 0;
-            color: var(--success-0);
-            font-weight: 700
-        }
-
-        .re-fit-card--not li::before {
-            content: '✕';
-            position: absolute;
-            left: 0;
-            color: var(--text-2);
-            font-weight: 600
-        }
-
-        /* Investment card */
-        .re-invest {
-            background: var(--navy-0);
-            border-radius: 16px;
-            padding: 26px;
-            max-width: 820px;
-            margin: 0 auto;
-            text-align: center
-        }
-
-        .re-invest__label {
-            font-size: 12px;
-            font-weight: 650;
-            letter-spacing: .06em;
-            text-transform: uppercase;
-            color: rgba(255, 255, 255, .70)
-        }
-
-        .re-invest__price {
-            font-family: var(--font-body);
-            font-size: 44px;
-            line-height: 1.09;
-            font-weight: 850;
-            color: #fff;
-            margin-top: 10px
-        }
-
-        .re-invest__secondary {
-            font-size: 16px;
-            line-height: 1.63;
-            font-weight: 650;
-            color: rgba(255, 255, 255, .88);
-            margin-top: 6px
-        }
-
-        .re-invest__included {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 6px 24px;
-            text-align: left;
-            max-width: 620px;
-            margin: 18px auto 0;
-            list-style: none
-        }
-
-        .re-invest__included li {
-            font-size: 14px;
-            line-height: 1.57;
-            font-weight: 500;
-            color: rgba(255, 255, 255, .84);
-            padding-left: 16px;
-            position: relative
-        }
-
-        .re-invest__included li::before {
-            content: '·';
-            position: absolute;
-            left: 4px;
-            font-weight: 700;
-            color: rgba(255, 255, 255, .55)
-        }
-
-        .re-invest__range {
-            font-size: 13px;
-            line-height: 1.54;
-            color: rgba(255, 255, 255, .74);
-            margin-top: 14px
-        }
-
-        .re-invest__risk {
-            font-size: 14px;
-            line-height: 1.57;
-            font-weight: 650;
-            color: rgba(255, 255, 255, .92);
-            margin-top: 10px
-        }
-
-        .re-invest .btn {
-            margin-top: 20px
-        }
-
-        /* Process steps */
-        .re-process {
-            display: grid;
-            grid-template-columns: repeat(5, 1fr);
-            gap: 12px;
-            position: relative
-        }
-
-        .re-process::before {
-            content: '';
-            position: absolute;
-            top: 50%;
-            left: 5%;
-            right: 5%;
-            height: 1px;
-            background: var(--border-1);
-            z-index: 0
-        }
-
-        .re-step {
-            background: var(--bg-0);
-            border: 1px solid var(--border-0);
-            border-radius: 16px;
-            padding: 18px;
-            position: relative;
-            z-index: 1
-        }
-
-        .re-step__num {
-            width: 24px;
-            height: 24px;
-            border-radius: 50%;
-            background: var(--cobalt-0);
-            color: #fff;
-            font-size: 11px;
-            font-weight: 800;
-            display: flex;
+        .re-btn-sec {
+            display: inline-flex;
             align-items: center;
             justify-content: center;
-            margin-bottom: 8px
-        }
-
-        .re-step strong {
+            height: 48px;
+            padding: 0 24px;
+            background: transparent;
+            border: 1px solid rgba(255, 255, 255, 0.22);
+            color: #FFFFFF;
+            font-family: 'Inter', sans-serif;
             font-size: 14px;
-            font-weight: 650;
-            line-height: 1.43;
-            display: block;
-            margin-bottom: 4px
+            font-weight: 700;
+            border-radius: 14px;
+            text-decoration: none;
+            transition: background 0.2s;
         }
 
-        .re-step span {
-            font-size: 12px;
-            font-weight: 450;
-            line-height: 1.5;
-            color: var(--text-1)
+        .re-btn-sec:hover {
+            background: rgba(255, 255, 255, 0.06);
+            color: #FFFFFF;
         }
 
-        /* FAQ mini */
-        .re-faq {
-            max-width: 800px;
-            margin: 0 auto;
+        /* Engine Stack Visual */
+        .re-stack-wrapper {
+            background: #FFFFFF;
+            border: 1px solid rgba(15, 29, 61, 0.14);
+            border-radius: 18px;
+            padding: 14px;
+            box-shadow: 0 14px 36px rgba(0, 0, 0, 0.20);
             display: flex;
             flex-direction: column;
-            gap: 12px
+            gap: 10px;
         }
 
-        .re-faq-item {
-            background: var(--surface-0);
-            border: 1px solid var(--border-0);
-            border-radius: 16px;
-            overflow: hidden
+        .re-stack-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 10px;
         }
 
-        .re-faq-item summary {
-            padding: 18px;
-            font-family: var(--font-heading);
-            font-size: 16px;
-            font-weight: 650;
-            cursor: pointer;
-            list-style: none;
+        .re-stack-tile {
+            background: #F8F7F4;
+            border: 1px solid rgba(15, 29, 61, 0.14);
+            border-radius: 14px;
+            padding: 12px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .re-stack-tile::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            bottom: 0;
+            width: 4px;
+        }
+
+        .re-stack-tile--1::before {
+            background: #2563EB;
+        }
+
+        .re-stack-tile--2::before {
+            background: #0EA5E9;
+        }
+
+        .re-stack-tile--3::before {
+            background: #1E3A8A;
+        }
+
+        .re-stack-tile--4::before {
+            background: #16A34A;
+        }
+
+        .re-stack-title {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 14px;
+            line-height: 1.3;
+            font-weight: 700;
+            color: #0B1220;
+            margin-bottom: 4px;
+            margin-left: 6px;
+        }
+
+        .re-stack-body {
+            font-family: 'Inter', sans-serif;
+            font-size: 12px;
+            line-height: 1.5;
+            font-weight: 600;
+            color: rgba(11, 18, 32, 0.72);
+            margin-left: 6px;
+        }
+
+        .re-stack-footer {
             display: flex;
-            justify-content: space-between;
-            align-items: center
+            justify-content: center;
+            margin-top: 4px;
         }
 
-        .re-faq-item summary::after {
-            content: '+';
-            font-size: 20px;
-            font-weight: 400;
-            color: var(--text-2);
-            transition: transform .2s
+        .re-stack-pill {
+            background: rgba(37, 99, 235, 0.10);
+            color: #2563EB;
+            font-family: 'Inter', sans-serif;
+            font-size: 12px;
+            line-height: 1.5;
+            font-weight: 700;
+            padding: 4px 12px;
+            border-radius: 999px;
         }
 
-        .re-faq-item[open] summary::after {
-            content: '−'
-        }
-
-        .re-faq-item__body {
-            padding: 0 18px 18px;
-            font-size: 15px;
-            line-height: 1.6;
-            color: var(--text-1)
-        }
-
-        @media(max-width:768px) {
+        @media(max-width: 768px) {
             .re-hero {
-                padding: calc(var(--nav-h) + 72px) 0 64px
+                padding: calc(var(--nav-h, 72px) + 72px) 0 56px;
             }
 
-            .re-hero__grid,
-            .re-fit,
-            .re-layers {
-                grid-template-columns: 1fr
-            }
-
-            .re-replaces {
-                grid-template-columns: 1fr
-            }
-
-            .re-e2e,
-            .re-process {
-                grid-template-columns: 1fr 1fr;
-                gap: 10px
-            }
-
-            .re-e2e::before,
-            .re-process::before {
-                display: none
-            }
-
-            .re-metrics {
-                grid-template-columns: 1fr 1fr
-            }
-
-            .re-invest__included {
-                grid-template-columns: 1fr
+            .re-hero__grid {
+                grid-template-columns: 1fr;
+                gap: 40px;
             }
         }
     </style>
 </head>
 
-<body class="page-home">
+<body class="page-sub">
 
     <!-- ═══ HEADER ═══ -->
-    <header class="header header--dark" id="header">
+    <header class="header" id="header"
+        style="background: rgba(15,29,61,0.72); backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px); border-bottom: 1px solid rgba(255,255,255,0.10);">
         <div class="header__inner">
-            <a href="index.html" class="header__brand"><img src="img/logo-navy.svg" alt="JTandy"
-                    class="header__logo header__logo--navy"><img src="img/logo-white.svg" alt="JTandy"
-                    class="header__logo header__logo--white"></a>
+            <a href="index.html" class="header__brand">
+                <img src="img/logo-white.svg" alt="JTandy" class="header__logo" style="display: block;">
+            </a>
             <nav class="header__nav" id="headerNav">
                 <div class="nav-dropdown">
-                    <a href="index.html#solutions" class="nav-dropdown__trigger">Solutions <span
-                            class="nav-dropdown__arrow">▾</span></a>
+                    <a href="index.html#solutions" class="nav-dropdown__trigger"
+                        style="color: rgba(255,255,255,0.82); font-family: 'Inter', sans-serif; font-weight: 600;">Solutions
+                        <span class="nav-dropdown__arrow">▾</span></a>
                     <div class="nav-dropdown__menu">
                         <a href="lead-websites.html">Lead Websites</a>
                         <a href="follow-up-automation.html">Follow-Up Automation</a>
@@ -735,350 +293,778 @@
                         <a href="revenue-engine.html">Revenue Engine</a>
                     </div>
                 </div>
-                <a href="how-it-works.html">How It Works</a>
-                <a href="results.html">Results</a>
-                <a href="pricing.html">Pricing</a>
-                <a href="faq.html">FAQ</a>
+                <a href="how-it-works.html"
+                    style="color: rgba(255,255,255,0.82); font-family: 'Inter', sans-serif; font-weight: 600;">How It
+                    Works</a>
+                <a href="results.html"
+                    style="color: rgba(255,255,255,0.82); font-family: 'Inter', sans-serif; font-weight: 600;">Results</a>
+                <a href="pricing.html"
+                    style="color: rgba(255,255,255,0.82); font-family: 'Inter', sans-serif; font-weight: 600;">Pricing</a>
+                <a href="faq.html"
+                    style="color: rgba(255,255,255,0.82); font-family: 'Inter', sans-serif; font-weight: 600;">FAQ</a>
             </nav>
             <div class="header__actions">
-                <a href="audit.html" class="btn btn--primary">Start Audit Request</a>
+                <a href="audit.html" class="btn btn--primary"
+                    style="background: #2563EB; border-color: #2563EB; color: #FFFFFF; font-family: 'Inter', sans-serif; font-weight: 700;">Get
+                    Free Lead Leak Report</a>
             </div>
             <button class="header__burger" id="headerBurger" aria-label="Menu">
-                <span></span><span></span><span></span>
+                <span style="background: #FFF;"></span><span style="background: #FFF;"></span><span
+                    style="background: #FFF;"></span>
             </button>
         </div>
     </header>
 
-    <!-- ═══ 1. HERO (navy) ═══ -->
+    <!-- ═══ 1. HERO ═══ -->
     <section class="re-hero" id="re-hero">
         <div class="container re-hero__grid">
-            <div>
-                <span class="re-hero__eyebrow">The Revenue Engine</span>
-                <h1>Install a 24/7 Revenue Engine for your trade business.</h1>
-                <p class="re-hero__sub">A fully integrated system that captures enquiries, responds instantly, follows
-                    up automatically, and turns completed jobs into reviews — without adding admin.</p>
+            <div class="re-hero__copy">
+                <span class="re-hero__eyebrow">FOR UK TRADES (GROWTH‑FOCUSED)</span>
+                <h1>Connect your website, replies and reviews into one system.</h1>
+                <p class="re-hero__sub">Capture every enquiry, respond within seconds, follow up quotes and request
+                    reviews automatically — while you focus on the work.</p>
+
                 <ul class="re-hero__bullets">
-                    <li>High‑performance lead website</li>
-                    <li>Missed‑call recovery + instant reply</li>
-                    <li>Quote follow‑up system (stop leads going cold)</li>
-                    <li>Review generation automation (ethical + compliant)</li>
-                    <li>Central tracking dashboard</li>
+                    <li>High‑conversion website with local SEO built‑in.</li>
+                    <li>Instant replies and polite quote chases.</li>
+                    <li>Review requests and a dashboard to see it all.</li>
                 </ul>
+
                 <div class="re-hero__ctas">
-                    <a href="audit.html" class="btn btn--primary btn--hero">Start Audit Request</a>
-                    <a href="#flow" class="btn btn--outline">See the system flow</a>
+                    <a href="request-audit.html?interest=engine" class="re-btn-pri">Get My Full System Plan</a>
+                    <a href="#journey-map" class="re-btn-sec">View the Journey Map</a>
+                    <span class="re-hero__ctamicro">We’ll map your full lead journey, costs and potential uplift.</span>
                 </div>
-                <p class="re-hero__micro">✅ No calls required • Written recommendation • Clear next step</p>
+
+                <div class="re-hero__trustline">No calls required • Written plan by email • Rate‑limited messaging</div>
             </div>
+
             <div class="re-hero__right">
-                <div class="re-flow-card">
-                    <div class="re-flow-card__title">Revenue Flow</div>
-                    <div class="re-flow-node">
-                        <span class="re-flow-node__dot re-flow-node__dot--default"></span>
-                        <div><strong>Visitor</strong><span>Google / Ads / referrals</span></div>
+                <div class="re-stack-wrapper">
+                    <div class="re-stack-grid">
+                        <div class="re-stack-tile re-stack-tile--1">
+                            <div class="re-stack-title">Lead Site</div>
+                            <div class="re-stack-body">Calls + quote flow + local pages</div>
+                        </div>
+                        <div class="re-stack-tile re-stack-tile--2">
+                            <div class="re-stack-title">Response Layer</div>
+                            <div class="re-stack-body">Instant acknowledgement + missed call text</div>
+                        </div>
+                        <div class="re-stack-tile re-stack-tile--3">
+                            <div class="re-stack-title">Follow‑Up Layer</div>
+                            <div class="re-stack-body">Quote chase + reminders</div>
+                        </div>
+                        <div class="re-stack-tile re-stack-tile--4">
+                            <div class="re-stack-title">Review Layer</div>
+                            <div class="re-stack-body">Review requests + service recovery</div>
+                        </div>
                     </div>
-                    <div class="re-flow-node">
-                        <span class="re-flow-node__dot re-flow-node__dot--default"></span>
-                        <div><strong>Website</strong><span>Clear call path + quote request</span></div>
+                    <div class="re-stack-footer">
+                        <span class="re-stack-pill">Measured in 1 dashboard</span>
                     </div>
-                    <div class="re-flow-node">
-                        <span class="re-flow-node__dot re-flow-node__dot--green"></span>
-                        <div><strong>Instant reply</strong><span>Acknowledged fast</span></div>
-                    </div>
-                    <div class="re-flow-node">
-                        <span class="re-flow-node__dot re-flow-node__dot--default"></span>
-                        <div><strong>Qualification</strong><span>Sorted by service/urgency</span></div>
-                    </div>
-                    <div class="re-flow-node">
-                        <span class="re-flow-node__dot re-flow-node__dot--green"></span>
-                        <div><strong>Booking / next step</strong><span>Link or callback prompt</span></div>
-                    </div>
-                    <div class="re-flow-node">
-                        <span class="re-flow-node__dot re-flow-node__dot--green"></span>
-                        <div><strong>Review request</strong><span>Post‑job request</span></div>
-                    </div>
-                    <div class="re-flow-node">
-                        <span class="re-flow-node__dot re-flow-node__dot--default"></span>
-                        <div><strong>Dashboard</strong><span>Visibility into flow + outcomes</span></div>
-                    </div>
-                    <span class="re-flow-chip">Runs 24/7. No chasing.</span>
-                </div>
-                <div class="re-price-card">
-                    <span class="re-price-card__chip">Engine Installs From</span>
-                    <div class="re-price-card__amount">£7,500 setup</div>
-                    <div class="re-price-card__secondary">£450/month ongoing management</div>
-                    <p class="re-price-card__range">Typical range £7,500–£12,000 setup + £450–£750/month, depending on
-                        enquiry volume and layers.</p>
-                    <p class="re-price-card__trust">We only recommend the full engine where ROI potential is clear.</p>
-                    <a href="lead-websites.html" class="re-price-card__escape">Prefer to start with the website only?
-                        From £3,500 →</a>
                 </div>
             </div>
         </div>
     </section>
 
     <!-- ═══ 2. WHAT IT REPLACES ═══ -->
-    <section class="section section--white" id="replaces">
+    <section class="section" id="replaces"
+        style="background: #FFFFFF; border-top: 1px solid rgba(15,29,61,0.14); padding: 56px 0;">
         <div class="container">
-            <div class="section__header section__header--center">
-                <h2>What it replaces</h2>
+            <div class="re-replaces"
+                style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px;">
+                <!-- Card 1 -->
+                <div
+                    style="background: #F8F7F4; border: 1px solid rgba(15,29,61,0.14); border-radius: 16px; padding: 18px;">
+                    <h3
+                        style="font-family: 'Space Grotesk', sans-serif; font-size: 16px; line-height: 1.375; font-weight: 700; color: #0B1220; margin-bottom: 8px;">
+                        Manual systems break</h3>
+                    <p
+                        style="font-family: 'Inter', sans-serif; font-size: 14px; line-height: 1.57; font-weight: 450; color: rgba(11,18,32,0.72);">
+                        Your team shouldn’t juggle calls and quotes manually. Manual replies, sticky notes and forgotten
+                        follow‑ups break under workload. The revenue system takes over repetitive tasks so you can focus
+                        on delivering the job.</p>
+                </div>
+                <!-- Card 2 -->
+                <div
+                    style="background: #F8F7F4; border: 1px solid rgba(15,29,61,0.14); border-radius: 16px; padding: 18px;">
+                    <h3
+                        style="font-family: 'Space Grotesk', sans-serif; font-size: 16px; line-height: 1.375; font-weight: 700; color: #0B1220; margin-bottom: 8px;">
+                        Four layers compound</h3>
+                    <p
+                        style="font-family: 'Inter', sans-serif; font-size: 14px; line-height: 1.57; font-weight: 450; color: rgba(11,18,32,0.72);">
+                        Four layers that work together. Lead Site, Response Layer, Follow‑Up Layer and Review Layer each
+                        compound results.</p>
+                </div>
+                <!-- Card 3 -->
+                <div
+                    style="background: #F8F7F4; border: 1px solid rgba(15,29,61,0.14); border-radius: 16px; padding: 18px;">
+                    <h3
+                        style="font-family: 'Space Grotesk', sans-serif; font-size: 16px; line-height: 1.375; font-weight: 700; color: #0B1220; margin-bottom: 8px;">
+                        Measured outcomes</h3>
+                    <p
+                        style="font-family: 'Inter', sans-serif; font-size: 14px; line-height: 1.57; font-weight: 450; color: rgba(11,18,32,0.72);">
+                        Measured outcomes. Our installs show 15–30% more booked jobs, first responses under 2 minutes
+                        and steady review growth.</p>
+                </div>
             </div>
-            <div class="re-replaces">
-                <div class="re-replace">
-                    <h3>Manual replies</h3>
-                    <p>Typing between jobs, missing enquiries during busy hours, and hoping customers wait.</p>
+
+            <!-- Proof Assets Row -->
+            <div
+                style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 16px; margin-top: 24px;">
+                <div
+                    style="background: #FFFFFF; border: 1px solid rgba(15,29,61,0.14); border-radius: 12px; padding: 16px; display: flex; align-items: center; gap: 16px;">
+                    <div
+                        style="width: 48px; height: 48px; border-radius: 8px; background: rgba(37,99,235,0.10); display: flex; align-items: center; justify-content: center; color: #2563EB; font-weight: 700;">
+                        +22%</div>
+                    <div
+                        style="font-family: 'Inter', sans-serif; font-size: 12px; line-height: 1.5; font-weight: 600; color: rgba(11,18,32,0.56);">
+                        Booked jobs uplift mini chart (example)</div>
                 </div>
-                <div class="re-replace">
-                    <h3>Missed calls</h3>
-                    <p>Calls hit voicemail and never get recovered. Customers move on fast.</p>
+                <div
+                    style="background: #FFFFFF; border: 1px solid rgba(15,29,61,0.14); border-radius: 12px; padding: 16px; display: flex; align-items: center; gap: 16px;">
+                    <div
+                        style="width: 48px; height: 48px; border-radius: 8px; background: rgba(22,163,74,0.10); display: flex; align-items: center; justify-content: center; color: #16A34A; font-size: 20px;">
+                        ✓</div>
+                    <div
+                        style="font-family: 'Inter', sans-serif; font-size: 12px; line-height: 1.5; font-weight: 600; color: rgba(11,18,32,0.56);">
+                        Calls captured before/after chart (anonymised)</div>
                 </div>
-                <div class="re-replace">
-                    <h3>Forgotten follow‑ups</h3>
-                    <p>Quotes sent and never chased. Completed jobs with no review request. Revenue left on the table.
-                    </p>
+                <div
+                    style="background: #FFFFFF; border: 1px solid rgba(15,29,61,0.14); border-radius: 12px; padding: 16px; display: flex; align-items: center; gap: 16px;">
+                    <div
+                        style="width: 48px; height: 48px; border-radius: 8px; background: rgba(37,99,235,0.10); display: flex; align-items: center; justify-content: center; color: #2563EB;">
+                        ★</div>
+                    <div
+                        style="font-family: 'Inter', sans-serif; font-size: 12px; line-height: 1.5; font-weight: 600; color: rgba(11,18,32,0.56);">
+                        Review growth mini chart (example)</div>
                 </div>
             </div>
-            <p class="section__micro-proof" style="font-weight:650">Manual systems break under workload. Structured
-                systems don't.</p>
+            <p
+                style="font-family: 'Inter', sans-serif; font-size: 12px; line-height: 1.5; font-weight: 600; color: rgba(11,18,32,0.56); text-align: center; margin-top: 16px;">
+                Example reporting — results vary by market and baseline.</p>
         </div>
     </section>
 
     <!-- ═══ 3. FOUR LAYERS ═══ -->
-    <section class="section section--bg" id="layers">
+    <section class="section" id="layers" style="background: #F8F7F4; padding: 88px 0;">
         <div class="container">
-            <div class="section__header section__header--center">
-                <h2>Four integrated layers</h2>
+            <div style="text-align: center; margin-bottom: 48px;">
+                <h2
+                    style="font-family: 'Space Grotesk', sans-serif; font-size: clamp(28px, 4vw, 36px); line-height: 1.22; font-weight: 700; color: #0B1220; margin-bottom: 12px;">
+                    Four layers. One engine.</h2>
+                <p
+                    style="font-family: 'Inter', sans-serif; font-size: 16px; line-height: 1.625; font-weight: 450; color: rgba(11,18,32,0.72); max-width: 600px; margin: 0 auto;">
+                    Each layer works alone. Together, they compound.</p>
             </div>
-            <div class="re-layers">
-                <div class="re-layer">
-                    <span class="re-layer__num">1</span>
-                    <div>
-                        <h3>Lead website</h3>
-                        <p>Conversion-first structure built to capture calls and quote requests.</p>
-                    </div>
-                </div>
-                <div class="re-layer">
-                    <span class="re-layer__num">2</span>
-                    <div>
-                        <h3>Response automation</h3>
-                        <p>Instant acknowledgement + missed‑call recovery so enquiries don't disappear.</p>
-                    </div>
-                </div>
-                <div class="re-layer">
-                    <span class="re-layer__num">3</span>
-                    <div>
-                        <h3>Follow‑up system</h3>
-                        <p>Quote reminders and lead recovery sequences that prevent "cold quotes."</p>
-                    </div>
-                </div>
-                <div class="re-layer">
-                    <span class="re-layer__num">4</span>
-                    <div>
-                        <h3>Review engine</h3>
-                        <p>Polite post‑job review requests that compound trust over time.</p>
-                    </div>
-                </div>
-            </div>
-            <p class="section__micro-proof" style="font-weight:650">Each layer works alone. Together, they compound.</p>
-        </div>
-    </section>
 
-    <!-- ═══ 4. END-TO-END FLOW ═══ -->
-    <section class="section section--white" id="flow">
-        <div class="container">
-            <div class="section__header section__header--center">
-                <h2>From enquiry to review — automatically</h2>
-            </div>
-            <div class="re-e2e">
-                <div class="re-e2e-node">
-                    <div class="re-e2e-node__dot re-e2e-node__dot--default"></div>
-                    <strong>Enquiry</strong>
-                    <span>Customer reaches out</span>
-                </div>
-                <div class="re-e2e-node">
-                    <div class="re-e2e-node__dot re-e2e-node__dot--green"></div>
-                    <strong>Instant reply</strong>
-                    <span>Acknowledged fast</span>
-                </div>
-                <div class="re-e2e-node">
-                    <div class="re-e2e-node__dot re-e2e-node__dot--default"></div>
-                    <strong>Qualify</strong>
-                    <span>Categorised by service/urgency</span>
-                </div>
-                <div class="re-e2e-node">
-                    <div class="re-e2e-node__dot re-e2e-node__dot--default"></div>
-                    <strong>Next step</strong>
-                    <span>Booking link or callback prompt</span>
-                </div>
-                <div class="re-e2e-node">
-                    <div class="re-e2e-node__dot re-e2e-node__dot--green"></div>
-                    <strong>Follow up</strong>
-                    <span>Quote chased if needed</span>
-                </div>
-                <div class="re-e2e-node">
-                    <div class="re-e2e-node__dot re-e2e-node__dot--green"></div>
-                    <strong>Review</strong>
-                    <span>Request sent post‑job</span>
-                </div>
-            </div>
-            <p class="section__micro-proof">The Revenue Engine connects the full journey — first click to final review —
-                removing delay at every stage.</p>
-        </div>
-    </section>
-
-    <!-- ═══ 5. MEASURED OUTCOMES ═══ -->
-    <section class="section section--bg" id="outcomes">
-        <div class="container">
-            <div class="section__header section__header--center">
-                <h2>Measured outcomes</h2>
-            </div>
-            <div class="re-metrics">
-                <div class="re-metric">
-                    <div class="re-metric__value">+15–30%</div>
-                    <div class="re-metric__label">Booked Jobs</div>
-                    <p class="re-metric__body">Typical improvement (varies)</p>
-                </div>
-                <div class="re-metric">
-                    <div class="re-metric__value">Under 2 min</div>
-                    <div class="re-metric__label">First Response</div>
-                    <p class="re-metric__body">Typical when enabled</p>
-                </div>
-                <div class="re-metric">
-                    <div class="re-metric__value">Fewer</div>
-                    <div class="re-metric__label">Missed Enquiries</div>
-                    <p class="re-metric__body">Recovery catches what would be lost</p>
-                </div>
-                <div class="re-metric">
-                    <div class="re-metric__value">Steady</div>
-                    <div class="re-metric__label">Reviews</div>
-                    <p class="re-metric__body">Consistent growth over time</p>
-                </div>
-            </div>
-            <p class="section__micro-proof"
-                style="font-size:12px;font-weight:650;text-transform:uppercase;letter-spacing:.06em;color:var(--text-2)">
-                Results vary by market, enquiry volume, and current setup.</p>
-        </div>
-    </section>
-
-    <!-- ═══ 6. FIT FILTER ═══ -->
-    <section class="section section--white" id="fit">
-        <div class="container">
-            <div class="re-fit">
-                <div class="re-fit-card re-fit-card--good">
-                    <h3>Good fit if</h3>
-                    <ul>
-                        <li>You get 20+ enquiries/month</li>
-                        <li>You're doing £20k+/month revenue</li>
-                        <li>You want systems instead of more admin</li>
-                        <li>You're ready to invest £7,500+ if ROI is clear</li>
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 24px;">
+                <!-- Layer 1 -->
+                <div
+                    style="background: #FFFFFF; border: 1px solid rgba(15,29,61,0.14); border-radius: 16px; padding: 22px; position: relative; overflow: hidden; box-shadow: 0 2px 10px rgba(15,29,61,0.06);">
+                    <div style="position: absolute; left: 0; top: 0; bottom: 0; width: 4px; background: #2563EB;"></div>
+                    <h3
+                        style="font-family: 'Space Grotesk', sans-serif; font-size: 18px; line-height: 1.44; font-weight: 700; color: #0B1220; margin-bottom: 12px; margin-left: 8px;">
+                        1) Lead Site</h3>
+                    <ul
+                        style="list-style: none; padding: 0; margin-left: 8px; display: flex; flex-direction: column; gap: 8px;">
+                        <li
+                            style="font-family: 'Inter', sans-serif; font-size: 14px; line-height: 1.57; font-weight: 500; color: #0B1220; position: relative; padding-left: 16px;">
+                            <span style="position: absolute; left: 0; color: rgba(15,29,61,0.28);">·</span>Local service
+                            + area structure
+                        </li>
+                        <li
+                            style="font-family: 'Inter', sans-serif; font-size: 14px; line-height: 1.57; font-weight: 500; color: #0B1220; position: relative; padding-left: 16px;">
+                            <span style="position: absolute; left: 0; color: rgba(15,29,61,0.28);">·</span>Clear call +
+                            quote path
+                        </li>
+                        <li
+                            style="font-family: 'Inter', sans-serif; font-size: 14px; line-height: 1.57; font-weight: 500; color: #0B1220; position: relative; padding-left: 16px;">
+                            <span style="position: absolute; left: 0; color: rgba(15,29,61,0.28);">·</span>Fast
+                            performance baseline
+                        </li>
                     </ul>
                 </div>
-                <div class="re-fit-card re-fit-card--not">
-                    <h3>Not a fit if</h3>
-                    <ul>
-                        <li>You have low enquiry volume (automation won't pay back)</li>
-                        <li>You want "AI" to experiment with, not to recover revenue</li>
-                        <li>You want aggressive spam messaging</li>
-                        <li>You're looking for the cheapest provider</li>
+
+                <!-- Layer 2 -->
+                <div
+                    style="background: #FFFFFF; border: 1px solid rgba(15,29,61,0.14); border-radius: 16px; padding: 22px; position: relative; overflow: hidden; box-shadow: 0 2px 10px rgba(15,29,61,0.06);">
+                    <div style="position: absolute; left: 0; top: 0; bottom: 0; width: 4px; background: #0EA5E9;"></div>
+                    <h3
+                        style="font-family: 'Space Grotesk', sans-serif; font-size: 18px; line-height: 1.44; font-weight: 700; color: #0B1220; margin-bottom: 12px; margin-left: 8px;">
+                        2) Response Layer</h3>
+                    <ul
+                        style="list-style: none; padding: 0; margin-left: 8px; display: flex; flex-direction: column; gap: 8px;">
+                        <li
+                            style="font-family: 'Inter', sans-serif; font-size: 14px; line-height: 1.57; font-weight: 500; color: #0B1220; position: relative; padding-left: 16px;">
+                            <span style="position: absolute; left: 0; color: rgba(15,29,61,0.28);">·</span>Instant
+                            acknowledgement
+                        </li>
+                        <li
+                            style="font-family: 'Inter', sans-serif; font-size: 14px; line-height: 1.57; font-weight: 500; color: #0B1220; position: relative; padding-left: 16px;">
+                            <span style="position: absolute; left: 0; color: rgba(15,29,61,0.28);">·</span>Missed call
+                            text‑back
+                        </li>
+                        <li
+                            style="font-family: 'Inter', sans-serif; font-size: 14px; line-height: 1.57; font-weight: 500; color: #0B1220; position: relative; padding-left: 16px;">
+                            <span style="position: absolute; left: 0; color: rgba(15,29,61,0.28);">·</span>Capture job
+                            details
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Layer 3 -->
+                <div
+                    style="background: #FFFFFF; border: 1px solid rgba(15,29,61,0.14); border-radius: 16px; padding: 22px; position: relative; overflow: hidden; box-shadow: 0 2px 10px rgba(15,29,61,0.06);">
+                    <div style="position: absolute; left: 0; top: 0; bottom: 0; width: 4px; background: #1E3A8A;"></div>
+                    <h3
+                        style="font-family: 'Space Grotesk', sans-serif; font-size: 18px; line-height: 1.44; font-weight: 700; color: #0B1220; margin-bottom: 12px; margin-left: 8px;">
+                        3) Follow‑Up Layer</h3>
+                    <ul
+                        style="list-style: none; padding: 0; margin-left: 8px; display: flex; flex-direction: column; gap: 8px;">
+                        <li
+                            style="font-family: 'Inter', sans-serif; font-size: 14px; line-height: 1.57; font-weight: 500; color: #0B1220; position: relative; padding-left: 16px;">
+                            <span style="position: absolute; left: 0; color: rgba(15,29,61,0.28);">·</span>Quote chase
+                            sequences
+                        </li>
+                        <li
+                            style="font-family: 'Inter', sans-serif; font-size: 14px; line-height: 1.57; font-weight: 500; color: #0B1220; position: relative; padding-left: 16px;">
+                            <span style="position: absolute; left: 0; color: rgba(15,29,61,0.28);">·</span>Reminders
+                            until yes/no
+                        </li>
+                        <li
+                            style="font-family: 'Inter', sans-serif; font-size: 14px; line-height: 1.57; font-weight: 500; color: #0B1220; position: relative; padding-left: 16px;">
+                            <span style="position: absolute; left: 0; color: rgba(15,29,61,0.28);">·</span>Status
+                            tracking
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Layer 4 -->
+                <div
+                    style="background: #FFFFFF; border: 1px solid rgba(15,29,61,0.14); border-radius: 16px; padding: 22px; position: relative; overflow: hidden; box-shadow: 0 2px 10px rgba(15,29,61,0.06);">
+                    <div style="position: absolute; left: 0; top: 0; bottom: 0; width: 4px; background: #16A34A;"></div>
+                    <h3
+                        style="font-family: 'Space Grotesk', sans-serif; font-size: 18px; line-height: 1.44; font-weight: 700; color: #0B1220; margin-bottom: 12px; margin-left: 8px;">
+                        4) Review Layer</h3>
+                    <ul
+                        style="list-style: none; padding: 0; margin-left: 8px; display: flex; flex-direction: column; gap: 8px;">
+                        <li
+                            style="font-family: 'Inter', sans-serif; font-size: 14px; line-height: 1.57; font-weight: 500; color: #0B1220; position: relative; padding-left: 16px;">
+                            <span style="position: absolute; left: 0; color: rgba(15,29,61,0.28);">·</span>Post‑job
+                            review requests
+                        </li>
+                        <li
+                            style="font-family: 'Inter', sans-serif; font-size: 14px; line-height: 1.57; font-weight: 500; color: #0B1220; position: relative; padding-left: 16px;">
+                            <span style="position: absolute; left: 0; color: rgba(15,29,61,0.28);">·</span>One reminder
+                            + opt‑out
+                        </li>
+                        <li
+                            style="font-family: 'Inter', sans-serif; font-size: 14px; line-height: 1.57; font-weight: 500; color: #0B1220; position: relative; padding-left: 16px;">
+                            <span style="position: absolute; left: 0; color: rgba(15,29,61,0.28);">·</span>Private
+                            feedback path
+                        </li>
                     </ul>
                 </div>
             </div>
-        </div>
-    </section>
 
-    <!-- ═══ 7. INVESTMENT ═══ -->
-    <section class="section section--bg" id="investment">
-        <div class="container">
-            <div class="section__header section__header--center">
-                <h2>Revenue Engine installation</h2>
-            </div>
-            <div class="re-invest">
-                <div class="re-invest__label">Full Engine From</div>
-                <div class="re-invest__price">£7,500 setup</div>
-                <div class="re-invest__secondary">£450/month ongoing management</div>
-                <ul class="re-invest__included">
-                    <li>Lead website build (conversion structure + local pages)</li>
-                    <li>Response automation (instant reply + missed-call recovery)</li>
-                    <li>Quote follow-up sequences (timed reminders)</li>
-                    <li>Review automation (polite request + tracking)</li>
-                    <li>Tracking dashboard + measurement setup</li>
-                    <li>Conservative messaging rules (rate-limited, opt-out friendly)</li>
-                </ul>
-                <p class="re-invest__range">Typical range £7,500–£12,000 depending on enquiry volume, complexity, and
-                    layers.</p>
-                <p class="re-invest__risk">We only recommend the full engine where ROI potential is clear.</p>
-                <a href="audit.html" class="btn btn--primary btn--hero">Start Audit Request</a>
+            <div style="text-align: center; margin-top: 40px;">
+                <a href="request-audit.html?interest=engine&send_walkthrough=true"
+                    style="display: inline-flex; height: 48px; padding: 0 24px; align-items: center; justify-content: center; background: #FFFFFF; border: 1px solid rgba(15,29,61,0.22); border-radius: 14px; color: #0B1220; font-family: 'Inter', sans-serif; font-weight: 700; font-size: 14px; text-decoration: none; transition: background 0.2s;">Request
+                    a Journey Walkthrough (by email) →</a>
             </div>
         </div>
     </section>
 
-    <!-- ═══ 8. PROCESS ═══ -->
-    <section class="section section--white" id="process">
+    <!-- ═══ 4. JOURNEY MAP & QUALIFICATION ═══ -->
+    <section class="section" id="journey-map"
+        style="background: #FFFFFF; border-top: 1px solid rgba(15,29,61,0.14); padding: 88px 0;">
         <div class="container">
-            <div class="section__header section__header--center">
-                <h2>Our process</h2>
+            <div style="text-align: center; margin-bottom: 48px;">
+                <span
+                    style="display: block; font-family: 'Inter', sans-serif; font-size: 12px; font-weight: 650; letter-spacing: 0.08em; text-transform: uppercase; color: #2563EB; margin-bottom: 12px;">The
+                    Full Picture</span>
+                <h2
+                    style="font-family: 'Space Grotesk', sans-serif; font-size: clamp(28px, 4vw, 36px); line-height: 1.22; font-weight: 700; color: #0B1220; margin-bottom: 12px;">
+                    From Enquiry to Final Review</h2>
+                <p
+                    style="font-family: 'Inter', sans-serif; font-size: 16px; line-height: 1.625; font-weight: 450; color: rgba(11,18,32,0.72); max-width: 600px; margin: 0 auto;">
+                    Watch how the Revenue Engine removes human delay at every stage of the customer journey.</p>
             </div>
-            <div class="re-process">
-                <div class="re-step">
-                    <span class="re-step__num">1</span>
-                    <strong>Audit</strong>
-                    <span>We assess your current setup and opportunity</span>
+
+            <!-- Horizontal Diagram -->
+            <div
+                style="position: relative; max-width: 900px; margin: 0 auto 64px; display: flex; justify-content: space-between; align-items: flex-start; gap: 12px;">
+                <!-- Connecting Line -->
+                <div
+                    style="position: absolute; top: 16px; left: 40px; right: 40px; height: 2px; background: rgba(15,29,61,0.08); z-index: 0;">
                 </div>
-                <div class="re-step">
-                    <span class="re-step__num">2</span>
-                    <strong>Plan</strong>
-                    <span>Scope, structure, and ROI assumptions</span>
+
+                <!-- Node 1 -->
+                <div style="position: relative; z-index: 1; text-align: center; flex: 1;">
+                    <div
+                        style="width: 32px; height: 32px; border-radius: 50%; background: #FFFFFF; border: 2px solid rgba(15,29,61,0.14); margin: 0 auto 12px; display: flex; align-items: center; justify-content: center; font-family: 'Inter', sans-serif; font-size: 12px; font-weight: 700; color: rgba(11,18,32,0.40);">
+                        1</div>
+                    <div
+                        style="font-family: 'Space Grotesk', sans-serif; font-size: 14px; font-weight: 700; color: #0B1220; margin-bottom: 4px;">
+                        Enquiry</div>
+                    <div
+                        style="font-family: 'Inter', sans-serif; font-size: 12px; font-weight: 500; color: rgba(11,18,32,0.56); line-height: 1.4;">
+                        Customer reaches out</div>
                 </div>
-                <div class="re-step">
-                    <span class="re-step__num">3</span>
-                    <strong>Build</strong>
-                    <span>Website + automation layers</span>
+                <!-- Node 2 -->
+                <div style="position: relative; z-index: 1; text-align: center; flex: 1;">
+                    <div
+                        style="width: 32px; height: 32px; border-radius: 50%; background: #16A34A; border: 2px solid #16A34A; margin: 0 auto 12px; display: flex; align-items: center; justify-content: center; font-family: 'Inter', sans-serif; font-size: 14px; font-weight: 700; color: #FFFFFF; box-shadow: 0 0 0 4px rgba(22,163,74,0.15);">
+                        ✓</div>
+                    <div
+                        style="font-family: 'Space Grotesk', sans-serif; font-size: 14px; font-weight: 700; color: #0B1220; margin-bottom: 4px;">
+                        Instant reply</div>
+                    <div
+                        style="font-family: 'Inter', sans-serif; font-size: 12px; font-weight: 500; color: rgba(11,18,32,0.56); line-height: 1.4;">
+                        Acknowledged fast</div>
                 </div>
-                <div class="re-step">
-                    <span class="re-step__num">4</span>
-                    <strong>Launch</strong>
-                    <span>Live with a controlled rollout</span>
+                <!-- Node 3 -->
+                <div style="position: relative; z-index: 1; text-align: center; flex: 1;">
+                    <div
+                        style="width: 32px; height: 32px; border-radius: 50%; background: #FFFFFF; border: 2px solid rgba(15,29,61,0.14); margin: 0 auto 12px; display: flex; align-items: center; justify-content: center; font-family: 'Inter', sans-serif; font-size: 12px; font-weight: 700; color: rgba(11,18,32,0.40);">
+                        3</div>
+                    <div
+                        style="font-family: 'Space Grotesk', sans-serif; font-size: 14px; font-weight: 700; color: #0B1220; margin-bottom: 4px;">
+                        Qualify</div>
+                    <div
+                        style="font-family: 'Inter', sans-serif; font-size: 12px; font-weight: 500; color: rgba(11,18,32,0.56); line-height: 1.4;">
+                        Categorised by service</div>
                 </div>
-                <div class="re-step">
-                    <span class="re-step__num">5</span>
-                    <strong>Measure & improve</strong>
-                    <span>We refine based on real data</span>
+                <!-- Node 4 -->
+                <div style="position: relative; z-index: 1; text-align: center; flex: 1;">
+                    <div
+                        style="width: 32px; height: 32px; border-radius: 50%; background: #FFFFFF; border: 2px solid rgba(15,29,61,0.14); margin: 0 auto 12px; display: flex; align-items: center; justify-content: center; font-family: 'Inter', sans-serif; font-size: 12px; font-weight: 700; color: rgba(11,18,32,0.40);">
+                        4</div>
+                    <div
+                        style="font-family: 'Space Grotesk', sans-serif; font-size: 14px; font-weight: 700; color: #0B1220; margin-bottom: 4px;">
+                        Next step</div>
+                    <div
+                        style="font-family: 'Inter', sans-serif; font-size: 12px; font-weight: 500; color: rgba(11,18,32,0.56); line-height: 1.4;">
+                        Booking or callback</div>
+                </div>
+                <!-- Node 5 -->
+                <div style="position: relative; z-index: 1; text-align: center; flex: 1;">
+                    <div
+                        style="width: 32px; height: 32px; border-radius: 50%; background: #2563EB; border: 2px solid #2563EB; margin: 0 auto 12px; display: flex; align-items: center; justify-content: center; font-family: 'Inter', sans-serif; font-size: 14px; font-weight: 700; color: #FFFFFF; box-shadow: 0 0 0 4px rgba(37,99,235,0.15);">
+                        ✓</div>
+                    <div
+                        style="font-family: 'Space Grotesk', sans-serif; font-size: 14px; font-weight: 700; color: #0B1220; margin-bottom: 4px;">
+                        Follow up</div>
+                    <div
+                        style="font-family: 'Inter', sans-serif; font-size: 12px; font-weight: 500; color: rgba(11,18,32,0.56); line-height: 1.4;">
+                        Quote chased</div>
+                </div>
+                <!-- Node 6 -->
+                <div style="position: relative; z-index: 1; text-align: center; flex: 1;">
+                    <div
+                        style="width: 32px; height: 32px; border-radius: 50%; background: #16A34A; border: 2px solid #16A34A; margin: 0 auto 12px; display: flex; align-items: center; justify-content: center; font-family: 'Inter', sans-serif; font-size: 14px; font-weight: 700; color: #FFFFFF; box-shadow: 0 0 0 4px rgba(22,163,74,0.15);">
+                        ★</div>
+                    <div
+                        style="font-family: 'Space Grotesk', sans-serif; font-size: 14px; font-weight: 700; color: #0B1220; margin-bottom: 4px;">
+                        Review</div>
+                    <div
+                        style="font-family: 'Inter', sans-serif; font-size: 12px; font-weight: 500; color: rgba(11,18,32,0.56); line-height: 1.4;">
+                        Request sent</div>
+                </div>
+            </div>
+
+            <!-- Dashboard / What you see text -->
+            <div
+                style="background: #F8F7F4; border: 1px solid rgba(15,29,61,0.14); border-radius: 16px; padding: 32px; max-width: 900px; margin: 0 auto;">
+                <h3
+                    style="font-family: 'Space Grotesk', sans-serif; font-size: 18px; line-height: 1.4; font-weight: 700; color: #0B1220; margin-bottom: 16px; border-bottom: 1px solid rgba(15,29,61,0.08); padding-bottom: 12px;">
+                    What you see in your dashboard</h3>
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 24px;">
+                    <div>
+                        <ul
+                            style="list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 12px;">
+                            <li
+                                style="font-family: 'Inter', sans-serif; font-size: 14px; font-weight: 500; color: #0B1220; display: flex; gap: 8px;">
+                                <span style="color: #2563EB;">✓</span> Every lead captured from the site
+                            </li>
+                            <li
+                                style="font-family: 'Inter', sans-serif; font-size: 14px; font-weight: 500; color: #0B1220; display: flex; gap: 8px;">
+                                <span style="color: #2563EB;">✓</span> The current status of every quote
+                            </li>
+                        </ul>
+                    </div>
+                    <div>
+                        <ul
+                            style="list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 12px;">
+                            <li
+                                style="font-family: 'Inter', sans-serif; font-size: 14px; font-weight: 500; color: #0B1220; display: flex; gap: 8px;">
+                                <span style="color: #2563EB;">✓</span> Number of review requests sent
+                            </li>
+                            <li
+                                style="font-family: 'Inter', sans-serif; font-size: 14px; font-weight: 500; color: #0B1220; display: flex; gap: 8px;">
+                                <span style="color: #2563EB;">✓</span> Which automations are currently active
+                            </li>
+                        </ul>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- ═══ 9. FAQ MINI ═══ -->
-    <section class="section section--bg" id="faq">
+    <!-- ═══ 5. OFFER & DIFFERENTIATION (MEASURE + FIT FILTER) ═══ -->
+    <section class="section" id="qualify"
+        style="background: #F8F7F4; padding: 88px 0; border-top: 1px solid rgba(15,29,61,0.14);">
         <div class="container">
-            <div class="section__header section__header--center">
-                <h2>Common questions</h2>
+            <div style="text-align: center; margin-bottom: 48px;">
+                <h2
+                    style="font-family: 'Space Grotesk', sans-serif; font-size: clamp(28px, 4vw, 36px); line-height: 1.22; font-weight: 700; color: #0B1220; margin-bottom: 12px;">
+                    Is the Revenue Engine right for you?</h2>
+                <p
+                    style="font-family: 'Inter', sans-serif; font-size: 16px; line-height: 1.625; font-weight: 450; color: rgba(11,18,32,0.72); max-width: 600px; margin: 0 auto;">
+                    We only build the full engine where the ROI is mathematically clear.</p>
             </div>
-            <div class="re-faq">
-                <details class="re-faq-item">
-                    <summary>Do I need the full engine?</summary>
-                    <div class="re-faq-item__body">No. Many start with the Lead Website (£3,500) and add automation
-                        once enquiry volume justifies it.</div>
-                </details>
-                <details class="re-faq-item">
-                    <summary>Will messages annoy customers?</summary>
-                    <div class="re-faq-item__body">No. Messaging is conservative, opt‑out friendly, and rate‑limited.
+
+            <!-- Qualification Block -->
+            <div
+                style="display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 24px; max-width: 900px; margin: 0 auto 32px;">
+                <div
+                    style="background: #FFFFFF; border: 1px solid rgba(15,29,61,0.14); border-radius: 16px; padding: 32px;">
+                    <h3
+                        style="font-family: 'Space Grotesk', sans-serif; font-size: 18px; line-height: 1.4; font-weight: 700; color: #0B1220; margin-bottom: 16px; display: flex; align-items: center; gap: 8px;">
+                        <span style="color: #16A34A;">✓</span> Good fit if
+                    </h3>
+                    <ul
+                        style="list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 12px;">
+                        <li
+                            style="font-family: 'Inter', sans-serif; font-size: 14px; font-weight: 500; color: #0B1220; padding-left: 16px; position: relative;">
+                            <span style="position: absolute; left: 0; color: rgba(15,29,61,0.28);">·</span>You get 20+
+                            enquiries/month
+                        </li>
+                        <li
+                            style="font-family: 'Inter', sans-serif; font-size: 14px; font-weight: 500; color: #0B1220; padding-left: 16px; position: relative;">
+                            <span style="position: absolute; left: 0; color: rgba(15,29,61,0.28);">·</span>You're doing
+                            £20k+/month revenue
+                        </li>
+                        <li
+                            style="font-family: 'Inter', sans-serif; font-size: 14px; font-weight: 500; color: #0B1220; padding-left: 16px; position: relative;">
+                            <span style="position: absolute; left: 0; color: rgba(15,29,61,0.28);">·</span>You want
+                            systems instead of more admin
+                        </li>
+                    </ul>
+                </div>
+                <div
+                    style="background: #FFFFFF; border: 1px solid rgba(15,29,61,0.14); border-radius: 16px; padding: 32px;">
+                    <h3
+                        style="font-family: 'Space Grotesk', sans-serif; font-size: 18px; line-height: 1.4; font-weight: 700; color: #0B1220; margin-bottom: 16px; display: flex; align-items: center; gap: 8px;">
+                        <span style="color: #DC2626;">✕</span> Not a fit if
+                    </h3>
+                    <ul
+                        style="list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 12px;">
+                        <li
+                            style="font-family: 'Inter', sans-serif; font-size: 14px; font-weight: 500; color: #0B1220; padding-left: 16px; position: relative;">
+                            <span style="position: absolute; left: 0; color: rgba(15,29,61,0.28);">·</span>You have low
+                            enquiry volume (won't pay back)
+                        </li>
+                        <li
+                            style="font-family: 'Inter', sans-serif; font-size: 14px; font-weight: 500; color: #0B1220; padding-left: 16px; position: relative;">
+                            <span style="position: absolute; left: 0; color: rgba(15,29,61,0.28);">·</span>You want "AI"
+                            to experiment with
+                        </li>
+                        <li
+                            style="font-family: 'Inter', sans-serif; font-size: 14px; font-weight: 500; color: #0B1220; padding-left: 16px; position: relative;">
+                            <span style="position: absolute; left: 0; color: rgba(15,29,61,0.28);">·</span>You want
+                            aggressive spam messaging
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Supporting Cards -->
+            <div
+                style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 16px; max-width: 900px; margin: 0 auto;">
+                <div
+                    style="background: #FFFFFF; border: 1px solid rgba(15,29,61,0.14); border-radius: 12px; padding: 20px;">
+                    <div
+                        style="font-family: 'Inter', sans-serif; font-size: 12px; font-weight: 700; color: #2563EB; text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 8px;">
+                        Start smaller</div>
+                    <p
+                        style="font-family: 'Inter', sans-serif; font-size: 14px; font-weight: 450; color: rgba(11,18,32,0.72); line-height: 1.5;">
+                        Many start with just the <a href="lead-websites.html"
+                            style="color:#0B1220; font-weight:600; text-decoration:underline;">Lead Website</a>, and
+                        layer automation as they grow.</p>
+                </div>
+                <div
+                    style="background: #FFFFFF; border: 1px solid rgba(15,29,61,0.14); border-radius: 12px; padding: 20px;">
+                    <div
+                        style="font-family: 'Inter', sans-serif; font-size: 12px; font-weight: 700; color: #2563EB; text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 8px;">
+                        Math drives decisions</div>
+                    <p
+                        style="font-family: 'Inter', sans-serif; font-size: 14px; font-weight: 450; color: rgba(11,18,32,0.72); line-height: 1.5;">
+                        During the audit, we calculate the estimated return. If the numbers don't work, we'll tell you.
+                    </p>
+                </div>
+                <div
+                    style="background: #FFFFFF; border: 1px solid rgba(15,29,61,0.14); border-radius: 12px; padding: 20px;">
+                    <div
+                        style="font-family: 'Inter', sans-serif; font-size: 12px; font-weight: 700; color: #2563EB; text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 8px;">
+                        Managed service</div>
+                    <p
+                        style="font-family: 'Inter', sans-serif; font-size: 14px; font-weight: 450; color: rgba(11,18,32,0.72); line-height: 1.5;">
+                        We don't just hand you software. We build it, refine it, and ensure it's recovering leads
+                        monthly.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ═══ 6. PRICING ═══ -->
+    <section class="section" id="pricing"
+        style="background: #FFFFFF; padding: 88px 0; border-top: 1px solid rgba(15,29,61,0.14);">
+        <div class="container">
+            <div style="text-align: center; margin-bottom: 48px;">
+                <h2
+                    style="font-family: 'Space Grotesk', sans-serif; font-size: clamp(28px, 4vw, 36px); line-height: 1.22; font-weight: 700; color: #0B1220; margin-bottom: 12px;">
+                    Revenue Engine installation</h2>
+                <p
+                    style="font-family: 'Inter', sans-serif; font-size: 16px; line-height: 1.625; font-weight: 450; color: rgba(11,18,32,0.72); max-width: 600px; margin: 0 auto;">
+                    Typical range £7,500–£12,000 depending on enquiry volume, complexity, and layers.</p>
+            </div>
+
+            <div
+                style="max-width: 800px; margin: 0 auto; background: #FFFFFF; border: 1px solid rgba(15,29,61,0.14); border-radius: 16px; box-shadow: 0 12px 32px rgba(15,29,61,0.08); overflow: hidden;">
+                <div style="display: flex; flex-wrap: wrap;">
+                    <!-- Setup -->
+                    <div
+                        style="flex: 1; min-width: 300px; padding: 40px; border-bottom: 1px solid rgba(15,29,61,0.14);">
+                        <div
+                            style="font-family: 'Inter', sans-serif; font-size: 14px; font-weight: 700; color: #2563EB; text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 8px;">
+                            Full Engine From</div>
+                        <div
+                            style="font-family: 'Space Grotesk', sans-serif; font-size: 48px; font-weight: 700; color: #0B1220; line-height: 1; margin-bottom: 8px;">
+                            £7,500 <span
+                                style="font-family: 'Inter', sans-serif; font-size: 18px; font-weight: 500; color: rgba(11,18,32,0.56); vertical-align: middle;">setup</span>
+                        </div>
+                        <p
+                            style="font-family: 'Inter', sans-serif; font-size: 14px; font-weight: 500; color: rgba(11,18,32,0.72); border-left: 3px solid rgba(15,29,61,0.14); padding-left: 12px; margin-top: 16px;">
+                            We only recommend the full engine where ROI potential is clear.</p>
+                    </div>
+                    <!-- Management -->
+                    <div
+                        style="flex: 1; min-width: 300px; padding: 40px; background: #F8F7F4; border-bottom: 1px solid rgba(15,29,61,0.14);">
+                        <div
+                            style="font-family: 'Inter', sans-serif; font-size: 14px; font-weight: 700; color: #0B1220; text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 8px;">
+                            Ongoing Management</div>
+                        <div
+                            style="font-family: 'Space Grotesk', sans-serif; font-size: 48px; font-weight: 700; color: #0B1220; line-height: 1; margin-bottom: 8px;">
+                            £450 <span
+                                style="font-family: 'Inter', sans-serif; font-size: 18px; font-weight: 500; color: rgba(11,18,32,0.56); vertical-align: middle;">/month</span>
+                        </div>
+                        <p
+                            style="font-family: 'Inter', sans-serif; font-size: 14px; font-weight: 500; color: rgba(11,18,32,0.72); margin-top: 16px;">
+                            Hosting, updates, layer management, reporting and strategy calls.</p>
+                    </div>
+                </div>
+
+                <!-- What's included -->
+                <div style="padding: 40px;">
+                    <h4
+                        style="font-family: 'Inter', sans-serif; font-size: 16px; font-weight: 700; color: #0B1220; margin-bottom: 24px;">
+                        What's included in setup</h4>
+                    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 16px;">
+                        <div style="display: flex; gap: 12px; align-items: flex-start;">
+                            <span style="color: #2563EB; font-weight: 700; margin-top: 2px;">✓</span>
+                            <span
+                                style="font-family: 'Inter', sans-serif; font-size: 14px; font-weight: 500; color: rgba(11,18,32,0.85); line-height: 1.5;">Lead
+                                website build (conversion structure + local pages)</span>
+                        </div>
+                        <div style="display: flex; gap: 12px; align-items: flex-start;">
+                            <span style="color: #2563EB; font-weight: 700; margin-top: 2px;">✓</span>
+                            <span
+                                style="font-family: 'Inter', sans-serif; font-size: 14px; font-weight: 500; color: rgba(11,18,32,0.85); line-height: 1.5;">Response
+                                automation (instant reply + missed-call recovery)</span>
+                        </div>
+                        <div style="display: flex; gap: 12px; align-items: flex-start;">
+                            <span style="color: #2563EB; font-weight: 700; margin-top: 2px;">✓</span>
+                            <span
+                                style="font-family: 'Inter', sans-serif; font-size: 14px; font-weight: 500; color: rgba(11,18,32,0.85); line-height: 1.5;">Quote
+                                follow-up sequences (timed reminders)</span>
+                        </div>
+                        <div style="display: flex; gap: 12px; align-items: flex-start;">
+                            <span style="color: #2563EB; font-weight: 700; margin-top: 2px;">✓</span>
+                            <span
+                                style="font-family: 'Inter', sans-serif; font-size: 14px; font-weight: 500; color: rgba(11,18,32,0.85); line-height: 1.5;">Review
+                                automation (polite request + tracking)</span>
+                        </div>
+                        <div style="display: flex; gap: 12px; align-items: flex-start;">
+                            <span style="color: #2563EB; font-weight: 700; margin-top: 2px;">✓</span>
+                            <span
+                                style="font-family: 'Inter', sans-serif; font-size: 14px; font-weight: 500; color: rgba(11,18,32,0.85); line-height: 1.5;">Tracking
+                                dashboard + measurement setup</span>
+                        </div>
+                        <div style="display: flex; gap: 12px; align-items: flex-start;">
+                            <span style="color: #2563EB; font-weight: 700; margin-top: 2px;">✓</span>
+                            <span
+                                style="font-family: 'Inter', sans-serif; font-size: 14px; font-weight: 500; color: rgba(11,18,32,0.85); line-height: 1.5;">Conservative
+                                messaging rules (rate-limited, opt-out friendly)</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div style="text-align: center; margin-top: 32px;">
+                <a href="audit.html"
+                    style="display: inline-flex; height: 48px; padding: 0 24px; align-items: center; justify-content: center; background: #FFFFFF; border: 1px solid rgba(15,29,61,0.22); border-radius: 14px; color: #0B1220; font-family: 'Inter', sans-serif; font-weight: 700; font-size: 14px; text-decoration: none; transition: background 0.2s; box-shadow: 0 4px 12px rgba(0,0,0,0.05);">Check
+                    if the Full Engine Makes Sense →</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- ═══ 7. PROCESS ═══ -->
+    <section class="section" id="process"
+        style="background: #F8F7F4; padding: 88px 0; border-top: 1px solid rgba(15,29,61,0.14);">
+        <div class="container">
+            <div style="text-align: center; margin-bottom: 48px;">
+                <h2
+                    style="font-family: 'Space Grotesk', sans-serif; font-size: clamp(28px, 4vw, 36px); line-height: 1.22; font-weight: 700; color: #0B1220; margin-bottom: 12px;">
+                    Our process</h2>
+            </div>
+
+            <div style="display: flex; flex-direction: column; gap: 16px; max-width: 680px; margin: 0 auto;">
+                <div
+                    style="background: #FFFFFF; border: 1px solid rgba(15,29,61,0.14); border-radius: 16px; padding: 24px; display: flex; gap: 20px; align-items: flex-start;">
+                    <div
+                        style="width: 40px; height: 40px; flex-shrink: 0; background: rgba(37,99,235,0.10); color: #2563EB; border-radius: 8px; display: flex; align-items: center; justify-content: center; font-family: 'Space Grotesk', sans-serif; font-size: 18px; font-weight: 700;">
+                        1</div>
+                    <div>
+                        <h3
+                            style="font-family: 'Space Grotesk', sans-serif; font-size: 18px; font-weight: 700; color: #0B1220; margin-bottom: 6px;">
+                            Audit & Plan</h3>
+                        <p
+                            style="font-family: 'Inter', sans-serif; font-size: 14px; line-height: 1.5; color: rgba(11,18,32,0.72);">
+                            We assess your current setup and opportunity. Map out scope, structure, and ROI assumptions.
+                        </p>
+                    </div>
+                </div>
+                <div
+                    style="background: #FFFFFF; border: 1px solid rgba(15,29,61,0.14); border-radius: 16px; padding: 24px; display: flex; gap: 20px; align-items: flex-start;">
+                    <div
+                        style="width: 40px; height: 40px; flex-shrink: 0; background: rgba(37,99,235,0.10); color: #2563EB; border-radius: 8px; display: flex; align-items: center; justify-content: center; font-family: 'Space Grotesk', sans-serif; font-size: 18px; font-weight: 700;">
+                        2</div>
+                    <div>
+                        <h3
+                            style="font-family: 'Space Grotesk', sans-serif; font-size: 18px; font-weight: 700; color: #0B1220; margin-bottom: 6px;">
+                            Build</h3>
+                        <p
+                            style="font-family: 'Inter', sans-serif; font-size: 14px; line-height: 1.5; color: rgba(11,18,32,0.72);">
+                            Website architecture and automation layers configured concurrently.</p>
+                    </div>
+                </div>
+                <div
+                    style="background: #FFFFFF; border: 1px solid rgba(15,29,61,0.14); border-radius: 16px; padding: 24px; display: flex; gap: 20px; align-items: flex-start;">
+                    <div
+                        style="width: 40px; height: 40px; flex-shrink: 0; background: rgba(37,99,235,0.10); color: #2563EB; border-radius: 8px; display: flex; align-items: center; justify-content: center; font-family: 'Space Grotesk', sans-serif; font-size: 18px; font-weight: 700;">
+                        3</div>
+                    <div>
+                        <h3
+                            style="font-family: 'Space Grotesk', sans-serif; font-size: 18px; font-weight: 700; color: #0B1220; margin-bottom: 6px;">
+                            Launch</h3>
+                        <p
+                            style="font-family: 'Inter', sans-serif; font-size: 14px; line-height: 1.5; color: rgba(11,18,32,0.72);">
+                            Go live with a controlled rollout to monitor volume and delivery.</p>
+                    </div>
+                </div>
+                <div
+                    style="background: #FFFFFF; border: 1px solid rgba(15,29,61,0.14); border-radius: 16px; padding: 24px; display: flex; gap: 20px; align-items: flex-start;">
+                    <div
+                        style="width: 40px; height: 40px; flex-shrink: 0; background: rgba(37,99,235,0.10); color: #2563EB; border-radius: 8px; display: flex; align-items: center; justify-content: center; font-family: 'Space Grotesk', sans-serif; font-size: 18px; font-weight: 700;">
+                        4</div>
+                    <div>
+                        <h3
+                            style="font-family: 'Space Grotesk', sans-serif; font-size: 18px; font-weight: 700; color: #0B1220; margin-bottom: 6px;">
+                            Measure & Improve</h3>
+                        <p
+                            style="font-family: 'Inter', sans-serif; font-size: 14px; line-height: 1.5; color: rgba(11,18,32,0.72);">
+                            Ongoing refinement based on dashboard analytics and real data.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ═══ 8. FAQ ═══ -->
+    <section class="section" id="faq"
+        style="background: #FFFFFF; padding: 88px 0; border-top: 1px solid rgba(15,29,61,0.14);">
+        <div class="container">
+            <div style="text-align: center; margin-bottom: 48px;">
+                <h2
+                    style="font-family: 'Space Grotesk', sans-serif; font-size: clamp(28px, 4vw, 36px); line-height: 1.22; font-weight: 700; color: #0B1220; margin-bottom: 12px;">
+                    Common questions</h2>
+            </div>
+
+            <div style="max-width: 680px; margin: 0 auto; display: flex; flex-direction: column; gap: 16px;">
+                <!-- FAQ 1 -->
+                <details
+                    style="background: #F8F7F4; border: 1px solid rgba(15,29,61,0.14); border-radius: 12px; overflow: hidden; group"
+                    class="faq-item">
+                    <summary
+                        style="padding: 24px; font-family: 'Space Grotesk', sans-serif; font-size: 16px; font-weight: 700; color: #0B1220; cursor: pointer; list-style: none; display: flex; justify-content: space-between; align-items: center;">
+                        Do I need the full engine?
+                        <span style="color: #2563EB; font-size: 20px; line-height: 1;">+</span>
+                    </summary>
+                    <div
+                        style="padding: 0 24px 24px; font-family: 'Inter', sans-serif; font-size: 15px; line-height: 1.6; color: rgba(11,18,32,0.72);">
+                        No. Many start with the Lead Website (£3,500) and add automation once enquiry volume justifies
+                        it.
                     </div>
                 </details>
-                <details class="re-faq-item">
-                    <summary>What if ROI isn't there?</summary>
-                    <div class="re-faq-item__body">We'll tell you directly and recommend a better next step.</div>
+
+                <!-- FAQ 2 -->
+                <details
+                    style="background: #F8F7F4; border: 1px solid rgba(15,29,61,0.14); border-radius: 12px; overflow: hidden; group"
+                    class="faq-item">
+                    <summary
+                        style="padding: 24px; font-family: 'Space Grotesk', sans-serif; font-size: 16px; font-weight: 700; color: #0B1220; cursor: pointer; list-style: none; display: flex; justify-content: space-between; align-items: center;">
+                        Will messages annoy customers?
+                        <span style="color: #2563EB; font-size: 20px; line-height: 1;">+</span>
+                    </summary>
+                    <div
+                        style="padding: 0 24px 24px; font-family: 'Inter', sans-serif; font-size: 15px; line-height: 1.6; color: rgba(11,18,32,0.72);">
+                        No. Messaging is conservative, opt‑out friendly, and rate‑limited to avoid spamming.
+                    </div>
+                </details>
+
+                <!-- FAQ 3 -->
+                <details
+                    style="background: #F8F7F4; border: 1px solid rgba(15,29,61,0.14); border-radius: 12px; overflow: hidden; group"
+                    class="faq-item">
+                    <summary
+                        style="padding: 24px; font-family: 'Space Grotesk', sans-serif; font-size: 16px; font-weight: 700; color: #0B1220; cursor: pointer; list-style: none; display: flex; justify-content: space-between; align-items: center;">
+                        What if ROI isn't there?
+                        <span style="color: #2563EB; font-size: 20px; line-height: 1;">+</span>
+                    </summary>
+                    <div
+                        style="padding: 0 24px 24px; font-family: 'Inter', sans-serif; font-size: 15px; line-height: 1.6; color: rgba(11,18,32,0.72);">
+                        We'll tell you directly and recommend a better next step. We only install this system when the
+                        business economics support it securely.
+                    </div>
                 </details>
             </div>
         </div>
     </section>
 
-    <!-- ═══ 10. FINAL CTA ═══ -->
-    <section class="cta-band">
+    <!-- ═══ 9. FINAL CTA ═══ -->
+    <section class="section"
+        style="background: #0F1D3D; padding: 100px 0; text-align: center; border-top: 1px solid rgba(255,255,255,0.10);">
         <div class="container">
-            <h2>If you want a system that captures and converts demand automatically — start with the audit.</h2>
-            <p>Clear numbers. Direct recommendation. No pressure.</p>
-            <a href="audit.html" class="btn btn--primary btn--hero">Start Audit Request</a>
+            <h2
+                style="font-family: 'Space Grotesk', sans-serif; font-size: clamp(32px, 5vw, 44px); line-height: 1.15; font-weight: 700; color: #FFFFFF; margin-bottom: 20px; max-width: 800px; margin-left: auto; margin-right: auto; letter-spacing: -0.02em;">
+                If you want a system that captures and converts demand automatically — start with the audit.</h2>
+            <p
+                style="font-family: 'Inter', sans-serif; font-size: 18px; line-height: 1.6; font-weight: 450; color: rgba(255,255,255,0.72); margin-bottom: 40px; max-width: 600px; margin-left: auto; margin-right: auto;">
+                Clear numbers. Direct recommendation. No pressure.</p>
+            <a href="audit.html"
+                style="display: inline-flex; height: 56px; padding: 0 32px; align-items: center; justify-content: center; background: #2563EB; border-radius: 14px; color: #FFFFFF; font-family: 'Inter', sans-serif; font-weight: 700; font-size: 16px; text-decoration: none; transition: background 0.2s; box-shadow: 0 10px 24px rgba(0,0,0,0.18);">Start
+                the Audit</a>
         </div>
     </section>
 

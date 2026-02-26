@@ -1,1067 +1,1028 @@
 <!doctype html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>
-      Results — Measurable Outcomes for UK Trade Businesses | JTandy
-    </title>
-    <meta
-      name="description"
-      content="We track calls, form submissions, first-response time, and follow-up outcomes — so improvements are visible in numbers, not guesswork."
-    />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700;800&family=Inter:wght@400;450;500;550;600;650;700;750;800;850&display=swap"
-      rel="stylesheet"
-    />
-    <link rel="stylesheet" href="style.css" />
-    <style>
-      /* ── PAGE SPECIFIC CLASSES for V5 ── */
 
-      /* 1) Hero */
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>
+    Results — Measurable Outcomes for UK Trade Businesses | JTandy
+  </title>
+  <meta name="description"
+    content="We track calls, form submissions, first-response time, and follow-up outcomes — so improvements are visible in numbers, not guesswork." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700;800&family=Inter:wght@400;450;500;550;600;650;700;750;800;850&display=swap"
+    rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+  <style>
+    /* ── PAGE SPECIFIC CLASSES for V5 ── */
+
+    /* 1) Hero */
+    .rs-hero {
+      background: #0f1d3d;
+      padding: calc(var(--nav-h, 72px) + 96px) 0 72px 0;
+      border-bottom: 1px solid rgba(15, 29, 61, 0.14);
+      position: relative;
+    }
+
+    .rs-hero::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background-image:
+        linear-gradient(rgba(255, 255, 255, 0.05) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255, 255, 255, 0.05) 1px, transparent 1px);
+      background-size: 32px 32px;
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    @media (max-width: 768px) {
       .rs-hero {
-        background: #0f1d3d;
-        padding: calc(var(--nav-h, 72px) + 96px) 0 72px 0;
-        border-bottom: 1px solid rgba(15, 29, 61, 0.14);
-        position: relative;
+        padding: calc(var(--nav-h, 72px) + 72px) 0 56px 0;
       }
+    }
 
-      .rs-hero::before {
-        content: "";
-        position: absolute;
-        inset: 0;
-        background-image:
-          linear-gradient(rgba(255, 255, 255, 0.05) 1px, transparent 1px),
-          linear-gradient(90deg, rgba(255, 255, 255, 0.05) 1px, transparent 1px);
-        background-size: 32px 32px;
-        pointer-events: none;
-        z-index: 0;
-      }
+    .rs-hero__grid {
+      position: relative;
+      z-index: 1;
+      display: grid;
+      grid-template-columns: 7fr 5fr;
+      gap: 48px;
+      align-items: center;
+    }
 
-      @media (max-width: 768px) {
-        .rs-hero {
-          padding: calc(var(--nav-h, 72px) + 72px) 0 56px 0;
-        }
-      }
-
+    @media (max-width: 900px) {
       .rs-hero__grid {
-        position: relative;
-        z-index: 1;
-        display: grid;
-        grid-template-columns: 7fr 5fr;
-        gap: 48px;
-        align-items: center;
+        grid-template-columns: 1fr;
       }
+    }
 
-      @media (max-width: 900px) {
-        .rs-hero__grid {
-          grid-template-columns: 1fr;
-        }
-      }
+    .page-eyebrow {
+      font-family: "Inter", sans-serif;
+      font-size: 12px;
+      line-height: 18px;
+      font-weight: 650;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: rgba(255, 255, 255, 0.6);
+      margin-bottom: 14px;
+      display: block;
+    }
 
-      .page-eyebrow {
-        font-family: "Inter", sans-serif;
-        font-size: 12px;
-        line-height: 18px;
-        font-weight: 650;
-        text-transform: uppercase;
-        letter-spacing: 0.08em;
-        color: rgba(255, 255, 255, 0.6);
-        margin-bottom: 14px;
-        display: block;
-      }
+    .page-h1 {
+      font-family: "Space Grotesk", sans-serif;
+      font-size: 52px;
+      line-height: 60px;
+      font-weight: 700;
+      color: #ffffff;
+    }
 
+    @media (max-width: 768px) {
       .page-h1 {
-        font-family: "Space Grotesk", sans-serif;
-        font-size: 52px;
-        line-height: 60px;
-        font-weight: 700;
-        color: #ffffff;
-      }
-
-      @media (max-width: 768px) {
-        .page-h1 {
-          font-size: 38px;
-          line-height: 44px;
-        }
-      }
-
-      .page-sub {
-        font-family: "Inter", sans-serif;
-        font-size: 18px;
-        line-height: 28px;
-        font-weight: 450;
-        color: rgba(255, 255, 255, 0.85);
-        margin-top: 14px;
-        max-width: 720px;
-      }
-
-      @media (max-width: 768px) {
-        .page-sub {
-          font-size: 16px;
-          line-height: 26px;
-        }
-      }
-
-      .btn--forecast {
-        display: inline-flex;
-        align-items: center;
-        justify-content: center;
-        height: 48px;
-        border-radius: 14px;
-        background: #2563eb;
-        color: #ffffff;
-        font-family: "Inter", sans-serif;
-        font-size: 14px;
-        line-height: 20px;
-        font-weight: 700;
-        padding: 0 18px;
-        text-decoration: none;
-        box-shadow: 0 10px 24px rgba(0, 0, 0, 0.18);
-        transition: background 0.2s ease;
-        margin-top: 20px;
-      }
-
-      .btn--forecast:hover {
-        background: #1d4ed8;
-        color: #ffffff;
-      }
-
-      .hero-microcopy {
-        font-family: "Inter", sans-serif;
-        font-size: 13px;
-        line-height: 20px;
-        font-weight: 600;
-        color: rgba(255, 255, 255, 0.7);
-        margin-top: 10px;
-      }
-
-      .hero-qualifier {
-        font-family: "Inter", sans-serif;
-        font-size: 12px;
-        line-height: 18px;
-        font-weight: 600;
-        color: rgba(255, 255, 255, 0.6);
-        margin-top: 10px;
-      }
-
-      /* Metrics Card */
-      .metrics-card {
-        background: #ffffff;
-        border-radius: 18px;
-        padding: 18px;
-        box-shadow: 0 14px 36px rgba(0, 0, 0, 0.2);
-      }
-
-      .metrics-card__title {
-        font-family: "Space Grotesk", sans-serif;
-        font-size: 16px;
-        line-height: 22px;
-        font-weight: 700;
-        color: #0b1220;
-        margin-bottom: 16px;
-      }
-
-      .metrics-grid {
-        display: grid;
-        grid-template-columns: 1fr 1fr;
-        gap: 12px;
-      }
-
-      .metric-tile {
-        background: #f8f7f4;
-        border: 1px solid rgba(15, 29, 61, 0.14);
-        border-radius: 14px;
-        padding: 12px;
-        display: flex;
-        flex-direction: column;
-        gap: 6px;
-      }
-
-      .metric-tile__num {
-        font-family: "Space Grotesk", sans-serif;
-        font-size: 20px;
-        line-height: 26px;
-        font-weight: 700;
-        color: #0b1220;
-      }
-
-      .metric-tile__label {
-        font-family: "Inter", sans-serif;
-        font-size: 12px;
-        line-height: 18px;
-        font-weight: 650;
-        text-transform: uppercase;
-        letter-spacing: 0.08em;
-        color: rgba(11, 18, 32, 0.56);
-      }
-
-      /* 2) Proof Assets */
-      .rs-proof-assets {
-        background: #ffffff;
-        padding: 72px 0 56px 0;
-        border-top: 1px solid rgba(15, 29, 61, 0.14);
-      }
-
-      .page-h2 {
-        font-family: "Space Grotesk", sans-serif;
-        font-size: 36px;
+        font-size: 38px;
         line-height: 44px;
-        font-weight: 700;
-        color: #0b1220;
-        margin-bottom: 10px;
       }
+    }
 
-      .diff-copy {
-        font-family: "Inter", sans-serif;
+    .page-sub {
+      font-family: "Inter", sans-serif;
+      font-size: 18px;
+      line-height: 28px;
+      font-weight: 450;
+      color: rgba(255, 255, 255, 0.85);
+      margin-top: 14px;
+      max-width: 720px;
+    }
+
+    @media (max-width: 768px) {
+      .page-sub {
         font-size: 16px;
         line-height: 26px;
-        font-weight: 450;
-        color: rgba(11, 18, 32, 0.72);
-        max-width: 860px;
-        margin-bottom: 8px;
       }
+    }
 
-      .privacy-note {
-        font-family: "Inter", sans-serif;
-        font-size: 13px;
-        line-height: 20px;
-        font-weight: 600;
-        color: rgba(11, 18, 32, 0.56);
-        margin-bottom: 32px;
-      }
+    .btn--forecast {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      height: 48px;
+      border-radius: 14px;
+      background: #2563eb;
+      color: #ffffff;
+      font-family: "Inter", sans-serif;
+      font-size: 14px;
+      line-height: 20px;
+      font-weight: 700;
+      padding: 0 18px;
+      text-decoration: none;
+      box-shadow: 0 10px 24px rgba(0, 0, 0, 0.18);
+      transition: background 0.2s ease;
+      margin-top: 20px;
+    }
 
+    .btn--forecast:hover {
+      background: #1d4ed8;
+      color: #ffffff;
+    }
+
+    .hero-microcopy {
+      font-family: "Inter", sans-serif;
+      font-size: 13px;
+      line-height: 20px;
+      font-weight: 600;
+      color: rgba(255, 255, 255, 0.7);
+      margin-top: 10px;
+    }
+
+    .hero-qualifier {
+      font-family: "Inter", sans-serif;
+      font-size: 12px;
+      line-height: 18px;
+      font-weight: 600;
+      color: rgba(255, 255, 255, 0.6);
+      margin-top: 10px;
+    }
+
+    /* Metrics Card */
+    .metrics-card {
+      background: #ffffff;
+      border-radius: 18px;
+      padding: 18px;
+      box-shadow: 0 14px 36px rgba(0, 0, 0, 0.2);
+    }
+
+    .metrics-card__title {
+      font-family: "Space Grotesk", sans-serif;
+      font-size: 16px;
+      line-height: 22px;
+      font-weight: 700;
+      color: #0b1220;
+      margin-bottom: 16px;
+    }
+
+    .metrics-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+    }
+
+    .metric-tile {
+      background: #f8f7f4;
+      border: 1px solid rgba(15, 29, 61, 0.14);
+      border-radius: 14px;
+      padding: 12px;
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+
+    .metric-tile__num {
+      font-family: "Space Grotesk", sans-serif;
+      font-size: 20px;
+      line-height: 26px;
+      font-weight: 700;
+      color: #0b1220;
+    }
+
+    .metric-tile__label {
+      font-family: "Inter", sans-serif;
+      font-size: 12px;
+      line-height: 18px;
+      font-weight: 650;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: rgba(11, 18, 32, 0.56);
+    }
+
+    /* 2) Proof Assets */
+    .rs-proof-assets {
+      background: #ffffff;
+      padding: 72px 0 56px 0;
+      border-top: 1px solid rgba(15, 29, 61, 0.14);
+    }
+
+    .page-h2 {
+      font-family: "Space Grotesk", sans-serif;
+      font-size: 36px;
+      line-height: 44px;
+      font-weight: 700;
+      color: #0b1220;
+      margin-bottom: 10px;
+    }
+
+    .diff-copy {
+      font-family: "Inter", sans-serif;
+      font-size: 16px;
+      line-height: 26px;
+      font-weight: 450;
+      color: rgba(11, 18, 32, 0.72);
+      max-width: 860px;
+      margin-bottom: 8px;
+    }
+
+    .privacy-note {
+      font-family: "Inter", sans-serif;
+      font-size: 13px;
+      line-height: 20px;
+      font-weight: 600;
+      color: rgba(11, 18, 32, 0.56);
+      margin-bottom: 32px;
+    }
+
+    .proof-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+      margin-bottom: 24px;
+    }
+
+    @media (max-width: 768px) {
       .proof-grid {
-        display: grid;
-        grid-template-columns: 1fr 1fr;
-        gap: 16px;
-        margin-bottom: 24px;
+        grid-template-columns: 1fr;
       }
+    }
 
-      @media (max-width: 768px) {
-        .proof-grid {
-          grid-template-columns: 1fr;
-        }
-      }
+    .proof-card {
+      background: #f8f7f4;
+      border: 1px solid rgba(15, 29, 61, 0.14);
+      border-radius: 16px;
+      padding: 14px;
+    }
 
-      .proof-card {
-        background: #f8f7f4;
-        border: 1px solid rgba(15, 29, 61, 0.14);
-        border-radius: 16px;
-        padding: 14px;
-      }
+    .proof-card__title {
+      font-family: "Space Grotesk", sans-serif;
+      font-size: 16px;
+      line-height: 22px;
+      font-weight: 700;
+      color: #0b1220;
+      margin-bottom: 12px;
+    }
 
-      .proof-card__title {
-        font-family: "Space Grotesk", sans-serif;
-        font-size: 16px;
-        line-height: 22px;
-        font-weight: 700;
-        color: #0b1220;
-        margin-bottom: 12px;
-      }
+    .proof-card__image-wrapper {
+      position: relative;
+      width: 100%;
+      aspect-ratio: 16 / 10;
+      border-radius: 12px;
+      border: 1px solid rgba(15, 29, 61, 0.14);
+      background: #e5e7eb;
+      overflow: hidden;
+      margin-bottom: 12px;
+    }
 
-      .proof-card__image-wrapper {
-        position: relative;
-        width: 100%;
-        aspect-ratio: 16 / 10;
-        border-radius: 12px;
-        border: 1px solid rgba(15, 29, 61, 0.14);
-        background: #e5e7eb;
-        overflow: hidden;
-        margin-bottom: 12px;
-      }
+    .proof-card__caption {
+      font-family: "Inter", sans-serif;
+      font-size: 12px;
+      line-height: 18px;
+      font-weight: 600;
+      color: rgba(11, 18, 32, 0.56);
+    }
 
-      .proof-card__caption {
-        font-family: "Inter", sans-serif;
-        font-size: 12px;
-        line-height: 18px;
-        font-weight: 600;
-        color: rgba(11, 18, 32, 0.56);
-      }
+    .btn--outline {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      height: 44px;
+      border-radius: 12px;
+      border: 1px solid rgba(15, 29, 61, 0.22);
+      color: #0b1220;
+      background: transparent;
+      font-family: "Inter", sans-serif;
+      font-size: 14px;
+      line-height: 20px;
+      font-weight: 700;
+      padding: 0 18px;
+      text-decoration: none;
+      transition: background 0.2s ease;
+    }
 
-      .btn--outline {
-        display: inline-flex;
-        align-items: center;
-        justify-content: center;
-        height: 44px;
-        border-radius: 12px;
-        border: 1px solid rgba(15, 29, 61, 0.22);
-        color: #0b1220;
-        background: transparent;
-        font-family: "Inter", sans-serif;
-        font-size: 14px;
-        line-height: 20px;
-        font-weight: 700;
-        padding: 0 18px;
-        text-decoration: none;
-        transition: background 0.2s ease;
-      }
+    .btn--outline:hover {
+      background: rgba(15, 29, 61, 0.04);
+    }
 
-      .btn--outline:hover {
-        background: rgba(15, 29, 61, 0.04);
-      }
+    .proof-callout {
+      position: absolute;
+      background: #ffffff;
+      border: 1px solid rgba(15, 29, 61, 0.14);
+      border-radius: 10px;
+      font-family: "Inter", sans-serif;
+      font-size: 12px;
+      line-height: 18px;
+      font-weight: 650;
+      color: #0b1220;
+      padding: 6px 10px;
+      white-space: nowrap;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06);
+      z-index: 10;
+    }
 
-      .proof-callout {
-        position: absolute;
-        background: #ffffff;
-        border: 1px solid rgba(15, 29, 61, 0.14);
-        border-radius: 10px;
-        font-family: "Inter", sans-serif;
-        font-size: 12px;
-        line-height: 18px;
-        font-weight: 650;
-        color: #0b1220;
-        padding: 6px 10px;
-        white-space: nowrap;
-        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06);
-        z-index: 10;
-      }
+    /* 3) Custom Mockup Styles Inside Image Wrapper */
+    .dash-mockup {
+      width: 100%;
+      height: 100%;
+      background: #ffffff;
+      display: flex;
+      flex-direction: column;
+    }
 
-      /* 3) Custom Mockup Styles Inside Image Wrapper */
-      .dash-mockup {
-        width: 100%;
-        height: 100%;
-        background: #ffffff;
-        display: flex;
-        flex-direction: column;
-      }
+    .dash-header {
+      height: 32px;
+      border-bottom: 1px solid rgba(15, 29, 61, 0.1);
+      background: #f8f7f4;
+    }
 
-      .dash-header {
-        height: 32px;
-        border-bottom: 1px solid rgba(15, 29, 61, 0.1);
-        background: #f8f7f4;
-      }
+    .dash-row {
+      display: flex;
+      flex: 1;
+      border-bottom: 1px solid rgba(15, 29, 61, 0.05);
+      align-items: center;
+      padding: 0 12px;
+    }
 
-      .dash-row {
-        display: flex;
-        flex: 1;
-        border-bottom: 1px solid rgba(15, 29, 61, 0.05);
-        align-items: center;
-        padding: 0 12px;
-      }
+    .dash-col {
+      flex: 1;
+      height: 12px;
+      background: #e5e7eb;
+      border-radius: 4px;
+      margin-right: 12px;
+    }
 
-      .dash-col {
-        flex: 1;
-        height: 12px;
-        background: #e5e7eb;
-        border-radius: 4px;
-        margin-right: 12px;
-      }
+    .dash-col:last-child {
+      margin-right: 0;
+    }
 
-      .dash-col:last-child {
-        margin-right: 0;
-      }
+    .dash-status {
+      width: 40px;
+    }
 
-      .dash-status {
-        width: 40px;
-      }
+    .dash-status--green {
+      background: #16a34a;
+      opacity: 0.2;
+    }
 
-      .dash-status--green {
-        background: #16a34a;
-        opacity: 0.2;
-      }
+    .dash-status--blue {
+      background: #2563eb;
+      opacity: 0.2;
+    }
 
-      .dash-status--blue {
-        background: #2563eb;
-        opacity: 0.2;
-      }
+    /* Graph Mockup */
+    .graph-mockup {
+      width: 100%;
+      height: 100%;
+      background: #ffffff;
+      position: relative;
+      padding: 24px;
+      box-sizing: border-box;
+    }
 
-      /* Graph Mockup */
-      .graph-mockup {
-        width: 100%;
-        height: 100%;
-        background: #ffffff;
-        position: relative;
-        padding: 24px;
-        box-sizing: border-box;
-      }
+    .graph-line {
+      position: absolute;
+      left: 24px;
+      right: 24px;
+      bottom: 40px;
+      height: 40px;
+      border-bottom: 2px solid rgba(15, 29, 61, 0.1);
+    }
 
-      .graph-line {
-        position: absolute;
-        left: 24px;
-        right: 24px;
-        bottom: 40px;
-        height: 40px;
-        border-bottom: 2px solid rgba(15, 29, 61, 0.1);
-      }
+    .graph-bar {
+      position: absolute;
+      bottom: 0;
+      width: 32px;
+      background: #0f1d3d;
+      border-radius: 4px 4px 0 0;
+    }
 
-      .graph-bar {
-        position: absolute;
-        bottom: 0;
-        width: 32px;
-        background: #0f1d3d;
-        border-radius: 4px 4px 0 0;
-      }
+    /* 4) ROI Breakdown Table */
+    .rs-breakdown {
+      background: #f8f7f4;
+      padding: 88px 0 56px 0;
+      border-top: 1px solid rgba(15, 29, 61, 0.14);
+    }
 
-      /* 4) ROI Breakdown Table */
-      .rs-breakdown {
-        background: #f8f7f4;
-        padding: 88px 0 56px 0;
-        border-top: 1px solid rgba(15, 29, 61, 0.14);
-      }
+    .breakdown-disclaimer {
+      font-family: "Inter", sans-serif;
+      font-size: 14px;
+      line-height: 22px;
+      font-weight: 650;
+      color: rgba(11, 18, 32, 0.72);
+      margin-bottom: 24px;
+    }
 
-      .breakdown-disclaimer {
-        font-family: "Inter", sans-serif;
-        font-size: 14px;
-        line-height: 22px;
-        font-weight: 650;
-        color: rgba(11, 18, 32, 0.72);
-        margin-bottom: 24px;
-      }
+    .table-wrapper {
+      background: #ffffff;
+      border: 1px solid rgba(15, 29, 61, 0.14);
+      border-radius: 16px;
+      padding: 16px;
+      overflow: hidden;
+      overflow-x: auto;
+      margin-bottom: 16px;
+    }
 
-      .table-wrapper {
-        background: #ffffff;
-        border: 1px solid rgba(15, 29, 61, 0.14);
-        border-radius: 16px;
-        padding: 16px;
-        overflow: hidden;
-        overflow-x: auto;
-        margin-bottom: 16px;
-      }
+    .roi-table {
+      width: 100%;
+      border-collapse: collapse;
+      text-align: left;
+      min-width: 600px;
+    }
 
-      .roi-table {
-        width: 100%;
-        border-collapse: collapse;
-        text-align: left;
-        min-width: 600px;
-      }
+    .roi-table th {
+      font-family: "Inter", sans-serif;
+      font-size: 12px;
+      line-height: 18px;
+      font-weight: 650;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: rgba(11, 18, 32, 0.56);
+      padding: 12px 16px;
+      border-bottom: 1px solid rgba(15, 29, 61, 0.1);
+    }
 
-      .roi-table th {
-        font-family: "Inter", sans-serif;
-        font-size: 12px;
-        line-height: 18px;
-        font-weight: 650;
-        text-transform: uppercase;
-        letter-spacing: 0.08em;
-        color: rgba(11, 18, 32, 0.56);
-        padding: 12px 16px;
-        border-bottom: 1px solid rgba(15, 29, 61, 0.1);
-      }
+    .roi-table td {
+      font-family: "Inter", sans-serif;
+      font-size: 14px;
+      line-height: 22px;
+      font-weight: 500;
+      color: rgba(11, 18, 32, 0.72);
+      padding: 16px;
+      border-bottom: 1px solid rgba(15, 29, 61, 0.1);
+    }
 
-      .roi-table td {
-        font-family: "Inter", sans-serif;
-        font-size: 14px;
-        line-height: 22px;
-        font-weight: 500;
-        color: rgba(11, 18, 32, 0.72);
-        padding: 16px;
-        border-bottom: 1px solid rgba(15, 29, 61, 0.1);
-      }
+    .roi-table tr:last-child td {
+      border-bottom: none;
+    }
 
-      .roi-table tr:last-child td {
-        border-bottom: none;
-      }
+    .roi-table .change-col {
+      color: #16a34a;
+      font-weight: 700;
+    }
 
-      .roi-table .change-col {
-        color: #16a34a;
-        font-weight: 700;
-      }
+    .impact-note {
+      font-family: "Inter", sans-serif;
+      font-size: 14px;
+      line-height: 22px;
+      font-weight: 500;
+      color: rgba(11, 18, 32, 0.72);
+      margin-bottom: 12px;
+    }
 
-      .impact-note {
-        font-family: "Inter", sans-serif;
-        font-size: 14px;
-        line-height: 22px;
-        font-weight: 500;
-        color: rgba(11, 18, 32, 0.72);
-        margin-bottom: 12px;
-      }
+    .impact-link {
+      font-family: "Inter", sans-serif;
+      font-size: 14px;
+      line-height: 22px;
+      font-weight: 700;
+      color: #2563eb;
+      text-decoration: none;
+      display: inline-block;
+    }
 
-      .impact-link {
-        font-family: "Inter", sans-serif;
-        font-size: 14px;
-        line-height: 22px;
-        font-weight: 700;
-        color: #2563eb;
-        text-decoration: none;
-        display: inline-block;
-      }
+    .impact-link:hover {
+      text-decoration: underline;
+    }
 
-      .impact-link:hover {
-        text-decoration: underline;
-      }
+    /* 5) Quote Cards */
+    .rs-quotes {
+      background: #ffffff;
+      padding: 88px 0 56px 0;
+      border-top: 1px solid rgba(15, 29, 61, 0.14);
+    }
 
-      /* 5) Quote Cards */
-      .rs-quotes {
-        background: #ffffff;
-        padding: 88px 0 56px 0;
-        border-top: 1px solid rgba(15, 29, 61, 0.14);
-      }
+    .quotes-privacy {
+      font-family: "Inter", sans-serif;
+      font-size: 13px;
+      line-height: 20px;
+      font-weight: 650;
+      color: rgba(11, 18, 32, 0.56);
+      margin-bottom: 24px;
+    }
 
-      .quotes-privacy {
-        font-family: "Inter", sans-serif;
-        font-size: 13px;
-        line-height: 20px;
-        font-weight: 650;
-        color: rgba(11, 18, 32, 0.56);
-        margin-bottom: 24px;
-      }
+    .quote-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+      margin-bottom: 24px;
+    }
 
+    @media (max-width: 768px) {
       .quote-grid {
-        display: grid;
-        grid-template-columns: repeat(3, 1fr);
-        gap: 16px;
-        margin-bottom: 24px;
+        grid-template-columns: 1fr;
       }
+    }
 
-      @media (max-width: 768px) {
-        .quote-grid {
-          grid-template-columns: 1fr;
-        }
-      }
+    .quote-card {
+      background: #f8f7f4;
+      border: 1px solid rgba(15, 29, 61, 0.14);
+      border-radius: 16px;
+      padding: 22px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
 
-      .quote-card {
-        background: #f8f7f4;
-        border: 1px solid rgba(15, 29, 61, 0.14);
-        border-radius: 16px;
-        padding: 22px;
-        display: flex;
-        flex-direction: column;
-        justify-content: space-between;
-      }
+    .quote-text {
+      font-family: "Inter", sans-serif;
+      font-size: 16px;
+      line-height: 26px;
+      font-weight: 450;
+      color: rgba(11, 18, 32, 0.72);
+      margin-bottom: 16px;
+    }
 
-      .quote-text {
-        font-family: "Inter", sans-serif;
-        font-size: 16px;
-        line-height: 26px;
-        font-weight: 450;
-        color: rgba(11, 18, 32, 0.72);
-        margin-bottom: 16px;
-      }
+    .quote-attr {
+      font-family: "Inter", sans-serif;
+      font-size: 13px;
+      line-height: 20px;
+      font-weight: 700;
+      color: rgba(11, 18, 32, 0.56);
+    }
 
-      .quote-attr {
-        font-family: "Inter", sans-serif;
-        font-size: 13px;
-        line-height: 20px;
-        font-weight: 700;
-        color: rgba(11, 18, 32, 0.56);
-      }
+    /* 6) FAQ */
+    .rs-faq {
+      background: #f8f7f4;
+      padding: 72px 0 56px 0;
+      border-top: 1px solid rgba(15, 29, 61, 0.14);
+    }
 
-      /* 6) FAQ */
-      .rs-faq {
-        background: #f8f7f4;
-        padding: 72px 0 56px 0;
-        border-top: 1px solid rgba(15, 29, 61, 0.14);
-      }
+    .faq-accordion {
+      max-width: 800px;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
 
-      .faq-accordion {
-        max-width: 800px;
-        display: flex;
-        flex-direction: column;
-        gap: 12px;
-      }
+    .faq-item {
+      background: #ffffff;
+      border: 1px solid rgba(15, 29, 61, 0.14);
+      border-radius: 14px;
+      overflow: hidden;
+    }
 
-      .faq-item {
-        background: #ffffff;
-        border: 1px solid rgba(15, 29, 61, 0.14);
-        border-radius: 14px;
-        overflow: hidden;
-      }
+    .faq-item summary {
+      padding: 16px;
+      font-family: "Inter", sans-serif;
+      font-size: 15px;
+      line-height: 24px;
+      font-weight: 700;
+      color: #0b1220;
+      cursor: pointer;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      list-style: none;
+    }
 
-      .faq-item summary {
-        padding: 16px;
-        font-family: "Inter", sans-serif;
-        font-size: 15px;
-        line-height: 24px;
-        font-weight: 700;
-        color: #0b1220;
-        cursor: pointer;
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        list-style: none;
-      }
+    .faq-item summary::-webkit-details-marker {
+      display: none;
+    }
 
-      .faq-item summary::-webkit-details-marker {
-        display: none;
-      }
+    .faq-item summary::after {
+      content: "+";
+      font-size: 20px;
+      font-weight: 400;
+      color: rgba(11, 18, 32, 0.56);
+      transition: transform 0.2s;
+    }
 
-      .faq-item summary::after {
-        content: "+";
-        font-size: 20px;
-        font-weight: 400;
-        color: rgba(11, 18, 32, 0.56);
-        transition: transform 0.2s;
-      }
+    .faq-item[open] summary::after {
+      content: "−";
+    }
 
-      .faq-item[open] summary::after {
-        content: "−";
-      }
+    .faq-body {
+      padding: 0 16px 16px 16px;
+      font-family: "Inter", sans-serif;
+      font-size: 14px;
+      line-height: 22px;
+      font-weight: 450;
+      color: rgba(11, 18, 32, 0.72);
+    }
 
-      .faq-body {
-        padding: 0 16px 16px 16px;
-        font-family: "Inter", sans-serif;
-        font-size: 14px;
-        line-height: 22px;
-        font-weight: 450;
-        color: rgba(11, 18, 32, 0.72);
-      }
+    /* 7) CTA BAND */
+    .cta-band--navy {
+      background: #0f1d3d;
+      padding: 64px 0 56px 0;
+    }
 
-      /* 7) CTA BAND */
-      .cta-band--navy {
-        background: #0f1d3d;
-        padding: 64px 0 56px 0;
-      }
+    .cta-band--navy .page-h2 {
+      font-size: 34px;
+      line-height: 42px;
+      color: #ffffff;
+      margin-bottom: 12px;
+    }
 
-      .cta-band--navy .page-h2 {
-        font-size: 34px;
-        line-height: 42px;
-        color: #ffffff;
-        margin-bottom: 12px;
-      }
+    .cta-band--navy .page-sub {
+      color: rgba(255, 255, 255, 0.82);
+      font-size: 16px;
+      line-height: 26px;
+      margin-bottom: 32px;
+    }
 
-      .cta-band--navy .page-sub {
-        color: rgba(255, 255, 255, 0.82);
-        font-size: 16px;
-        line-height: 26px;
-        margin-bottom: 32px;
-      }
+    .cta-buttons {
+      display: flex;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
 
-      .cta-buttons {
-        display: flex;
-        gap: 16px;
-        flex-wrap: wrap;
-      }
+    .btn--outline-white {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      height: 48px;
+      border-radius: 14px;
+      border: 1px solid rgba(255, 255, 255, 0.22);
+      color: #ffffff;
+      background: transparent;
+      font-family: "Inter", sans-serif;
+      font-size: 14px;
+      line-height: 20px;
+      font-weight: 700;
+      padding: 0 18px;
+      text-decoration: none;
+      transition: background 0.2s ease;
+    }
 
-      .btn--outline-white {
-        display: inline-flex;
-        align-items: center;
-        justify-content: center;
-        height: 48px;
-        border-radius: 14px;
-        border: 1px solid rgba(255, 255, 255, 0.22);
-        color: #ffffff;
-        background: transparent;
-        font-family: "Inter", sans-serif;
-        font-size: 14px;
-        line-height: 20px;
-        font-weight: 700;
-        padding: 0 18px;
-        text-decoration: none;
-        transition: background 0.2s ease;
-      }
+    .btn--outline-white:hover {
+      background: rgba(255, 255, 255, 0.06);
+    }
+  </style>
+</head>
 
-      .btn--outline-white:hover {
-        background: rgba(255, 255, 255, 0.06);
-      }
-    </style>
-  </head>
-
-  <body class="page-sub">
-    <!-- ═══ HEADER ═══ -->
-    <header
-      class="header"
-      id="header"
-      style="
+<body>
+  <!-- ═══ HEADER ═══ -->
+  <header class="header" id="header" style="
         background: rgba(15, 29, 61, 0.72);
         backdrop-filter: blur(10px);
         -webkit-backdrop-filter: blur(10px);
         border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-      "
-    >
-      <div class="header__inner">
-        <a href="index.html" class="header__brand"
-          ><img
-            src="img/logo-white.svg"
-            alt="JTandy"
-            class="header__logo header__logo--white"
-            style="opacity: 1; visibility: visible" /><img
-            src="img/logo-navy.svg"
-            alt="JTandy"
-            class="header__logo header__logo--navy"
-            style="opacity: 0; visibility: hidden; display: none"
-        /></a>
-        <nav class="header__nav" id="headerNav">
-          <div class="nav-dropdown">
-            <a
-              href="solutions.html"
-              class="nav-dropdown__trigger"
-              style="color: #ffffff"
-              >Solutions <span class="nav-dropdown__arrow">▾</span></a
-            >
-            <div class="nav-dropdown__menu">
-              <a href="lead-websites.html">Lead Websites</a>
-              <a href="follow-up-automation.html">Follow-Up Automation</a>
-              <a href="review-automation.html">Review Automation</a>
-              <a href="revenue-engine.html">Revenue Engine</a>
-            </div>
-          </div>
-          <a href="how-it-works.html" style="color: #ffffff">How It Works</a>
-          <a href="results.html" style="color: #ffffff">Results</a>
-          <a href="pricing.html" style="color: #ffffff">Pricing</a>
-          <a href="faq.html" style="color: #ffffff">FAQ</a>
-        </nav>
-        <div class="header__actions">
-          <a href="audit.html" class="btn btn--primary"
-            >Get Free Lead Leak Report</a
-          >
-        </div>
-        <button class="header__burger" id="headerBurger" aria-label="Menu">
-          <span style="background: #ffffff"></span
-          ><span style="background: #ffffff"></span
-          ><span style="background: #ffffff"></span>
-        </button>
-      </div>
-    </header>
-
-    <!-- ═══ 1. HERO ═══ -->
-    <section class="rs-hero" id="rs-hero">
-      <div class="container rs-hero__grid">
-        <!-- Left Column: Copy -->
-        <div>
-          <span class="page-eyebrow">RESULTS</span>
-          <h1 class="page-h1">Here’s what happens when the leaks are fixed.</h1>
-          <p class="page-sub">
-            We track calls, forms, response times and follow‑ups. You’ll know
-            exactly how much more you’re booking.
-          </p>
-          <div>
-            <a
-              href="request-audit.html?intent=roi-forecast"
-              class="btn--forecast"
-              >Get My ROI Forecast</a
-            >
-            <p class="hero-microcopy">
-              Takes 2 minutes • Personalised report sent by email
-            </p>
-            <p class="hero-qualifier">
-              Examples shown are anonymised. Results vary by market and
-              baseline.
-            </p>
-          </div>
-        </div>
-        <!-- Right Column: Key Metrics Card -->
-        <div>
-          <div class="metrics-card">
-            <div class="metrics-card__title">
-              Key metrics at a glance (example reporting)
-            </div>
-            <div class="metrics-grid">
-              <div class="metric-tile">
-                <span class="metric-tile__num">+15–30%</span>
-                <span class="metric-tile__label">Booked jobs</span>
-              </div>
-              <div class="metric-tile">
-                <span class="metric-tile__num">&lt; 2 mins</span>
-                <span class="metric-tile__label">First response</span>
-              </div>
-              <div class="metric-tile">
-                <span class="metric-tile__num">Recovered</span>
-                <span class="metric-tile__label">Missed enquiries</span>
-              </div>
-              <div class="metric-tile">
-                <span class="metric-tile__num">Steady</span>
-                <span class="metric-tile__label">Review growth</span>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- ═══ 3. PROOF ASSETS ═══ -->
-    <section class="rs-proof-assets" id="proof">
-      <div class="container">
-        <h2 class="page-h2">What gets measured (so it’s not guesswork)</h2>
-        <p class="diff-copy">
-          We don't make assumptions. We measure every call and form submission,
-          how fast it's answered and whether a job is booked — then optimise
-          until the numbers improve.
-        </p>
-        <p class="privacy-note">
-          Examples shown are from trades like plumbing, roofing and electrical
-          businesses. Names withheld to protect client privacy.
-        </p>
-
-        <div class="proof-grid">
-          <!-- Card A -->
-          <div class="proof-card">
-            <div class="proof-card__title">Anonymised dashboard snapshot</div>
-            <div class="proof-card__image-wrapper">
-              <div class="dash-mockup">
-                <div class="dash-header"></div>
-                <div class="dash-row">
-                  <div class="dash-col" style="flex: 2"></div>
-                  <div class="dash-col"></div>
-                  <div class="dash-col dash-status dash-status--blue"></div>
-                </div>
-                <div class="dash-row">
-                  <div class="dash-col" style="flex: 2"></div>
-                  <div class="dash-col"></div>
-                  <div class="dash-col dash-status dash-status--green"></div>
-                </div>
-                <div class="dash-row">
-                  <div class="dash-col" style="flex: 2"></div>
-                  <div class="dash-col"></div>
-                  <div class="dash-col dash-status dash-status--green"></div>
-                </div>
-                <div class="dash-row">
-                  <div class="dash-col" style="flex: 2"></div>
-                  <div class="dash-col"></div>
-                  <div class="dash-col dash-status dash-status--blue"></div>
-                </div>
-              </div>
-              <div class="proof-callout" style="top: 20px; right: 10px">
-                Calls + forms logged
-              </div>
-              <div class="proof-callout" style="top: 70px; right: 10px">
-                First response time
-              </div>
-              <div class="proof-callout" style="top: 120px; right: 10px">
-                Booked / lost status
-              </div>
-            </div>
-            <div class="proof-card__caption">
-              Example reporting layout — real installs anonymised.
-            </div>
-          </div>
-          <!-- Card B -->
-          <div class="proof-card">
-            <div class="proof-card__title">
-              Enquiries before vs after launch (example)
-            </div>
-            <div class="proof-card__image-wrapper">
-              <div class="graph-mockup">
-                <div class="graph-line"></div>
-                <!-- Before bars (low) -->
-                <div class="graph-bar" style="left: 10%; height: 30%"></div>
-                <div class="graph-bar" style="left: 20%; height: 25%"></div>
-                <div class="graph-bar" style="left: 30%; height: 35%"></div>
-                <div class="graph-bar" style="left: 40%; height: 40%"></div>
-                <!-- Go live line (implied) -->
-                <div
-                  style="
-                    position: absolute;
-                    left: 48%;
-                    top: 20px;
-                    bottom: 40px;
-                    border-left: 2px dashed #2563eb;
-                  "
-                ></div>
-                <div
-                  class="proof-callout"
-                  style="
-                    top: 20px;
-                    left: 52%;
-                    border-color: rgba(15, 29, 61, 0.14);
-                    color: #0b1220;
-                    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06);
-                  "
-                >
-                  System goes live
-                </div>
-                <!-- After bars (high) -->
-                <div class="graph-bar" style="left: 55%; height: 60%"></div>
-                <div class="graph-bar" style="left: 65%; height: 75%"></div>
-                <div class="graph-bar" style="left: 75%; height: 65%"></div>
-                <div class="graph-bar" style="left: 85%; height: 85%"></div>
-              </div>
-            </div>
-            <div class="proof-card__caption">
-              Shows trend change after structure + follow-up goes live.
-            </div>
-          </div>
-        </div>
-
-        <a href="request-audit.html?intent=lead-leak" class="btn--outline"
-          >Get Your Lead Leak Report →</a
-        >
-      </div>
-    </section>
-
-    <!-- ═══ 4. ROI TABLE ═══ -->
-    <section class="rs-breakdown" id="breakdown">
-      <div class="container">
-        <h2 class="page-h2">Example ROI breakdown (illustrative)</h2>
-        <p class="breakdown-disclaimer">
-          Your results will vary depending on enquiry volume, local competition
-          and services.
-        </p>
-
-        <div class="table-wrapper">
-          <table class="roi-table">
-            <thead>
-              <tr>
-                <th>Metric</th>
-                <th>Baseline</th>
-                <th>After</th>
-                <th>Change</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td>Monthly enquiries</td>
-                <td>32</td>
-                <td>39</td>
-                <td class="change-col">+7</td>
-              </tr>
-              <tr>
-                <td>Avg first response time</td>
-                <td>8m</td>
-                <td>2m</td>
-                <td class="change-col">-6m</td>
-              </tr>
-              <tr>
-                <td>Quotes followed up</td>
-                <td>low</td>
-                <td>consistent</td>
-                <td class="change-col">systemised</td>
-              </tr>
-              <tr>
-                <td>Booked jobs/month</td>
-                <td>18</td>
-                <td>22</td>
-                <td class="change-col">+4</td>
-              </tr>
-              <tr>
-                <td>Reviews in 6 weeks</td>
-                <td>0</td>
-                <td>18</td>
-                <td class="change-col">+18</td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
-
-        <p class="impact-note">
-          Estimated added revenue depends on your average job value.
-        </p>
-        <a href="pricing.html" class="impact-link">See pricing →</a>
-      </div>
-    </section>
-
-    <!-- ═══ 5. TESTIMONIALS ═══ -->
-    <section class="rs-quotes" id="testimonials">
-      <div class="container">
-        <h2 class="page-h2">Feedback from early installs</h2>
-        <p class="quotes-privacy">Names withheld to protect client privacy.</p>
-
-        <div class="quote-grid">
-          <div class="quote-card">
-            <div class="quote-text">
-              "The website went from something I was embarrassed about to
-              something I actively send customers to. Calls started coming in
-              quickly."
-            </div>
-            <div class="quote-attr">Plumbing business — East Midlands</div>
-          </div>
-          <div class="quote-card">
-            <div class="quote-text">
-              "I didn't realise how many quotes I was losing until the follow-up
-              system started chasing them. Picked up extra jobs fast."
-            </div>
-            <div class="quote-attr">Roofing contractor — UK</div>
-          </div>
-          <div class="quote-card">
-            <div class="quote-text">
-              "Simple, clear, and it does what it says. I can see exactly where
-              enquiries are coming from now."
-            </div>
-            <div class="quote-attr">Electrical business — Midlands</div>
-          </div>
-        </div>
-
-        <a href="how-it-works.html" class="btn--outline"
-          >See How the System Works →</a
-        >
-      </div>
-    </section>
-
-    <!-- ═══ 6. FAQ ═══ -->
-    <section class="rs-faq" id="faq">
-      <div class="container">
-        <h2 class="page-h2" style="margin-bottom: 24px">Results FAQs</h2>
-
-        <div class="faq-accordion">
-          <details class="faq-item" name="faq">
-            <summary>Are these results typical?</summary>
-            <div class="faq-body">
-              Results vary based on your starting point, enquiry volume,
-              competition and how quickly follow‑up is implemented. The Lead
-              Leak Report will give you a realistic forecast.
-            </div>
-          </details>
-          <details class="faq-item" name="faq">
-            <summary>How do you track calls and forms?</summary>
-            <div class="faq-body">
-              We use call‑tracking numbers and analytics tags to log every call
-              and form submission. This lets us measure changes in enquiry
-              volume and response speed.
-            </div>
-          </details>
-          <details class="faq-item" name="faq">
-            <summary>Can you share full case studies?</summary>
-            <div class="faq-body">
-              We anonymise client data to protect privacy. After signing up, we
-              can share more detailed anonymised examples.
-            </div>
-          </details>
-        </div>
-      </div>
-    </section>
-
-    <!-- ═══ 7. FINAL CTA BAND ═══ -->
-    <section class="cta-band--navy">
-      <div
-        class="container"
-        style="display: flex; flex-direction: column; align-items: flex-start"
-      >
-        <h2 class="page-h2" style="color: #ffffff">Want your own forecast?</h2>
-        <p class="page-sub">
-          Get a personalised ROI forecast by email. Takes 2 minutes.
-        </p>
-        <div class="cta-buttons">
-          <a
-            href="request-audit.html?intent=roi-forecast"
-            class="btn--forecast"
-            style="margin-top: 0"
-            >Get My ROI Forecast</a
-          >
-          <a href="pricing.html" class="btn--outline-white">See pricing →</a>
-        </div>
-      </div>
-    </section>
-
-    <!-- ═══ FOOTER ═══ -->
-    <footer class="footer">
-      <div class="container">
-        <div class="footer__grid">
-          <div class="footer__col">
-            <div class="footer__brand">JTANDY</div>
-            <p class="footer__tagline">
-              Revenue recovery systems for UK tradespeople. Automated.
-              Measurable. Owned.
-            </p>
-          </div>
-          <div class="footer__col">
-            <h4>Company</h4>
-            <a href="about.html">About</a>
-            <a href="pricing.html">Pricing</a>
-            <a href="contact.html">Contact</a>
-            <a href="work.html">Case Studies</a>
-            <a href="audit.html">Request Audit</a>
-          </div>
-          <div class="footer__col">
-            <h4>Solutions</h4>
+      ">
+    <div class="header__inner">
+      <a href="index.html" class="header__brand"><img src="img/logo-white.svg" alt="JTandy"
+          class="header__logo header__logo--white" style="opacity: 1; visibility: visible" /><img
+          src="img/logo-navy.svg" alt="JTandy" class="header__logo header__logo--navy"
+          style="opacity: 0; visibility: hidden; display: none" /></a>
+      <nav class="header__nav" id="headerNav">
+        <div class="nav-dropdown">
+          <a href="solutions.html" class="nav-dropdown__trigger" style="color: #ffffff">Solutions <span
+              class="nav-dropdown__arrow">▾</span></a>
+          <div class="nav-dropdown__menu">
             <a href="lead-websites.html">Lead Websites</a>
             <a href="follow-up-automation.html">Follow-Up Automation</a>
             <a href="review-automation.html">Review Automation</a>
             <a href="revenue-engine.html">Revenue Engine</a>
           </div>
-          <div class="footer__col">
-            <h4>Legal</h4>
-            <a href="#">Privacy Policy</a>
-            <a href="#">Terms of Service</a>
-            <a href="#">Cookie Policy</a>
-          </div>
         </div>
-        <div class="footer__bottom">
-          <span>© 2025 JTandy Automations. All rights reserved.</span>
+        <a href="how-it-works.html" style="color: #ffffff">How It Works</a>
+        <a href="results.html" style="color: #ffffff">Results</a>
+        <a href="pricing.html" style="color: #ffffff">Pricing</a>
+        <a href="faq.html" style="color: #ffffff">FAQ</a>
+      </nav>
+      <div class="header__actions">
+        <a href="audit.html" class="btn btn--primary">Get Free Lead Leak Report</a>
+      </div>
+      <button class="header__burger" id="headerBurger" aria-label="Menu">
+        <span style="background: #ffffff"></span><span style="background: #ffffff"></span><span
+          style="background: #ffffff"></span>
+      </button>
+    </div>
+  </header>
+
+  <!-- ═══ 1. HERO ═══ -->
+  <section class="rs-hero" id="rs-hero">
+    <div class="container rs-hero__grid">
+      <!-- Left Column: Copy -->
+      <div>
+        <span class="page-eyebrow">RESULTS</span>
+        <h1 class="page-h1">Here’s what happens when the leaks are fixed.</h1>
+        <p class="page-sub">
+          We track calls, forms, response times and follow‑ups. You’ll know
+          exactly how much more you’re booking.
+        </p>
+        <div>
+          <a href="request-audit.html?intent=roi-forecast" class="btn--forecast">Get My ROI Forecast</a>
+          <p class="hero-microcopy">
+            Takes 2 minutes • Personalised report sent by email
+          </p>
+          <p class="hero-qualifier">
+            Examples shown are anonymised. Results vary by market and
+            baseline.
+          </p>
         </div>
       </div>
-    </footer>
+      <!-- Right Column: Key Metrics Card -->
+      <div>
+        <div class="metrics-card">
+          <div class="metrics-card__title">
+            Key metrics at a glance (example reporting)
+          </div>
+          <div class="metrics-grid">
+            <div class="metric-tile">
+              <span class="metric-tile__num">+15–30%</span>
+              <span class="metric-tile__label">Booked jobs</span>
+            </div>
+            <div class="metric-tile">
+              <span class="metric-tile__num">&lt; 2 mins</span>
+              <span class="metric-tile__label">First response</span>
+            </div>
+            <div class="metric-tile">
+              <span class="metric-tile__num">Recovered</span>
+              <span class="metric-tile__label">Missed enquiries</span>
+            </div>
+            <div class="metric-tile">
+              <span class="metric-tile__num">Steady</span>
+              <span class="metric-tile__label">Review growth</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
 
-    <script src="script.js"></script>
-  </body>
+  <!-- ═══ 3. PROOF ASSETS ═══ -->
+  <section class="rs-proof-assets" id="proof">
+    <div class="container">
+      <h2 class="page-h2">What gets measured (so it’s not guesswork)</h2>
+      <p class="diff-copy">
+        We don't make assumptions. We measure every call and form submission,
+        how fast it's answered and whether a job is booked — then optimise
+        until the numbers improve.
+      </p>
+      <p class="privacy-note">
+        Examples shown are from trades like plumbing, roofing and electrical
+        businesses. Names withheld to protect client privacy.
+      </p>
+
+      <div class="proof-grid">
+        <!-- Card A -->
+        <div class="proof-card">
+          <div class="proof-card__title">Anonymised dashboard snapshot</div>
+          <div class="proof-card__image-wrapper">
+            <div class="dash-mockup">
+              <div class="dash-header"></div>
+              <div class="dash-row">
+                <div class="dash-col" style="flex: 2"></div>
+                <div class="dash-col"></div>
+                <div class="dash-col dash-status dash-status--blue"></div>
+              </div>
+              <div class="dash-row">
+                <div class="dash-col" style="flex: 2"></div>
+                <div class="dash-col"></div>
+                <div class="dash-col dash-status dash-status--green"></div>
+              </div>
+              <div class="dash-row">
+                <div class="dash-col" style="flex: 2"></div>
+                <div class="dash-col"></div>
+                <div class="dash-col dash-status dash-status--green"></div>
+              </div>
+              <div class="dash-row">
+                <div class="dash-col" style="flex: 2"></div>
+                <div class="dash-col"></div>
+                <div class="dash-col dash-status dash-status--blue"></div>
+              </div>
+            </div>
+            <div class="proof-callout" style="top: 20px; right: 10px">
+              Calls + forms logged
+            </div>
+            <div class="proof-callout" style="top: 70px; right: 10px">
+              First response time
+            </div>
+            <div class="proof-callout" style="top: 120px; right: 10px">
+              Booked / lost status
+            </div>
+          </div>
+          <div class="proof-card__caption">
+            Example reporting layout — real installs anonymised.
+          </div>
+        </div>
+        <!-- Card B -->
+        <div class="proof-card">
+          <div class="proof-card__title">
+            Enquiries before vs after launch (example)
+          </div>
+          <div class="proof-card__image-wrapper">
+            <div class="graph-mockup">
+              <div class="graph-line"></div>
+              <!-- Before bars (low) -->
+              <div class="graph-bar" style="left: 10%; height: 30%"></div>
+              <div class="graph-bar" style="left: 20%; height: 25%"></div>
+              <div class="graph-bar" style="left: 30%; height: 35%"></div>
+              <div class="graph-bar" style="left: 40%; height: 40%"></div>
+              <!-- Go live line (implied) -->
+              <div style="
+                    position: absolute;
+                    left: 48%;
+                    top: 20px;
+                    bottom: 40px;
+                    border-left: 2px dashed #2563eb;
+                  "></div>
+              <div class="proof-callout" style="
+                    top: 20px;
+                    left: 52%;
+                    border-color: rgba(15, 29, 61, 0.14);
+                    color: #0b1220;
+                    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06);
+                  ">
+                System goes live
+              </div>
+              <!-- After bars (high) -->
+              <div class="graph-bar" style="left: 55%; height: 60%"></div>
+              <div class="graph-bar" style="left: 65%; height: 75%"></div>
+              <div class="graph-bar" style="left: 75%; height: 65%"></div>
+              <div class="graph-bar" style="left: 85%; height: 85%"></div>
+            </div>
+          </div>
+          <div class="proof-card__caption">
+            Shows trend change after structure + follow-up goes live.
+          </div>
+        </div>
+      </div>
+
+      <a href="request-audit.html?intent=lead-leak" class="btn--outline">Get Your Lead Leak Report →</a>
+    </div>
+  </section>
+
+  <!-- ═══ 4. ROI TABLE ═══ -->
+  <section class="rs-breakdown" id="breakdown">
+    <div class="container">
+      <h2 class="page-h2">Example ROI breakdown (illustrative)</h2>
+      <p class="breakdown-disclaimer">
+        Your results will vary depending on enquiry volume, local competition
+        and services.
+      </p>
+
+      <div class="table-wrapper">
+        <table class="roi-table">
+          <thead>
+            <tr>
+              <th>Metric</th>
+              <th>Baseline</th>
+              <th>After</th>
+              <th>Change</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Monthly enquiries</td>
+              <td>32</td>
+              <td>39</td>
+              <td class="change-col">+7</td>
+            </tr>
+            <tr>
+              <td>Avg first response time</td>
+              <td>8m</td>
+              <td>2m</td>
+              <td class="change-col">-6m</td>
+            </tr>
+            <tr>
+              <td>Quotes followed up</td>
+              <td>low</td>
+              <td>consistent</td>
+              <td class="change-col">systemised</td>
+            </tr>
+            <tr>
+              <td>Booked jobs/month</td>
+              <td>18</td>
+              <td>22</td>
+              <td class="change-col">+4</td>
+            </tr>
+            <tr>
+              <td>Reviews in 6 weeks</td>
+              <td>0</td>
+              <td>18</td>
+              <td class="change-col">+18</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <p class="impact-note">
+        Estimated added revenue depends on your average job value.
+      </p>
+      <a href="pricing.html" class="impact-link">See pricing →</a>
+    </div>
+  </section>
+
+  <!-- ═══ 5. TESTIMONIALS ═══ -->
+  <section class="rs-quotes" id="testimonials">
+    <div class="container">
+      <h2 class="page-h2">Feedback from early installs</h2>
+      <p class="quotes-privacy">Names withheld to protect client privacy.</p>
+
+      <div class="quote-grid">
+        <div class="quote-card">
+          <div class="quote-text">
+            "The website went from something I was embarrassed about to
+            something I actively send customers to. Calls started coming in
+            quickly."
+          </div>
+          <div class="quote-attr">Plumbing business — East Midlands</div>
+        </div>
+        <div class="quote-card">
+          <div class="quote-text">
+            "I didn't realise how many quotes I was losing until the follow-up
+            system started chasing them. Picked up extra jobs fast."
+          </div>
+          <div class="quote-attr">Roofing contractor — UK</div>
+        </div>
+        <div class="quote-card">
+          <div class="quote-text">
+            "Simple, clear, and it does what it says. I can see exactly where
+            enquiries are coming from now."
+          </div>
+          <div class="quote-attr">Electrical business — Midlands</div>
+        </div>
+      </div>
+
+      <a href="how-it-works.html" class="btn--outline">See How the System Works →</a>
+    </div>
+  </section>
+
+  <!-- ═══ 6. FAQ ═══ -->
+  <section class="rs-faq" id="faq">
+    <div class="container">
+      <h2 class="page-h2" style="margin-bottom: 24px">Results FAQs</h2>
+
+      <div class="faq-accordion">
+        <details class="faq-item" name="faq">
+          <summary>Are these results typical?</summary>
+          <div class="faq-body">
+            Results vary based on your starting point, enquiry volume,
+            competition and how quickly follow‑up is implemented. The Lead
+            Leak Report will give you a realistic forecast.
+          </div>
+        </details>
+        <details class="faq-item" name="faq">
+          <summary>How do you track calls and forms?</summary>
+          <div class="faq-body">
+            We use call‑tracking numbers and analytics tags to log every call
+            and form submission. This lets us measure changes in enquiry
+            volume and response speed.
+          </div>
+        </details>
+        <details class="faq-item" name="faq">
+          <summary>Can you share full case studies?</summary>
+          <div class="faq-body">
+            We anonymise client data to protect privacy. After signing up, we
+            can share more detailed anonymised examples.
+          </div>
+        </details>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ 7. FINAL CTA BAND ═══ -->
+  <section class="cta-band--navy">
+    <div class="container" style="display: flex; flex-direction: column; align-items: flex-start">
+      <h2 class="page-h2" style="color: #ffffff">Want your own forecast?</h2>
+      <p class="page-sub">
+        Get a personalised ROI forecast by email. Takes 2 minutes.
+      </p>
+      <div class="cta-buttons">
+        <a href="request-audit.html?intent=roi-forecast" class="btn--forecast" style="margin-top: 0">Get My ROI
+          Forecast</a>
+        <a href="pricing.html" class="btn--outline-white">See pricing →</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ FOOTER ═══ -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer__grid">
+        <div class="footer__col">
+          <div class="footer__brand">JTANDY</div>
+          <p class="footer__tagline">
+            Revenue recovery systems for UK tradespeople. Automated.
+            Measurable. Owned.
+          </p>
+        </div>
+        <div class="footer__col">
+          <h4>Company</h4>
+          <a href="about.html">About</a>
+          <a href="pricing.html">Pricing</a>
+          <a href="contact.html">Contact</a>
+          <a href="work.html">Case Studies</a>
+          <a href="audit.html">Request Audit</a>
+        </div>
+        <div class="footer__col">
+          <h4>Solutions</h4>
+          <a href="lead-websites.html">Lead Websites</a>
+          <a href="follow-up-automation.html">Follow-Up Automation</a>
+          <a href="review-automation.html">Review Automation</a>
+          <a href="revenue-engine.html">Revenue Engine</a>
+        </div>
+        <div class="footer__col">
+          <h4>Legal</h4>
+          <a href="#">Privacy Policy</a>
+          <a href="#">Terms of Service</a>
+          <a href="#">Cookie Policy</a>
+        </div>
+      </div>
+      <div class="footer__bottom">
+        <span>© 2025 JTandy Automations. All rights reserved.</span>
+      </div>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+
 </html>

@@ -1,1654 +1,1542 @@
 <!doctype html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>
-      JTandy — Win More Booked Jobs Without Chasing Leads | UK Trades
-    </title>
-    <meta
-      name="description"
-      content="We install a fast website and automated follow-up system that texts missed callers, chases unanswered quotes, and asks for reviews — so you stop losing work to delays."
-    />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700;800&family=Inter:wght@400;450;500;550;600;650;700;750;800;850&display=swap"
-      rel="stylesheet"
-    />
-    <link rel="stylesheet" href="style.css" />
-    <style>
-      /* ── Homepage v5 Overrides ── */
 
-      /* 1. NAV */
-      .header--v5 {
-        background: rgba(15, 29, 61, 0.72) !important;
-        backdrop-filter: blur(10px);
-        -webkit-backdrop-filter: blur(10px);
-        border-bottom: 1px solid rgba(255, 255, 255, 0.1) !important;
-      }
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>
+    JTandy — Win More Booked Jobs Without Chasing Leads | UK Trades
+  </title>
+  <meta name="description"
+    content="We install a fast website and automated follow-up system that texts missed callers, chases unanswered quotes, and asks for reviews — so you stop losing work to delays." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700;800&family=Inter:wght@400;450;500;550;600;650;700;750;800;850&display=swap"
+    rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+  <style>
+    /* ── Homepage v5 Overrides ── */
 
-      .header--v5 .header__nav a {
-        font-family: "Inter", sans-serif;
-        font-size: 14px;
-        line-height: 22px;
-        font-weight: 600;
-        color: rgba(255, 255, 255, 0.82);
-        transition: color 0.15s ease;
-      }
+    /* 1. NAV */
+    .header--v5 {
+      background: rgba(15, 29, 61, 0.72) !important;
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.1) !important;
+    }
 
-      .header--v5 .header__nav a:hover {
-        color: #ffffff;
-      }
+    .header--v5 .header__nav a {
+      font-family: "Inter", sans-serif;
+      font-size: 14px;
+      line-height: 22px;
+      font-weight: 600;
+      color: rgba(255, 255, 255, 0.82);
+      transition: color 0.15s ease;
+    }
 
-      .header--v5 .nav-dropdown__trigger {
-        color: rgba(255, 255, 255, 0.82);
-      }
+    .header--v5 .header__nav a:hover {
+      color: #ffffff;
+    }
 
-      .header--v5 .nav-dropdown__trigger:hover {
-        color: #ffffff;
-      }
+    .header--v5 .nav-dropdown__trigger {
+      color: rgba(255, 255, 255, 0.82);
+    }
 
-      .header--v5 .nav-dropdown__menu a {
-        color: #0b1220 !important;
-      }
+    .header--v5 .nav-dropdown__trigger:hover {
+      color: #ffffff;
+    }
 
-      .btn--nav-cta {
-        background: #2563eb;
-        color: #ffffff;
-      }
+    .header--v5 .nav-dropdown__menu a {
+      color: #0b1220 !important;
+    }
 
-      .btn--nav-cta:hover {
-        background: #1d4ed8;
-      }
+    .btn--nav-cta {
+      background: #2563eb;
+      color: #ffffff;
+    }
 
-      /* 2. HERO */
+    .btn--nav-cta:hover {
+      background: #1d4ed8;
+    }
+
+    /* 2. HERO */
+    .hero-v5 {
+      background: #0f1d3d;
+      background-image:
+        linear-gradient(rgba(255, 255, 255, 0.05) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255, 255, 255, 0.05) 1px, transparent 1px);
+      background-size: 48px 48px;
+      padding: calc(var(--nav-h) + 96px) 0 72px;
+      position: relative;
+    }
+
+    @media (max-width: 768px) {
       .hero-v5 {
-        background: #0f1d3d;
-        background-image:
-          linear-gradient(rgba(255, 255, 255, 0.05) 1px, transparent 1px),
-          linear-gradient(90deg, rgba(255, 255, 255, 0.05) 1px, transparent 1px);
-        background-size: 48px 48px;
-        padding: calc(var(--nav-h) + 96px) 0 72px;
-        position: relative;
+        padding: calc(var(--nav-h) + 72px) 0 56px;
       }
+    }
 
-      @media (max-width: 768px) {
-        .hero-v5 {
-          padding: calc(var(--nav-h) + 72px) 0 56px;
-        }
-      }
+    .hero-v5__grid {
+      display: grid;
+      grid-template-columns: 7fr 5fr;
+      gap: 48px;
+      align-items: center;
+    }
 
+    @media (max-width: 900px) {
       .hero-v5__grid {
-        display: grid;
-        grid-template-columns: 7fr 5fr;
-        gap: 48px;
-        align-items: center;
+        grid-template-columns: 1fr;
       }
+    }
 
-      @media (max-width: 900px) {
-        .hero-v5__grid {
-          grid-template-columns: 1fr;
-        }
-      }
+    .hero-v5__eyebrow {
+      display: block;
+      font-family: "Inter", sans-serif;
+      font-size: 12px;
+      line-height: 18px;
+      font-weight: 650;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: rgba(255, 255, 255, 0.65);
+      margin-bottom: 14px;
+    }
 
-      .hero-v5__eyebrow {
-        display: block;
-        font-family: "Inter", sans-serif;
-        font-size: 12px;
-        line-height: 18px;
-        font-weight: 650;
-        letter-spacing: 0.08em;
-        text-transform: uppercase;
-        color: rgba(255, 255, 255, 0.65);
-        margin-bottom: 14px;
-      }
+    .hero-v5__h1 {
+      font-family: "Space Grotesk", sans-serif;
+      font-size: 52px;
+      line-height: 60px;
+      font-weight: 700;
+      color: #ffffff;
+      max-width: 640px;
+      margin-bottom: 16px;
+    }
 
+    @media (max-width: 768px) {
       .hero-v5__h1 {
-        font-family: "Space Grotesk", sans-serif;
-        font-size: 52px;
-        line-height: 60px;
-        font-weight: 700;
-        color: #ffffff;
-        max-width: 640px;
-        margin-bottom: 16px;
-      }
-
-      @media (max-width: 768px) {
-        .hero-v5__h1 {
-          font-size: 38px;
-          line-height: 44px;
-        }
-      }
-
-      .hero-v5__sub {
-        font-family: "Inter", sans-serif;
-        font-size: 18px;
-        line-height: 28px;
-        font-weight: 450;
-        color: rgba(255, 255, 255, 0.85);
-        max-width: 720px;
-        margin-bottom: 24px;
-      }
-
-      @media (max-width: 768px) {
-        .hero-v5__sub {
-          font-size: 16px;
-          line-height: 26px;
-        }
-      }
-
-      .hero-v5__bullets {
-        list-style: none;
-        display: flex;
-        flex-direction: column;
-        gap: 8px;
-        margin-bottom: 32px;
-      }
-
-      .hero-v5__bullets li {
-        font-family: "Inter", sans-serif;
-        font-size: 15px;
-        line-height: 24px;
-        font-weight: 500;
-        color: rgba(255, 255, 255, 0.84);
-        padding-left: 26px;
-        position: relative;
-      }
-
-      .hero-v5__bullets li::before {
-        content: "✓";
-        position: absolute;
-        left: 0;
-        color: #16a34a;
-        font-weight: 800;
-        font-size: 16px;
-      }
-
-      .btn--hero-primary {
-        display: inline-flex;
-        align-items: center;
-        justify-content: center;
-        height: 48px;
-        padding: 0 24px;
-        border-radius: 14px;
-        background: #2563eb;
-        color: #ffffff;
-        font-family: "Inter", sans-serif;
-        font-size: 14px;
-        line-height: 20px;
-        font-weight: 700;
-        text-decoration: none;
-        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.18);
-        transition: background 0.15s ease;
-        white-space: nowrap;
-      }
-
-      .btn--hero-primary:hover {
-        background: #1d4ed8;
-      }
-
-      .hero-v5__micro {
-        font-family: "Inter", sans-serif;
-        font-size: 13px;
-        line-height: 20px;
-        font-weight: 600;
-        color: rgba(255, 255, 255, 0.72);
-        margin-top: 10px;
-      }
-
-      .hero-v5__qualifier {
-        font-family: "Inter", sans-serif;
-        font-size: 12px;
-        line-height: 18px;
-        font-weight: 600;
-        color: rgba(255, 255, 255, 0.62);
-        margin-top: 6px;
-      }
-
-      .hero-modules-panel {
-        width: 100%;
-        max-width: 460px;
-        margin: 0 auto;
-        background: transparent;
-        display: flex;
-        flex-direction: column;
-        gap: 12px;
-      }
-
-      .hero-modules-panel__header {
-        display: flex;
-        justify-content: space-between;
-        align-items: flex-start;
-        margin-bottom: 4px;
-      }
-
-      .hero-modules-panel__eyebrow {
-        font-family: "Inter", sans-serif;
-        font-size: 11px;
-        line-height: 16px;
-        font-weight: 700;
-        text-transform: uppercase;
-        letter-spacing: 0.08em;
-        color: rgba(255, 255, 255, 0.6);
-        margin-bottom: 2px;
-      }
-
-      .hero-modules-panel__title {
-        font-family: "Space Grotesk", sans-serif;
-        font-size: 16px;
-        line-height: 22px;
-        font-weight: 700;
-        color: #ffffff;
-      }
-
-      .hero-modules-panel__status {
-        background: rgba(22, 163, 74, 0.16);
-        color: #16a34a;
-        font-family: "Inter", sans-serif;
-        font-size: 12px;
-        line-height: 18px;
-        font-weight: 650;
-        padding: 6px 10px;
-        border-radius: 999px;
-        white-space: nowrap;
-      }
-
-      .hero-modules-grid {
-        display: grid;
-        grid-template-columns: 1fr 1fr;
-        gap: 12px;
-      }
-
-      @media (max-width: 400px) {
-        .hero-modules-grid {
-          grid-template-columns: 1fr;
-        }
-      }
-
-      .hero-module-card {
-        background: #ffffff;
-        border: 1px solid rgba(15, 29, 61, 0.14);
-        border-radius: 16px;
-        padding: 12px;
-        box-shadow: 0 10px 24px rgba(0, 0, 0, 0.18);
-        display: flex;
-        flex-direction: column;
-        gap: 8px;
-        border-left: 3px solid transparent;
-      }
-
-      .hero-module-card--1 {
-        border-left-color: #2563eb;
-      }
-
-      .hero-module-card--2 {
-        border-left-color: #1e3a8a;
-      }
-
-      .hero-module-card--3 {
-        border-left-color: #16a34a;
-      }
-
-      .hero-module-card--full {
-        grid-column: 1 / -1;
-        flex-direction: row;
-        align-items: center;
-        justify-content: space-between;
-      }
-
-      @media (max-width: 400px) {
-        .hero-module-card--full {
-          flex-direction: column;
-          align-items: flex-start;
-        }
-      }
-
-      .hero-module-card--3-left {
-        display: flex;
-        flex-direction: column;
-        gap: 8px;
-        flex: 1;
-      }
-
-      .hero-module-card__top {
-        display: flex;
-        align-items: center;
-        gap: 6px;
-      }
-
-      .hero-module-card__icon {
-        width: 24px;
-        height: 24px;
-        border-radius: 50%;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        flex-shrink: 0;
-        background: rgba(37, 99, 235, 0.12);
-        color: #2563eb;
-      }
-
-      .hero-module-card__icon svg {
-        width: 12px;
-        height: 12px;
-      }
-
-      .hero-module-card__chip {
-        font-family: "Inter", sans-serif;
-        font-size: 11px;
-        line-height: 16px;
-        font-weight: 700;
-        text-transform: uppercase;
-        padding: 5px 8px;
-        border-radius: 999px;
-        white-space: nowrap;
-      }
-
-      .hero-module-card--1 .hero-module-card__chip {
-        background: rgba(37, 99, 235, 0.12);
-        color: #2563eb;
-      }
-
-      .hero-module-card--2 .hero-module-card__chip {
-        background: rgba(30, 58, 138, 0.12);
-        color: #1e3a8a;
-      }
-
-      .hero-module-card--3 .hero-module-card__chip {
-        background: rgba(22, 163, 74, 0.12);
-        color: #16a34a;
-      }
-
-      .hero-module-card__trigger {
-        font-family: "Inter", sans-serif;
-        font-size: 12px;
-        line-height: 18px;
-        font-weight: 600;
-        color: rgba(11, 18, 32, 0.56);
-      }
-
-      .hm-bubble {
-        font-family: "Inter", sans-serif;
-        font-size: 12px;
-        line-height: 18px;
-        padding: 8px 10px;
-        border-radius: 12px;
-        width: fit-content;
-        background: #f8faff;
-        font-weight: 600;
-        color: rgba(11, 18, 32, 0.78);
-      }
-
-      .hero-module-card--1 .hm-bubble {
-        border: 1px solid rgba(37, 99, 235, 0.16);
-      }
-
-      .hero-module-card--2 .hm-bubble {
-        border: 1px solid rgba(30, 58, 138, 0.16);
-      }
-
-      .hero-module-card--3 .hm-bubble {
-        border: 1px solid rgba(22, 163, 74, 0.16);
-      }
-
-      .hero-module-card__outcome {
-        font-family: "Inter", sans-serif;
-        font-size: 12px;
-        line-height: 18px;
-        font-weight: 600;
-        color: rgba(11, 18, 32, 0.56);
-      }
-
-      .hm-done-chip {
-        background: rgba(22, 163, 74, 0.12);
-        border: 1px solid rgba(22, 163, 74, 0.18);
-        color: #16a34a;
-        font-family: "Inter", sans-serif;
-        font-size: 12px;
-        line-height: 18px;
-        font-weight: 700;
-        padding: 6px 10px;
-        border-radius: 999px;
-        white-space: nowrap;
-      }
-
-      .hero-modules-panel__footer {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        gap: 6px;
-        margin-top: 4px;
-      }
-
-      .hm-footer-pill {
-        background: rgba(22, 163, 74, 0.16);
-        color: #16a34a;
-        font-family: "Inter", sans-serif;
-        font-size: 12px;
-        line-height: 18px;
-        font-weight: 650;
-        padding: 4px 10px;
-        border-radius: 999px;
-      }
-
-      .hm-footer-line {
-        font-family: "Inter", sans-serif;
-        font-size: 11px;
-        line-height: 16px;
-        font-weight: 650;
-        color: rgba(255, 255, 255, 0.58);
-        text-align: center;
-      }
-
-      /* 3. PROOF STACK STRIP */
-      .proof-strip {
-        background: #ffffff;
-        padding: 44px 0;
-        border-top: 1px solid rgba(15, 29, 61, 0.14);
-      }
-
-      .proof-strip__grid {
-        display: grid;
-        grid-template-columns: 7fr 5fr;
-        gap: 48px;
-        align-items: center;
-      }
-
-      @media (max-width: 900px) {
-        .proof-strip__grid {
-          grid-template-columns: 1fr;
-          gap: 32px;
-        }
-      }
-
-      .proof-strip__h2 {
-        font-family: "Space Grotesk", sans-serif;
-        font-size: 24px;
-        line-height: 32px;
-        font-weight: 700;
-        color: #0b1220;
-        margin-bottom: 12px;
-      }
-
-      .proof-bullets {
-        list-style: none;
-        display: flex;
-        flex-direction: column;
-        gap: 10px;
-      }
-
-      .proof-bullets li {
-        font-family: "Inter", sans-serif;
-        font-size: 14px;
-        line-height: 22px;
-        font-weight: 500;
-        color: rgba(11, 18, 32, 0.72);
-        display: flex;
-        align-items: flex-start;
-        gap: 10px;
-      }
-
-      .proof-bullets li svg {
-        width: 16px;
-        height: 16px;
-        color: #2563eb;
-        flex-shrink: 0;
-        margin-top: 3px;
-      }
-
-      .proof-mini-chips {
-        display: flex;
-        gap: 8px;
-        margin-top: 24px;
-        flex-wrap: wrap;
-      }
-
-      .proof-chip {
-        background: #f8f7f4;
-        border: 1px solid rgba(15, 29, 61, 0.14);
-        border-radius: 999px;
-        font-family: "Inter", sans-serif;
-        font-size: 12px;
-        line-height: 18px;
-        font-weight: 650;
-        text-transform: uppercase;
-        padding: 4px 10px;
-        color: rgba(11, 18, 32, 0.72);
-        display: flex;
-        align-items: center;
-        gap: 6px;
-      }
-
-      .proof-chip svg {
-        width: 14px;
-        height: 14px;
-        color: #2563eb;
-      }
-
-      .btn--outline-proof {
-        display: inline-flex;
-        align-items: center;
-        justify-content: center;
-        height: 44px;
-        padding: 0 18px;
-        border-radius: 12px;
-        border: 1px solid rgba(15, 29, 61, 0.22);
-        background: transparent;
-        font-family: "Inter", sans-serif;
-        font-size: 14px;
-        line-height: 20px;
-        font-weight: 650;
-        color: #0b1220;
-        text-decoration: none;
-        margin-top: 32px;
-        transition: background 0.15s ease;
-      }
-
-      .btn--outline-proof:hover {
-        background: rgba(15, 29, 61, 0.04);
-      }
-
-      .asset-stack {
-        display: flex;
-        flex-direction: column;
-        gap: 16px;
-      }
-
-      .asset-card {
-        background: #f8f7f4;
-        border: 1px solid rgba(15, 29, 61, 0.14);
-        border-radius: 16px;
-        padding: 14px;
-      }
-
-      .asset-card__title {
-        font-family: "Inter", sans-serif;
-        font-size: 13px;
-        line-height: 20px;
-        font-weight: 700;
-        color: #0b1220;
-        margin-bottom: 8px;
-      }
-
-      .asset-card__img-ph {
-        width: 100%;
-        aspect-ratio: 16 / 10;
-        background: #ffffff;
-        border: 1px solid rgba(15, 29, 61, 0.14);
-        border-radius: 12px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        font-size: 12px;
-        color: rgba(11, 18, 32, 0.4);
-        margin-bottom: 8px;
-      }
-
-      .asset-card__install-diagram {
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        background: #ffffff;
-        border: 1px solid rgba(15, 29, 61, 0.14);
-        border-radius: 12px;
-        padding: 16px 12px;
-        margin-bottom: 8px;
-      }
-
-      .install-node {
-        font-family: "Inter", sans-serif;
-        font-size: 11px;
-        font-weight: 700;
-        color: #2563eb;
-        text-transform: uppercase;
-      }
-
-      .install-arr {
-        flex: 1;
-        height: 1px;
-        background: rgba(37, 99, 235, 0.3);
-        margin: 0 8px;
-      }
-
-      .asset-card__caption {
-        font-family: "Inter", sans-serif;
-        font-size: 12px;
-        line-height: 18px;
-        font-weight: 500;
-        color: rgba(11, 18, 32, 0.56);
-      }
-
-      /* 4. OFFER & DIFFERENTIATION */
-      .offer-section {
-        background: #f8f7f4;
-        padding: 72px 0;
-        border-top: 1px solid rgba(15, 29, 61, 0.14);
-      }
-
-      @media (max-width: 768px) {
-        .offer-section {
-          padding: 56px 0;
-        }
-      }
-
-      .offer-section__h2 {
-        font-family: "Space Grotesk", sans-serif;
-        font-size: 36px;
+        font-size: 38px;
         line-height: 44px;
-        font-weight: 700;
-        color: #0b1220;
-        margin-bottom: 16px;
       }
+    }
 
-      @media (max-width: 768px) {
-        .offer-section__h2 {
-          font-size: 28px;
-          line-height: 36px;
-        }
-      }
+    .hero-v5__sub {
+      font-family: "Inter", sans-serif;
+      font-size: 18px;
+      line-height: 28px;
+      font-weight: 450;
+      color: rgba(255, 255, 255, 0.85);
+      max-width: 720px;
+      margin-bottom: 24px;
+    }
 
-      .offer-section__sub {
-        font-family: "Inter", sans-serif;
+    @media (max-width: 768px) {
+      .hero-v5__sub {
         font-size: 16px;
         line-height: 26px;
-        font-weight: 450;
-        color: rgba(11, 18, 32, 0.72);
-        max-width: 820px;
-        margin-bottom: 40px;
       }
+    }
 
+    .hero-v5__bullets {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      margin-bottom: 32px;
+    }
+
+    .hero-v5__bullets li {
+      font-family: "Inter", sans-serif;
+      font-size: 15px;
+      line-height: 24px;
+      font-weight: 500;
+      color: rgba(255, 255, 255, 0.84);
+      padding-left: 26px;
+      position: relative;
+    }
+
+    .hero-v5__bullets li::before {
+      content: "✓";
+      position: absolute;
+      left: 0;
+      color: #16a34a;
+      font-weight: 800;
+      font-size: 16px;
+    }
+
+    .btn--hero-primary {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      height: 48px;
+      padding: 0 24px;
+      border-radius: 14px;
+      background: #2563eb;
+      color: #ffffff;
+      font-family: "Inter", sans-serif;
+      font-size: 14px;
+      line-height: 20px;
+      font-weight: 700;
+      text-decoration: none;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.18);
+      transition: background 0.15s ease;
+      white-space: nowrap;
+    }
+
+    .btn--hero-primary:hover {
+      background: #1d4ed8;
+    }
+
+    .hero-v5__micro {
+      font-family: "Inter", sans-serif;
+      font-size: 13px;
+      line-height: 20px;
+      font-weight: 600;
+      color: rgba(255, 255, 255, 0.72);
+      margin-top: 10px;
+    }
+
+    .hero-v5__qualifier {
+      font-family: "Inter", sans-serif;
+      font-size: 12px;
+      line-height: 18px;
+      font-weight: 600;
+      color: rgba(255, 255, 255, 0.62);
+      margin-top: 6px;
+    }
+
+    .hero-modules-panel {
+      width: 100%;
+      max-width: 460px;
+      margin: 0 auto;
+      background: transparent;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .hero-modules-panel__header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      margin-bottom: 4px;
+    }
+
+    .hero-modules-panel__eyebrow {
+      font-family: "Inter", sans-serif;
+      font-size: 11px;
+      line-height: 16px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: rgba(255, 255, 255, 0.6);
+      margin-bottom: 2px;
+    }
+
+    .hero-modules-panel__title {
+      font-family: "Space Grotesk", sans-serif;
+      font-size: 16px;
+      line-height: 22px;
+      font-weight: 700;
+      color: #ffffff;
+    }
+
+    .hero-modules-panel__status {
+      background: rgba(22, 163, 74, 0.16);
+      color: #16a34a;
+      font-family: "Inter", sans-serif;
+      font-size: 12px;
+      line-height: 18px;
+      font-weight: 650;
+      padding: 6px 10px;
+      border-radius: 999px;
+      white-space: nowrap;
+    }
+
+    .hero-modules-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+    }
+
+    @media (max-width: 400px) {
+      .hero-modules-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .hero-module-card {
+      background: #ffffff;
+      border: 1px solid rgba(15, 29, 61, 0.14);
+      border-radius: 16px;
+      padding: 12px;
+      box-shadow: 0 10px 24px rgba(0, 0, 0, 0.18);
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      border-left: 3px solid transparent;
+    }
+
+    .hero-module-card--1 {
+      border-left-color: #2563eb;
+    }
+
+    .hero-module-card--2 {
+      border-left-color: #1e3a8a;
+    }
+
+    .hero-module-card--3 {
+      border-left-color: #16a34a;
+    }
+
+    .hero-module-card--full {
+      grid-column: 1 / -1;
+      flex-direction: row;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    @media (max-width: 400px) {
+      .hero-module-card--full {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+    }
+
+    .hero-module-card--3-left {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      flex: 1;
+    }
+
+    .hero-module-card__top {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .hero-module-card__icon {
+      width: 24px;
+      height: 24px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      background: rgba(37, 99, 235, 0.12);
+      color: #2563eb;
+    }
+
+    .hero-module-card__icon svg {
+      width: 12px;
+      height: 12px;
+    }
+
+    .hero-module-card__chip {
+      font-family: "Inter", sans-serif;
+      font-size: 11px;
+      line-height: 16px;
+      font-weight: 700;
+      text-transform: uppercase;
+      padding: 5px 8px;
+      border-radius: 999px;
+      white-space: nowrap;
+    }
+
+    .hero-module-card--1 .hero-module-card__chip {
+      background: rgba(37, 99, 235, 0.12);
+      color: #2563eb;
+    }
+
+    .hero-module-card--2 .hero-module-card__chip {
+      background: rgba(30, 58, 138, 0.12);
+      color: #1e3a8a;
+    }
+
+    .hero-module-card--3 .hero-module-card__chip {
+      background: rgba(22, 163, 74, 0.12);
+      color: #16a34a;
+    }
+
+    .hero-module-card__trigger {
+      font-family: "Inter", sans-serif;
+      font-size: 12px;
+      line-height: 18px;
+      font-weight: 600;
+      color: rgba(11, 18, 32, 0.56);
+    }
+
+    .hm-bubble {
+      font-family: "Inter", sans-serif;
+      font-size: 12px;
+      line-height: 18px;
+      padding: 8px 10px;
+      border-radius: 12px;
+      width: fit-content;
+      background: #f8faff;
+      font-weight: 600;
+      color: rgba(11, 18, 32, 0.78);
+    }
+
+    .hero-module-card--1 .hm-bubble {
+      border: 1px solid rgba(37, 99, 235, 0.16);
+    }
+
+    .hero-module-card--2 .hm-bubble {
+      border: 1px solid rgba(30, 58, 138, 0.16);
+    }
+
+    .hero-module-card--3 .hm-bubble {
+      border: 1px solid rgba(22, 163, 74, 0.16);
+    }
+
+    .hero-module-card__outcome {
+      font-family: "Inter", sans-serif;
+      font-size: 12px;
+      line-height: 18px;
+      font-weight: 600;
+      color: rgba(11, 18, 32, 0.56);
+    }
+
+    .hm-done-chip {
+      background: rgba(22, 163, 74, 0.12);
+      border: 1px solid rgba(22, 163, 74, 0.18);
+      color: #16a34a;
+      font-family: "Inter", sans-serif;
+      font-size: 12px;
+      line-height: 18px;
+      font-weight: 700;
+      padding: 6px 10px;
+      border-radius: 999px;
+      white-space: nowrap;
+    }
+
+    .hero-modules-panel__footer {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 6px;
+      margin-top: 4px;
+    }
+
+    .hm-footer-pill {
+      background: rgba(22, 163, 74, 0.16);
+      color: #16a34a;
+      font-family: "Inter", sans-serif;
+      font-size: 12px;
+      line-height: 18px;
+      font-weight: 650;
+      padding: 4px 10px;
+      border-radius: 999px;
+    }
+
+    .hm-footer-line {
+      font-family: "Inter", sans-serif;
+      font-size: 11px;
+      line-height: 16px;
+      font-weight: 650;
+      color: rgba(255, 255, 255, 0.58);
+      text-align: center;
+    }
+
+    /* 3. PROOF STACK STRIP */
+    .proof-strip {
+      background: #ffffff;
+      padding: 44px 0;
+      border-top: 1px solid rgba(15, 29, 61, 0.14);
+    }
+
+    .proof-strip__grid {
+      display: grid;
+      grid-template-columns: 7fr 5fr;
+      gap: 48px;
+      align-items: center;
+    }
+
+    @media (max-width: 900px) {
+      .proof-strip__grid {
+        grid-template-columns: 1fr;
+        gap: 32px;
+      }
+    }
+
+    .proof-strip__h2 {
+      font-family: "Space Grotesk", sans-serif;
+      font-size: 24px;
+      line-height: 32px;
+      font-weight: 700;
+      color: #0b1220;
+      margin-bottom: 12px;
+    }
+
+    .proof-bullets {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .proof-bullets li {
+      font-family: "Inter", sans-serif;
+      font-size: 14px;
+      line-height: 22px;
+      font-weight: 500;
+      color: rgba(11, 18, 32, 0.72);
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+    }
+
+    .proof-bullets li svg {
+      width: 16px;
+      height: 16px;
+      color: #2563eb;
+      flex-shrink: 0;
+      margin-top: 3px;
+    }
+
+    .proof-mini-chips {
+      display: flex;
+      gap: 8px;
+      margin-top: 24px;
+      flex-wrap: wrap;
+    }
+
+    .proof-chip {
+      background: #f8f7f4;
+      border: 1px solid rgba(15, 29, 61, 0.14);
+      border-radius: 999px;
+      font-family: "Inter", sans-serif;
+      font-size: 12px;
+      line-height: 18px;
+      font-weight: 650;
+      text-transform: uppercase;
+      padding: 4px 10px;
+      color: rgba(11, 18, 32, 0.72);
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .proof-chip svg {
+      width: 14px;
+      height: 14px;
+      color: #2563eb;
+    }
+
+    .btn--outline-proof {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      height: 44px;
+      padding: 0 18px;
+      border-radius: 12px;
+      border: 1px solid rgba(15, 29, 61, 0.22);
+      background: transparent;
+      font-family: "Inter", sans-serif;
+      font-size: 14px;
+      line-height: 20px;
+      font-weight: 650;
+      color: #0b1220;
+      text-decoration: none;
+      margin-top: 32px;
+      transition: background 0.15s ease;
+    }
+
+    .btn--outline-proof:hover {
+      background: rgba(15, 29, 61, 0.04);
+    }
+
+    .asset-stack {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+
+    .asset-card {
+      background: #f8f7f4;
+      border: 1px solid rgba(15, 29, 61, 0.14);
+      border-radius: 16px;
+      padding: 14px;
+    }
+
+    .asset-card__title {
+      font-family: "Inter", sans-serif;
+      font-size: 13px;
+      line-height: 20px;
+      font-weight: 700;
+      color: #0b1220;
+      margin-bottom: 8px;
+    }
+
+    .asset-card__img-ph {
+      width: 100%;
+      aspect-ratio: 16 / 10;
+      background: #ffffff;
+      border: 1px solid rgba(15, 29, 61, 0.14);
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 12px;
+      color: rgba(11, 18, 32, 0.4);
+      margin-bottom: 8px;
+    }
+
+    .asset-card__install-diagram {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      background: #ffffff;
+      border: 1px solid rgba(15, 29, 61, 0.14);
+      border-radius: 12px;
+      padding: 16px 12px;
+      margin-bottom: 8px;
+    }
+
+    .install-node {
+      font-family: "Inter", sans-serif;
+      font-size: 11px;
+      font-weight: 700;
+      color: #2563eb;
+      text-transform: uppercase;
+    }
+
+    .install-arr {
+      flex: 1;
+      height: 1px;
+      background: rgba(37, 99, 235, 0.3);
+      margin: 0 8px;
+    }
+
+    .asset-card__caption {
+      font-family: "Inter", sans-serif;
+      font-size: 12px;
+      line-height: 18px;
+      font-weight: 500;
+      color: rgba(11, 18, 32, 0.56);
+    }
+
+    /* 4. OFFER & DIFFERENTIATION */
+    .offer-section {
+      background: #f8f7f4;
+      padding: 72px 0;
+      border-top: 1px solid rgba(15, 29, 61, 0.14);
+    }
+
+    @media (max-width: 768px) {
+      .offer-section {
+        padding: 56px 0;
+      }
+    }
+
+    .offer-section__h2 {
+      font-family: "Space Grotesk", sans-serif;
+      font-size: 36px;
+      line-height: 44px;
+      font-weight: 700;
+      color: #0b1220;
+      margin-bottom: 16px;
+    }
+
+    @media (max-width: 768px) {
+      .offer-section__h2 {
+        font-size: 28px;
+        line-height: 36px;
+      }
+    }
+
+    .offer-section__sub {
+      font-family: "Inter", sans-serif;
+      font-size: 16px;
+      line-height: 26px;
+      font-weight: 450;
+      color: rgba(11, 18, 32, 0.72);
+      max-width: 820px;
+      margin-bottom: 40px;
+    }
+
+    .offer-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 24px;
+    }
+
+    @media (max-width: 768px) {
       .offer-grid {
-        display: grid;
-        grid-template-columns: 1fr 1fr;
-        gap: 24px;
+        grid-template-columns: 1fr;
       }
+    }
 
-      @media (max-width: 768px) {
-        .offer-grid {
-          grid-template-columns: 1fr;
-        }
-      }
+    .offer-card {
+      background: #ffffff;
+      border: 1px solid rgba(15, 29, 61, 0.14);
+      border-radius: 16px;
+      padding: 22px;
+    }
 
-      .offer-card {
-        background: #ffffff;
-        border: 1px solid rgba(15, 29, 61, 0.14);
-        border-radius: 16px;
-        padding: 22px;
-      }
+    .offer-card h3 {
+      font-family: "Space Grotesk", sans-serif;
+      font-size: 20px;
+      line-height: 28px;
+      font-weight: 650;
+      color: #0b1220;
+      margin-bottom: 12px;
+    }
 
-      .offer-card h3 {
-        font-family: "Space Grotesk", sans-serif;
-        font-size: 20px;
-        line-height: 28px;
-        font-weight: 650;
-        color: #0b1220;
-        margin-bottom: 12px;
-      }
+    .offer-card p {
+      font-family: "Inter", sans-serif;
+      font-size: 15px;
+      line-height: 24px;
+      font-weight: 450;
+      color: rgba(11, 18, 32, 0.72);
+    }
 
-      .offer-card p {
-        font-family: "Inter", sans-serif;
-        font-size: 15px;
-        line-height: 24px;
-        font-weight: 450;
-        color: rgba(11, 18, 32, 0.72);
-      }
+    .offer-card p+p {
+      margin-top: 12px;
+    }
 
-      .offer-card p + p {
-        margin-top: 12px;
-      }
+    /* 5. WHAT WE INSTALL */
+    .modules-section {
+      background: #ffffff;
+      padding: 88px 0;
+      border-top: 1px solid rgba(15, 29, 61, 0.14);
+    }
 
-      /* 5. WHAT WE INSTALL */
+    @media (max-width: 768px) {
       .modules-section {
-        background: #ffffff;
-        padding: 88px 0;
-        border-top: 1px solid rgba(15, 29, 61, 0.14);
+        padding: 56px 0;
       }
+    }
 
-      @media (max-width: 768px) {
-        .modules-section {
-          padding: 56px 0;
-        }
-      }
+    .modules-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 24px;
+      margin-top: 40px;
+    }
 
+    @media (max-width: 768px) {
       .modules-grid {
-        display: grid;
-        grid-template-columns: 1fr 1fr;
-        gap: 24px;
-        margin-top: 40px;
+        grid-template-columns: 1fr;
       }
+    }
 
-      @media (max-width: 768px) {
-        .modules-grid {
-          grid-template-columns: 1fr;
-        }
-      }
+    .module-card {
+      background: #f8f7f4;
+      border: 1px solid rgba(15, 29, 61, 0.14);
+      border-radius: 16px;
+      padding: 24px;
+      display: flex;
+      flex-direction: column;
+      transition:
+        transform 0.2s ease,
+        box-shadow 0.2s ease;
+    }
 
-      .module-card {
-        background: #f8f7f4;
-        border: 1px solid rgba(15, 29, 61, 0.14);
-        border-radius: 16px;
-        padding: 24px;
-        display: flex;
-        flex-direction: column;
-        transition:
-          transform 0.2s ease,
-          box-shadow 0.2s ease;
-      }
+    .module-card:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 24px rgba(15, 29, 61, 0.08);
+    }
 
-      .module-card:hover {
-        transform: translateY(-2px);
-        box-shadow: 0 8px 24px rgba(15, 29, 61, 0.08);
-      }
+    .module-card--highlight {
+      border: 2px solid #2563eb;
+      background: #f8faff;
+    }
 
-      .module-card--highlight {
-        border: 2px solid #2563eb;
-        background: #f8faff;
-      }
+    .module-card h3 {
+      font-family: "Space Grotesk", sans-serif;
+      font-size: 20px;
+      line-height: 28px;
+      font-weight: 700;
+      color: #0b1220;
+      margin-bottom: 12px;
+    }
 
-      .module-card h3 {
-        font-family: "Space Grotesk", sans-serif;
-        font-size: 20px;
-        line-height: 28px;
-        font-weight: 700;
-        color: #0b1220;
-        margin-bottom: 12px;
-      }
+    .module-card ul {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      margin-bottom: 24px;
+      flex: 1;
+    }
 
-      .module-card ul {
-        list-style: none;
-        display: flex;
-        flex-direction: column;
-        gap: 8px;
-        margin-bottom: 24px;
-        flex: 1;
-      }
+    .module-card li {
+      font-family: "Inter", sans-serif;
+      font-size: 14px;
+      line-height: 22px;
+      font-weight: 500;
+      color: rgba(11, 18, 32, 0.72);
+      padding-left: 20px;
+      position: relative;
+    }
 
-      .module-card li {
-        font-family: "Inter", sans-serif;
-        font-size: 14px;
-        line-height: 22px;
-        font-weight: 500;
-        color: rgba(11, 18, 32, 0.72);
-        padding-left: 20px;
-        position: relative;
-      }
+    .module-card li::before {
+      content: "•";
+      position: absolute;
+      left: 0;
+      color: #2563eb;
+      font-weight: bold;
+    }
 
-      .module-card li::before {
-        content: "•";
-        position: absolute;
-        left: 0;
-        color: #2563eb;
-        font-weight: bold;
-      }
+    .btn--module {
+      align-self: flex-start;
+      font-family: "Inter", sans-serif;
+      font-size: 14px;
+      font-weight: 600;
+      color: #2563eb;
+      text-decoration: none;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
 
-      .btn--module {
-        align-self: flex-start;
-        font-family: "Inter", sans-serif;
-        font-size: 14px;
-        font-weight: 600;
-        color: #2563eb;
-        text-decoration: none;
-        display: flex;
-        align-items: center;
-        gap: 6px;
-      }
+    .btn--module:hover {
+      text-decoration: underline;
+    }
 
-      .btn--module:hover {
-        text-decoration: underline;
-      }
+    /* 6. PRICING TABLE */
+    .pricing-section {
+      background: #ffffff;
+      padding: 88px 0;
+      border-top: 1px solid rgba(15, 29, 61, 0.14);
+    }
 
-      /* 6. PRICING TABLE */
+    @media (max-width: 768px) {
       .pricing-section {
-        background: #ffffff;
-        padding: 88px 0;
-        border-top: 1px solid rgba(15, 29, 61, 0.14);
+        padding: 56px 0;
       }
+    }
 
-      @media (max-width: 768px) {
-        .pricing-section {
-          padding: 56px 0;
-        }
-      }
+    .pricing-section__h2 {
+      font-family: "Space Grotesk", sans-serif;
+      font-size: 36px;
+      line-height: 44px;
+      font-weight: 700;
+      color: #0b1220;
+      margin-bottom: 32px;
+    }
 
+    @media (max-width: 768px) {
       .pricing-section__h2 {
-        font-family: "Space Grotesk", sans-serif;
-        font-size: 36px;
-        line-height: 44px;
-        font-weight: 700;
-        color: #0b1220;
-        margin-bottom: 32px;
+        font-size: 28px;
+        line-height: 36px;
       }
+    }
 
-      @media (max-width: 768px) {
-        .pricing-section__h2 {
-          font-size: 28px;
-          line-height: 36px;
-        }
-      }
+    .pricing-card {
+      background: #f8f7f4;
+      border: 1px solid rgba(15, 29, 61, 0.14);
+      border-radius: 16px;
+      padding: 18px;
+      overflow-x: auto;
+    }
 
-      .pricing-card {
-        background: #f8f7f4;
-        border: 1px solid rgba(15, 29, 61, 0.14);
-        border-radius: 16px;
-        padding: 18px;
-        overflow-x: auto;
-      }
+    .pricing-table {
+      width: 100%;
+      min-width: 700px;
+      border-collapse: collapse;
+    }
 
-      .pricing-table {
-        width: 100%;
-        min-width: 700px;
-        border-collapse: collapse;
-      }
+    .pricing-table th {
+      font-family: "Inter", sans-serif;
+      font-size: 12px;
+      line-height: 18px;
+      font-weight: 650;
+      text-transform: uppercase;
+      color: rgba(11, 18, 32, 0.56);
+      text-align: left;
+      padding: 12px 16px;
+      border-bottom: 1px solid rgba(15, 29, 61, 0.1);
+    }
 
-      .pricing-table th {
-        font-family: "Inter", sans-serif;
-        font-size: 12px;
-        line-height: 18px;
-        font-weight: 650;
-        text-transform: uppercase;
-        color: rgba(11, 18, 32, 0.56);
-        text-align: left;
-        padding: 12px 16px;
-        border-bottom: 1px solid rgba(15, 29, 61, 0.1);
-      }
+    .pricing-table td {
+      font-family: "Inter", sans-serif;
+      font-size: 14px;
+      line-height: 22px;
+      padding: 18px 16px;
+      border-bottom: 1px solid rgba(15, 29, 61, 0.1);
+    }
 
-      .pricing-table td {
-        font-family: "Inter", sans-serif;
-        font-size: 14px;
-        line-height: 22px;
-        padding: 18px 16px;
-        border-bottom: 1px solid rgba(15, 29, 61, 0.1);
-      }
+    .pricing-table tr:last-child td {
+      border-bottom: none;
+    }
 
-      .pricing-table tr:last-child td {
-        border-bottom: none;
-      }
+    .td-tier {
+      font-weight: 700;
+      color: #0b1220;
+      width: 20%;
+    }
 
-      .td-tier {
-        font-weight: 700;
-        color: #0b1220;
-        width: 20%;
-      }
+    .td-desc {
+      font-weight: 500;
+      color: rgba(11, 18, 32, 0.72);
+      width: 55%;
+    }
 
-      .td-desc {
-        font-weight: 500;
-        color: rgba(11, 18, 32, 0.72);
-        width: 55%;
-      }
+    .td-price {
+      font-weight: 800;
+      color: #0b1220;
+      width: 25%;
+    }
 
-      .td-price {
-        font-weight: 800;
-        color: #0b1220;
-        width: 25%;
-      }
+    .pricing-micro {
+      font-family: "Inter", sans-serif;
+      font-size: 13px;
+      line-height: 20px;
+      font-weight: 600;
+      color: rgba(11, 18, 32, 0.56);
+      margin-top: 16px;
+      text-align: center;
+    }
 
-      .pricing-micro {
-        font-family: "Inter", sans-serif;
-        font-size: 13px;
-        line-height: 20px;
-        font-weight: 600;
-        color: rgba(11, 18, 32, 0.56);
-        margin-top: 16px;
-        text-align: center;
-      }
+    .pricing-cta-wrap {
+      margin-top: 32px;
+      text-align: center;
+    }
 
-      .pricing-cta-wrap {
-        margin-top: 32px;
-        text-align: center;
-      }
+    /* 7. FAQ */
+    .faq-section {
+      background: #f8f7f4;
+      padding: 88px 0;
+      border-top: 1px solid rgba(15, 29, 61, 0.14);
+    }
 
-      /* 7. FAQ */
+    @media (max-width: 768px) {
       .faq-section {
-        background: #f8f7f4;
-        padding: 88px 0;
-        border-top: 1px solid rgba(15, 29, 61, 0.14);
+        padding: 56px 0;
       }
+    }
 
-      @media (max-width: 768px) {
-        .faq-section {
-          padding: 56px 0;
-        }
-      }
+    .faq-card {
+      background: #ffffff;
+      border: 1px solid rgba(15, 29, 61, 0.14);
+      border-radius: 16px;
+      box-shadow: 0 2px 10px rgba(15, 29, 61, 0.08);
+      overflow: hidden;
+      max-width: 860px;
+    }
 
-      .faq-card {
-        background: #ffffff;
-        border: 1px solid rgba(15, 29, 61, 0.14);
-        border-radius: 16px;
-        box-shadow: 0 2px 10px rgba(15, 29, 61, 0.08);
-        overflow: hidden;
-        max-width: 860px;
-      }
+    .faq-item {
+      border-bottom: 1px solid rgba(15, 29, 61, 0.14);
+    }
 
-      .faq-item {
-        border-bottom: 1px solid rgba(15, 29, 61, 0.14);
-      }
+    .faq-item:last-child {
+      border-bottom: none;
+    }
 
-      .faq-item:last-child {
-        border-bottom: none;
-      }
+    .faq-question {
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 24px;
+      background: none;
+      border: none;
+      text-align: left;
+      font-family: "Space Grotesk", sans-serif;
+      font-size: 18px;
+      font-weight: 700;
+      color: #0b1220;
+      cursor: pointer;
+    }
 
-      .faq-question {
-        width: 100%;
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        padding: 24px;
-        background: none;
-        border: none;
-        text-align: left;
-        font-family: "Space Grotesk", sans-serif;
-        font-size: 18px;
-        font-weight: 700;
-        color: #0b1220;
-        cursor: pointer;
-      }
+    .faq-question:hover {
+      background: rgba(15, 29, 61, 0.02);
+    }
 
-      .faq-question:hover {
-        background: rgba(15, 29, 61, 0.02);
-      }
+    .faq-answer {
+      padding: 0 24px 24px;
+      font-family: "Inter", sans-serif;
+      font-size: 15px;
+      line-height: 24px;
+      font-weight: 450;
+      color: rgba(11, 18, 32, 0.72);
+      display: none;
+    }
 
-      .faq-answer {
-        padding: 0 24px 24px;
-        font-family: "Inter", sans-serif;
-        font-size: 15px;
-        line-height: 24px;
-        font-weight: 450;
-        color: rgba(11, 18, 32, 0.72);
-        display: none;
-      }
+    .faq-item.active .faq-answer {
+      display: block;
+    }
 
-      .faq-item.active .faq-answer {
-        display: block;
-      }
+    .faq-item.active .faq-icon {
+      transform: rotate(180deg);
+    }
 
-      .faq-item.active .faq-icon {
-        transform: rotate(180deg);
-      }
+    .faq-icon {
+      width: 24px;
+      height: 24px;
+      color: #2563eb;
+      transition: transform 0.2s ease;
+    }
 
-      .faq-icon {
-        width: 24px;
-        height: 24px;
-        color: #2563eb;
-        transition: transform 0.2s ease;
-      }
+    /* 8. FINAL CTA BAND */
+    .cta-band--v5 {
+      background: #0f1d3d;
+      padding: 72px 0;
+      text-align: center;
+    }
 
-      /* 8. FINAL CTA BAND */
-      .cta-band--v5 {
-        background: #0f1d3d;
-        padding: 72px 0;
-        text-align: center;
-      }
+    .cta-band--v5 .page-h2 {
+      font-family: "Space Grotesk", sans-serif;
+      font-size: 36px;
+      line-height: 44px;
+      color: #ffffff;
+      font-weight: 700;
+      margin-bottom: 24px;
+    }
 
+    @media (max-width: 768px) {
       .cta-band--v5 .page-h2 {
-        font-family: "Space Grotesk", sans-serif;
-        font-size: 36px;
-        line-height: 44px;
-        color: #ffffff;
-        font-weight: 700;
-        margin-bottom: 24px;
+        font-size: 28px;
+        line-height: 36px;
       }
+    }
+  </style>
+</head>
 
-      @media (max-width: 768px) {
-        .cta-band--v5 .page-h2 {
-          font-size: 28px;
-          line-height: 36px;
-        }
-      }
-    </style>
-  </head>
-
-  <body>
-    <!-- ═══ 1. HEADER ═══ -->
-    <header class="header header--v5" id="header">
-      <div class="header__inner">
-        <a href="index.html" class="header__brand">
-          <img src="img/logo-white.svg" alt="JTandy" class="header__logo" />
-        </a>
-        <nav class="header__nav" id="headerNav">
-          <div class="nav-dropdown">
-            <a href="solutions.html" class="nav-dropdown__trigger"
-              >Solutions <span class="nav-dropdown__arrow">▾</span></a
-            >
-            <div class="nav-dropdown__menu">
-              <a href="lead-websites.html">Lead Websites</a>
-              <a href="follow-up-automation.html">Follow-Up Automation</a>
-              <a href="review-automation.html">Review Automation</a>
-              <a href="revenue-engine.html">Revenue Engine</a>
-            </div>
-          </div>
-          <a href="how-it-works.html">How It Works</a>
-          <a href="results.html">Results</a>
-          <a href="pricing.html">Pricing</a>
-          <a href="faq.html">FAQ</a>
-        </nav>
-        <div class="header__actions">
-          <a href="audit.html" class="btn btn--nav-cta" id="headerCta"
-            >Get Free Lead Leak Report</a
-          >
-        </div>
-        <button
-          class="header__burger"
-          id="headerBurger"
-          aria-label="Menu"
-          style="filter: invert(1)"
-        >
-          <span></span><span></span><span></span>
-        </button>
-      </div>
-    </header>
-
-    <!-- ═══ 2. HERO ═══ -->
-    <section class="hero-v5">
-      <div class="container">
-        <div class="hero-v5__grid">
-          <!-- Left: Copy -->
-          <div>
-            <span class="hero-v5__eyebrow">FOR UK TRADES</span>
-            <h1 class="hero-v5__h1">Stop losing jobs to slow replies.</h1>
-            <p class="hero-v5__sub">
-              Get a conversion‑ready website and instant response system that
-              captures every enquiry, acknowledges within seconds, and follows
-              up on quotes — without adding to your workload.
-            </p>
-            <ul class="hero-v5__bullets">
-              <li>
-                Every missed call, message and quote gets an instant reply.
-              </li>
-              <li>
-                Follow‑up sequences book work instead of letting it go cold.
-              </li>
-              <li>Turn finished jobs into 5★ Google reviews automatically.</li>
-            </ul>
-            <a href="audit.html" class="btn--hero-primary"
-              >Get Your Free Lead Leak Report</a
-            >
-            <p class="hero-v5__micro">
-              Takes 2 minutes • Written plan sent by email • No phone calls
-              required
-            </p>
-            <p class="hero-v5__qualifier">
-              Best fit: UK trades with 10+ enquiries/month
-            </p>
-          </div>
-
-          <!-- Right: Visual -->
-          <div>
-            <div class="hero-modules-panel">
-              <div class="hero-modules-panel__header">
-                <div>
-                  <div class="hero-modules-panel__eyebrow">AUTOMATIONS</div>
-                  <h3 class="hero-modules-panel__title">
-                    3 automations running 24/7
-                  </h3>
-                </div>
-                <div class="hero-modules-panel__status">Active</div>
-              </div>
-
-              <div class="hero-modules-grid">
-                <!-- Module 1 -->
-                <div class="hero-module-card hero-module-card--1">
-                  <div class="hero-module-card__top">
-                    <div class="hero-module-card__icon">
-                      <svg
-                        viewBox="0 0 24 24"
-                        fill="none"
-                        stroke="currentColor"
-                        stroke-width="2.5"
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                      >
-                        <path
-                          d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"
-                        ></path>
-                      </svg>
-                    </div>
-                    <span class="hero-module-card__chip">MISSED CALL</span>
-                  </div>
-                  <div class="hero-module-card__trigger">
-                    Trigger: call missed
-                  </div>
-                  <div class="hm-bubble">
-                    “Missed you — what’s the job + postcode?”
-                  </div>
-                  <div class="hero-module-card__outcome">
-                    Outcome: captures job details
-                  </div>
-                </div>
-
-                <!-- Module 2 -->
-                <div class="hero-module-card hero-module-card--2">
-                  <div class="hero-module-card__top">
-                    <span class="hero-module-card__chip">QUOTE FOLLOW‑UP</span>
-                  </div>
-                  <div class="hero-module-card__trigger">
-                    Trigger: quote sent • no reply
-                  </div>
-                  <div class="hm-bubble">
-                    “Quick check — go ahead? Reply YES/NO.”
-                  </div>
-                  <div class="hero-module-card__outcome">
-                    Outcome: prevents cold quotes
-                  </div>
-                </div>
-
-                <!-- Module 3 -->
-                <div
-                  class="hero-module-card hero-module-card--3 hero-module-card--full"
-                >
-                  <div class="hero-module-card--3-left">
-                    <div class="hero-module-card__top">
-                      <span class="hero-module-card__chip">REVIEW REQUEST</span>
-                    </div>
-                    <div class="hero-module-card__trigger">
-                      Trigger: job completed
-                    </div>
-                    <div class="hm-bubble">
-                      “Could you leave a quick Google review? &lt;link&gt;”
-                    </div>
-                    <div class="hero-module-card__outcome">
-                      Outcome: grows 5★ reviews
-                    </div>
-                  </div>
-                  <div class="hm-done-chip">Done ✅</div>
-                </div>
-              </div>
-
-              <!-- Footer -->
-              <div class="hero-modules-panel__footer">
-                <span class="hm-footer-pill">Runs 24/7. No chasing.</span>
-                <span class="hm-footer-line"
-                  >Conservative messaging • Opt‑out friendly •
-                  Rate‑limited</span
-                >
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- ═══ 3. PROOF STACK STRIP ═══ -->
-    <section class="proof-strip">
-      <div class="container">
-        <div class="proof-strip__grid">
-          <!-- Left: Bullets -->
-          <div>
-            <h2 class="proof-strip__h2">Built for UK trades.</h2>
-            <ul class="proof-bullets">
-              <li>
-                <svg
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  stroke-width="2"
-                >
-                  <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
-                </svg>
-                Founder‑led: James Tandy designs and implements every system. No
-                account managers.
-              </li>
-              <li>
-                <svg
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  stroke-width="2"
-                >
-                  <rect x="3" y="3" width="18" height="18" rx="2" ry="2" />
-                  <line x1="3" y1="9" x2="21" y2="9" />
-                  <line x1="9" y1="21" x2="9" y2="9" />
-                </svg>
-                Data‑driven: We track calls, forms, first response time and
-                follow‑ups so you see results.
-              </li>
-              <li>
-                <svg
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  stroke-width="2"
-                >
-                  <polyline points="22 12 18 12 15 21 9 3 6 12 2 12" />
-                </svg>
-                Methodology: Structured 4‑step install — Audit, Build, Launch,
-                Optimise.
-              </li>
-              <li>
-                <svg
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  stroke-width="2"
-                >
-                  <path
-                    d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"
-                  />
-                </svg>
-                Conservative setup: Messages are opt‑out friendly and
-                rate‑limited.
-              </li>
-            </ul>
-            <div class="proof-mini-chips">
-              <span class="proof-chip"
-                ><svg
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  stroke-width="2"
-                >
-                  <path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2" />
-                  <circle cx="12" cy="7" r="4" />
-                </svg>
-                FOUNDER‑LED</span
-              >
-              <span class="proof-chip"
-                ><svg
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  stroke-width="2"
-                >
-                  <line x1="18" y1="20" x2="18" y2="10" />
-                  <line x1="12" y1="20" x2="12" y2="4" />
-                  <line x1="6" y1="20" x2="6" y2="14" />
-                </svg>
-                MEASURABLE</span
-              >
-              <span class="proof-chip"
-                ><svg
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  stroke-width="2"
-                >
-                  <path
-                    d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"
-                  />
-                </svg>
-                TRADE‑SPECIALIST</span
-              >
-            </div>
-
-            <a href="audit.html" class="btn--outline-proof"
-              >See Your 90‑Day Growth Plan &rarr;</a
-            >
-          </div>
-
-          <!-- Right: Assets stacked -->
-          <div class="asset-stack">
-            <div class="asset-card">
-              <h4 class="asset-card__title">Example dashboard snapshot</h4>
-              <div class="asset-card__img-ph">16:10 Dash Placeholder</div>
-              <p class="asset-card__caption">
-                Calls captured • Response time • Follow‑ups sent • Booked jobs
-              </p>
-            </div>
-
-            <div class="asset-card">
-              <h4 class="asset-card__title">4‑step install</h4>
-              <div class="asset-card__install-diagram">
-                <span class="install-node">Audit</span>
-                <div class="install-arr"></div>
-                <span class="install-node">Build</span>
-                <div class="install-arr"></div>
-                <span class="install-node">Launch</span>
-                <div class="install-arr"></div>
-                <span class="install-node">Optimise</span>
-              </div>
-              <p class="asset-card__caption">
-                Structured rollout. No disruption.
-              </p>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- ═══ 4. OFFER & DIFFERENTIATION ═══ -->
-    <section class="offer-section">
-      <div class="container">
-        <h2 class="offer-section__h2">
-          Not just a website — a complete lead‑recovery system.
-        </h2>
-        <p class="offer-section__sub">
-          While most agencies build pretty sites, we build conversion machines
-          that stop leaks, respond instantly and follow up until the job is
-          booked.
-        </p>
-
-        <div class="offer-grid">
-          <div class="offer-card">
-            <h3>Optimised for trades</h3>
-            <p>
-              Your pages load fast, show up locally, and make it easy to call or
-              request a quote.
-            </p>
-            <p>
-              Our follow‑up rules are conservative: opt‑out friendly and
-              rate‑limited.
-            </p>
-          </div>
-          <div class="offer-card">
-            <h3>Only recommended when ROI makes sense</h3>
-            <p>
-              If our system isn’t likely to pay you back, we’ll tell you
-              directly in the Lead Leak Report.
-            </p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- ═══ 5. WHAT WE INSTALL ═══ -->
-    <section class="modules-section">
-      <div class="container">
-        <h2 class="offer-section__h2" style="margin-bottom: 8px">
-          What we install
-        </h2>
-        <p class="offer-section__sub" style="margin-bottom: 0">
-          Modular setup. Start with the layer you need, or deploy the full
-          engine.
-        </p>
-
-        <div class="modules-grid">
-          <div class="module-card">
-            <h3>Lead Website</h3>
-            <ul>
-              <li>Fast, structured pages built for local trades</li>
-              <li>Click-to-call & embedded quote forms</li>
-              <li>Search optimised (SEO) baseline</li>
-            </ul>
-            <a href="lead-websites.html" class="btn--module"
-              >View Lead Websites &rarr;</a
-            >
-          </div>
-          <div class="module-card">
-            <h3>Follow‑Up Layer</h3>
-            <ul>
-              <li>Missed call automated text‑back</li>
-              <li>Instant quote acknowledgment</li>
-              <li>Automated quote chasing sequences</li>
-            </ul>
-            <a href="follow-up-automation.html" class="btn--module"
-              >View Follow-Up Layer &rarr;</a
-            >
-          </div>
-          <div class="module-card">
-            <h3>Review Layer</h3>
-            <ul>
-              <li>Review requests triggered after job completion</li>
-              <li>Follow-up reminders for unwritten reviews</li>
-              <li>Service recovery for poor initial feedback</li>
-            </ul>
-            <a href="review-automation.html" class="btn--module"
-              >View Review Layer &rarr;</a
-            >
-          </div>
-          <div class="module-card module-card--highlight">
-            <h3>Full Engine</h3>
-            <ul>
-              <li>Lead Website + Follow-up + Reviews</li>
-              <li>Centralized reporting dashboard</li>
-              <li>Continuous pipeline optimisation</li>
-            </ul>
-            <a href="revenue-engine.html" class="btn--module"
-              >View Full Engine &rarr;</a
-            >
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- ═══ 6. PRICING TABLE ═══ -->
-    <section class="pricing-section">
-      <div class="container">
-        <h2 class="pricing-section__h2" style="text-align: center">
-          Clear starting investments
-        </h2>
-
-        <div class="pricing-card">
-          <table class="pricing-table">
-            <thead>
-              <tr>
-                <th>Tier</th>
-                <th>What’s included</th>
-                <th>Starting investment</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td class="td-tier">Lead Site</td>
-                <td class="td-desc">
-                  5–10 page conversion-ready website, local service pages, call
-                  & quote flow, tracking setup
-                </td>
-                <td class="td-price">£3.5k one‑off</td>
-              </tr>
-              <tr>
-                <td class="td-tier">Follow‑Up Layer</td>
-                <td class="td-desc">
-                  Missed call recovery, instant reply & quote chasing sequences,
-                  dashboard tracking
-                </td>
-                <td class="td-price">£1.5k setup + £250/month</td>
-              </tr>
-              <tr>
-                <td class="td-tier">Review Layer</td>
-                <td class="td-desc">
-                  Automated review requests, reminder & service recovery, Google
-                  review link
-                </td>
-                <td class="td-price">£950 setup + £150/month</td>
-              </tr>
-              <tr>
-                <td class="td-tier">Full Engine</td>
-                <td class="td-desc">
-                  Website + follow‑up + reviews + reporting & optimisation
-                </td>
-                <td class="td-price">£7.5k setup + £450/month</td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
-
-        <p class="pricing-micro">
-          Pricing depends on enquiry volume, services & integration. We confirm
-          scope after your Lead Leak Report.
-        </p>
-
-        <div class="pricing-cta-wrap">
-          <a href="audit.html" class="btn--hero-primary"
-            >See the System (via the Lead Leak Report) &rarr;</a
-          >
-        </div>
-      </div>
-    </section>
-
-    <!-- ═══ 7. FAQ ═══ -->
-    <section class="faq-section">
-      <div
-        class="container"
-        style="display: flex; flex-direction: column; align-items: center"
-      >
-        <h2
-          class="offer-section__h2"
-          style="text-align: center; margin-bottom: 40px"
-        >
-          Frequently Asked Questions
-        </h2>
-
-        <div class="faq-card">
-          <div class="faq-item">
-            <button class="faq-question">
-              How long does it take to see results?
-              <svg
-                class="faq-icon"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                stroke-width="2"
-              >
-                <polyline points="6 9 12 15 18 9" />
-              </svg>
-            </button>
-            <div class="faq-answer">
-              Most trades notice improvements in response speed, follow‑ups and
-              booked jobs within 4–6 weeks after launch. We set baseline metrics
-              and track change so uplift is visible.
-            </div>
-          </div>
-
-          <div class="faq-item">
-            <button class="faq-question">
-              How is ROI measured?
-              <svg
-                class="faq-icon"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                stroke-width="2"
-              >
-                <polyline points="6 9 12 15 18 9" />
-              </svg>
-            </button>
-            <div class="faq-answer">
-              We log calls and form enquiries, track first response time and
-              follow‑ups, then compare booked jobs before/after launch. You’ll
-              see an ROI summary in the dashboard.
-            </div>
-          </div>
-
-          <div class="faq-item">
-            <button class="faq-question">
-              What ongoing costs are involved?
-              <svg
-                class="faq-icon"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                stroke-width="2"
-              >
-                <polyline points="6 9 12 15 18 9" />
-              </svg>
-            </button>
-            <div class="faq-answer">
-              Website is a one‑off build. Follow‑up and review layers have
-              monthly management fees for messaging, tracking and optimisation.
-              Fees start from £250/month depending on volume.
-            </div>
-          </div>
-
-          <div class="faq-item">
-            <button class="faq-question">
-              What if I already have a website?
-              <svg
-                class="faq-icon"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                stroke-width="2"
-              >
-                <polyline points="6 9 12 15 18 9" />
-              </svg>
-            </button>
-            <div class="faq-answer">
-              If your site converts well, we can install follow‑up and review
-              layers without rebuilding. We’ll advise in the Lead Leak Report.
-            </div>
-          </div>
-
-          <div class="faq-item">
-            <button class="faq-question">
-              Will it spam my customers?
-              <svg
-                class="faq-icon"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                stroke-width="2"
-              >
-                <polyline points="6 9 12 15 18 9" />
-              </svg>
-            </button>
-            <div class="faq-answer">
-              No. All messaging is rate-limited and opt-out friendly. It reads
-              as a polite nudge from your team ("Just checking to see if you
-              wanted to go ahead..."), not marketing spam.
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- ═══ 8. FINAL CTA BAND ═══ -->
-    <section class="cta-band--v5">
-      <div class="container">
-        <h2 class="page-h2">Get Your Free Lead Leak Report</h2>
-        <div style="margin-top: 24px">
-          <a href="audit.html" class="btn--hero-primary">Start Audit Request</a>
-        </div>
-        <p class="hero-v5__micro" style="margin-top: 16px">
-          2 minutes • Written plan by email • No phone calls
-        </p>
-      </div>
-    </section>
-
-    <!-- ═══ FOOTER ═══ -->
-    <footer class="footer">
-      <div class="container">
-        <div class="footer__grid">
-          <div class="footer__col">
-            <div class="footer__brand">JTANDY</div>
-            <p class="footer__tagline">
-              Revenue recovery systems for UK tradespeople. Automated.
-              Measurable. Owned.
-            </p>
-          </div>
-          <div class="footer__col">
-            <h4>Company</h4>
-            <a href="about.html">About</a>
-            <a href="pricing.html">Pricing</a>
-            <a href="contact.html">Contact</a>
-            <a href="work.html">Case Studies</a>
-            <a href="audit.html">Request Audit</a>
-          </div>
-          <div class="footer__col">
-            <h4>Solutions</h4>
+<body>
+  <!-- ═══ 1. HEADER ═══ -->
+  <header class="header header--v5" id="header">
+    <div class="header__inner">
+      <a href="index.html" class="header__brand">
+        <img src="img/logo-white.svg" alt="JTandy" class="header__logo" />
+      </a>
+      <nav class="header__nav" id="headerNav">
+        <div class="nav-dropdown">
+          <a href="solutions.html" class="nav-dropdown__trigger">Solutions <span
+              class="nav-dropdown__arrow">▾</span></a>
+          <div class="nav-dropdown__menu">
             <a href="lead-websites.html">Lead Websites</a>
             <a href="follow-up-automation.html">Follow-Up Automation</a>
             <a href="review-automation.html">Review Automation</a>
             <a href="revenue-engine.html">Revenue Engine</a>
           </div>
         </div>
-        <div class="footer__bottom">
-          <span>© 2025 JTandy Automations. All rights reserved.</span>
+        <a href="how-it-works.html">How It Works</a>
+        <a href="results.html">Results</a>
+        <a href="pricing.html">Pricing</a>
+        <a href="faq.html">FAQ</a>
+      </nav>
+      <div class="header__actions">
+        <a href="audit.html" class="btn btn--nav-cta" id="headerCta">Get Free Lead Leak Report</a>
+      </div>
+      <button class="header__burger" id="headerBurger" aria-label="Menu" style="filter: invert(1)">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </header>
+
+  <!-- ═══ 2. HERO ═══ -->
+  <section class="hero-v5">
+    <div class="container">
+      <div class="hero-v5__grid">
+        <!-- Left: Copy -->
+        <div>
+          <span class="hero-v5__eyebrow">FOR UK TRADES</span>
+          <h1 class="hero-v5__h1">Stop losing jobs to slow replies.</h1>
+          <p class="hero-v5__sub">
+            Get a conversion‑ready website and instant response system that
+            captures every enquiry, acknowledges within seconds, and follows
+            up on quotes — without adding to your workload.
+          </p>
+          <ul class="hero-v5__bullets">
+            <li>
+              Every missed call, message and quote gets an instant reply.
+            </li>
+            <li>
+              Follow‑up sequences book work instead of letting it go cold.
+            </li>
+            <li>Turn finished jobs into 5★ Google reviews automatically.</li>
+          </ul>
+          <a href="audit.html" class="btn--hero-primary">Get Your Free Lead Leak Report</a>
+          <p class="hero-v5__micro">
+            Takes 2 minutes • Written plan sent by email • No phone calls
+            required
+          </p>
+          <p class="hero-v5__qualifier">
+            Best fit: UK trades with 10+ enquiries/month
+          </p>
+        </div>
+
+        <!-- Right: Visual -->
+        <div>
+          <div class="hero-modules-panel">
+            <div class="hero-modules-panel__header">
+              <div>
+                <div class="hero-modules-panel__eyebrow">AUTOMATIONS</div>
+                <h3 class="hero-modules-panel__title">
+                  3 automations running 24/7
+                </h3>
+              </div>
+              <div class="hero-modules-panel__status">Active</div>
+            </div>
+
+            <div class="hero-modules-grid">
+              <!-- Module 1 -->
+              <div class="hero-module-card hero-module-card--1">
+                <div class="hero-module-card__top">
+                  <div class="hero-module-card__icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"
+                      stroke-linejoin="round">
+                      <path
+                        d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z">
+                      </path>
+                    </svg>
+                  </div>
+                  <span class="hero-module-card__chip">MISSED CALL</span>
+                </div>
+                <div class="hero-module-card__trigger">
+                  Trigger: call missed
+                </div>
+                <div class="hm-bubble">
+                  “Missed you — what’s the job + postcode?”
+                </div>
+                <div class="hero-module-card__outcome">
+                  Outcome: captures job details
+                </div>
+              </div>
+
+              <!-- Module 2 -->
+              <div class="hero-module-card hero-module-card--2">
+                <div class="hero-module-card__top">
+                  <span class="hero-module-card__chip">QUOTE FOLLOW‑UP</span>
+                </div>
+                <div class="hero-module-card__trigger">
+                  Trigger: quote sent • no reply
+                </div>
+                <div class="hm-bubble">
+                  “Quick check — go ahead? Reply YES/NO.”
+                </div>
+                <div class="hero-module-card__outcome">
+                  Outcome: prevents cold quotes
+                </div>
+              </div>
+
+              <!-- Module 3 -->
+              <div class="hero-module-card hero-module-card--3 hero-module-card--full">
+                <div class="hero-module-card--3-left">
+                  <div class="hero-module-card__top">
+                    <span class="hero-module-card__chip">REVIEW REQUEST</span>
+                  </div>
+                  <div class="hero-module-card__trigger">
+                    Trigger: job completed
+                  </div>
+                  <div class="hm-bubble">
+                    “Could you leave a quick Google review? &lt;link&gt;”
+                  </div>
+                  <div class="hero-module-card__outcome">
+                    Outcome: grows 5★ reviews
+                  </div>
+                </div>
+                <div class="hm-done-chip">Done ✅</div>
+              </div>
+            </div>
+
+            <!-- Footer -->
+            <div class="hero-modules-panel__footer">
+              <span class="hm-footer-pill">Runs 24/7. No chasing.</span>
+              <span class="hm-footer-line">Conservative messaging • Opt‑out friendly •
+                Rate‑limited</span>
+            </div>
+          </div>
         </div>
       </div>
-    </footer>
+    </div>
+  </section>
 
-    <script src="script.js"></script>
-    <script>
-      // FAQ Accordion Script Add-on for strictly index page inline
-      document.addEventListener("DOMContentLoaded", () => {
-        const faqItems = document.querySelectorAll(".faq-item");
-        faqItems.forEach((item) => {
-          const btn = item.querySelector(".faq-question");
-          btn.addEventListener("click", () => {
-            const isActive = item.classList.contains("active");
-            faqItems.forEach((i) => i.classList.remove("active"));
-            if (!isActive) item.classList.add("active");
-          });
+  <!-- ═══ 3. PROOF STACK STRIP ═══ -->
+  <section class="proof-strip">
+    <div class="container">
+      <div class="proof-strip__grid">
+        <!-- Left: Bullets -->
+        <div>
+          <h2 class="proof-strip__h2">Built for UK trades.</h2>
+          <ul class="proof-bullets">
+            <li>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
+              </svg>
+              Founder‑led: James Tandy designs and implements every system. No
+              account managers.
+            </li>
+            <li>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <rect x="3" y="3" width="18" height="18" rx="2" ry="2" />
+                <line x1="3" y1="9" x2="21" y2="9" />
+                <line x1="9" y1="21" x2="9" y2="9" />
+              </svg>
+              Data‑driven: We track calls, forms, first response time and
+              follow‑ups so you see results.
+            </li>
+            <li>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <polyline points="22 12 18 12 15 21 9 3 6 12 2 12" />
+              </svg>
+              Methodology: Structured 4‑step install — Audit, Build, Launch,
+              Optimise.
+            </li>
+            <li>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z" />
+              </svg>
+              Conservative setup: Messages are opt‑out friendly and
+              rate‑limited.
+            </li>
+          </ul>
+          <div class="proof-mini-chips">
+            <span class="proof-chip"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2" />
+                <circle cx="12" cy="7" r="4" />
+              </svg>
+              FOUNDER‑LED</span>
+            <span class="proof-chip"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <line x1="18" y1="20" x2="18" y2="10" />
+                <line x1="12" y1="20" x2="12" y2="4" />
+                <line x1="6" y1="20" x2="6" y2="14" />
+              </svg>
+              MEASURABLE</span>
+            <span class="proof-chip"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5" />
+              </svg>
+              TRADE‑SPECIALIST</span>
+          </div>
+
+          <a href="audit.html" class="btn--outline-proof">See Your 90‑Day Growth Plan &rarr;</a>
+        </div>
+
+        <!-- Right: Assets stacked -->
+        <div class="asset-stack">
+          <div class="asset-card">
+            <h4 class="asset-card__title">Example dashboard snapshot</h4>
+            <img src="img/dashboard-snapshot.png"
+              alt="Example JTandy revenue dashboard showing calls captured, response time, follow-ups sent and booked jobs"
+              class="asset-card__img" style="width:100%;border-radius:10px;display:block;" />
+            <p class="asset-card__caption">
+              Calls captured • Response time • Follow‑ups sent • Booked jobs
+            </p>
+          </div>
+
+          <div class="asset-card">
+            <h4 class="asset-card__title">4‑step install</h4>
+            <div class="asset-card__install-diagram">
+              <span class="install-node">Audit</span>
+              <div class="install-arr"></div>
+              <span class="install-node">Build</span>
+              <div class="install-arr"></div>
+              <span class="install-node">Launch</span>
+              <div class="install-arr"></div>
+              <span class="install-node">Optimise</span>
+            </div>
+            <p class="asset-card__caption">
+              Structured rollout. No disruption.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ 4. OFFER & DIFFERENTIATION ═══ -->
+  <section class="offer-section">
+    <div class="container">
+      <h2 class="offer-section__h2">
+        Not just a website — a complete lead‑recovery system.
+      </h2>
+      <p class="offer-section__sub">
+        While most agencies build pretty sites, we build conversion machines
+        that stop leaks, respond instantly and follow up until the job is
+        booked.
+      </p>
+
+      <div class="offer-grid">
+        <div class="offer-card">
+          <h3>Optimised for trades</h3>
+          <p>
+            Your pages load fast, show up locally, and make it easy to call or
+            request a quote.
+          </p>
+          <p>
+            Our follow‑up rules are conservative: opt‑out friendly and
+            rate‑limited.
+          </p>
+        </div>
+        <div class="offer-card">
+          <h3>Only recommended when ROI makes sense</h3>
+          <p>
+            If our system isn’t likely to pay you back, we’ll tell you
+            directly in the Lead Leak Report.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ 5. WHAT WE INSTALL ═══ -->
+  <section class="modules-section">
+    <div class="container">
+      <h2 class="offer-section__h2" style="margin-bottom: 8px">
+        What we install
+      </h2>
+      <p class="offer-section__sub" style="margin-bottom: 0">
+        Modular setup. Start with the layer you need, or deploy the full
+        engine.
+      </p>
+
+      <div class="modules-grid">
+        <div class="module-card">
+          <h3>Lead Website</h3>
+          <ul>
+            <li>Fast, structured pages built for local trades</li>
+            <li>Click-to-call & embedded quote forms</li>
+            <li>Search optimised (SEO) baseline</li>
+          </ul>
+          <a href="lead-websites.html" class="btn--module">View Lead Websites &rarr;</a>
+        </div>
+        <div class="module-card">
+          <h3>Follow‑Up Layer</h3>
+          <ul>
+            <li>Missed call automated text‑back</li>
+            <li>Instant quote acknowledgment</li>
+            <li>Automated quote chasing sequences</li>
+          </ul>
+          <a href="follow-up-automation.html" class="btn--module">View Follow-Up Layer &rarr;</a>
+        </div>
+        <div class="module-card">
+          <h3>Review Layer</h3>
+          <ul>
+            <li>Review requests triggered after job completion</li>
+            <li>Follow-up reminders for unwritten reviews</li>
+            <li>Service recovery for poor initial feedback</li>
+          </ul>
+          <a href="review-automation.html" class="btn--module">View Review Layer &rarr;</a>
+        </div>
+        <div class="module-card module-card--highlight">
+          <h3>Full Engine</h3>
+          <ul>
+            <li>Lead Website + Follow-up + Reviews</li>
+            <li>Centralized reporting dashboard</li>
+            <li>Continuous pipeline optimisation</li>
+          </ul>
+          <a href="revenue-engine.html" class="btn--module">View Full Engine &rarr;</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ 6. PRICING TABLE ═══ -->
+  <section class="pricing-section">
+    <div class="container">
+      <h2 class="pricing-section__h2" style="text-align: center">
+        Clear starting investments
+      </h2>
+
+      <div class="pricing-card">
+        <table class="pricing-table">
+          <thead>
+            <tr>
+              <th>Tier</th>
+              <th>What’s included</th>
+              <th>Starting investment</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td class="td-tier">Lead Site</td>
+              <td class="td-desc">
+                5–10 page conversion-ready website, local service pages, call
+                & quote flow, tracking setup
+              </td>
+              <td class="td-price">£3.5k one‑off</td>
+            </tr>
+            <tr>
+              <td class="td-tier">Follow‑Up Layer</td>
+              <td class="td-desc">
+                Missed call recovery, instant reply & quote chasing sequences,
+                dashboard tracking
+              </td>
+              <td class="td-price">£1.5k setup + £250/month</td>
+            </tr>
+            <tr>
+              <td class="td-tier">Review Layer</td>
+              <td class="td-desc">
+                Automated review requests, reminder & service recovery, Google
+                review link
+              </td>
+              <td class="td-price">£950 setup + £150/month</td>
+            </tr>
+            <tr>
+              <td class="td-tier">Full Engine</td>
+              <td class="td-desc">
+                Website + follow‑up + reviews + reporting & optimisation
+              </td>
+              <td class="td-price">£7.5k setup + £450/month</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <p class="pricing-micro">
+        Pricing depends on enquiry volume, services & integration. We confirm
+        scope after your Lead Leak Report.
+      </p>
+
+      <div class="pricing-cta-wrap">
+        <a href="audit.html" class="btn--hero-primary">See the System (via the Lead Leak Report) &rarr;</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ 7. FAQ ═══ -->
+  <section class="faq-section">
+    <div class="container" style="display: flex; flex-direction: column; align-items: center">
+      <h2 class="offer-section__h2" style="text-align: center; margin-bottom: 40px">
+        Frequently Asked Questions
+      </h2>
+
+      <div class="faq-card">
+        <div class="faq-item">
+          <button class="faq-question">
+            How long does it take to see results?
+            <svg class="faq-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <polyline points="6 9 12 15 18 9" />
+            </svg>
+          </button>
+          <div class="faq-answer">
+            Most trades notice improvements in response speed, follow‑ups and
+            booked jobs within 4–6 weeks after launch. We set baseline metrics
+            and track change so uplift is visible.
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-question">
+            How is ROI measured?
+            <svg class="faq-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <polyline points="6 9 12 15 18 9" />
+            </svg>
+          </button>
+          <div class="faq-answer">
+            We log calls and form enquiries, track first response time and
+            follow‑ups, then compare booked jobs before/after launch. You’ll
+            see an ROI summary in the dashboard.
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-question">
+            What ongoing costs are involved?
+            <svg class="faq-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <polyline points="6 9 12 15 18 9" />
+            </svg>
+          </button>
+          <div class="faq-answer">
+            Website is a one‑off build. Follow‑up and review layers have
+            monthly management fees for messaging, tracking and optimisation.
+            Fees start from £250/month depending on volume.
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-question">
+            What if I already have a website?
+            <svg class="faq-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <polyline points="6 9 12 15 18 9" />
+            </svg>
+          </button>
+          <div class="faq-answer">
+            If your site converts well, we can install follow‑up and review
+            layers without rebuilding. We’ll advise in the Lead Leak Report.
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-question">
+            Will it spam my customers?
+            <svg class="faq-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <polyline points="6 9 12 15 18 9" />
+            </svg>
+          </button>
+          <div class="faq-answer">
+            No. All messaging is rate-limited and opt-out friendly. It reads
+            as a polite nudge from your team ("Just checking to see if you
+            wanted to go ahead..."), not marketing spam.
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ 8. FINAL CTA BAND ═══ -->
+  <section class="cta-band--v5">
+    <div class="container">
+      <h2 class="page-h2">Get Your Free Lead Leak Report</h2>
+      <div style="margin-top: 24px">
+        <a href="audit.html" class="btn--hero-primary">Start Audit Request</a>
+      </div>
+      <p class="hero-v5__micro" style="margin-top: 16px">
+        2 minutes • Written plan by email • No phone calls
+      </p>
+    </div>
+  </section>
+
+  <!-- ═══ FOOTER ═══ -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer__grid">
+        <div class="footer__col">
+          <div class="footer__brand">JTANDY</div>
+          <p class="footer__tagline">
+            Revenue recovery systems for UK tradespeople. Automated.
+            Measurable. Owned.
+          </p>
+        </div>
+        <div class="footer__col">
+          <h4>Company</h4>
+          <a href="about.html">About</a>
+          <a href="pricing.html">Pricing</a>
+          <a href="contact.html">Contact</a>
+          <a href="work.html">Case Studies</a>
+          <a href="audit.html">Request Audit</a>
+        </div>
+        <div class="footer__col">
+          <h4>Solutions</h4>
+          <a href="lead-websites.html">Lead Websites</a>
+          <a href="follow-up-automation.html">Follow-Up Automation</a>
+          <a href="review-automation.html">Review Automation</a>
+          <a href="revenue-engine.html">Revenue Engine</a>
+        </div>
+      </div>
+      <div class="footer__bottom">
+        <span>© 2025 JTandy Automations. All rights reserved.</span>
+      </div>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+  <script>
+    // FAQ Accordion Script Add-on for strictly index page inline
+    document.addEventListener("DOMContentLoaded", () => {
+      const faqItems = document.querySelectorAll(".faq-item");
+      faqItems.forEach((item) => {
+        const btn = item.querySelector(".faq-question");
+        btn.addEventListener("click", () => {
+          const isActive = item.classList.contains("active");
+          faqItems.forEach((i) => i.classList.remove("active"));
+          if (!isActive) item.classList.add("active");
         });
-        // Ensure header burger toggles navigation identically
-        const headerBurger = document.getElementById("headerBurger");
-        const headerNav = document.getElementById("headerNav");
-        if (headerBurger && headerNav) {
-          headerBurger.addEventListener("click", () => {
-            headerNav.classList.toggle("is-open");
-          });
-        }
       });
-    </script>
-  </body>
+      // Ensure header burger toggles navigation identically
+      const headerBurger = document.getElementById("headerBurger");
+      const headerNav = document.getElementById("headerNav");
+      if (headerBurger && headerNav) {
+        headerBurger.addEventListener("click", () => {
+          headerNav.classList.toggle("is-open");
+        });
+      }
+    });
+  </script>
+</body>
+
 </html>

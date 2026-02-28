@@ -646,6 +646,92 @@
             padding: 72px 0;
         }
 
+        .lw-faq .faq-accordion {
+            max-width: 800px;
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .lw-faq .faq-item {
+            background: #FFFFFF;
+            border: 1px solid rgba(15, 29, 61, 0.14);
+            border-radius: 16px;
+            overflow: hidden;
+            position: relative;
+            transition: border-color 0.18s, background 0.18s;
+        }
+
+        .lw-faq .faq-item:hover {
+            border-color: rgba(15, 29, 61, 0.28);
+            background: rgba(15, 29, 61, 0.02);
+        }
+
+        .lw-faq .faq-item[open] {
+            border-color: rgba(37, 99, 235, 0.28);
+        }
+
+        .lw-faq .faq-item[open]::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0;
+            bottom: 0;
+            width: 3px;
+            background: #2563EB;
+            border-radius: 16px 0 0 16px;
+        }
+
+        .lw-faq .faq-item summary {
+            padding: 18px 20px;
+            font-family: 'Inter', sans-serif;
+            font-size: 16px;
+            font-weight: 650;
+            line-height: 1.38;
+            color: #0B1220;
+            cursor: pointer;
+            list-style: none;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .lw-faq .faq-item summary::-webkit-details-marker {
+            display: none;
+        }
+
+        .lw-faq .faq-item summary::after {
+            content: '+';
+            font-size: 18px;
+            font-weight: 400;
+            color: rgba(11, 18, 32, 0.56);
+            transition: transform 0.18s;
+            flex-shrink: 0;
+        }
+
+        .lw-faq .faq-item[open] summary::after {
+            content: '−';
+        }
+
+        .lw-faq .faq-item__body {
+            padding: 0 20px 18px;
+            font-family: 'Inter', sans-serif;
+            font-size: 15px;
+            line-height: 1.6;
+            font-weight: 450;
+            color: rgba(11, 18, 32, 0.72);
+        }
+
+        /* Proof thumb images */
+        .lw-proof-thumb__img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 10px;
+            display: block;
+        }
+
         @media(max-width:768px) {
             .lw-hero {
                 padding: calc(var(--nav-h) + 72px) 0 48px;
@@ -678,7 +764,6 @@
                 grid-template-columns: 1fr;
             }
         }
-    </style>
     </style>
 </head>
 
@@ -772,15 +857,18 @@
         <div class="container">
             <div class="lw-proof-row">
                 <div class="lw-proof-thumb">
-                    <div class="lw-proof-thumb__img">Page Speed KPI</div>
+                    <div class="lw-proof-thumb__img"><img src="img/lw-mobile-core-vitals.png"
+                            alt="Mobile Core Vitals — green PageSpeed scores for LCP, FID, CLS" /></div>
                     <span class="lw-proof-thumb__caption">Mobile Core Vitals</span>
                 </div>
                 <div class="lw-proof-thumb">
-                    <div class="lw-proof-thumb__img">Local Maps</div>
+                    <div class="lw-proof-thumb__img"><img src="img/lw-local-search-visibility.png"
+                            alt="Local Search Visibility — Google Maps local pack ranking" /></div>
                     <span class="lw-proof-thumb__caption">Local Search Visibility</span>
                 </div>
                 <div class="lw-proof-thumb">
-                    <div class="lw-proof-thumb__img">Annotated Flow</div>
+                    <div class="lw-proof-thumb__img"><img src="img/lw-conversion-pathways.png"
+                            alt="Conversion Pathways — visitor to booked job funnel" /></div>
                     <span class="lw-proof-thumb__caption">Conversion Pathways</span>
                 </div>
             </div>
@@ -858,10 +946,10 @@
                     engineering.</p>
             </div>
             <div class="lw-conv__main">
-                <div class="lw-conv__img-wrap">
-                    <img src="img/lw-conversion-layout.png"
-                        alt="Full-page annotated conversion layout for a UK trades website"
-                        style="width:100%;height:100%;object-fit:cover;display:block;border-radius:12px;" />
+                <div class="lw-conv__img-wrap" style="aspect-ratio: auto;">
+                    <img src="img/lw-conversion-architecture.png"
+                        alt="Full-page annotated conversion layout architecture for a UK trades website — showing sticky contact bar, hero CTA, trust badges, service hierarchy, quote form, and footer"
+                        style="width:100%;height:auto;object-fit:contain;display:block;border-radius:12px;" />
                 </div>
                 <div class="lw-conv__legend">
                     <span class="lw-conv__chip">1. Primary CTA</span>
@@ -987,41 +1075,32 @@
             <div class="section__header section__header--left">
                 <h2>Frequently Asked Questions</h2>
             </div>
-            <div class="faq-accordion" style="max-width: 800px;">
+            <div class="faq-accordion">
                 <details class="faq-item" open>
-                    <summary class="faq-item__trigger">
-                        <span class="faq-item__title">Why are your sites more expensive than standard web design?</span>
-                        <span class="faq-item__icon">+</span>
-                    </summary>
-                    <div class="faq-item__content">
-                        <p>Standard web design focuses on aesthetics ("brochure sites"). We engineer lead generation
-                            systems. Our pricing reflects the structural planning, conversion architecture, and local
-                            SEO foundation required to actually turn visitors into paying jobs. A £500 site is an
-                            expense; a £3,500 lead site is an asset that pays for itself.</p>
+                    <summary>Why are your sites more expensive than standard web design?</summary>
+                    <div class="faq-item__body">
+                        Standard web design focuses on aesthetics ("brochure sites"). We engineer lead generation
+                        systems. Our pricing reflects the structural planning, conversion architecture, and local
+                        SEO foundation required to actually turn visitors into paying jobs. A £500 site is an
+                        expense; a £3,500 lead site is an asset that pays for itself.
                     </div>
                 </details>
 
                 <details class="faq-item">
-                    <summary class="faq-item__trigger">
-                        <span class="faq-item__title">Do I need the automation layer straight away?</span>
-                        <span class="faq-item__icon">+</span>
-                    </summary>
-                    <div class="faq-item__content">
-                        <p>No. We actually recommend starting with the core Lead Website. Once the site is generating a
-                            consistent flow of inbound enquiries, you can seamlessly layer on missed-call text-back and
-                            quote follow-ups to plug any operational leaks.</p>
+                    <summary>Do I need the automation layer straight away?</summary>
+                    <div class="faq-item__body">
+                        No. We actually recommend starting with the core Lead Website. Once the site is generating a
+                        consistent flow of inbound enquiries, you can seamlessly layer on missed-call text-back and
+                        quote follow-ups to plug any operational leaks.
                     </div>
                 </details>
 
                 <details class="faq-item">
-                    <summary class="faq-item__trigger">
-                        <span class="faq-item__title">Will I lose my current rankings if I switch?</span>
-                        <span class="faq-item__icon">+</span>
-                    </summary>
-                    <div class="faq-item__content">
-                        <p>We handle the technical migration extremely carefully. We map and redirect all your existing
-                            URLs to ensure you don't lose any current authority, while the new structure gives you a
-                            much stronger foundation to grow your rankings further.</p>
+                    <summary>Will I lose my current rankings if I switch?</summary>
+                    <div class="faq-item__body">
+                        We handle the technical migration extremely carefully. We map and redirect all your existing
+                        URLs to ensure you don't lose any current authority, while the new structure gives you a
+                        much stronger foundation to grow your rankings further.
                     </div>
                 </details>
             </div>

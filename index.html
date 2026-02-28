@@ -64,11 +64,14 @@
     .hero-v5 {
       background: #0f1d3d;
       background-image:
-        linear-gradient(rgba(255, 255, 255, 0.05) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(255, 255, 255, 0.05) 1px, transparent 1px);
-      background-size: 48px 48px;
+        radial-gradient(ellipse 80% 60% at 70% 40%, rgba(37, 99, 235, 0.15), transparent),
+        radial-gradient(ellipse 50% 40% at 20% 80%, rgba(22, 163, 74, 0.08), transparent),
+        linear-gradient(rgba(255, 255, 255, 0.04) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255, 255, 255, 0.04) 1px, transparent 1px);
+      background-size: 100% 100%, 100% 100%, 48px 48px, 48px 48px;
       padding: calc(var(--nav-h) + 96px) 0 72px;
       position: relative;
+      overflow: hidden;
     }
 
     @media (max-width: 768px) {
@@ -1061,86 +1064,13 @@
           </p>
         </div>
 
-        <!-- Right: Visual -->
+        <!-- Right: Outcome Visual -->
         <div>
-          <div class="hero-modules-panel">
-            <div class="hero-modules-panel__header">
-              <div>
-                <div class="hero-modules-panel__eyebrow">AUTOMATIONS</div>
-                <h3 class="hero-modules-panel__title">
-                  3 automations running 24/7
-                </h3>
-              </div>
-              <div class="hero-modules-panel__status">Active</div>
-            </div>
-
-            <div class="hero-modules-grid">
-              <!-- Module 1 -->
-              <div class="hero-module-card hero-module-card--1">
-                <div class="hero-module-card__top">
-                  <div class="hero-module-card__icon">
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"
-                      stroke-linejoin="round">
-                      <path
-                        d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z">
-                      </path>
-                    </svg>
-                  </div>
-                  <span class="hero-module-card__chip">MISSED CALL</span>
-                </div>
-                <div class="hero-module-card__trigger">
-                  Trigger: call missed
-                </div>
-                <div class="hm-bubble">
-                  “Missed you — what’s the job + postcode?”
-                </div>
-                <div class="hero-module-card__outcome">
-                  Outcome: captures job details
-                </div>
-              </div>
-
-              <!-- Module 2 -->
-              <div class="hero-module-card hero-module-card--2">
-                <div class="hero-module-card__top">
-                  <span class="hero-module-card__chip">QUOTE FOLLOW‑UP</span>
-                </div>
-                <div class="hero-module-card__trigger">
-                  Trigger: quote sent • no reply
-                </div>
-                <div class="hm-bubble">
-                  “Quick check — go ahead? Reply YES/NO.”
-                </div>
-                <div class="hero-module-card__outcome">
-                  Outcome: prevents cold quotes
-                </div>
-              </div>
-
-              <!-- Module 3 -->
-              <div class="hero-module-card hero-module-card--3 hero-module-card--full">
-                <div class="hero-module-card--3-left">
-                  <div class="hero-module-card__top">
-                    <span class="hero-module-card__chip">REVIEW REQUEST</span>
-                  </div>
-                  <div class="hero-module-card__trigger">
-                    Trigger: job completed
-                  </div>
-                  <div class="hm-bubble">
-                    “Could you leave a quick Google review? &lt;link&gt;”
-                  </div>
-                  <div class="hero-module-card__outcome">
-                    Outcome: grows 5★ reviews
-                  </div>
-                </div>
-                <div class="hm-done-chip">Done ✅</div>
-              </div>
-            </div>
-
-            <!-- Footer -->
-            <div class="hero-modules-panel__footer">
-              <span class="hm-footer-pill">Runs 24/7. No chasing.</span>
-              <span class="hm-footer-line">Conservative messaging • Opt‑out friendly •
-                Rate‑limited</span>
-            </div>
+          <div
+            style="border-radius: 18px; overflow: hidden; box-shadow: 0 20px 60px rgba(0,0,0,0.4), 0 0 80px rgba(37,99,235,0.12); border: 1px solid rgba(255,255,255,0.08);">
+            <img src="img/hero-outcome.png"
+              alt="Dashboard showing £47,200 revenue recovered, 94% missed calls captured, 4.9 star review score, and under-30-second response time"
+              style="width:100%; height:auto; display:block; border-radius: 18px;" />
           </div>
         </div>
       </div>

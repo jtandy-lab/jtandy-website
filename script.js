@@ -97,8 +97,8 @@
                 btn.textContent = 'Sending…';
                 btn.disabled = true;
 
-                /* ── REPLACE THIS URL with your n8n webhook URL ── */
-                const N8N_WEBHOOK_URL = 'YOUR_N8N_WEBHOOK_URL';
+                /* ── LIVE n8n webhook URL ── */
+                const N8N_WEBHOOK_URL = 'https://n8n.jtandy.com/webhook/lead-website-enquiry';
 
                 fetch(N8N_WEBHOOK_URL, {
                     method: 'POST',

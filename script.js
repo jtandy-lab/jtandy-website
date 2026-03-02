@@ -56,11 +56,80 @@
     document.querySelectorAll('form').forEach((form) => {
         form.addEventListener('submit', (e) => {
             e.preventDefault();
+
             /* Audit form → redirect to thank-you page */
             if (form.id === 'auditForm') {
                 window.location.href = 'thank-you.html';
                 return;
             }
+
+            /* Lead Website enquiry form → n8n webhook */
+            if (form.id === 'leadWebsiteForm') {
+                const name = form.querySelector('#lwe-name');
+                const email = form.querySelector('#lwe-email');
+                const phone = form.querySelector('#lwe-phone');
+                const situation = form.querySelector('#lwe-situation');
+                const btn = form.querySelector('#lweSubmitBtn');
+                const errorBanner = document.getElementById('lweSubmitError');
+                const successEl = document.getElementById('lweFormSuccess');
+
+                /* Reset errors */
+                form.querySelectorAll('.lwe-form-error').forEach(el => el.style.display = 'none');
+                form.querySelectorAll('.lwe-form-input, .lwe-form-textarea').forEach(el => el.style.borderColor = '');
+                if (errorBanner) errorBanner.style.display = 'none';
+
+                /* Validate */
+                let valid = true;
+                if (!name.value.trim()) {
+                    document.getElementById('lwe-name-error').style.display = 'block';
+                    name.style.borderColor = '#DC2626';
+                    valid = false;
+                }
+                if (!email.value.trim() || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email.value)) {
+                    document.getElementById('lwe-email-error').style.display = 'block';
+                    email.style.borderColor = '#DC2626';
+                    valid = false;
+                }
+                if (!valid) return;
+
+                /* Send to n8n webhook */
+                const og = btn.textContent;
+                btn.textContent = 'Sending…';
+                btn.disabled = true;
+
+                /* ── REPLACE THIS URL with your n8n webhook URL ── */
+                const N8N_WEBHOOK_URL = 'YOUR_N8N_WEBHOOK_URL';
+
+                fetch(N8N_WEBHOOK_URL, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({
+                        source: 'lead-website-enquiry',
+                        name: name.value.trim(),
+                        email: email.value.trim(),
+                        phone: phone.value.trim() || '',
+                        situation: situation.value.trim() || '',
+                        submitted_at: new Date().toISOString()
+                    })
+                })
+                    .then(res => {
+                        if (!res.ok) throw new Error('Webhook returned ' + res.status);
+                        /* Show success */
+                        form.style.display = 'none';
+                        if (successEl) successEl.classList.add('is-visible');
+                        /* Redirect after a moment */
+                        setTimeout(() => { window.location.href = 'thank-you.html'; }, 3000);
+                    })
+                    .catch(() => {
+                        btn.textContent = og;
+                        btn.disabled = false;
+                        if (errorBanner) errorBanner.style.display = 'block';
+                    });
+
+                return;
+            }
+
+            /* Default form handling (contact, etc.) */
             const b = form.querySelector('button[type="submit"]');
             if (!b) return;
             const og = b.textContent;

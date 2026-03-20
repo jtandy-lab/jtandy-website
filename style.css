@@ -1,25 +1,25 @@
 /* ═══════════════════════════════════════════
-   JTANDY — V4 Full Design System
-   Space Grotesk + Inter · Cobalt Accent
+   JTANDY — V5 Full Design System
+   Outfit + DM Sans · Grey/Black/White
    Control · Trust · Engineering · ROI
    ═══════════════════════════════════════════ */
 
 /* ─── TOKENS ─── */
 :root {
     /* Neutrals */
-    --bg-0: #F8F7F4;
-    --surface-0: #FFFFFF;
-    --text-0: #0B1220;
-    --text-1: rgba(11, 18, 32, 0.72);
-    --text-2: rgba(11, 18, 32, 0.56);
-    --border-0: rgba(15, 29, 61, 0.14);
-    --border-1: rgba(15, 29, 61, 0.22);
+    --bg-0: #FFFFFF;
+    --surface-0: #F5F5F5;
+    --text-0: #1A1A1A;
+    --text-1: rgba(26, 26, 26, 0.65);
+    --text-2: rgba(26, 26, 26, 0.45);
+    --border-0: rgba(0, 0, 0, 0.10);
+    --border-1: rgba(0, 0, 0, 0.18);
 
     /* Brand */
-    --navy-0: #0F1D3D;
-    --cobalt-0: #2563EB;
-    --cobalt-1: #1D4ED8;
-    --cobalt-2: #1E40AF;
+    --navy-0: #6B6B6B;
+    --cobalt-0: #1A1A1A;
+    --cobalt-1: #333333;
+    --cobalt-2: #000000;
 
     /* Status */
     --success-0: #16A34A;
@@ -27,13 +27,13 @@
     --danger-0: #DC2626;
 
     /* Shadows */
-    --shadow-sm: 0 2px 10px rgba(15, 29, 61, 0.08);
-    --shadow-md: 0 10px 30px rgba(15, 29, 61, 0.12);
+    --shadow-sm: 0 2px 10px rgba(0, 0, 0, 0.06);
+    --shadow-md: 0 10px 30px rgba(0, 0, 0, 0.10);
     --shadow-inset: inset 0 1px 0 rgba(255, 255, 255, 0.4);
 
     /* Typography */
-    --font-heading: 'Space Grotesk', system-ui, sans-serif;
-    --font-body: 'Inter', system-ui, sans-serif;
+    --font-heading: 'Outfit', system-ui, sans-serif;
+    --font-body: 'DM Sans', system-ui, sans-serif;
     --font-mono: 'JetBrains Mono', monospace;
 
     /* Layout */
@@ -188,7 +188,7 @@ h4 {
 .btn--primary:hover {
     background: var(--cobalt-1);
     transform: translateY(-1px);
-    box-shadow: 0 6px 20px rgba(37, 99, 235, 0.35);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
 }
 
 .btn--primary:active {
@@ -198,7 +198,7 @@ h4 {
 }
 
 .btn--primary:focus-visible {
-    outline: 2px solid rgba(37, 99, 235, 0.35);
+    outline: 2px solid rgba(0, 0, 0, 0.15);
     outline-offset: 2px;
 }
 
